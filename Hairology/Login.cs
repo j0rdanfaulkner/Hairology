@@ -2,9 +2,10 @@
 {
     public partial class Login : Form
     {
-        private string _username = default!;
+        public string username = default!;
         private string _password = default!;
         private bool _togglePassword = default!;
+        private MainWindow _mainWindow;
         private Encryption _encrypt;
         public Login()
         {
@@ -22,10 +23,12 @@
         {
             if (tbxPassword.Text != "" && tbxUsername.Text != "")
             {
-                _username = tbxUsername.Text;
+                username = tbxUsername.Text;
                 _encrypt = new Encryption(tbxPassword.Text);
                 _password = _encrypt.CreateMD5Hash();
-                MessageBox.Show(_password, "Test", MessageBoxButtons.OK);
+                _mainWindow = new MainWindow(username);
+                _mainWindow.Show();
+                this.Hide();
             }
         }
         /// <summary>

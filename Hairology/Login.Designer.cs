@@ -129,6 +129,7 @@
             Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(7, 5, 7, 5);
             Name = "Login";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Hairology - Login";
             pnlContainer.ResumeLayout(false);
             pnlControls.ResumeLayout(false);
