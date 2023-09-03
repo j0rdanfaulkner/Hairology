@@ -5,7 +5,7 @@
         private string _username = default!;
         private string _password = default!;
         private bool _togglePassword = default!;
-        private Encryption _encrypt = new Encryption();
+        private Encryption _encrypt;
         public Login()
         {
             InitializeComponent();
@@ -13,13 +13,19 @@
             pbxTogglePassword.BackgroundImage = Properties.Resources.showpassword;
             _togglePassword = false;
         }
-
+        /// <summary>
+        /// hashes password and submits credentials when clicked
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnLogin_Click(object sender, EventArgs e)
         {
             if (tbxPassword.Text != "" && tbxUsername.Text != "")
             {
                 _username = tbxUsername.Text;
-                _password = _encrypt.CreateMD5Hash(tbxPassword.Text);
+                _encrypt = new Encryption(tbxPassword.Text);
+                _password = _encrypt.CreateMD5Hash();
+                MessageBox.Show(_password, "Test", MessageBoxButtons.OK);
             }
         }
         /// <summary>

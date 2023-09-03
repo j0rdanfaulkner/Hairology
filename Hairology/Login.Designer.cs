@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Login));
             pnlContainer = new Panel();
             pnlControls = new Panel();
             pbxTogglePassword = new PictureBox();
@@ -69,7 +70,7 @@
             pbxTogglePassword.BackgroundImage = Properties.Resources.showpassword;
             pbxTogglePassword.BackgroundImageLayout = ImageLayout.Zoom;
             pbxTogglePassword.Cursor = Cursors.Hand;
-            pbxTogglePassword.Location = new Point(520, 317);
+            pbxTogglePassword.Location = new Point(520, 333);
             pbxTogglePassword.Name = "pbxTogglePassword";
             pbxTogglePassword.Size = new Size(33, 33);
             pbxTogglePassword.TabIndex = 4;
@@ -80,7 +81,7 @@
             // 
             btnLogin.Anchor = AnchorStyles.None;
             btnLogin.Cursor = Cursors.Hand;
-            btnLogin.Location = new Point(160, 356);
+            btnLogin.Location = new Point(160, 372);
             btnLogin.Name = "btnLogin";
             btnLogin.Size = new Size(354, 55);
             btnLogin.TabIndex = 3;
@@ -91,7 +92,7 @@
             // tbxPassword
             // 
             tbxPassword.Anchor = AnchorStyles.None;
-            tbxPassword.Location = new Point(160, 317);
+            tbxPassword.Location = new Point(160, 333);
             tbxPassword.Name = "tbxPassword";
             tbxPassword.PlaceholderText = " PASSWORD";
             tbxPassword.Size = new Size(354, 33);
@@ -100,7 +101,7 @@
             // tbxUsername
             // 
             tbxUsername.Anchor = AnchorStyles.None;
-            tbxUsername.Location = new Point(160, 278);
+            tbxUsername.Location = new Point(160, 294);
             tbxUsername.Name = "tbxUsername";
             tbxUsername.PlaceholderText = " USERNAME";
             tbxUsername.Size = new Size(354, 33);
@@ -111,7 +112,7 @@
             pbxLogo.Anchor = AnchorStyles.None;
             pbxLogo.BackgroundImage = Properties.Resources.logo;
             pbxLogo.BackgroundImageLayout = ImageLayout.Zoom;
-            pbxLogo.Location = new Point(206, 3);
+            pbxLogo.Location = new Point(206, 19);
             pbxLogo.Name = "pbxLogo";
             pbxLogo.Size = new Size(256, 256);
             pbxLogo.TabIndex = 0;
@@ -125,6 +126,7 @@
             ClientSize = new Size(1264, 681);
             Controls.Add(pnlContainer);
             Font = new Font("EurostileLTW03-Extended2", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(7, 5, 7, 5);
             Name = "Login";
             Text = "Hairology - Login";

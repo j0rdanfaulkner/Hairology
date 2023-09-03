@@ -10,17 +10,23 @@ namespace Hairology
     public class Encryption
     {
         private string _hashedPassword = default!;
+        private string _input = default!;
         private StringBuilder _strBuilder = new StringBuilder();
+        public Encryption (string input)
+        {
+            _input = input;
+            _hashedPassword = "";
+        }
         /// <summary>
         /// generates an MD5 hash of a given string parameter
         /// </summary>
         /// <param name="input"></param>
         /// <returns></returns>
-        public string CreateMD5Hash(string input)
+        public string CreateMD5Hash()
         {
             MD5 md5 = new MD5CryptoServiceProvider();
             // compute hash from the bytes of text  
-            md5.ComputeHash(ASCIIEncoding.ASCII.GetBytes(input));
+            md5.ComputeHash(ASCIIEncoding.ASCII.GetBytes(_input));
             //get hash result after compute it  
             byte[] result = md5.Hash;
             for (int i = 0; i < result.Length; i++)
@@ -28,7 +34,7 @@ namespace Hairology
                 //change it into 2 hexadecimal digits  
                 //for each byte  
                 _strBuilder.Append(result[i].ToString("x2"));
-                input = "";
+                _input = "";
             }
             _hashedPassword = _strBuilder.ToString();
             return _hashedPassword;
