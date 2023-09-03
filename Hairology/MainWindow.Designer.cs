@@ -29,7 +29,18 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainWindow));
+            lblWelcome = new Label();
             SuspendLayout();
+            // 
+            // lblWelcome
+            // 
+            lblWelcome.AutoSize = true;
+            lblWelcome.Font = new Font("EurostileLTW03-Extended2", 21.75F, FontStyle.Bold, GraphicsUnit.Point);
+            lblWelcome.Location = new Point(29, 28);
+            lblWelcome.Name = "lblWelcome";
+            lblWelcome.Size = new Size(495, 38);
+            lblWelcome.TabIndex = 0;
+            lblWelcome.Text = "Welcome, [USERNAME]";
             // 
             // MainWindow
             // 
@@ -37,15 +48,20 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ActiveCaption;
             ClientSize = new Size(1264, 681);
+            Controls.Add(lblWelcome);
             Font = new Font("EurostileLTW03-Extended2", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
             Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(7, 5, 7, 5);
             Name = "MainWindow";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Hairology";
+            FormClosed += MainWindow_FormClosed;
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
+
+        private Label lblWelcome;
     }
 }
