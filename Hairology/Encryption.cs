@@ -20,8 +20,7 @@ namespace Hairology
         /// <summary>
         /// generates an MD5 hash of a given string parameter
         /// </summary>
-        /// <param name="input"></param>
-        /// <returns></returns>
+        /// <returns>_hashedPassword</returns>
         public string CreateMD5Hash()
         {
             MD5 md5 = new MD5CryptoServiceProvider();
@@ -38,6 +37,11 @@ namespace Hairology
             }
             _hashedPassword = _strBuilder.ToString();
             return _hashedPassword;
+        }
+        ~Encryption()
+        {
+            _input = "";
+            _hashedPassword = "";
         }
     }
 }
