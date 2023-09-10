@@ -41,17 +41,30 @@ namespace Hairology
                     {
                         if (_password == _reader["password"].ToString())
                         {
-
                             _dbInstance.conn.Close();
                             _mainWindow = new MainWindow(username);
                             _mainWindow.Show();
                             this.Hide();
                         }
+                        else
+                        {
+                            MessageBox.Show("Username and password do not match", "Incorrect Credentials", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            tbxUsername.Clear();
+                            tbxPassword.Clear();
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Username and password do not match", "Incorrect Credentials", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        tbxUsername.Clear();
+                        tbxPassword.Clear();
                     }
                 }
                 else
                 {
-                    MessageBox.Show("An account could not be found", "Incorrect Credentials", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("An account with those credentials could not be found", "Incorrect Credentials", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    tbxUsername.Clear();
+                    tbxPassword.Clear();
                 }
             }
         }
