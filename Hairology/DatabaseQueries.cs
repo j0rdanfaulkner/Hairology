@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace Hairology
 {
-    internal class DatabaseQueries
+    public class DatabaseQueries
     {
+        public const string SELECT_ACCOUNT = "SELECT * FROM [User Accounts] WHERE username = '{0}'";
     }
 }

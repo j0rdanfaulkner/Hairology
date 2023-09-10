@@ -1,4 +1,6 @@
-﻿namespace Hairology
+﻿using System.Data.SqlClient;
+
+namespace Hairology
 {
     public partial class Login : Form
     {
@@ -7,6 +9,9 @@
         private bool _togglePassword = default!;
         private MainWindow _mainWindow;
         private Encryption _encrypt;
+        private DatabaseManagement _dbInstance = new DatabaseManagement();
+        private SqlCommand _command = default!;
+        private SqlDataReader _reader = default!;
         public Login()
         {
             InitializeComponent();
@@ -26,9 +31,28 @@
                 username = tbxUsername.Text;
                 _encrypt = new Encryption(tbxPassword.Text);
                 _password = _encrypt.CreateMD5Hash();
-                _mainWindow = new MainWindow(username);
-                _mainWindow.Show();
-                this.Hide();
+                _dbInstance.ConnectToDatabase();
+                _dbInstance.conn.Open();
+                _command = new SqlCommand(string.Format(DatabaseQueries.SELECT_ACCOUNT, username), _dbInstance.conn);
+                _reader = _command.ExecuteReader();
+                if (_reader.Read())
+                {
+                    if (username == _reader["username"].ToString())
+                    {
+                        if (_password == _reader["password"].ToString())
+                        {
+
+                            _dbInstance.conn.Close();
+                            _mainWindow = new MainWindow(username);
+                            _mainWindow.Show();
+                            this.Hide();
+                        }
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("An account could not be found", "Incorrect Credentials", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
             }
         }
         /// <summary>
