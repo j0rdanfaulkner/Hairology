@@ -2,27 +2,35 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace Hairology
 {
     public partial class MainWindow : Form
     {
+        private Employee _employee;
         private string _username = default!;
         private Login _login = default!;
         private string _currentDate = default!;
         private string _currentTime = default!;
         private bool _closing = false;
-        public MainWindow(string username, Login log)
+        private DatabaseManagement _dbInstance = new DatabaseManagement();
+        private SqlCommand _command = default!;
+        private SqlDataReader _reader = default!;
+        public MainWindow(Employee employee, Login log)
         {
             InitializeComponent();
-            tmrTimer.Start();
-            _username = username;
+            _employee = employee;
             _login = log;
+            tmrTimer.Start();
+            GetUsername(_employee.employeeNumber);
+            lblWelcome.Text = string.Format("Welcome, {0}", _username);
             lblWelcome.Text = "Welcome, " + _username;
             lblDate.Text = GetCurrentDate();
             lblTime.Text = GetCurrentTime();
@@ -30,6 +38,25 @@ namespace Hairology
         ~MainWindow()
         {
             _username = null!;
+        }
+        public void GetUsername(int number)
+        {
+            int accountID = default!;
+            _dbInstance.ConnectToDatabase();
+            _dbInstance.conn.Open();
+            _command = new SqlCommand(string.Format(DatabaseQueries.SELECT_ACCOUNT_ID, number), _dbInstance.conn);
+            _reader = _command.ExecuteReader();
+            if (_reader.Read())
+            {
+                accountID = Convert.ToInt32(_reader[0]);
+            }
+            _reader.Close();
+            _command = new SqlCommand(string.Format(DatabaseQueries.SELECT_ACCOUNT_USING_ID, accountID), _dbInstance.conn);
+            _reader = _command.ExecuteReader();
+            if (_reader.Read())
+            {
+                _username = _reader[1].ToString();
+            }
         }
         /// <summary>
         /// gets the current date and formats it in a long form

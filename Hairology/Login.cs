@@ -13,6 +13,7 @@ namespace Hairology
         private SqlCommand _command = default!;
         private SqlDataReader _reader = default!;
         private bool _closing = false;
+        private Employee _employee = default!;
         public Login()
         {
             InitializeComponent();
@@ -34,7 +35,7 @@ namespace Hairology
                 _password = _encrypt.CreateMD5Hash();
                 _dbInstance.ConnectToDatabase();
                 _dbInstance.conn.Open();
-                _command = new SqlCommand(string.Format(DatabaseQueries.SELECT_ACCOUNT, username), _dbInstance.conn);
+                _command = new SqlCommand(string.Format(DatabaseQueries.SELECT_ACCOUNT_USING_USERNAME, username), _dbInstance.conn);
                 _reader = _command.ExecuteReader();
                 if (_reader.Read())
                 {
@@ -42,8 +43,11 @@ namespace Hairology
                     {
                         if (_password == _reader["password"].ToString())
                         {
+                            int accountID = Convert.ToInt32(_reader[0]);
+                            _reader.Close();
+                            GetEmployee(accountID);
                             _dbInstance.conn.Close();
-                            _mainWindow = new MainWindow(username, this);
+                            _mainWindow = new MainWindow(_employee, this);
                             _mainWindow.Show();
                             this.Hide();
                         }
@@ -67,6 +71,35 @@ namespace Hairology
                     tbxUsername.Clear();
                     tbxPassword.Clear();
                 }
+            }
+            else
+            {
+                MessageBox.Show("You have not entered your username and/or password", "Missing Login Fields", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+        }
+        private void GetEmployee(int id)
+        {
+            string employeeNumber = default!;
+            object[] employeeDetails = new object[9];
+            _command = new SqlCommand(string.Format(DatabaseQueries.SELECT_EMPLOYEE_NUMBER, id), _dbInstance.conn);
+            _reader = _command.ExecuteReader();
+            if (_reader.Read())
+            {
+                employeeNumber = _reader[0].ToString();
+            }
+            _reader.Close();
+            _command = new SqlCommand(string.Format(DatabaseQueries.SELECT_EMPLOYEE_DETAILS, employeeNumber), _dbInstance.conn);
+            _reader = _command.ExecuteReader();
+            if (_reader.Read())
+            {
+                _reader.GetValues(employeeDetails);
+                employeeDetails[8] = employeeNumber.ToString();
+                _employee = new Employee(employeeDetails);
+                _reader.Close();
+            }
+            else
+            {
+                MessageBox.Show("Employee could not be found", "Could Not Find Employee", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
         /// <summary>
