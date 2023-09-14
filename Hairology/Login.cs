@@ -89,20 +89,12 @@ namespace Hairology
                 _togglePassword = false;
             }
         }
-        private void ExitProgram(DialogResult result)
-        {
-            if (result == DialogResult.Yes)
-            {
-                _closing = true;
-                Application.Exit();
-            }
-        }
         private void Login_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (_closing == false)
+            DialogResult result = MessageBox.Show("Are you sure you want to close Hairology?", "Confirm Action", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (result == DialogResult.No)
             {
-                DialogResult result = MessageBox.Show("Are you sure you want to close Hairology?", "Confirm Action", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-                ExitProgram(result);
+                e.Cancel = true;
             }
         }
     }

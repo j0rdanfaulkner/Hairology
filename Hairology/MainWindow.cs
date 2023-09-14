@@ -49,39 +49,20 @@ namespace Hairology
             _currentTime = DateTime.Now.ToString("HH:mm:ss");
             return _currentTime;
         }
-        /// <summary>
-        /// ask to confirm log out when form is closing
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void LogOut(DialogResult result, bool logOutButtonClicked)
-        {
-            if (result == DialogResult.Yes)
-            {
-                _login.Show();
-                if (logOutButtonClicked == true)
-                {
-                    _closing = true;
-                    this.Close();
-                }
-            }
-        }
         private void logOutToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            DialogResult closing = MessageBox.Show("Are you sure you want to log out?", "Confirm Log Out", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-            LogOut(closing, true);
+            this.Close();
         }
-
         private void MainWindow_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (_closing == true)
+            DialogResult closing = MessageBox.Show("Are you sure you want to log out?", "Confirm Log Out", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (closing == DialogResult.Yes)
             {
-                LogOut(DialogResult.Yes, false);
+                _login.Show();
             }
             else
             {
-                DialogResult closing = MessageBox.Show("Are you sure you want to log out?", "Confirm Log Out", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-                LogOut(closing, false);
+                e.Cancel = true;
             }
         }
         /// <summary>
