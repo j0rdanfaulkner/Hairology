@@ -39,16 +39,22 @@
             uscSettings = new Settings();
             mstNavigationBar = new MenuStrip();
             AddNewToolStripMenuItem = new ToolStripMenuItem();
-            addNewPersonToolStripMenuItem = new ToolStripMenuItem();
+            newPersonToolStripMenuItem = new ToolStripMenuItem();
             addNewEmployeeToolStripMenuItem = new ToolStripMenuItem();
             toolStripSeparator1 = new ToolStripSeparator();
             addNewCustomerToolStripMenuItem = new ToolStripMenuItem();
+            toolStripSeparator3 = new ToolStripSeparator();
+            newProductToolStripMenuItem = new ToolStripMenuItem();
+            toolStripSeparator4 = new ToolStripSeparator();
+            newTransactionToolStripMenuItem = new ToolStripMenuItem();
             searchToolStripMenuItem = new ToolStripMenuItem();
             peopleToolStripMenuItem = new ToolStripMenuItem();
             employeesToolStripMenuItem = new ToolStripMenuItem();
             toolStripSeparator2 = new ToolStripSeparator();
             customersToolStripMenuItem = new ToolStripMenuItem();
+            toolStripSeparator5 = new ToolStripSeparator();
             productsToolStripMenuItem = new ToolStripMenuItem();
+            toolStripSeparator6 = new ToolStripSeparator();
             transactionsToolStripMenuItem1 = new ToolStripMenuItem();
             logOutToolStripMenuItem = new ToolStripMenuItem();
             inventoryToolStripMenuItem = new ToolStripMenuItem();
@@ -62,12 +68,6 @@
             pbxLogo = new PictureBox();
             tmrTimer = new System.Windows.Forms.Timer(components);
             ttpInfo = new ToolTip(components);
-            newProductToolStripMenuItem = new ToolStripMenuItem();
-            newTransactionToolStripMenuItem = new ToolStripMenuItem();
-            toolStripSeparator3 = new ToolStripSeparator();
-            toolStripSeparator4 = new ToolStripSeparator();
-            toolStripSeparator5 = new ToolStripSeparator();
-            toolStripSeparator6 = new ToolStripSeparator();
             pnlContainer.SuspendLayout();
             pnlBottom.SuspendLayout();
             mstNavigationBar.SuspendLayout();
@@ -163,20 +163,19 @@
             // 
             AddNewToolStripMenuItem.BackColor = Color.SteelBlue;
             AddNewToolStripMenuItem.BackgroundImageLayout = ImageLayout.Zoom;
-            AddNewToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { addNewPersonToolStripMenuItem, toolStripSeparator3, newProductToolStripMenuItem, toolStripSeparator4, newTransactionToolStripMenuItem });
+            AddNewToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { newPersonToolStripMenuItem, toolStripSeparator3, newProductToolStripMenuItem, toolStripSeparator4, newTransactionToolStripMenuItem });
             AddNewToolStripMenuItem.Image = Properties.Resources.addnew;
             AddNewToolStripMenuItem.Name = "AddNewToolStripMenuItem";
             AddNewToolStripMenuItem.Size = new Size(99, 46);
             AddNewToolStripMenuItem.Text = "Add";
-            AddNewToolStripMenuItem.Click += AddNewToolStripMenuItem_Click;
             // 
-            // addNewPersonToolStripMenuItem
+            // newPersonToolStripMenuItem
             // 
-            addNewPersonToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { addNewEmployeeToolStripMenuItem, toolStripSeparator1, addNewCustomerToolStripMenuItem });
-            addNewPersonToolStripMenuItem.Image = Properties.Resources.addnew;
-            addNewPersonToolStripMenuItem.Name = "addNewPersonToolStripMenuItem";
-            addNewPersonToolStripMenuItem.Size = new Size(287, 38);
-            addNewPersonToolStripMenuItem.Text = "New Person";
+            newPersonToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { addNewEmployeeToolStripMenuItem, toolStripSeparator1, addNewCustomerToolStripMenuItem });
+            newPersonToolStripMenuItem.Image = Properties.Resources.addnew;
+            newPersonToolStripMenuItem.Name = "newPersonToolStripMenuItem";
+            newPersonToolStripMenuItem.Size = new Size(287, 38);
+            newPersonToolStripMenuItem.Text = "New Person";
             // 
             // addNewEmployeeToolStripMenuItem
             // 
@@ -198,6 +197,30 @@
             addNewCustomerToolStripMenuItem.Size = new Size(209, 38);
             addNewCustomerToolStripMenuItem.Text = "Customer";
             addNewCustomerToolStripMenuItem.Click += addNewCustomerToolStripMenuItem_Click;
+            // 
+            // toolStripSeparator3
+            // 
+            toolStripSeparator3.Name = "toolStripSeparator3";
+            toolStripSeparator3.Size = new Size(284, 6);
+            // 
+            // newProductToolStripMenuItem
+            // 
+            newProductToolStripMenuItem.Image = Properties.Resources.addnew;
+            newProductToolStripMenuItem.Name = "newProductToolStripMenuItem";
+            newProductToolStripMenuItem.Size = new Size(287, 38);
+            newProductToolStripMenuItem.Text = "New Product";
+            // 
+            // toolStripSeparator4
+            // 
+            toolStripSeparator4.Name = "toolStripSeparator4";
+            toolStripSeparator4.Size = new Size(284, 6);
+            // 
+            // newTransactionToolStripMenuItem
+            // 
+            newTransactionToolStripMenuItem.Image = Properties.Resources.addnew;
+            newTransactionToolStripMenuItem.Name = "newTransactionToolStripMenuItem";
+            newTransactionToolStripMenuItem.Size = new Size(287, 38);
+            newTransactionToolStripMenuItem.Text = "New Transaction";
             // 
             // searchToolStripMenuItem
             // 
@@ -235,12 +258,22 @@
             customersToolStripMenuItem.Size = new Size(222, 38);
             customersToolStripMenuItem.Text = "Customers";
             // 
+            // toolStripSeparator5
+            // 
+            toolStripSeparator5.Name = "toolStripSeparator5";
+            toolStripSeparator5.Size = new Size(239, 6);
+            // 
             // productsToolStripMenuItem
             // 
             productsToolStripMenuItem.Image = Properties.Resources.products;
             productsToolStripMenuItem.Name = "productsToolStripMenuItem";
             productsToolStripMenuItem.Size = new Size(242, 38);
             productsToolStripMenuItem.Text = "Products";
+            // 
+            // toolStripSeparator6
+            // 
+            toolStripSeparator6.Name = "toolStripSeparator6";
+            toolStripSeparator6.Size = new Size(239, 6);
             // 
             // transactionsToolStripMenuItem1
             // 
@@ -360,40 +393,6 @@
             tmrTimer.Interval = 1000;
             tmrTimer.Tick += tmrTimer_Tick;
             // 
-            // newProductToolStripMenuItem
-            // 
-            newProductToolStripMenuItem.Image = Properties.Resources.addnew;
-            newProductToolStripMenuItem.Name = "newProductToolStripMenuItem";
-            newProductToolStripMenuItem.Size = new Size(287, 38);
-            newProductToolStripMenuItem.Text = "New Product";
-            // 
-            // newTransactionToolStripMenuItem
-            // 
-            newTransactionToolStripMenuItem.Image = Properties.Resources.addnew;
-            newTransactionToolStripMenuItem.Name = "newTransactionToolStripMenuItem";
-            newTransactionToolStripMenuItem.Size = new Size(287, 38);
-            newTransactionToolStripMenuItem.Text = "New Transaction";
-            // 
-            // toolStripSeparator3
-            // 
-            toolStripSeparator3.Name = "toolStripSeparator3";
-            toolStripSeparator3.Size = new Size(284, 6);
-            // 
-            // toolStripSeparator4
-            // 
-            toolStripSeparator4.Name = "toolStripSeparator4";
-            toolStripSeparator4.Size = new Size(284, 6);
-            // 
-            // toolStripSeparator5
-            // 
-            toolStripSeparator5.Name = "toolStripSeparator5";
-            toolStripSeparator5.Size = new Size(239, 6);
-            // 
-            // toolStripSeparator6
-            // 
-            toolStripSeparator6.Name = "toolStripSeparator6";
-            toolStripSeparator6.Size = new Size(239, 6);
-            // 
             // MainWindow
             // 
             AutoScaleDimensions = new SizeF(16F, 25F);
@@ -429,7 +428,7 @@
         private MenuStrip mstNavigationBar;
         private ToolStripMenuItem AddNewToolStripMenuItem;
         private PictureBox pbxLogo;
-        private ToolStripMenuItem addNewPersonToolStripMenuItem;
+        private ToolStripMenuItem newPersonToolStripMenuItem;
         private ToolStripMenuItem addNewCustomerToolStripMenuItem;
         private ToolStripMenuItem addNewEmployeeToolStripMenuItem;
         private ToolStripMenuItem settingsToolStripMenuItem;
