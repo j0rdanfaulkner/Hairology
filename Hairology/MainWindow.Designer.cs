@@ -33,6 +33,9 @@
             lblWelcome = new Label();
             pnlContainer = new Panel();
             pnlBottom = new Panel();
+            uscAddNewPerson = new AddNewPerson();
+            uscInventory = new Inventory();
+            uscTransactions = new Transactions();
             uscSettings = new Settings();
             mstNavigationBar = new MenuStrip();
             AddNewToolStripMenuItem = new ToolStripMenuItem();
@@ -59,9 +62,12 @@
             pbxLogo = new PictureBox();
             tmrTimer = new System.Windows.Forms.Timer(components);
             ttpInfo = new ToolTip(components);
-            uscTransactions = new Transactions();
-            uscInventory = new Inventory();
-            uscAddNewPerson = new AddNewPerson();
+            newProductToolStripMenuItem = new ToolStripMenuItem();
+            newTransactionToolStripMenuItem = new ToolStripMenuItem();
+            toolStripSeparator3 = new ToolStripSeparator();
+            toolStripSeparator4 = new ToolStripSeparator();
+            toolStripSeparator5 = new ToolStripSeparator();
+            toolStripSeparator6 = new ToolStripSeparator();
             pnlContainer.SuspendLayout();
             pnlBottom.SuspendLayout();
             mstNavigationBar.SuspendLayout();
@@ -103,6 +109,32 @@
             pnlBottom.Size = new Size(1264, 489);
             pnlBottom.TabIndex = 2;
             // 
+            // uscAddNewPerson
+            // 
+            uscAddNewPerson.Dock = DockStyle.Fill;
+            uscAddNewPerson.Location = new Point(0, 50);
+            uscAddNewPerson.Name = "uscAddNewPerson";
+            uscAddNewPerson.Size = new Size(1264, 439);
+            uscAddNewPerson.TabIndex = 4;
+            // 
+            // uscInventory
+            // 
+            uscInventory.Dock = DockStyle.Fill;
+            uscInventory.Location = new Point(0, 50);
+            uscInventory.Margin = new Padding(16, 8, 16, 8);
+            uscInventory.Name = "uscInventory";
+            uscInventory.Size = new Size(1264, 439);
+            uscInventory.TabIndex = 3;
+            // 
+            // uscTransactions
+            // 
+            uscTransactions.Dock = DockStyle.Fill;
+            uscTransactions.Location = new Point(0, 50);
+            uscTransactions.Margin = new Padding(16, 8, 16, 8);
+            uscTransactions.Name = "uscTransactions";
+            uscTransactions.Size = new Size(1264, 439);
+            uscTransactions.TabIndex = 2;
+            // 
             // uscSettings
             // 
             uscSettings.BackColor = Color.Silver;
@@ -131,18 +163,19 @@
             // 
             AddNewToolStripMenuItem.BackColor = Color.SteelBlue;
             AddNewToolStripMenuItem.BackgroundImageLayout = ImageLayout.Zoom;
-            AddNewToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { addNewPersonToolStripMenuItem });
+            AddNewToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { addNewPersonToolStripMenuItem, toolStripSeparator3, newProductToolStripMenuItem, toolStripSeparator4, newTransactionToolStripMenuItem });
             AddNewToolStripMenuItem.Image = Properties.Resources.addnew;
             AddNewToolStripMenuItem.Name = "AddNewToolStripMenuItem";
             AddNewToolStripMenuItem.Size = new Size(99, 46);
             AddNewToolStripMenuItem.Text = "Add";
+            AddNewToolStripMenuItem.Click += AddNewToolStripMenuItem_Click;
             // 
             // addNewPersonToolStripMenuItem
             // 
             addNewPersonToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { addNewEmployeeToolStripMenuItem, toolStripSeparator1, addNewCustomerToolStripMenuItem });
             addNewPersonToolStripMenuItem.Image = Properties.Resources.addnew;
             addNewPersonToolStripMenuItem.Name = "addNewPersonToolStripMenuItem";
-            addNewPersonToolStripMenuItem.Size = new Size(235, 38);
+            addNewPersonToolStripMenuItem.Size = new Size(287, 38);
             addNewPersonToolStripMenuItem.Text = "New Person";
             // 
             // addNewEmployeeToolStripMenuItem
@@ -168,7 +201,7 @@
             // 
             // searchToolStripMenuItem
             // 
-            searchToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { peopleToolStripMenuItem, productsToolStripMenuItem, transactionsToolStripMenuItem1 });
+            searchToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { peopleToolStripMenuItem, toolStripSeparator5, productsToolStripMenuItem, toolStripSeparator6, transactionsToolStripMenuItem1 });
             searchToolStripMenuItem.Image = Properties.Resources.search;
             searchToolStripMenuItem.Name = "searchToolStripMenuItem";
             searchToolStripMenuItem.Size = new Size(135, 46);
@@ -327,31 +360,39 @@
             tmrTimer.Interval = 1000;
             tmrTimer.Tick += tmrTimer_Tick;
             // 
-            // uscTransactions
+            // newProductToolStripMenuItem
             // 
-            uscTransactions.Dock = DockStyle.Fill;
-            uscTransactions.Location = new Point(0, 50);
-            uscTransactions.Margin = new Padding(16, 8, 16, 8);
-            uscTransactions.Name = "uscTransactions";
-            uscTransactions.Size = new Size(1264, 439);
-            uscTransactions.TabIndex = 2;
+            newProductToolStripMenuItem.Image = Properties.Resources.addnew;
+            newProductToolStripMenuItem.Name = "newProductToolStripMenuItem";
+            newProductToolStripMenuItem.Size = new Size(287, 38);
+            newProductToolStripMenuItem.Text = "New Product";
             // 
-            // uscInventory
+            // newTransactionToolStripMenuItem
             // 
-            uscInventory.Dock = DockStyle.Fill;
-            uscInventory.Location = new Point(0, 50);
-            uscInventory.Margin = new Padding(16, 8, 16, 8);
-            uscInventory.Name = "uscInventory";
-            uscInventory.Size = new Size(1264, 439);
-            uscInventory.TabIndex = 3;
+            newTransactionToolStripMenuItem.Image = Properties.Resources.addnew;
+            newTransactionToolStripMenuItem.Name = "newTransactionToolStripMenuItem";
+            newTransactionToolStripMenuItem.Size = new Size(287, 38);
+            newTransactionToolStripMenuItem.Text = "New Transaction";
             // 
-            // uscAddNewPerson
+            // toolStripSeparator3
             // 
-            uscAddNewPerson.Dock = DockStyle.Fill;
-            uscAddNewPerson.Location = new Point(0, 50);
-            uscAddNewPerson.Name = "uscAddNewPerson";
-            uscAddNewPerson.Size = new Size(1264, 439);
-            uscAddNewPerson.TabIndex = 4;
+            toolStripSeparator3.Name = "toolStripSeparator3";
+            toolStripSeparator3.Size = new Size(284, 6);
+            // 
+            // toolStripSeparator4
+            // 
+            toolStripSeparator4.Name = "toolStripSeparator4";
+            toolStripSeparator4.Size = new Size(284, 6);
+            // 
+            // toolStripSeparator5
+            // 
+            toolStripSeparator5.Name = "toolStripSeparator5";
+            toolStripSeparator5.Size = new Size(239, 6);
+            // 
+            // toolStripSeparator6
+            // 
+            toolStripSeparator6.Name = "toolStripSeparator6";
+            toolStripSeparator6.Size = new Size(239, 6);
             // 
             // MainWindow
             // 
@@ -413,5 +454,11 @@
         private AddNewPerson uscAddNewPerson;
         private Inventory uscInventory;
         private Transactions uscTransactions;
+        private ToolStripMenuItem newProductToolStripMenuItem;
+        private ToolStripMenuItem newTransactionToolStripMenuItem;
+        private ToolStripSeparator toolStripSeparator3;
+        private ToolStripSeparator toolStripSeparator4;
+        private ToolStripSeparator toolStripSeparator5;
+        private ToolStripSeparator toolStripSeparator6;
     }
 }

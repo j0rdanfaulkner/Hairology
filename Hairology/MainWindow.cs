@@ -74,7 +74,8 @@ namespace Hairology
                 ttpInfo.SetToolTip(pbxAdminRights, "This account has administrative privileges");
                 uscTransactions.Enabled = true;
                 uscTransactions.Visible = true;
-                AddNewToolStripMenuItem.Enabled = true;
+                uscAddNewPerson.Enabled = true;
+                addNewPersonToolStripMenuItem.Visible = true;
             }
             else
             {
@@ -82,7 +83,8 @@ namespace Hairology
                 ttpInfo.SetToolTip(pbxAdminRights, "This account does not have administrative privileges");
                 uscTransactions.Enabled = false;
                 uscTransactions.Visible = false;
-                AddNewToolStripMenuItem.Enabled = false;
+                uscAddNewPerson.Enabled = false;
+                addNewPersonToolStripMenuItem.Visible = false;
             }
         }
         /// <summary>
@@ -137,6 +139,13 @@ namespace Hairology
         private void tmrTimer_Tick(object sender, EventArgs e)
         {
             lblTime.Text = GetCurrentTime();
+        }
+        private void AddNewToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (uscAddNewPerson.Enabled == false)
+            {
+                MessageBox.Show("You need to be an administrator to perform this action", "Access Denied", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
         private void addNewEmployeeToolStripMenuItem_Click(object sender, EventArgs e)
         {
