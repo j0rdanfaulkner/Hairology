@@ -71,11 +71,15 @@ namespace Hairology
             {
                 pbxAdminRights.BackgroundImage = Properties.Resources.admin;
                 ttpInfo.SetToolTip(pbxAdminRights, "This account has administrative privileges");
+                uscTransactions.Enabled = true;
+                uscTransactions.Visible = true;
             }
             else
             {
                 pbxAdminRights.BackgroundImage = Properties.Resources.notadmin;
                 ttpInfo.SetToolTip(pbxAdminRights, "This account does not have administrative privileges");
+                uscTransactions.Enabled = false;
+                uscTransactions.Visible = false;
             }
         }
         /// <summary>
@@ -152,8 +156,15 @@ namespace Hairology
 
         private void transactionsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            uscTransactions.Show();
-            uscSettings.Hide();
+            if (uscTransactions.Enabled == false)
+            {
+                MessageBox.Show("You need to be an administrator to view this information", "Access Denied", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                uscTransactions.Show();
+                uscSettings.Hide();
+            }
         }
 
         private void settingsToolStripMenuItem_Click(object sender, EventArgs e)

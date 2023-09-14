@@ -19,5 +19,7 @@ namespace Hairology
         public const string SELECT_EMPLOYEE_NUMBER = "SELECT employee_number FROM [Employees] WHERE account_id = '{0}'";
 
         public const string SELECT_ACCOUNT_ID = "SELECT account_id FROM [Employees] WHERE employee_number = '{0}'";
+
+        public const string SELECT_ALL_TRANSACTIONS = "SELECT transaction_id, card_number, security_code, expiration_date, transaction_completed FROM [Transactions]";
     }
 }

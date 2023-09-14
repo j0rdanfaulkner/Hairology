@@ -17,6 +17,7 @@ namespace Hairology
         public Login()
         {
             InitializeComponent();
+            _dbInstance.ConnectToDatabase();
             tbxPassword.UseSystemPasswordChar = true;
             pbxTogglePassword.BackgroundImage = Properties.Resources.showpassword;
             _togglePassword = false;
@@ -33,7 +34,6 @@ namespace Hairology
                 username = tbxUsername.Text;
                 _encrypt = new Encryption(tbxPassword.Text);
                 _password = _encrypt.CreateMD5Hash();
-                _dbInstance.ConnectToDatabase();
                 _dbInstance.conn.Open();
                 _command = new SqlCommand(string.Format(DatabaseQueries.SELECT_ACCOUNT_USING_USERNAME, username), _dbInstance.conn);
                 _reader = _command.ExecuteReader();

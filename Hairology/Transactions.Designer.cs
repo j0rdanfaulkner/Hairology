@@ -46,6 +46,10 @@
             // 
             // dgvTransactions
             // 
+            dgvTransactions.AllowUserToAddRows = false;
+            dgvTransactions.AllowUserToDeleteRows = false;
+            dgvTransactions.AllowUserToResizeColumns = false;
+            dgvTransactions.AllowUserToResizeRows = false;
             dgvTransactions.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvTransactions.Dock = DockStyle.Fill;
             dgvTransactions.Location = new Point(0, 0);
