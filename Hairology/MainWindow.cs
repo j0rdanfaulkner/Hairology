@@ -37,7 +37,7 @@ namespace Hairology
         /// <returns></returns>
         string GetCurrentDate()
         {
-            _currentDate = DateTime.Now.ToString("ddd, dd MMM yyyy");
+            _currentDate = DateTime.Now.ToString("ddd, dd MMM. yyyy");
             return _currentDate;
         }
         /// <summary>
@@ -49,10 +49,20 @@ namespace Hairology
             _currentTime = DateTime.Now.ToString("HH:mm:ss");
             return _currentTime;
         }
+        /// <summary>
+        /// calls event that occurs when form is to be closed
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void logOutToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Close();
         }
+        /// <summary>
+        /// event raised when form is to be closed
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void MainWindow_FormClosing(object sender, FormClosingEventArgs e)
         {
             DialogResult closing = MessageBox.Show("Are you sure you want to log out?", "Confirm Log Out", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
@@ -77,26 +87,31 @@ namespace Hairology
 
         private void AddNewToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            uscTransactions.Hide();
             uscSettings.Hide();
         }
 
         private void searchToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            uscTransactions.Hide();
             uscSettings.Hide();
         }
 
         private void inventoryToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            uscTransactions.Hide();
             uscSettings.Hide();
         }
 
         private void transactionsToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            uscTransactions.Show();
             uscSettings.Hide();
         }
 
         private void settingsToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            uscTransactions.Hide();
             uscSettings.Show();
         }
     }

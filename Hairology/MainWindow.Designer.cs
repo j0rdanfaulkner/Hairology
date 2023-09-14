@@ -56,6 +56,7 @@
             lblDate = new Label();
             pictureBox1 = new PictureBox();
             tmrTimer = new System.Windows.Forms.Timer(components);
+            uscTransactions = new Transactions();
             pnlContainer.SuspendLayout();
             pnlBottom.SuspendLayout();
             mstNavigationBar.SuspendLayout();
@@ -85,6 +86,7 @@
             // 
             // pnlBottom
             // 
+            pnlBottom.Controls.Add(uscTransactions);
             pnlBottom.Controls.Add(uscSettings);
             pnlBottom.Controls.Add(mstNavigationBar);
             pnlBottom.Dock = DockStyle.Top;
@@ -95,7 +97,7 @@
             // 
             // uscSettings
             // 
-            uscSettings.BackColor = Color.IndianRed;
+            uscSettings.BackColor = Color.Silver;
             uscSettings.Dock = DockStyle.Fill;
             uscSettings.Font = new Font("EurostileLTW03-Extended2", 12F, FontStyle.Bold, GraphicsUnit.Point);
             uscSettings.Location = new Point(0, 50);
@@ -292,6 +294,15 @@
             tmrTimer.Interval = 1000;
             tmrTimer.Tick += tmrTimer_Tick;
             // 
+            // uscTransactions
+            // 
+            uscTransactions.Dock = DockStyle.Fill;
+            uscTransactions.Location = new Point(0, 50);
+            uscTransactions.Margin = new Padding(7, 5, 7, 5);
+            uscTransactions.Name = "uscTransactions";
+            uscTransactions.Size = new Size(1264, 439);
+            uscTransactions.TabIndex = 2;
+            // 
             // MainWindow
             // 
             AutoScaleDimensions = new SizeF(16F, 25F);
@@ -345,5 +356,6 @@
         private Label lblTime;
         private System.Windows.Forms.Timer tmrTimer;
         private Settings uscSettings;
+        private Transactions uscTransactions;
     }
 }
