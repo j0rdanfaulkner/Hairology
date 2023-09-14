@@ -60,6 +60,7 @@
             pbxLogo = new PictureBox();
             tmrTimer = new System.Windows.Forms.Timer(components);
             ttpInfo = new ToolTip(components);
+            uscInventory = new Inventory();
             pnlContainer.SuspendLayout();
             pnlBottom.SuspendLayout();
             mstNavigationBar.SuspendLayout();
@@ -90,6 +91,7 @@
             // 
             // pnlBottom
             // 
+            pnlBottom.Controls.Add(uscInventory);
             pnlBottom.Controls.Add(uscTransactions);
             pnlBottom.Controls.Add(uscSettings);
             pnlBottom.Controls.Add(mstNavigationBar);
@@ -331,6 +333,15 @@
             tmrTimer.Interval = 1000;
             tmrTimer.Tick += tmrTimer_Tick;
             // 
+            // uscInventory
+            // 
+            uscInventory.Dock = DockStyle.Fill;
+            uscInventory.Location = new Point(0, 50);
+            uscInventory.Margin = new Padding(7, 5, 7, 5);
+            uscInventory.Name = "uscInventory";
+            uscInventory.Size = new Size(1264, 439);
+            uscInventory.TabIndex = 3;
+            // 
             // MainWindow
             // 
             AutoScaleDimensions = new SizeF(16F, 25F);
@@ -389,5 +400,6 @@
         private Label lblFullName;
         private PictureBox pbxAdminRights;
         private ToolTip ttpInfo;
+        private Inventory uscInventory;
     }
 }

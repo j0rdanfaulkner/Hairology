@@ -138,18 +138,21 @@ namespace Hairology
 
         private void AddNewToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            uscInventory.Hide();
             uscTransactions.Hide();
             uscSettings.Hide();
         }
 
         private void searchToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            uscInventory.Hide();
             uscTransactions.Hide();
             uscSettings.Hide();
         }
 
         private void inventoryToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            uscInventory.Show();
             uscTransactions.Hide();
             uscSettings.Hide();
         }
@@ -162,6 +165,7 @@ namespace Hairology
             }
             else
             {
+                uscInventory.Hide();
                 uscTransactions.Show();
                 uscSettings.Hide();
             }
@@ -169,6 +173,7 @@ namespace Hairology
 
         private void settingsToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            uscInventory.Hide();
             uscTransactions.Hide();
             uscSettings.Show();
         }

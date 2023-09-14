@@ -5,64 +5,63 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
-using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Hairology
 {
-    public partial class Transactions : UserControl
+    public partial class Inventory : UserControl
     {
         private DatabaseManagement _dbInstance = new DatabaseManagement();
         private SqlCommand _command = default!;
         private SqlDataReader _reader = default!;
         private SqlDataAdapter _adapter = default!;
         private DataTable _dt = default!;
-        public Transactions()
+        public Inventory()
         {
             InitializeComponent();
             _dbInstance.ConnectToDatabase();
-            GetTransactionData();
+            GetInventoryData();
             this.Refresh();
         }
-        /// <summary>
-        /// fills DataGridView control with contents of 'Transactions' table within database
-        /// </summary>
-        private void GetTransactionData()
+        private void GetInventoryData()
         {
             try
             {
                 _dbInstance.conn.Open();
-                _command = new SqlCommand(DatabaseQueries.SELECT_ALL_TRANSACTIONS, _dbInstance.conn);
+                _command = new SqlCommand(DatabaseQueries.SELECT_ALL_INVENTORY_RECORDS, _dbInstance.conn);
                 _adapter = new SqlDataAdapter(_command);
                 _dt = new DataTable();
                 _adapter.Fill(_dt);
-                dgvTransactions.DataSource = _dt.DefaultView;
-                dgvTransactions.ColumnHeadersDefaultCellStyle.BackColor = Color.LightSteelBlue;
-                dgvTransactions.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-                dgvTransactions.EnableHeadersVisualStyles = false;
+                dgvInventory.DataSource = _dt.DefaultView;
+                dgvInventory.ColumnHeadersDefaultCellStyle.BackColor = Color.LightSteelBlue;
+                dgvInventory.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                dgvInventory.EnableHeadersVisualStyles = false;
                 for (int i = 0; i < _dt.Columns.Count; i++)
                 {
-                    var column = dgvTransactions.Columns[i];
+                    var column = dgvInventory.Columns[i];
                     column.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
                     column.DefaultCellStyle.BackColor = Color.Silver;
                     switch (i)
                     {
                         case 0:
-                            column.HeaderText = "TRANSACTION ID";
+                            column.HeaderText = "PRODUCT NAME";
                             break;
                         case 1:
-                            column.HeaderText = "CARD NUMBER";
+                            column.HeaderText = "CATEGORY";
                             break;
                         case 2:
-                            column.HeaderText = "SECURITY CODE";
+                            column.HeaderText = "EAN NUMBER";
                             break;
                         case 3:
-                            column.HeaderText = "EXPIRATION DATE";
+                            column.HeaderText = "CASE SIZE";
                             break;
                         case 4:
-                            column.HeaderText = "TRANSACTION COMPLETED?";
+                            column.HeaderText = "CURRENT QUANTITY";
+                            break;
+                        case 5:
+                            column.HeaderText = "REORDER REGULARLY?";
                             break;
                         default:
                             break;
@@ -74,7 +73,7 @@ namespace Hairology
                 DialogResult result = MessageBox.Show(ex.Message, "Something Went Wrong", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
                 if (result == DialogResult.Retry)
                 {
-                    GetTransactionData();
+                    GetInventoryData();
                 }
                 else if (result == DialogResult.Cancel)
                 {

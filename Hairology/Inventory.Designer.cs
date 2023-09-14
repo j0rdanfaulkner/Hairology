@@ -1,6 +1,6 @@
 ﻿namespace Hairology
 {
-    partial class Transactions
+    partial class Inventory
     {
         /// <summary> 
         /// Required designer variable.
@@ -29,51 +29,50 @@
         private void InitializeComponent()
         {
             pnlContainer = new Panel();
-            dgvTransactions = new DataGridView();
+            dgvInventory = new DataGridView();
             pnlContainer.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dgvTransactions).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dgvInventory).BeginInit();
             SuspendLayout();
             // 
             // pnlContainer
             // 
-            pnlContainer.BackColor = Color.LightSteelBlue;
-            pnlContainer.Controls.Add(dgvTransactions);
+            pnlContainer.Controls.Add(dgvInventory);
             pnlContainer.Dock = DockStyle.Fill;
             pnlContainer.Location = new Point(0, 0);
             pnlContainer.Name = "pnlContainer";
             pnlContainer.Size = new Size(1264, 449);
             pnlContainer.TabIndex = 0;
             // 
-            // dgvTransactions
+            // dgvInventory
             // 
-            dgvTransactions.AllowUserToAddRows = false;
-            dgvTransactions.AllowUserToDeleteRows = false;
-            dgvTransactions.AllowUserToResizeColumns = false;
-            dgvTransactions.AllowUserToResizeRows = false;
-            dgvTransactions.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvTransactions.Dock = DockStyle.Fill;
-            dgvTransactions.Location = new Point(0, 0);
-            dgvTransactions.Name = "dgvTransactions";
-            dgvTransactions.ReadOnly = true;
-            dgvTransactions.RowTemplate.Height = 25;
-            dgvTransactions.Size = new Size(1264, 449);
-            dgvTransactions.TabIndex = 0;
+            dgvInventory.AllowUserToAddRows = false;
+            dgvInventory.AllowUserToDeleteRows = false;
+            dgvInventory.AllowUserToResizeColumns = false;
+            dgvInventory.AllowUserToResizeRows = false;
+            dgvInventory.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvInventory.Dock = DockStyle.Fill;
+            dgvInventory.Location = new Point(0, 0);
+            dgvInventory.Name = "dgvInventory";
+            dgvInventory.ReadOnly = true;
+            dgvInventory.RowTemplate.Height = 25;
+            dgvInventory.Size = new Size(1264, 449);
+            dgvInventory.TabIndex = 0;
             // 
-            // Transactions
+            // Inventory
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(pnlContainer);
-            Name = "Transactions";
+            Name = "Inventory";
             Size = new Size(1264, 449);
             pnlContainer.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)dgvTransactions).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgvInventory).EndInit();
             ResumeLayout(false);
         }
 
         #endregion
 
         private Panel pnlContainer;
-        private DataGridView dgvTransactions;
+        private DataGridView dgvInventory;
     }
 }
