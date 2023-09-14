@@ -13,9 +13,10 @@ namespace Hairology
     public partial class MainWindow : Form
     {
         private string _username = default!;
-        private Login _login;
-        private string _currentDate;
-        private string _currentTime;
+        private Login _login = default!;
+        private string _currentDate = default!;
+        private string _currentTime = default!;
+        private bool _closing = false;
         public MainWindow(string username)
         {
             InitializeComponent();
@@ -43,13 +44,36 @@ namespace Hairology
             _currentTime = DateTime.Now.ToString("hh: mm tt");
             return _currentTime;
         }
-        private void MainWindow_FormClosed(object sender, FormClosedEventArgs e)
+        private void LogOut(DialogResult result, bool logOutButtonClicked)
         {
-            DialogResult closing = MessageBox.Show("Are you sure you want to log out?", "Confirm Log Out", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-            if (closing == DialogResult.Yes)
+            if (result == DialogResult.Yes)
             {
                 _login = new Login();
                 _login.Show();
+                if (logOutButtonClicked == true)
+                {
+                    _closing = true;
+                    this.Close();
+                }
+            }
+        }
+
+        private void logOutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DialogResult closing = MessageBox.Show("Are you sure you want to log out?", "Confirm Log Out", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            LogOut(closing, true);
+        }
+
+        private void MainWindow_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (_closing == true)
+            {
+                LogOut(DialogResult.Yes, false);
+            }
+            else
+            {
+                DialogResult closing = MessageBox.Show("Are you sure you want to log out?", "Confirm Log Out", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                LogOut(closing, false);
             }
         }
     }

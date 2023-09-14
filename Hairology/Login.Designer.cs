@@ -131,7 +131,7 @@
             Name = "Login";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Hairology - Login";
-            FormClosed += Login_FormClosed;
+            FormClosing += Login_FormClosing;
             pnlContainer.ResumeLayout(false);
             pnlControls.ResumeLayout(false);
             pnlControls.PerformLayout();

@@ -197,6 +197,7 @@
             logOutToolStripMenuItem.Size = new Size(146, 46);
             logOutToolStripMenuItem.Text = "Log Out";
             logOutToolStripMenuItem.TextAlign = ContentAlignment.MiddleLeft;
+            logOutToolStripMenuItem.Click += logOutToolStripMenuItem_Click;
             // 
             // inventoryToolStripMenuItem
             // 
@@ -280,7 +281,7 @@
             Name = "MainWindow";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Hairology";
-            FormClosed += MainWindow_FormClosed;
+            FormClosing += MainWindow_FormClosing;
             pnlContainer.ResumeLayout(false);
             pnlBottom.ResumeLayout(false);
             mstNavigationBar.ResumeLayout(false);

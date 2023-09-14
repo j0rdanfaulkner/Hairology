@@ -7,11 +7,12 @@ namespace Hairology
         public string username = default!;
         private string _password = default!;
         private bool _togglePassword = default!;
-        private MainWindow _mainWindow;
-        private Encryption _encrypt;
+        private MainWindow _mainWindow = default!;
+        private Encryption _encrypt = default!;
         private DatabaseManagement _dbInstance = new DatabaseManagement();
         private SqlCommand _command = default!;
         private SqlDataReader _reader = default!;
+        private bool _closing = false;
         public Login()
         {
             InitializeComponent();
@@ -88,13 +89,20 @@ namespace Hairology
                 _togglePassword = false;
             }
         }
-
-        private void Login_FormClosed(object sender, FormClosedEventArgs e)
+        private void ExitProgram(DialogResult result)
         {
-            DialogResult result = MessageBox.Show("Are you sure you want to close Hairology?", "Confirm Action", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
             if (result == DialogResult.Yes)
             {
-                Application.Exit();
+                _closing = true;
+                this.Close();
+            }
+        }
+        private void Login_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (_closing == false)
+            {
+                DialogResult result = MessageBox.Show("Are you sure you want to close Hairology?", "Confirm Action", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                ExitProgram(result);
             }
         }
     }
