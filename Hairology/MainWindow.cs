@@ -29,7 +29,9 @@ namespace Hairology
             _employee = employee;
             _login = log;
             tmrTimer.Start();
-            GetUsername(_employee.employeeNumber);
+            GetUsername(Convert.ToInt32(_employee.GetAttribute(8)));
+            GetAdminRights(bool.Parse(_employee.GetAttribute(11).ToString()));
+            lblFullName.Text = "(" + _employee.GetFullName() + ")";
             lblWelcome.Text = string.Format("Welcome, {0}", _username);
             lblWelcome.Text = "Welcome, " + _username;
             lblDate.Text = GetCurrentDate();
@@ -39,6 +41,10 @@ namespace Hairology
         {
             _username = null!;
         }
+        /// <summary>
+        /// gets username using account ID of current employee's user account
+        /// </summary>
+        /// <param name="number"></param>
         public void GetUsername(int number)
         {
             int accountID = default!;
@@ -56,6 +62,20 @@ namespace Hairology
             if (_reader.Read())
             {
                 _username = _reader[1].ToString();
+            }
+            _dbInstance.conn.Close();
+        }
+        public void GetAdminRights(bool privileges)
+        {
+            if (privileges == true)
+            {
+                pbxAdminRights.BackgroundImage = Properties.Resources.admin;
+                ttpInfo.SetToolTip(pbxAdminRights, "This account has administrative privileges");
+            }
+            else
+            {
+                pbxAdminRights.BackgroundImage = Properties.Resources.notadmin;
+                ttpInfo.SetToolTip(pbxAdminRights, "This account does not have administrative privileges");
             }
         }
         /// <summary>
@@ -140,6 +160,23 @@ namespace Hairology
         {
             uscTransactions.Hide();
             uscSettings.Show();
+        }
+
+        private void pbxAdminRights_MouseEnter(object sender, EventArgs e)
+        {
+            if (ttpInfo.Active == false)
+            {
+                ttpInfo.Active = true;
+            }
+        }
+
+        private void pbxAdminRights_MouseLeave(object sender, EventArgs e)
+        {
+            if (ttpInfo.Active == true)
+            {
+                ttpInfo.Hide(pbxAdminRights);
+                ttpInfo.Active = false;
+            }
         }
     }
 }

@@ -77,10 +77,15 @@ namespace Hairology
                 MessageBox.Show("You have not entered your username and/or password", "Missing Login Fields", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
+        /// <summary>
+        /// constructs employee object if details can be found using account id of supplied credentials to find matching employee number
+        /// </summary>
+        /// <param name="id"></param>
         private void GetEmployee(int id)
         {
             string employeeNumber = default!;
-            object[] employeeDetails = new object[9];
+            object[] personalDetails = new object[8];
+            object[] workDetails = new object[4];
             _command = new SqlCommand(string.Format(DatabaseQueries.SELECT_EMPLOYEE_NUMBER, id), _dbInstance.conn);
             _reader = _command.ExecuteReader();
             if (_reader.Read())
@@ -88,14 +93,20 @@ namespace Hairology
                 employeeNumber = _reader[0].ToString();
             }
             _reader.Close();
-            _command = new SqlCommand(string.Format(DatabaseQueries.SELECT_EMPLOYEE_DETAILS, employeeNumber), _dbInstance.conn);
+            _command = new SqlCommand(string.Format(DatabaseQueries.SELECT_EMPLOYEE_PERSONAL_DETAILS, employeeNumber), _dbInstance.conn);
             _reader = _command.ExecuteReader();
             if (_reader.Read())
             {
-                _reader.GetValues(employeeDetails);
-                employeeDetails[8] = employeeNumber.ToString();
-                _employee = new Employee(employeeDetails);
+                _reader.GetValues(personalDetails);
+            }
+            _reader.Close();
+            _command = new SqlCommand(string.Format(DatabaseQueries.SELECT_EMPLOYEE_WORK_DETAILS, employeeNumber), _dbInstance.conn);
+            _reader = _command.ExecuteReader();
+            if (_reader.Read())
+            {
+                _reader.GetValues(workDetails);
                 _reader.Close();
+                _employee = new Employee(personalDetails, workDetails);
             }
             else
             {

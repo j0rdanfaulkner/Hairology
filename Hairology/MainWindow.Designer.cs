@@ -33,6 +33,7 @@
             lblWelcome = new Label();
             pnlContainer = new Panel();
             pnlBottom = new Panel();
+            uscTransactions = new Transactions();
             uscSettings = new Settings();
             mstNavigationBar = new MenuStrip();
             AddNewToolStripMenuItem = new ToolStripMenuItem();
@@ -52,16 +53,19 @@
             transactionsToolStripMenuItem = new ToolStripMenuItem();
             settingsToolStripMenuItem = new ToolStripMenuItem();
             pnlTop = new Panel();
+            pbxAdminRights = new PictureBox();
+            lblFullName = new Label();
             lblTime = new Label();
             lblDate = new Label();
-            pictureBox1 = new PictureBox();
+            pbxLogo = new PictureBox();
             tmrTimer = new System.Windows.Forms.Timer(components);
-            uscTransactions = new Transactions();
+            ttpInfo = new ToolTip(components);
             pnlContainer.SuspendLayout();
             pnlBottom.SuspendLayout();
             mstNavigationBar.SuspendLayout();
             pnlTop.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pbxAdminRights).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pbxLogo).BeginInit();
             SuspendLayout();
             // 
             // lblWelcome
@@ -94,6 +98,15 @@
             pnlBottom.Name = "pnlBottom";
             pnlBottom.Size = new Size(1264, 489);
             pnlBottom.TabIndex = 2;
+            // 
+            // uscTransactions
+            // 
+            uscTransactions.Dock = DockStyle.Fill;
+            uscTransactions.Location = new Point(0, 50);
+            uscTransactions.Margin = new Padding(7, 5, 7, 5);
+            uscTransactions.Name = "uscTransactions";
+            uscTransactions.Size = new Size(1264, 439);
+            uscTransactions.TabIndex = 2;
             // 
             // uscSettings
             // 
@@ -244,15 +257,39 @@
             // 
             // pnlTop
             // 
+            pnlTop.Controls.Add(pbxAdminRights);
+            pnlTop.Controls.Add(lblFullName);
             pnlTop.Controls.Add(lblTime);
             pnlTop.Controls.Add(lblDate);
-            pnlTop.Controls.Add(pictureBox1);
+            pnlTop.Controls.Add(pbxLogo);
             pnlTop.Controls.Add(lblWelcome);
             pnlTop.Dock = DockStyle.Top;
             pnlTop.Location = new Point(0, 0);
             pnlTop.Name = "pnlTop";
             pnlTop.Size = new Size(1264, 192);
             pnlTop.TabIndex = 1;
+            // 
+            // pbxAdminRights
+            // 
+            pbxAdminRights.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            pbxAdminRights.BackgroundImageLayout = ImageLayout.Zoom;
+            pbxAdminRights.Location = new Point(1177, 101);
+            pbxAdminRights.Name = "pbxAdminRights";
+            pbxAdminRights.Size = new Size(75, 75);
+            pbxAdminRights.TabIndex = 4;
+            pbxAdminRights.TabStop = false;
+            pbxAdminRights.MouseEnter += pbxAdminRights_MouseEnter;
+            pbxAdminRights.MouseLeave += pbxAdminRights_MouseLeave;
+            // 
+            // lblFullName
+            // 
+            lblFullName.AutoSize = true;
+            lblFullName.Font = new Font("EurostileLTW03-Extended2", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            lblFullName.Location = new Point(327, 65);
+            lblFullName.Name = "lblFullName";
+            lblFullName.Size = new Size(164, 21);
+            lblFullName.TabIndex = 3;
+            lblFullName.Text = "([FULL NAME])";
             // 
             // lblTime
             // 
@@ -278,30 +315,21 @@
             lblDate.Text = "[DATE]";
             lblDate.TextAlign = ContentAlignment.MiddleRight;
             // 
-            // pictureBox1
+            // pbxLogo
             // 
-            pictureBox1.BackgroundImage = Properties.Resources.logo;
-            pictureBox1.BackgroundImageLayout = ImageLayout.Zoom;
-            pictureBox1.InitialImage = Properties.Resources.logo;
-            pictureBox1.Location = new Point(12, 12);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(300, 150);
-            pictureBox1.TabIndex = 0;
-            pictureBox1.TabStop = false;
+            pbxLogo.BackgroundImage = Properties.Resources.logo;
+            pbxLogo.BackgroundImageLayout = ImageLayout.Zoom;
+            pbxLogo.InitialImage = Properties.Resources.logo;
+            pbxLogo.Location = new Point(12, 12);
+            pbxLogo.Name = "pbxLogo";
+            pbxLogo.Size = new Size(300, 150);
+            pbxLogo.TabIndex = 0;
+            pbxLogo.TabStop = false;
             // 
             // tmrTimer
             // 
             tmrTimer.Interval = 1000;
             tmrTimer.Tick += tmrTimer_Tick;
-            // 
-            // uscTransactions
-            // 
-            uscTransactions.Dock = DockStyle.Fill;
-            uscTransactions.Location = new Point(0, 50);
-            uscTransactions.Margin = new Padding(7, 5, 7, 5);
-            uscTransactions.Name = "uscTransactions";
-            uscTransactions.Size = new Size(1264, 439);
-            uscTransactions.TabIndex = 2;
             // 
             // MainWindow
             // 
@@ -324,7 +352,8 @@
             mstNavigationBar.PerformLayout();
             pnlTop.ResumeLayout(false);
             pnlTop.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pbxAdminRights).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pbxLogo).EndInit();
             ResumeLayout(false);
         }
 
@@ -336,7 +365,7 @@
         private Panel pnlBottom;
         private MenuStrip mstNavigationBar;
         private ToolStripMenuItem AddNewToolStripMenuItem;
-        private PictureBox pictureBox1;
+        private PictureBox pbxLogo;
         private ToolStripMenuItem addNewCustomerToolStripMenuItem;
         private ToolStripMenuItem customerToolStripMenuItem;
         private ToolStripMenuItem employeeToolStripMenuItem;
@@ -357,5 +386,8 @@
         private System.Windows.Forms.Timer tmrTimer;
         private Settings uscSettings;
         private Transactions uscTransactions;
+        private Label lblFullName;
+        private PictureBox pbxAdminRights;
+        private ToolTip ttpInfo;
     }
 }
