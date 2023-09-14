@@ -14,11 +14,15 @@ namespace Hairology
     {
         private string _username = default!;
         private Login _login;
+        private string _currentDate;
+        private string _currentTime;
         public MainWindow(string username)
         {
             InitializeComponent();
             _username = username;
             lblWelcome.Text = "Welcome, " + _username;
+            lblDate.Text = GetCurrentDate();
+            lblTime.Text = GetCurrentTime();
         }
         ~MainWindow()
         {
@@ -29,6 +33,16 @@ namespace Hairology
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
+        string GetCurrentDate()
+        {
+            _currentDate = DateTime.Now.ToString("ddd, dd MMM yyyy");
+            return _currentDate;
+        }
+        string GetCurrentTime()
+        {
+            _currentTime = DateTime.Now.ToString("hh: mm tt");
+            return _currentTime;
+        }
         private void MainWindow_FormClosed(object sender, FormClosedEventArgs e)
         {
             DialogResult closing = MessageBox.Show("Are you sure you want to log out?", "Confirm Log Out", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
