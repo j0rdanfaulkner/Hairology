@@ -36,6 +36,7 @@ namespace Hairology
             lblWelcome.Text = "Welcome, " + _username;
             lblDate.Text = GetCurrentDate();
             lblTime.Text = GetCurrentTime();
+            uscAddNewPerson.Hide();
         }
         ~MainWindow()
         {
@@ -73,6 +74,7 @@ namespace Hairology
                 ttpInfo.SetToolTip(pbxAdminRights, "This account has administrative privileges");
                 uscTransactions.Enabled = true;
                 uscTransactions.Visible = true;
+                AddNewToolStripMenuItem.Enabled = true;
             }
             else
             {
@@ -80,6 +82,7 @@ namespace Hairology
                 ttpInfo.SetToolTip(pbxAdminRights, "This account does not have administrative privileges");
                 uscTransactions.Enabled = false;
                 uscTransactions.Visible = false;
+                AddNewToolStripMenuItem.Enabled = false;
             }
         }
         /// <summary>
@@ -135,16 +138,25 @@ namespace Hairology
         {
             lblTime.Text = GetCurrentTime();
         }
-
-        private void AddNewToolStripMenuItem_Click(object sender, EventArgs e)
+        private void addNewEmployeeToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            uscAddNewPerson.SetPersonType("Employee");
+            uscAddNewPerson.Show();
             uscInventory.Hide();
             uscTransactions.Hide();
             uscSettings.Hide();
         }
-
+        private void addNewCustomerToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            uscAddNewPerson.SetPersonType("Customer");
+            uscAddNewPerson.Show();
+            uscInventory.Hide();
+            uscTransactions.Hide();
+            uscSettings.Hide();
+        }
         private void searchToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            uscAddNewPerson.Hide();
             uscInventory.Hide();
             uscTransactions.Hide();
             uscSettings.Hide();
@@ -152,6 +164,7 @@ namespace Hairology
 
         private void inventoryToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            uscAddNewPerson.Hide();
             uscInventory.Show();
             uscTransactions.Hide();
             uscSettings.Hide();
@@ -165,6 +178,7 @@ namespace Hairology
             }
             else
             {
+                uscAddNewPerson.Hide();
                 uscInventory.Hide();
                 uscTransactions.Show();
                 uscSettings.Hide();
@@ -173,6 +187,7 @@ namespace Hairology
 
         private void settingsToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            uscAddNewPerson.Hide();
             uscInventory.Hide();
             uscTransactions.Hide();
             uscSettings.Show();

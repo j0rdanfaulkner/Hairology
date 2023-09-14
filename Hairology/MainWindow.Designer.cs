@@ -33,14 +33,13 @@
             lblWelcome = new Label();
             pnlContainer = new Panel();
             pnlBottom = new Panel();
-            uscTransactions = new Transactions();
             uscSettings = new Settings();
             mstNavigationBar = new MenuStrip();
             AddNewToolStripMenuItem = new ToolStripMenuItem();
-            addNewCustomerToolStripMenuItem = new ToolStripMenuItem();
-            employeeToolStripMenuItem = new ToolStripMenuItem();
+            addNewPersonToolStripMenuItem = new ToolStripMenuItem();
+            addNewEmployeeToolStripMenuItem = new ToolStripMenuItem();
             toolStripSeparator1 = new ToolStripSeparator();
-            customerToolStripMenuItem = new ToolStripMenuItem();
+            addNewCustomerToolStripMenuItem = new ToolStripMenuItem();
             searchToolStripMenuItem = new ToolStripMenuItem();
             peopleToolStripMenuItem = new ToolStripMenuItem();
             employeesToolStripMenuItem = new ToolStripMenuItem();
@@ -60,7 +59,9 @@
             pbxLogo = new PictureBox();
             tmrTimer = new System.Windows.Forms.Timer(components);
             ttpInfo = new ToolTip(components);
+            uscTransactions = new Transactions();
             uscInventory = new Inventory();
+            uscAddNewPerson = new AddNewPerson();
             pnlContainer.SuspendLayout();
             pnlBottom.SuspendLayout();
             mstNavigationBar.SuspendLayout();
@@ -91,24 +92,16 @@
             // 
             // pnlBottom
             // 
+            pnlBottom.Controls.Add(uscAddNewPerson);
             pnlBottom.Controls.Add(uscInventory);
             pnlBottom.Controls.Add(uscTransactions);
             pnlBottom.Controls.Add(uscSettings);
             pnlBottom.Controls.Add(mstNavigationBar);
-            pnlBottom.Dock = DockStyle.Top;
+            pnlBottom.Dock = DockStyle.Fill;
             pnlBottom.Location = new Point(0, 192);
             pnlBottom.Name = "pnlBottom";
             pnlBottom.Size = new Size(1264, 489);
             pnlBottom.TabIndex = 2;
-            // 
-            // uscTransactions
-            // 
-            uscTransactions.Dock = DockStyle.Fill;
-            uscTransactions.Location = new Point(0, 50);
-            uscTransactions.Margin = new Padding(7, 5, 7, 5);
-            uscTransactions.Name = "uscTransactions";
-            uscTransactions.Size = new Size(1264, 439);
-            uscTransactions.TabIndex = 2;
             // 
             // uscSettings
             // 
@@ -138,39 +131,40 @@
             // 
             AddNewToolStripMenuItem.BackColor = Color.SteelBlue;
             AddNewToolStripMenuItem.BackgroundImageLayout = ImageLayout.Zoom;
-            AddNewToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { addNewCustomerToolStripMenuItem });
+            AddNewToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { addNewPersonToolStripMenuItem });
             AddNewToolStripMenuItem.Image = Properties.Resources.addnew;
             AddNewToolStripMenuItem.Name = "AddNewToolStripMenuItem";
             AddNewToolStripMenuItem.Size = new Size(99, 46);
             AddNewToolStripMenuItem.Text = "Add";
-            AddNewToolStripMenuItem.Click += AddNewToolStripMenuItem_Click;
             // 
-            // addNewCustomerToolStripMenuItem
+            // addNewPersonToolStripMenuItem
             // 
-            addNewCustomerToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { employeeToolStripMenuItem, toolStripSeparator1, customerToolStripMenuItem });
-            addNewCustomerToolStripMenuItem.Image = Properties.Resources.addnew;
-            addNewCustomerToolStripMenuItem.Name = "addNewCustomerToolStripMenuItem";
-            addNewCustomerToolStripMenuItem.Size = new Size(235, 38);
-            addNewCustomerToolStripMenuItem.Text = "New Person";
+            addNewPersonToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { addNewEmployeeToolStripMenuItem, toolStripSeparator1, addNewCustomerToolStripMenuItem });
+            addNewPersonToolStripMenuItem.Image = Properties.Resources.addnew;
+            addNewPersonToolStripMenuItem.Name = "addNewPersonToolStripMenuItem";
+            addNewPersonToolStripMenuItem.Size = new Size(235, 38);
+            addNewPersonToolStripMenuItem.Text = "New Person";
             // 
-            // employeeToolStripMenuItem
+            // addNewEmployeeToolStripMenuItem
             // 
-            employeeToolStripMenuItem.Image = Properties.Resources.user;
-            employeeToolStripMenuItem.Name = "employeeToolStripMenuItem";
-            employeeToolStripMenuItem.Size = new Size(209, 38);
-            employeeToolStripMenuItem.Text = "Employee";
+            addNewEmployeeToolStripMenuItem.Image = Properties.Resources.user;
+            addNewEmployeeToolStripMenuItem.Name = "addNewEmployeeToolStripMenuItem";
+            addNewEmployeeToolStripMenuItem.Size = new Size(209, 38);
+            addNewEmployeeToolStripMenuItem.Text = "Employee";
+            addNewEmployeeToolStripMenuItem.Click += addNewEmployeeToolStripMenuItem_Click;
             // 
             // toolStripSeparator1
             // 
             toolStripSeparator1.Name = "toolStripSeparator1";
             toolStripSeparator1.Size = new Size(206, 6);
             // 
-            // customerToolStripMenuItem
+            // addNewCustomerToolStripMenuItem
             // 
-            customerToolStripMenuItem.Image = Properties.Resources.customer;
-            customerToolStripMenuItem.Name = "customerToolStripMenuItem";
-            customerToolStripMenuItem.Size = new Size(209, 38);
-            customerToolStripMenuItem.Text = "Customer";
+            addNewCustomerToolStripMenuItem.Image = Properties.Resources.customer;
+            addNewCustomerToolStripMenuItem.Name = "addNewCustomerToolStripMenuItem";
+            addNewCustomerToolStripMenuItem.Size = new Size(209, 38);
+            addNewCustomerToolStripMenuItem.Text = "Customer";
+            addNewCustomerToolStripMenuItem.Click += addNewCustomerToolStripMenuItem_Click;
             // 
             // searchToolStripMenuItem
             // 
@@ -333,14 +327,31 @@
             tmrTimer.Interval = 1000;
             tmrTimer.Tick += tmrTimer_Tick;
             // 
+            // uscTransactions
+            // 
+            uscTransactions.Dock = DockStyle.Fill;
+            uscTransactions.Location = new Point(0, 50);
+            uscTransactions.Margin = new Padding(16, 8, 16, 8);
+            uscTransactions.Name = "uscTransactions";
+            uscTransactions.Size = new Size(1264, 439);
+            uscTransactions.TabIndex = 2;
+            // 
             // uscInventory
             // 
             uscInventory.Dock = DockStyle.Fill;
             uscInventory.Location = new Point(0, 50);
-            uscInventory.Margin = new Padding(7, 5, 7, 5);
+            uscInventory.Margin = new Padding(16, 8, 16, 8);
             uscInventory.Name = "uscInventory";
             uscInventory.Size = new Size(1264, 439);
             uscInventory.TabIndex = 3;
+            // 
+            // uscAddNewPerson
+            // 
+            uscAddNewPerson.Dock = DockStyle.Fill;
+            uscAddNewPerson.Location = new Point(0, 50);
+            uscAddNewPerson.Name = "uscAddNewPerson";
+            uscAddNewPerson.Size = new Size(1264, 439);
+            uscAddNewPerson.TabIndex = 4;
             // 
             // MainWindow
             // 
@@ -377,9 +388,9 @@
         private MenuStrip mstNavigationBar;
         private ToolStripMenuItem AddNewToolStripMenuItem;
         private PictureBox pbxLogo;
+        private ToolStripMenuItem addNewPersonToolStripMenuItem;
         private ToolStripMenuItem addNewCustomerToolStripMenuItem;
-        private ToolStripMenuItem customerToolStripMenuItem;
-        private ToolStripMenuItem employeeToolStripMenuItem;
+        private ToolStripMenuItem addNewEmployeeToolStripMenuItem;
         private ToolStripMenuItem settingsToolStripMenuItem;
         private ToolStripMenuItem logOutToolStripMenuItem;
         private ToolStripMenuItem inventoryToolStripMenuItem;
@@ -395,11 +406,12 @@
         private Label lblDate;
         private Label lblTime;
         private System.Windows.Forms.Timer tmrTimer;
-        private Settings uscSettings;
-        private Transactions uscTransactions;
         private Label lblFullName;
         private PictureBox pbxAdminRights;
         private ToolTip ttpInfo;
+        private Settings uscSettings;
+        private AddNewPerson uscAddNewPerson;
         private Inventory uscInventory;
+        private Transactions uscTransactions;
     }
 }

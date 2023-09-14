@@ -28,25 +28,25 @@
         /// </summary>
         private void InitializeComponent()
         {
-            label1 = new Label();
+            lblSettings = new Label();
             pnlContainer = new Panel();
             pnlContainer.SuspendLayout();
             SuspendLayout();
             // 
-            // label1
+            // lblSettings
             // 
-            label1.AutoSize = true;
-            label1.Font = new Font("EurostileLTW03-Extended2", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
-            label1.Location = new Point(15, 15);
-            label1.Name = "label1";
-            label1.Size = new Size(137, 28);
-            label1.TabIndex = 0;
-            label1.Text = "Settings";
+            lblSettings.AutoSize = true;
+            lblSettings.Font = new Font("EurostileLTW03-Extended2", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
+            lblSettings.Location = new Point(15, 15);
+            lblSettings.Name = "lblSettings";
+            lblSettings.Size = new Size(137, 28);
+            lblSettings.TabIndex = 0;
+            lblSettings.Text = "Settings";
             // 
             // pnlContainer
             // 
-            pnlContainer.Controls.Add(label1);
-            pnlContainer.Dock = DockStyle.Fill;
+            pnlContainer.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            pnlContainer.Controls.Add(lblSettings);
             pnlContainer.Location = new Point(0, 0);
             pnlContainer.Name = "pnlContainer";
             pnlContainer.Size = new Size(1264, 449);
@@ -69,7 +69,7 @@
 
         #endregion
 
-        private Label label1;
+        private Label lblSettings;
         private Panel pnlContainer;
     }
 }
