@@ -43,7 +43,7 @@ namespace Hairology
                         if (_password == _reader["password"].ToString())
                         {
                             _dbInstance.conn.Close();
-                            _mainWindow = new MainWindow(username);
+                            _mainWindow = new MainWindow(username, this);
                             _mainWindow.Show();
                             this.Hide();
                         }
@@ -94,7 +94,7 @@ namespace Hairology
             if (result == DialogResult.Yes)
             {
                 _closing = true;
-                this.Close();
+                Application.Exit();
             }
         }
         private void Login_FormClosing(object sender, FormClosingEventArgs e)

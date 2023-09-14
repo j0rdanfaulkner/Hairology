@@ -17,10 +17,12 @@ namespace Hairology
         private string _currentDate = default!;
         private string _currentTime = default!;
         private bool _closing = false;
-        public MainWindow(string username)
+        public MainWindow(string username, Login log)
         {
             InitializeComponent();
+            tmrTimer.Start();
             _username = username;
+            _login = log;
             lblWelcome.Text = "Welcome, " + _username;
             lblDate.Text = GetCurrentDate();
             lblTime.Text = GetCurrentTime();
@@ -30,25 +32,32 @@ namespace Hairology
             _username = null!;
         }
         /// <summary>
-        /// ask to confirm log out when form is closed
+        /// gets the current date and formats it in a long form
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+        /// <returns></returns>
         string GetCurrentDate()
         {
             _currentDate = DateTime.Now.ToString("ddd, dd MMM yyyy");
             return _currentDate;
         }
+        /// <summary>
+        /// gets the current time in HOURS:MINUTES:SECONDS format
+        /// </summary>
+        /// <returns></returns>
         string GetCurrentTime()
         {
-            _currentTime = DateTime.Now.ToString("hh: mm tt");
+            _currentTime = DateTime.Now.ToString("HH:mm:ss");
             return _currentTime;
         }
+        /// <summary>
+        /// ask to confirm log out when form is closing
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void LogOut(DialogResult result, bool logOutButtonClicked)
         {
             if (result == DialogResult.Yes)
             {
-                _login = new Login();
                 _login.Show();
                 if (logOutButtonClicked == true)
                 {
@@ -57,7 +66,6 @@ namespace Hairology
                 }
             }
         }
-
         private void logOutToolStripMenuItem_Click(object sender, EventArgs e)
         {
             DialogResult closing = MessageBox.Show("Are you sure you want to log out?", "Confirm Log Out", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
@@ -75,6 +83,40 @@ namespace Hairology
                 DialogResult closing = MessageBox.Show("Are you sure you want to log out?", "Confirm Log Out", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                 LogOut(closing, false);
             }
+        }
+        /// <summary>
+        /// updates the label showing the current time every second
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void tmrTimer_Tick(object sender, EventArgs e)
+        {
+            lblTime.Text = GetCurrentTime();
+        }
+
+        private void AddNewToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            uscSettings.Hide();
+        }
+
+        private void searchToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            uscSettings.Hide();
+        }
+
+        private void inventoryToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            uscSettings.Hide();
+        }
+
+        private void transactionsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            uscSettings.Hide();
+        }
+
+        private void settingsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            uscSettings.Show();
         }
     }
 }

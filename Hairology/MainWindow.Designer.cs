@@ -28,10 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainWindow));
             lblWelcome = new Label();
             pnlContainer = new Panel();
             pnlBottom = new Panel();
+            uscSettings = new Settings();
             mstNavigationBar = new MenuStrip();
             AddNewToolStripMenuItem = new ToolStripMenuItem();
             addNewCustomerToolStripMenuItem = new ToolStripMenuItem();
@@ -53,6 +55,7 @@
             lblTime = new Label();
             lblDate = new Label();
             pictureBox1 = new PictureBox();
+            tmrTimer = new System.Windows.Forms.Timer(components);
             pnlContainer.SuspendLayout();
             pnlBottom.SuspendLayout();
             mstNavigationBar.SuspendLayout();
@@ -82,12 +85,24 @@
             // 
             // pnlBottom
             // 
+            pnlBottom.Controls.Add(uscSettings);
             pnlBottom.Controls.Add(mstNavigationBar);
             pnlBottom.Dock = DockStyle.Top;
             pnlBottom.Location = new Point(0, 192);
             pnlBottom.Name = "pnlBottom";
             pnlBottom.Size = new Size(1264, 489);
             pnlBottom.TabIndex = 2;
+            // 
+            // uscSettings
+            // 
+            uscSettings.BackColor = Color.IndianRed;
+            uscSettings.Dock = DockStyle.Fill;
+            uscSettings.Font = new Font("EurostileLTW03-Extended2", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            uscSettings.Location = new Point(0, 50);
+            uscSettings.Margin = new Padding(6, 4, 6, 4);
+            uscSettings.Name = "uscSettings";
+            uscSettings.Size = new Size(1264, 439);
+            uscSettings.TabIndex = 1;
             // 
             // mstNavigationBar
             // 
@@ -111,6 +126,7 @@
             AddNewToolStripMenuItem.Name = "AddNewToolStripMenuItem";
             AddNewToolStripMenuItem.Size = new Size(99, 46);
             AddNewToolStripMenuItem.Text = "Add";
+            AddNewToolStripMenuItem.Click += AddNewToolStripMenuItem_Click;
             // 
             // addNewCustomerToolStripMenuItem
             // 
@@ -146,6 +162,7 @@
             searchToolStripMenuItem.Name = "searchToolStripMenuItem";
             searchToolStripMenuItem.Size = new Size(135, 46);
             searchToolStripMenuItem.Text = "Search";
+            searchToolStripMenuItem.Click += searchToolStripMenuItem_Click;
             // 
             // peopleToolStripMenuItem
             // 
@@ -205,6 +222,7 @@
             inventoryToolStripMenuItem.Name = "inventoryToolStripMenuItem";
             inventoryToolStripMenuItem.Size = new Size(160, 46);
             inventoryToolStripMenuItem.Text = "Inventory";
+            inventoryToolStripMenuItem.Click += inventoryToolStripMenuItem_Click;
             // 
             // transactionsToolStripMenuItem
             // 
@@ -212,6 +230,7 @@
             transactionsToolStripMenuItem.Name = "transactionsToolStripMenuItem";
             transactionsToolStripMenuItem.Size = new Size(200, 46);
             transactionsToolStripMenuItem.Text = "Transactions";
+            transactionsToolStripMenuItem.Click += transactionsToolStripMenuItem_Click;
             // 
             // settingsToolStripMenuItem
             // 
@@ -219,6 +238,7 @@
             settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
             settingsToolStripMenuItem.Size = new Size(150, 46);
             settingsToolStripMenuItem.Text = "Settings";
+            settingsToolStripMenuItem.Click += settingsToolStripMenuItem_Click;
             // 
             // pnlTop
             // 
@@ -236,10 +256,10 @@
             // 
             lblTime.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             lblTime.Font = new Font("EurostileLTW03-Extended2", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
-            lblTime.Location = new Point(912, 60);
+            lblTime.Location = new Point(884, 60);
             lblTime.Name = "lblTime";
             lblTime.RightToLeft = RightToLeft.No;
-            lblTime.Size = new Size(340, 28);
+            lblTime.Size = new Size(368, 28);
             lblTime.TabIndex = 2;
             lblTime.Text = "[TIME]";
             lblTime.TextAlign = ContentAlignment.MiddleRight;
@@ -248,10 +268,10 @@
             // 
             lblDate.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             lblDate.Font = new Font("EurostileLTW03-Extended2", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
-            lblDate.Location = new Point(912, 22);
+            lblDate.Location = new Point(884, 22);
             lblDate.Name = "lblDate";
             lblDate.RightToLeft = RightToLeft.No;
-            lblDate.Size = new Size(340, 28);
+            lblDate.Size = new Size(368, 28);
             lblDate.TabIndex = 1;
             lblDate.Text = "[DATE]";
             lblDate.TextAlign = ContentAlignment.MiddleRight;
@@ -266,6 +286,11 @@
             pictureBox1.Size = new Size(300, 150);
             pictureBox1.TabIndex = 0;
             pictureBox1.TabStop = false;
+            // 
+            // tmrTimer
+            // 
+            tmrTimer.Interval = 1000;
+            tmrTimer.Tick += tmrTimer_Tick;
             // 
             // MainWindow
             // 
@@ -318,5 +343,7 @@
         private ToolStripMenuItem transactionsToolStripMenuItem1;
         private Label lblDate;
         private Label lblTime;
+        private System.Windows.Forms.Timer tmrTimer;
+        private Settings uscSettings;
     }
 }
