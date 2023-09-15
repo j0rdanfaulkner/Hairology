@@ -148,6 +148,7 @@ namespace Hairology
         {
             uscAddNewPerson.SetPersonType("Employee");
             uscAddNewPerson.Show();
+            uscSearch.Hide();
             uscInventory.Hide();
             uscTransactions.Hide();
             uscSettings.Hide();
@@ -156,21 +157,34 @@ namespace Hairology
         {
             uscAddNewPerson.SetPersonType("Customer");
             uscAddNewPerson.Show();
+            uscSearch.Hide();
             uscInventory.Hide();
             uscTransactions.Hide();
             uscSettings.Hide();
         }
-        private void searchToolStripMenuItem_Click(object sender, EventArgs e)
+        private void searchEmployeesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             uscAddNewPerson.Hide();
+            uscSearch.SetSearchType("Employee");
+            uscSearch.Show();
             uscInventory.Hide();
             uscTransactions.Hide();
             uscSettings.Hide();
         }
 
+        private void searchCustomersToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            uscAddNewPerson.Hide();
+            uscSearch.SetSearchType("Customer");
+            uscSearch.Show();
+            uscInventory.Hide();
+            uscTransactions.Hide();
+            uscSettings.Hide();
+        }
         private void inventoryToolStripMenuItem_Click(object sender, EventArgs e)
         {
             uscAddNewPerson.Hide();
+            uscSearch.Hide();
             uscInventory.Show();
             uscTransactions.Hide();
             uscSettings.Hide();
@@ -185,6 +199,7 @@ namespace Hairology
             else
             {
                 uscAddNewPerson.Hide();
+                uscSearch.Hide();
                 uscInventory.Hide();
                 uscTransactions.Show();
                 uscSettings.Hide();
@@ -194,6 +209,7 @@ namespace Hairology
         private void settingsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             uscAddNewPerson.Hide();
+            uscSearch.Hide();
             uscInventory.Hide();
             uscTransactions.Hide();
             uscSettings.Show();

@@ -33,6 +33,7 @@
             lblWelcome = new Label();
             pnlContainer = new Panel();
             pnlBottom = new Panel();
+            uscSearch = new Search();
             uscAddNewPerson = new AddNewPerson();
             uscInventory = new Inventory();
             uscTransactions = new Transactions();
@@ -49,9 +50,9 @@
             newTransactionToolStripMenuItem = new ToolStripMenuItem();
             searchToolStripMenuItem = new ToolStripMenuItem();
             peopleToolStripMenuItem = new ToolStripMenuItem();
-            employeesToolStripMenuItem = new ToolStripMenuItem();
+            searchEmployeesToolStripMenuItem = new ToolStripMenuItem();
             toolStripSeparator2 = new ToolStripSeparator();
-            customersToolStripMenuItem = new ToolStripMenuItem();
+            searchCustomersToolStripMenuItem = new ToolStripMenuItem();
             toolStripSeparator5 = new ToolStripSeparator();
             productsToolStripMenuItem = new ToolStripMenuItem();
             toolStripSeparator6 = new ToolStripSeparator();
@@ -98,6 +99,7 @@
             // 
             // pnlBottom
             // 
+            pnlBottom.Controls.Add(uscSearch);
             pnlBottom.Controls.Add(uscAddNewPerson);
             pnlBottom.Controls.Add(uscInventory);
             pnlBottom.Controls.Add(uscTransactions);
@@ -108,6 +110,15 @@
             pnlBottom.Name = "pnlBottom";
             pnlBottom.Size = new Size(1264, 489);
             pnlBottom.TabIndex = 2;
+            // 
+            // uscSearch
+            // 
+            uscSearch.Dock = DockStyle.Fill;
+            uscSearch.Location = new Point(0, 50);
+            uscSearch.Margin = new Padding(7, 5, 7, 5);
+            uscSearch.Name = "uscSearch";
+            uscSearch.Size = new Size(1264, 439);
+            uscSearch.TabIndex = 5;
             // 
             // uscAddNewPerson
             // 
@@ -229,34 +240,35 @@
             searchToolStripMenuItem.Name = "searchToolStripMenuItem";
             searchToolStripMenuItem.Size = new Size(135, 46);
             searchToolStripMenuItem.Text = "Search";
-            searchToolStripMenuItem.Click += searchToolStripMenuItem_Click;
             // 
             // peopleToolStripMenuItem
             // 
-            peopleToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { employeesToolStripMenuItem, toolStripSeparator2, customersToolStripMenuItem });
+            peopleToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { searchEmployeesToolStripMenuItem, toolStripSeparator2, searchCustomersToolStripMenuItem });
             peopleToolStripMenuItem.Image = Properties.Resources.people;
             peopleToolStripMenuItem.Name = "peopleToolStripMenuItem";
             peopleToolStripMenuItem.Size = new Size(242, 38);
             peopleToolStripMenuItem.Text = "People";
             // 
-            // employeesToolStripMenuItem
+            // searchEmployeesToolStripMenuItem
             // 
-            employeesToolStripMenuItem.Image = Properties.Resources.searchemployees;
-            employeesToolStripMenuItem.Name = "employeesToolStripMenuItem";
-            employeesToolStripMenuItem.Size = new Size(222, 38);
-            employeesToolStripMenuItem.Text = "Employees";
+            searchEmployeesToolStripMenuItem.Image = Properties.Resources.searchemployees;
+            searchEmployeesToolStripMenuItem.Name = "searchEmployeesToolStripMenuItem";
+            searchEmployeesToolStripMenuItem.Size = new Size(222, 38);
+            searchEmployeesToolStripMenuItem.Text = "Employees";
+            searchEmployeesToolStripMenuItem.Click += searchEmployeesToolStripMenuItem_Click;
             // 
             // toolStripSeparator2
             // 
             toolStripSeparator2.Name = "toolStripSeparator2";
             toolStripSeparator2.Size = new Size(219, 6);
             // 
-            // customersToolStripMenuItem
+            // searchCustomersToolStripMenuItem
             // 
-            customersToolStripMenuItem.Image = Properties.Resources.searchcustomers;
-            customersToolStripMenuItem.Name = "customersToolStripMenuItem";
-            customersToolStripMenuItem.Size = new Size(222, 38);
-            customersToolStripMenuItem.Text = "Customers";
+            searchCustomersToolStripMenuItem.Image = Properties.Resources.searchcustomers;
+            searchCustomersToolStripMenuItem.Name = "searchCustomersToolStripMenuItem";
+            searchCustomersToolStripMenuItem.Size = new Size(222, 38);
+            searchCustomersToolStripMenuItem.Text = "Customers";
+            searchCustomersToolStripMenuItem.Click += searchCustomersToolStripMenuItem_Click;
             // 
             // toolStripSeparator5
             // 
@@ -436,8 +448,8 @@
         private ToolStripMenuItem inventoryToolStripMenuItem;
         private ToolStripMenuItem searchToolStripMenuItem;
         private ToolStripMenuItem peopleToolStripMenuItem;
-        private ToolStripMenuItem customersToolStripMenuItem;
-        private ToolStripMenuItem employeesToolStripMenuItem;
+        private ToolStripMenuItem searchCustomersToolStripMenuItem;
+        private ToolStripMenuItem searchEmployeesToolStripMenuItem;
         private ToolStripMenuItem productsToolStripMenuItem;
         private ToolStripSeparator toolStripSeparator1;
         private ToolStripSeparator toolStripSeparator2;
@@ -459,5 +471,6 @@
         private ToolStripSeparator toolStripSeparator5;
         private ToolStripSeparator toolStripSeparator6;
         private AddNewPerson uscAddNewPerson;
+        private Search uscSearch;
     }
 }

@@ -46,6 +46,7 @@ namespace Hairology
                     var column = dgvTransactions.Columns[i];
                     column.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
                     column.DefaultCellStyle.BackColor = Color.Silver;
+                    column.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
                     switch (i)
                     {
                         case 0:
@@ -67,6 +68,7 @@ namespace Hairology
                             break;
                     }
                 }
+                _dbInstance.conn.Close();
             }
             catch (Exception ex)
             {

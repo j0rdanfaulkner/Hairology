@@ -168,19 +168,20 @@ namespace Hairology
                     _reader.Close();
                     _command = new SqlCommand(string.Format(DatabaseQueries.INSERT_INTO_CUSTOMERS, randomID, firstName, lastName, age, sex, addressLine1, addressLine2, county, postCode, regularCustomer), _dbInstance.conn);
                     _reader = _command.ExecuteReader();
-                    _reader.Close(); _command = new SqlCommand(string.Format(DatabaseQueries.SELECT_CUSTOMER_ID, randomID), _dbInstance.conn);
+                    _reader.Close();
+                    // search for newly-inserted customer to verify that they have been added to database successfully
+                    _command = new SqlCommand(string.Format(DatabaseQueries.SELECT_CUSTOMER_ID, randomID), _dbInstance.conn);
                     _reader = _command.ExecuteReader();
                     if (_reader.Read())
                     {
-                        MessageBox.Show(_type + " '" + firstName + " " + lastName + "' was inserted into the database successfully", _type + " Added Successfully", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("'" + firstName + " " + lastName + "' was inserted into the Customers table successfully", _type + " Added Successfully", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         _reader.Close();
-                        MainWindow.uscAddNewPerson.Hide();
                     }
                 }
             }
             else if (_type == "Employee")
             {
-                MessageBox.Show(_type + " [NAME] was inserted into the database successfully", _type + " Added Successfully", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("'" + firstName + " " + lastName + "' was inserted into the Employees table successfully", _type + " Added Successfully", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
         /// <summary>

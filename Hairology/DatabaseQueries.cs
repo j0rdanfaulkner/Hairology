@@ -22,6 +22,10 @@ namespace Hairology
 
         public const string SELECT_ACCOUNT_ID = "SELECT account_id FROM [Employees] WHERE employee_number = '{0}'";
 
+        public const string SELECT_ALL_CUSTOMERS = "SELECT first_name, last_name, age, sex, address_line_1, address_line_2, county, post_code, regular_customer FROM [Customers]";
+
+        public const string SELECT_ALL_EMPLOYEES = "SELECT d.first_name, d.last_name, d.age, d.sex, d.address_line_1, d.address_line_2, d.county, d.post_code, e.department, e.completed_training, e.admin_rights FROM [Employee Details] AS d LEFT JOIN [Employees] AS e ON d.employee_number = e.employee_number";
+
         public const string SELECT_ALL_TRANSACTIONS = "SELECT transaction_id, card_number, security_code, expiration_date, transaction_completed FROM [Transactions]";
 
         public const string SELECT_ALL_INVENTORY_RECORDS = "SELECT product_name, category, ean_number, case_size, current_quantity, reorder_regularly FROM [Inventory]";
