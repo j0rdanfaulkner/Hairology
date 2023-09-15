@@ -74,7 +74,7 @@
             panel1.Dock = DockStyle.Left;
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(445, 449);
+            panel1.Size = new Size(580, 449);
             panel1.TabIndex = 13;
             // 
             // cbxRegularCustomer
@@ -93,7 +93,7 @@
             tbxFirstName.Location = new Point(22, 67);
             tbxFirstName.Name = "tbxFirstName";
             tbxFirstName.PlaceholderText = "  FIRST NAME";
-            tbxFirstName.Size = new Size(399, 33);
+            tbxFirstName.Size = new Size(538, 33);
             tbxFirstName.TabIndex = 1;
             // 
             // lblAddNewPerson
@@ -111,7 +111,7 @@
             rbtnMale.Anchor = AnchorStyles.Top;
             rbtnMale.AutoSize = true;
             rbtnMale.Cursor = Cursors.Hand;
-            rbtnMale.Location = new Point(163, 145);
+            rbtnMale.Location = new Point(267, 145);
             rbtnMale.Name = "rbtnMale";
             rbtnMale.Size = new Size(109, 29);
             rbtnMale.TabIndex = 4;
@@ -126,7 +126,7 @@
             btnSubmit.FlatStyle = FlatStyle.System;
             btnSubmit.Location = new Point(22, 333);
             btnSubmit.Name = "btnSubmit";
-            btnSubmit.Size = new Size(399, 60);
+            btnSubmit.Size = new Size(538, 60);
             btnSubmit.TabIndex = 10;
             btnSubmit.Text = "SUBMIT DETAILS";
             btnSubmit.UseVisualStyleBackColor = true;
@@ -139,16 +139,17 @@
             tbxAddressLine2.Multiline = true;
             tbxAddressLine2.Name = "tbxAddressLine2";
             tbxAddressLine2.PlaceholderText = "  ADDRESS LINE 2";
-            tbxAddressLine2.Size = new Size(399, 33);
+            tbxAddressLine2.Size = new Size(538, 33);
             tbxAddressLine2.TabIndex = 7;
             // 
             // cbxCounty
             // 
             cbxCounty.Anchor = AnchorStyles.Top;
             cbxCounty.FormattingEnabled = true;
+            cbxCounty.Items.AddRange(new object[] { "Bath and North East Somerset", "Bedfordshire", "Berkshire", "Bristol", "Buckinghamshire", "Cambridgeshire", "Cheshire", "Cornwall", "County Durham", "Cumbria", "Derbyshire", "Devon", "Dorset", "East Riding of Yorkshire", "East Sussex", "Essex", "Gloucestershire", "Greater London", "Greater Manchester", "Hampshire", "Herefordshire", "Hertfordshire", "Isle of Wight", "Isles of Scilly", "Kent", "Lancashire", "Leicestershire", "Lincolnshire", "Merseyside", "Norfolk", "North Somerset", "North Yorkshire", "Northamptonshire", "Northumberland", "Nottinghamshire", "Oxfordshire", "Rutland", "Shropshire", "Somerset", "South Gloucestershire", "South Yorkshire", "Staffordshire", "Suffolk", "Surrey", "Tyne & Wear", "Warwickshire", "West Midlands", "West Sussex", "West Yorkshire", "Wiltshire", "Worcestershire" });
             cbxCounty.Location = new Point(22, 262);
             cbxCounty.Name = "cbxCounty";
-            cbxCounty.Size = new Size(192, 33);
+            cbxCounty.Size = new Size(293, 33);
             cbxCounty.TabIndex = 8;
             cbxCounty.Text = "  COUNTY";
             // 
@@ -158,7 +159,7 @@
             tbxLastName.Location = new Point(22, 106);
             tbxLastName.Name = "tbxLastName";
             tbxLastName.PlaceholderText = "  LAST NAME";
-            tbxLastName.Size = new Size(399, 33);
+            tbxLastName.Size = new Size(538, 33);
             tbxLastName.TabIndex = 2;
             // 
             // rbtnFemale
@@ -166,7 +167,7 @@
             rbtnFemale.Anchor = AnchorStyles.Top;
             rbtnFemale.AutoSize = true;
             rbtnFemale.Cursor = Cursors.Hand;
-            rbtnFemale.Location = new Point(278, 145);
+            rbtnFemale.Location = new Point(395, 145);
             rbtnFemale.Name = "rbtnFemale";
             rbtnFemale.Size = new Size(143, 29);
             rbtnFemale.TabIndex = 5;
@@ -177,11 +178,11 @@
             // tbxPostCode
             // 
             tbxPostCode.Anchor = AnchorStyles.Top;
-            tbxPostCode.Location = new Point(220, 262);
+            tbxPostCode.Location = new Point(329, 262);
             tbxPostCode.MaxLength = 8;
             tbxPostCode.Name = "tbxPostCode";
             tbxPostCode.PlaceholderText = "  POST CODE";
-            tbxPostCode.Size = new Size(201, 33);
+            tbxPostCode.Size = new Size(231, 33);
             tbxPostCode.TabIndex = 9;
             tbxPostCode.TextAlign = HorizontalAlignment.Center;
             // 
@@ -189,9 +190,9 @@
             // 
             cbxAge.Anchor = AnchorStyles.Top;
             cbxAge.FormattingEnabled = true;
-            cbxAge.Location = new Point(22, 145);
+            cbxAge.Location = new Point(22, 144);
             cbxAge.Name = "cbxAge";
-            cbxAge.Size = new Size(135, 33);
+            cbxAge.Size = new Size(205, 33);
             cbxAge.TabIndex = 3;
             cbxAge.Text = "  AGE";
             // 
@@ -202,7 +203,7 @@
             tbxAddressLine1.Multiline = true;
             tbxAddressLine1.Name = "tbxAddressLine1";
             tbxAddressLine1.PlaceholderText = "  ADDRESS LINE 1";
-            tbxAddressLine1.Size = new Size(399, 33);
+            tbxAddressLine1.Size = new Size(538, 33);
             tbxAddressLine1.TabIndex = 6;
             // 
             // AddNewPerson

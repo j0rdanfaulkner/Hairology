@@ -40,6 +40,7 @@ namespace Hairology
             {
                 cbxAge.Items.Add(i.ToString());
             }
+
         }
         public void SetPersonType(string person)
         {
