@@ -63,6 +63,7 @@ namespace Hairology
             {
                 _username = _reader[1].ToString();
             }
+            _reader.Close();
             _dbInstance.conn.Close();
         }
         public void GetAdminRights(bool privileges)

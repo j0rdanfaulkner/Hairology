@@ -15,7 +15,6 @@ namespace Hairology
     {
         private DatabaseManagement _dbInstance = new DatabaseManagement();
         private SqlCommand _command = default!;
-        private SqlDataReader _reader = default!;
         private SqlDataAdapter _adapter = default!;
         private DataTable _dt = default!;
         public Inventory()

@@ -12,7 +12,6 @@ namespace Hairology
         private DatabaseManagement _dbInstance = new DatabaseManagement();
         private SqlCommand _command = default!;
         private SqlDataReader _reader = default!;
-        private bool _closing = false;
         private Employee _employee = default!;
         public Login()
         {

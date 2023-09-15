@@ -13,8 +13,7 @@ namespace Hairology
 {
     public partial class AddNewPerson : UserControl
     {
-        private string _type;
-        private object[] _values;
+        private string _type = default!;
         private DatabaseManagement _dbInstance = new DatabaseManagement();
         private SqlCommand _command = default!;
         private SqlDataReader _reader = default!;
@@ -175,6 +174,7 @@ namespace Hairology
                     {
                         MessageBox.Show(_type + " '" + firstName + " " + lastName + "' was inserted into the database successfully", _type + " Added Successfully", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         _reader.Close();
+                        MainWindow.uscAddNewPerson.Hide();
                     }
                 }
             }

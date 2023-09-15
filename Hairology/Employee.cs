@@ -50,45 +50,31 @@ namespace Hairology
             {
                 case 0:
                     return _firstName;
-                    break;
                 case 1:
                     return _lastName;
-                    break;
                 case 2:
                     return _age;
-                    break;
                 case 3:
                     return _sex;
-                    break;
                 case 4:
                     return _addressLine1;
-                    break;
                 case 5:
                     return _addressLine2;
-                    break;
                 case 6:
                     return _county;
-                    break;
                 case 7:
                     return _postCode;
-                    break;
                 case 8:
                     return _employeeNumber;
-                    break;
                 case 9:
                     return _department;
-                    break;
                 case 10:
                     return _completedTraining;
-                    break;
                 case 11:
                     return _adminRights;
-                    break;
                 default:
                     return null;
-                    break;
             }
-            return null;
         }
     }
 }

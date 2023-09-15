@@ -450,7 +450,6 @@
         private PictureBox pbxAdminRights;
         private ToolTip ttpInfo;
         private Settings uscSettings;
-        private AddNewPerson uscAddNewPerson;
         private Inventory uscInventory;
         private Transactions uscTransactions;
         private ToolStripMenuItem newProductToolStripMenuItem;
@@ -459,5 +458,6 @@
         private ToolStripSeparator toolStripSeparator4;
         private ToolStripSeparator toolStripSeparator5;
         private ToolStripSeparator toolStripSeparator6;
+        private AddNewPerson uscAddNewPerson;
     }
 }
