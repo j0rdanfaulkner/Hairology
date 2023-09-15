@@ -19,7 +19,6 @@ namespace Hairology
         private Login _login = default!;
         private string _currentDate = default!;
         private string _currentTime = default!;
-        private bool _closing = false;
         private DatabaseManagement _dbInstance = new DatabaseManagement();
         private SqlCommand _command = default!;
         private SqlDataReader _reader = default!;

@@ -30,6 +30,7 @@
         {
             pnlContainer = new Panel();
             panel1 = new Panel();
+            cbxRegularCustomer = new CheckBox();
             tbxFirstName = new TextBox();
             lblAddNewPerson = new Label();
             rbtnMale = new RadioButton();
@@ -38,7 +39,7 @@
             cbxCounty = new ComboBox();
             tbxLastName = new TextBox();
             rbtnFemale = new RadioButton();
-            textBox1 = new TextBox();
+            tbxPostCode = new TextBox();
             cbxAge = new ComboBox();
             tbxAddressLine1 = new TextBox();
             pnlContainer.SuspendLayout();
@@ -58,6 +59,7 @@
             // 
             // panel1
             // 
+            panel1.Controls.Add(cbxRegularCustomer);
             panel1.Controls.Add(tbxFirstName);
             panel1.Controls.Add(lblAddNewPerson);
             panel1.Controls.Add(rbtnMale);
@@ -66,7 +68,7 @@
             panel1.Controls.Add(cbxCounty);
             panel1.Controls.Add(tbxLastName);
             panel1.Controls.Add(rbtnFemale);
-            panel1.Controls.Add(textBox1);
+            panel1.Controls.Add(tbxPostCode);
             panel1.Controls.Add(cbxAge);
             panel1.Controls.Add(tbxAddressLine1);
             panel1.Dock = DockStyle.Left;
@@ -74,6 +76,16 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(445, 449);
             panel1.TabIndex = 13;
+            // 
+            // cbxRegularCustomer
+            // 
+            cbxRegularCustomer.AutoSize = true;
+            cbxRegularCustomer.Location = new Point(22, 300);
+            cbxRegularCustomer.Name = "cbxRegularCustomer";
+            cbxRegularCustomer.Size = new Size(293, 29);
+            cbxRegularCustomer.TabIndex = 13;
+            cbxRegularCustomer.Text = "Regular Customer?";
+            cbxRegularCustomer.UseVisualStyleBackColor = true;
             // 
             // tbxFirstName
             // 
@@ -162,16 +174,16 @@
             rbtnFemale.Text = "FEMALE";
             rbtnFemale.UseVisualStyleBackColor = true;
             // 
-            // textBox1
+            // tbxPostCode
             // 
-            textBox1.Anchor = AnchorStyles.Top;
-            textBox1.Location = new Point(220, 262);
-            textBox1.MaxLength = 8;
-            textBox1.Name = "textBox1";
-            textBox1.PlaceholderText = "  POST CODE";
-            textBox1.Size = new Size(201, 33);
-            textBox1.TabIndex = 9;
-            textBox1.TextAlign = HorizontalAlignment.Center;
+            tbxPostCode.Anchor = AnchorStyles.Top;
+            tbxPostCode.Location = new Point(220, 262);
+            tbxPostCode.MaxLength = 8;
+            tbxPostCode.Name = "tbxPostCode";
+            tbxPostCode.PlaceholderText = "  POST CODE";
+            tbxPostCode.Size = new Size(201, 33);
+            tbxPostCode.TabIndex = 9;
+            tbxPostCode.TextAlign = HorizontalAlignment.Center;
             // 
             // cbxAge
             // 
@@ -217,8 +229,9 @@
         private TextBox tbxAddressLine2;
         private Label lblAddNewPerson;
         private Button btnSubmit;
-        private TextBox textBox1;
+        private TextBox tbxPostCode;
         private ComboBox cbxCounty;
         private Panel panel1;
+        private CheckBox cbxRegularCustomer;
     }
 }

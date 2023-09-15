@@ -8,6 +8,8 @@ namespace Hairology
 {
     public class DatabaseQueries
     {
+        // SELECT QUERIES
+
         public const string SELECT_ACCOUNT_USING_USERNAME = "SELECT * FROM [User Accounts] WHERE username = '{0}'";
 
         public const string SELECT_ACCOUNT_USING_ID = "SELECT * FROM [User Accounts] WHERE account_id = '{0}'";
@@ -23,5 +25,11 @@ namespace Hairology
         public const string SELECT_ALL_TRANSACTIONS = "SELECT transaction_id, card_number, security_code, expiration_date, transaction_completed FROM [Transactions]";
 
         public const string SELECT_ALL_INVENTORY_RECORDS = "SELECT product_name, category, ean_number, case_size, current_quantity, reorder_regularly FROM [Inventory]";
+
+        public const string SELECT_CUSTOMER_ID = "SELECT customer_id FROM [Customers] WHERE customer_id = '{0}'";
+
+        // INSERT QUERIES
+
+        public const string INSERT_INTO_CUSTOMERS = "INSERT INTO [Customers] (customer_id, first_name, last_name, age, sex, address_line_1, address_line_2, county, post_code, regular_customer) VALUES ('{0}', '{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}', '{8}', '{9}')";
     }
 }

@@ -19,7 +19,7 @@ namespace Hairology
             {
                 MessageBox.Show("The database will now be downloaded", "Missing Database File", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 string current = Directory.GetCurrentDirectory();
-                string dbpath = "C:\\Hairology\\Data\\Database.mdf";
+                string dbpath = "C:\\Hairology\\Data\\";
                 Directory.CreateDirectory(dbpath);
                 Directory.SetCurrentDirectory(dbpath);
                 try
