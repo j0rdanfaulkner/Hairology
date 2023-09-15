@@ -37,6 +37,10 @@ namespace Hairology
                 cbxRegularCustomer.Visible = false;
                 cbxRegularCustomer.Enabled = false;
             }
+            for (int i = 99; i > 17; i--)
+            {
+                cbxAge.Items.Add(i.ToString());
+            }
         }
         public void SetPersonType(string person)
         {
@@ -179,6 +183,10 @@ namespace Hairology
                 MessageBox.Show(_type + " [NAME] was inserted into the database successfully", _type + " Added Successfully", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
+        /// <summary>
+        /// generates a randomised 8-digit number and returns its value
+        /// </summary>
+        /// <returns></returns>
         private int GenerateRandomID()
         {
             int id = default!;
