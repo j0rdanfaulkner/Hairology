@@ -32,8 +32,9 @@
             pnlContainer = new Panel();
             pnlBottom = new Panel();
             pnlTop = new Panel();
+            cbxSearchColumn = new ComboBox();
+            btnSortByColumn = new Button();
             lblSearch = new Label();
-            btnSubmit = new Button();
             tbxSearchTerm = new TextBox();
             ((System.ComponentModel.ISupportInitialize)dgvSearch).BeginInit();
             pnlContainer.SuspendLayout();
@@ -78,14 +79,38 @@
             // 
             // pnlTop
             // 
+            pnlTop.Controls.Add(cbxSearchColumn);
+            pnlTop.Controls.Add(btnSortByColumn);
             pnlTop.Controls.Add(lblSearch);
-            pnlTop.Controls.Add(btnSubmit);
             pnlTop.Controls.Add(tbxSearchTerm);
             pnlTop.Dock = DockStyle.Top;
             pnlTop.Location = new Point(0, 0);
             pnlTop.Name = "pnlTop";
             pnlTop.Size = new Size(1264, 63);
             pnlTop.TabIndex = 4;
+            // 
+            // cbxSearchColumn
+            // 
+            cbxSearchColumn.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            cbxSearchColumn.FormattingEnabled = true;
+            cbxSearchColumn.Location = new Point(452, 17);
+            cbxSearchColumn.Name = "cbxSearchColumn";
+            cbxSearchColumn.Size = new Size(325, 29);
+            cbxSearchColumn.TabIndex = 5;
+            cbxSearchColumn.Text = "  SELECT COLUMN";
+            // 
+            // btnSortByColumn
+            // 
+            btnSortByColumn.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            btnSortByColumn.BackgroundImage = Properties.Resources.sort_by;
+            btnSortByColumn.BackgroundImageLayout = ImageLayout.Zoom;
+            btnSortByColumn.Cursor = Cursors.Hand;
+            btnSortByColumn.Location = new Point(783, 8);
+            btnSortByColumn.Name = "btnSortByColumn";
+            btnSortByColumn.Size = new Size(45, 45);
+            btnSortByColumn.TabIndex = 4;
+            btnSortByColumn.UseVisualStyleBackColor = true;
+            btnSortByColumn.Click += btnSortByColumn_Click;
             // 
             // lblSearch
             // 
@@ -97,27 +122,16 @@
             lblSearch.TabIndex = 3;
             lblSearch.Text = "Search";
             // 
-            // btnSubmit
-            // 
-            btnSubmit.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            btnSubmit.Cursor = Cursors.Hand;
-            btnSubmit.FlatStyle = FlatStyle.System;
-            btnSubmit.Location = new Point(1139, 15);
-            btnSubmit.Name = "btnSubmit";
-            btnSubmit.Size = new Size(107, 29);
-            btnSubmit.TabIndex = 1;
-            btnSubmit.Text = "Submit";
-            btnSubmit.UseVisualStyleBackColor = true;
-            // 
             // tbxSearchTerm
             // 
             tbxSearchTerm.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             tbxSearchTerm.Cursor = Cursors.IBeam;
-            tbxSearchTerm.Location = new Point(861, 16);
+            tbxSearchTerm.Location = new Point(905, 17);
             tbxSearchTerm.Name = "tbxSearchTerm";
-            tbxSearchTerm.PlaceholderText = "  SEARCH FOR...";
-            tbxSearchTerm.Size = new Size(263, 29);
+            tbxSearchTerm.PlaceholderText = "  START TYPING A NAME...";
+            tbxSearchTerm.Size = new Size(347, 29);
             tbxSearchTerm.TabIndex = 2;
+            tbxSearchTerm.TextChanged += tbxSearchTerm_TextChanged;
             // 
             // Search
             // 
@@ -137,10 +151,11 @@
 
         private DataGridView dgvSearch;
         private Panel pnlContainer;
-        private Button btnSubmit;
         private Label lblSearch;
         private TextBox tbxSearchTerm;
         private Panel pnlTop;
         private Panel pnlBottom;
+        private Button btnSortByColumn;
+        private ComboBox cbxSearchColumn;
     }
 }

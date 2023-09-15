@@ -18,6 +18,7 @@ namespace Hairology
         private SqlDataAdapter _adapter = default!;
         private DataTable _dt = default!;
         private string _type = default!;
+        private int _index = default!;
         public Search()
         {
             InitializeComponent();
@@ -172,12 +173,39 @@ namespace Hairology
             {
 
             }
+            if (cbxSearchColumn.Items.Count != 0)
+            {
+                cbxSearchColumn.Items.Clear();
+                cbxSearchColumn.Text = "  SELECT COLUMN";
+            }
+            for (int i = 0; i < dgvSearch.Columns.Count; i++)
+            {
+                cbxSearchColumn.Items.Add(dgvSearch.Columns[i].HeaderText);
+            }
         }
         public void SetSearchType(string type)
         {
             _type = type;
             lblSearch.Text = "Search " + _type + "s";
             GetData();
+        }
+
+        private void tbxSearchTerm_TextChanged(object sender, EventArgs e)
+        {
+            _dt.DefaultView.RowFilter = string.Format(dgvSearch.Columns[0].DataPropertyName + " LIKE '%{0}%'", tbxSearchTerm.Text.Trim().Replace("'", "''"));
+            dgvSearch.DataSource = _dt.DefaultView;
+            dgvSearch.Refresh();
+        }
+        private void btnSortByColumn_Click(object sender, EventArgs e)
+        {
+            foreach (DataGridViewColumn column in dgvSearch.Columns)
+            {
+                if (column.HeaderText.Equals(cbxSearchColumn.Text, StringComparison.InvariantCultureIgnoreCase))
+                {
+                    _index = column.Index;
+                }
+            }
+            dgvSearch.Sort(dgvSearch.Columns[_index], ListSortDirection.Ascending);
         }
     }
 }
