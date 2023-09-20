@@ -33,6 +33,7 @@ namespace Hairology
             lblFullName.Text = "(" + _employee.GetFullName() + ")";
             lblWelcome.Text = string.Format("Welcome, {0}", _username);
             lblWelcome.Text = "Welcome, " + _username;
+            lblDepartment.Text = employee.GetAttribute(9).ToString();
             lblDate.Text = GetCurrentDate();
             lblTime.Text = GetCurrentTime();
             uscAddNewPerson.Hide();

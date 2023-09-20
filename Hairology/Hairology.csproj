@@ -33,14 +33,18 @@
     <None Remove="Resources\logo.png" />
     <None Remove="Resources\logout.png" />
     <None Remove="Resources\notadmin.png" />
+    <None Remove="Resources\notok.png" />
+    <None Remove="Resources\ok.png" />
     <None Remove="Resources\orderhistory.png" />
     <None Remove="Resources\people.png" />
     <None Remove="Resources\products.png" />
+    <None Remove="Resources\refresh.png" />
     <None Remove="Resources\search.png" />
     <None Remove="Resources\searchcustomers.png" />
     <None Remove="Resources\searchemployees.png" />
     <None Remove="Resources\settings.png" />
     <None Remove="Resources\showpassword.png" />
+    <None Remove="Resources\sort by.png" />
     <None Remove="Resources\transaction.png" />
     <None Remove="Resources\user.png" />
     <None Remove="Resources\userbadge.png" />
@@ -48,6 +52,12 @@
 
   <ItemGroup>
     <Content Include="icon.ico" />
+    <EmbeddedResource Include="Resources\notok.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\ok.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
     <EmbeddedResource Include="Resources\addimage.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
@@ -99,6 +109,9 @@
     <EmbeddedResource Include="Resources\products.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
+    <EmbeddedResource Include="Resources\refresh.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
     <EmbeddedResource Include="Resources\search.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
@@ -112,6 +125,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\showpassword.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\sort by.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\transaction.png">

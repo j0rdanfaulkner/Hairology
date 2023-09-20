@@ -189,7 +189,6 @@ namespace Hairology
             lblSearch.Text = "Search " + _type + "s";
             GetData();
         }
-
         private void tbxSearchTerm_TextChanged(object sender, EventArgs e)
         {
             _dt.DefaultView.RowFilter = string.Format(dgvSearch.Columns[0].DataPropertyName + " LIKE '%{0}%'", tbxSearchTerm.Text.Trim().Replace("'", "''"));
@@ -206,6 +205,11 @@ namespace Hairology
                 }
             }
             dgvSearch.Sort(dgvSearch.Columns[_index], ListSortDirection.Ascending);
+        }
+
+        private void btnRefresh_Click(object sender, EventArgs e)
+        {
+            dgvSearch.Refresh();
         }
     }
 }

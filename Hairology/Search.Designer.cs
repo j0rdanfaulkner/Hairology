@@ -32,6 +32,7 @@
             pnlContainer = new Panel();
             pnlBottom = new Panel();
             pnlTop = new Panel();
+            btnRefresh = new Button();
             cbxSearchColumn = new ComboBox();
             btnSortByColumn = new Button();
             lblSearch = new Label();
@@ -79,6 +80,7 @@
             // 
             // pnlTop
             // 
+            pnlTop.Controls.Add(btnRefresh);
             pnlTop.Controls.Add(cbxSearchColumn);
             pnlTop.Controls.Add(btnSortByColumn);
             pnlTop.Controls.Add(lblSearch);
@@ -89,11 +91,24 @@
             pnlTop.Size = new Size(1264, 63);
             pnlTop.TabIndex = 4;
             // 
+            // btnRefresh
+            // 
+            btnRefresh.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            btnRefresh.BackgroundImage = Properties.Resources.refresh;
+            btnRefresh.BackgroundImageLayout = ImageLayout.Zoom;
+            btnRefresh.Cursor = Cursors.Hand;
+            btnRefresh.Location = new Point(1210, 8);
+            btnRefresh.Name = "btnRefresh";
+            btnRefresh.Size = new Size(45, 45);
+            btnRefresh.TabIndex = 6;
+            btnRefresh.UseVisualStyleBackColor = true;
+            btnRefresh.Click += btnRefresh_Click;
+            // 
             // cbxSearchColumn
             // 
             cbxSearchColumn.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             cbxSearchColumn.FormattingEnabled = true;
-            cbxSearchColumn.Location = new Point(452, 17);
+            cbxSearchColumn.Location = new Point(828, 17);
             cbxSearchColumn.Name = "cbxSearchColumn";
             cbxSearchColumn.Size = new Size(325, 29);
             cbxSearchColumn.TabIndex = 5;
@@ -105,7 +120,7 @@
             btnSortByColumn.BackgroundImage = Properties.Resources.sort_by;
             btnSortByColumn.BackgroundImageLayout = ImageLayout.Zoom;
             btnSortByColumn.Cursor = Cursors.Hand;
-            btnSortByColumn.Location = new Point(783, 8);
+            btnSortByColumn.Location = new Point(1159, 8);
             btnSortByColumn.Name = "btnSortByColumn";
             btnSortByColumn.Size = new Size(45, 45);
             btnSortByColumn.TabIndex = 4;
@@ -126,7 +141,7 @@
             // 
             tbxSearchTerm.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             tbxSearchTerm.Cursor = Cursors.IBeam;
-            tbxSearchTerm.Location = new Point(905, 17);
+            tbxSearchTerm.Location = new Point(475, 17);
             tbxSearchTerm.Name = "tbxSearchTerm";
             tbxSearchTerm.PlaceholderText = "  START TYPING A NAME...";
             tbxSearchTerm.Size = new Size(347, 29);
@@ -157,5 +172,6 @@
         private Panel pnlBottom;
         private Button btnSortByColumn;
         private ComboBox cbxSearchColumn;
+        private Button btnRefresh;
     }
 }

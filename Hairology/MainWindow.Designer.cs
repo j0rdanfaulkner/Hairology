@@ -69,6 +69,7 @@
             pbxLogo = new PictureBox();
             tmrTimer = new System.Windows.Forms.Timer(components);
             ttpInfo = new ToolTip(components);
+            lblDepartment = new Label();
             pnlContainer.SuspendLayout();
             pnlBottom.SuspendLayout();
             mstNavigationBar.SuspendLayout();
@@ -86,6 +87,7 @@
             lblWelcome.Size = new Size(495, 38);
             lblWelcome.TabIndex = 0;
             lblWelcome.Text = "Welcome, [USERNAME]";
+            lblWelcome.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // pnlContainer
             // 
@@ -331,6 +333,7 @@
             // 
             // pnlTop
             // 
+            pnlTop.Controls.Add(lblDepartment);
             pnlTop.Controls.Add(pbxAdminRights);
             pnlTop.Controls.Add(lblFullName);
             pnlTop.Controls.Add(lblTime);
@@ -364,6 +367,7 @@
             lblFullName.Size = new Size(164, 21);
             lblFullName.TabIndex = 3;
             lblFullName.Text = "([FULL NAME])";
+            lblFullName.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // lblTime
             // 
@@ -404,6 +408,16 @@
             // 
             tmrTimer.Interval = 1000;
             tmrTimer.Tick += tmrTimer_Tick;
+            // 
+            // lblDepartment
+            // 
+            lblDepartment.AutoSize = true;
+            lblDepartment.Location = new Point(327, 137);
+            lblDepartment.Name = "lblDepartment";
+            lblDepartment.Size = new Size(211, 25);
+            lblDepartment.TabIndex = 5;
+            lblDepartment.Text = "[DEPARTMENT]";
+            lblDepartment.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // MainWindow
             // 
@@ -472,5 +486,6 @@
         private ToolStripSeparator toolStripSeparator6;
         private AddNewPerson uscAddNewPerson;
         private Search uscSearch;
+        private Label lblDepartment;
     }
 }

@@ -75,6 +75,7 @@ namespace Hairology
             {
                 MessageBox.Show("You have not entered your username and/or password", "Missing Login Fields", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
+            _dbInstance.conn.Close();
         }
         /// <summary>
         /// constructs employee object if details can be found using account id of supplied credentials to find matching employee number
