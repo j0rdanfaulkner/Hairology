@@ -135,6 +135,7 @@
             // 
             rbtnAdminRightsYes.Anchor = AnchorStyles.Top;
             rbtnAdminRightsYes.AutoSize = true;
+            rbtnAdminRightsYes.Cursor = Cursors.Hand;
             rbtnAdminRightsYes.Location = new Point(290, -3);
             rbtnAdminRightsYes.Name = "rbtnAdminRightsYes";
             rbtnAdminRightsYes.Size = new Size(86, 29);
@@ -147,6 +148,7 @@
             // 
             rbtnAdminRightsNo.Anchor = AnchorStyles.Top;
             rbtnAdminRightsNo.AutoSize = true;
+            rbtnAdminRightsNo.Cursor = Cursors.Hand;
             rbtnAdminRightsNo.Location = new Point(400, -3);
             rbtnAdminRightsNo.Name = "rbtnAdminRightsNo";
             rbtnAdminRightsNo.Size = new Size(74, 29);
@@ -203,6 +205,7 @@
             // 
             rbtnTrainingCompletedNo.Anchor = AnchorStyles.Top;
             rbtnTrainingCompletedNo.AutoSize = true;
+            rbtnTrainingCompletedNo.Cursor = Cursors.Hand;
             rbtnTrainingCompletedNo.Location = new Point(545, 145);
             rbtnTrainingCompletedNo.Name = "rbtnTrainingCompletedNo";
             rbtnTrainingCompletedNo.Size = new Size(74, 29);
@@ -215,6 +218,7 @@
             // 
             rbtnTrainingCompletedYes.Anchor = AnchorStyles.Top;
             rbtnTrainingCompletedYes.AutoSize = true;
+            rbtnTrainingCompletedYes.Cursor = Cursors.Hand;
             rbtnTrainingCompletedYes.Location = new Point(435, 145);
             rbtnTrainingCompletedYes.Name = "rbtnTrainingCompletedYes";
             rbtnTrainingCompletedYes.Size = new Size(86, 29);
@@ -250,7 +254,7 @@
             // 
             cbxDepartment.Anchor = AnchorStyles.Top;
             cbxDepartment.FormattingEnabled = true;
-            cbxDepartment.Items.AddRange(new object[] { "Bath and North East Somerset", "Bedfordshire", "Berkshire", "Bristol", "Buckinghamshire", "Cambridgeshire", "Cheshire", "Cornwall", "County Durham", "Cumbria", "Derbyshire", "Devon", "Dorset", "East Riding of Yorkshire", "East Sussex", "Essex", "Gloucestershire", "Greater London", "Greater Manchester", "Hampshire", "Herefordshire", "Hertfordshire", "Isle of Wight", "Isles of Scilly", "Kent", "Lancashire", "Leicestershire", "Lincolnshire", "Merseyside", "Norfolk", "North Somerset", "North Yorkshire", "Northamptonshire", "Northumberland", "Nottinghamshire", "Oxfordshire", "Rutland", "Shropshire", "Somerset", "South Gloucestershire", "South Yorkshire", "Staffordshire", "Suffolk", "Surrey", "Tyne & Wear", "Warwickshire", "West Midlands", "West Sussex", "West Yorkshire", "Wiltshire", "Worcestershire" });
+            cbxDepartment.Items.AddRange(new object[] { "Barber/Hairdresser", "Cleaning and Maintenance", "Intern", "IT and Helpdesk", "Management" });
             cbxDepartment.Location = new Point(78, 106);
             cbxDepartment.Name = "cbxDepartment";
             cbxDepartment.Size = new Size(538, 33);
@@ -292,6 +296,7 @@
             // 
             cbxRegularCustomer.Anchor = AnchorStyles.Top;
             cbxRegularCustomer.AutoSize = true;
+            cbxRegularCustomer.Cursor = Cursors.Hand;
             cbxRegularCustomer.Location = new Point(22, 300);
             cbxRegularCustomer.Name = "cbxRegularCustomer";
             cbxRegularCustomer.Size = new Size(293, 29);
