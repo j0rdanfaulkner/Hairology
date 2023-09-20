@@ -354,7 +354,7 @@ namespace Hairology
                     _command = new SqlCommand(string.Format(DatabaseQueries.INSERT_INTO_ACCOUNTS, randomID, _username, encryptedPassword), _dbInstance.conn);
                     _reader = _command.ExecuteReader();
                     _reader.Close();
-                    _command = new SqlCommand(string.Format(DatabaseQueries.INSERT_INTO_EMPLOYEES, randomID, _employeeNumber, _department, _completedTraining, _adminRights), _dbInstance.conn);
+                    _command = new SqlCommand(string.Format(DatabaseQueries.INSERT_INTO_EMPLOYEES, randomID, randomID, _employeeNumber, _department, _completedTraining, _adminRights), _dbInstance.conn);
                     _reader = _command.ExecuteReader();
                     _reader.Close();
                     _command = new SqlCommand(string.Format(DatabaseQueries.INSERT_INTO_EMPLOYEE_DETAILS, randomID, _employeeNumber, _firstName, _lastName, _age, _sex, _addressLine1, _addressLine2, _county, _postCode), _dbInstance.conn);

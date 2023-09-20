@@ -47,7 +47,7 @@ namespace Hairology
 
         public const string INSERT_INTO_ACCOUNTS = "INSERT INTO [User Accounts] (account_id, username, password) VALUES ('{0}', '{1}', '{2}')";
 
-        public const string INSERT_INTO_EMPLOYEES = "INSERT INTO [Employees] (employee_id, account_id, employee_number, department, completed_training, admin_rights) VALUES ('{0}', '{1}', '{2}', '{3}', '{4}', '{5}'";
+        public const string INSERT_INTO_EMPLOYEES = "INSERT INTO [Employees] (employee_id, account_id, employee_number, department, completed_training, admin_rights) VALUES ('{0}', '{1}', '{2}', '{3}', '{4}', '{5}')";
 
         public const string INSERT_INTO_EMPLOYEE_DETAILS = "INSERT INTO [Employee Details] (person_id, employee_number, first_name, last_name, age, sex, address_line_1, address_line_2, county, post_code) VALUES ('{0}', '{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}', '{8}', '{9}')";
     }
