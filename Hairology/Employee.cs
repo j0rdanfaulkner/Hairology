@@ -11,7 +11,7 @@ namespace Hairology
         // personal attributes
         private string _firstName = default!;
         private string _lastName = default!;
-        private int _age = default!;
+        private string _dateOfBirth = default!;
         private char _sex = default!;
         private string _addressLine1 = default!;
         private string _addressLine2 = default!;
@@ -28,7 +28,7 @@ namespace Hairology
             // set personal details
             _firstName = personalDetails[0].ToString();
             _lastName = personalDetails[1].ToString();
-            _age = Convert.ToInt32(personalDetails[2]);
+            _dateOfBirth = personalDetails[2].ToString();
             _sex = char.Parse(personalDetails[3].ToString());
             _addressLine1 = personalDetails[4].ToString();
             _addressLine2 = personalDetails[5].ToString();
@@ -53,7 +53,7 @@ namespace Hairology
                 case 1:
                     return _lastName;
                 case 2:
-                    return _age;
+                    return _dateOfBirth;
                 case 3:
                     return _sex;
                 case 4:

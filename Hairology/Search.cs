@@ -55,7 +55,7 @@ namespace Hairology
                                 column.HeaderText = "LAST NAME";
                                 break;
                             case 2:
-                                column.HeaderText = "AGE";
+                                column.HeaderText = "DATE OF BIRTH";
                                 break;
                             case 3:
                                 column.HeaderText = "SEX";
@@ -123,7 +123,7 @@ namespace Hairology
                                 column.HeaderText = "LAST NAME";
                                 break;
                             case 2:
-                                column.HeaderText = "AGE";
+                                column.HeaderText = "DATE OF BIRTH";
                                 break;
                             case 3:
                                 column.HeaderText = "SEX";

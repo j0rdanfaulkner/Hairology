@@ -23,7 +23,7 @@ namespace Hairology
         // variables to hold personal data
         private string _firstName = default!;
         private string _lastName = default!;
-        private int _age = default!;
+        private string _dateOfBirth = default!;
         private char _sex = default!;
         private string _addressLine1 = default!;
         private string _addressLine2 = default!;
@@ -62,10 +62,6 @@ namespace Hairology
                 cbxRegularCustomer.Enabled = false;
                 pnlEmployee.Visible = true;
             }
-            for (int i = 99; i > 17; i--)
-            {
-                cbxAge.Items.Add(i.ToString());
-            }
 
         }
         public void SetPersonType(string person)
@@ -77,7 +73,7 @@ namespace Hairology
         {
             _firstName = tbxFirstName.Text;
             _lastName = tbxLastName.Text;
-            _age = Convert.ToInt32(cbxAge.Text);
+            _dateOfBirth = dtpDateOfBirth.Text;
             _addressLine1 = tbxAddressLine1.Text;
             _addressLine2 = tbxAddressLine2.Text;
             _county = cbxCounty.Text;
@@ -106,9 +102,9 @@ namespace Hairology
                 }
                 else
                 {
-                    if (cbxAge.Text == "Age")
+                    if (dtpDateOfBirth.Text == DateTime.Now.ToString("dd MMMM yyyy"))
                     {
-                        MessageBox.Show("An age was not selected", "Age Not Selected", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        MessageBox.Show("A date of birth was not selected", "Date of Birth Not Selected", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         return false;
                     }
                     else
@@ -185,7 +181,7 @@ namespace Hairology
                                                     }
                                                     else
                                                     {
-                                                        if (rbtnTrainingCompletedYes.Checked == false && rbtnTrainingCompletedYes.Checked == false)
+                                                        if (rbtnTrainingCompletedYes.Checked == false && rbtnTrainingCompletedNo.Checked == false)
                                                         {
                                                             MessageBox.Show("The training status was not selected", "Training Status Not Selected", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                                                             return false;
@@ -318,7 +314,7 @@ namespace Hairology
                 else
                 {
                     _reader.Close();
-                    _command = new SqlCommand(string.Format(DatabaseQueries.INSERT_INTO_CUSTOMERS, randomID, _firstName, _lastName, _age, _sex, _addressLine1, _addressLine2, _county, _postCode, _regularCustomer), _dbInstance.conn);
+                    _command = new SqlCommand(string.Format(DatabaseQueries.INSERT_INTO_CUSTOMERS, randomID, _firstName, _lastName, _dateOfBirth, _sex, _addressLine1, _addressLine2, _county, _postCode, _regularCustomer), _dbInstance.conn);
                     _reader = _command.ExecuteReader();
                     _reader.Close();
                     // search for newly-inserted customer to verify that they have been added to database successfully
@@ -357,7 +353,7 @@ namespace Hairology
                     _command = new SqlCommand(string.Format(DatabaseQueries.INSERT_INTO_EMPLOYEES, randomID, randomID, _employeeNumber, _department, _completedTraining, _adminRights), _dbInstance.conn);
                     _reader = _command.ExecuteReader();
                     _reader.Close();
-                    _command = new SqlCommand(string.Format(DatabaseQueries.INSERT_INTO_EMPLOYEE_DETAILS, randomID, _employeeNumber, _firstName, _lastName, _age, _sex, _addressLine1, _addressLine2, _county, _postCode), _dbInstance.conn);
+                    _command = new SqlCommand(string.Format(DatabaseQueries.INSERT_INTO_EMPLOYEE_DETAILS, randomID, _employeeNumber, _firstName, _lastName, _dateOfBirth, _sex, _addressLine1, _addressLine2, _county, _postCode), _dbInstance.conn);
                     _reader = _command.ExecuteReader();
                     _reader.Close();
                     // search for newly-inserted employee to verify that they have been added to database successfully
