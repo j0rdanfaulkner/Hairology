@@ -63,6 +63,7 @@ namespace Hairology
                         tbxUsername.Clear();
                         tbxPassword.Clear();
                     }
+                    _reader.Close();
                 }
                 else
                 {

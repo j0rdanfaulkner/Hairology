@@ -149,6 +149,7 @@ namespace Hairology
         {
             uscAddNewPerson.SetPersonType("Employee");
             uscAddNewPerson.Show();
+            uscAddNewTransaction.Hide();
             uscSearch.Hide();
             uscInventory.Hide();
             uscTransactions.Hide();
@@ -158,14 +159,25 @@ namespace Hairology
         {
             uscAddNewPerson.SetPersonType("Customer");
             uscAddNewPerson.Show();
+            uscAddNewTransaction.Hide();
             uscSearch.Hide();
             uscInventory.Hide();
+            uscTransactions.Hide();
+            uscSettings.Hide();
+        }
+        private void newTransactionToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            uscAddNewPerson.Hide();
+            uscAddNewTransaction.Show();
+            uscSearch.Hide();
+            uscInventory.Show();
             uscTransactions.Hide();
             uscSettings.Hide();
         }
         private void searchEmployeesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             uscAddNewPerson.Hide();
+            uscAddNewTransaction.Hide();
             uscSearch.SetSearchType("Employee");
             uscSearch.Show();
             uscInventory.Hide();
@@ -176,6 +188,7 @@ namespace Hairology
         private void searchCustomersToolStripMenuItem_Click(object sender, EventArgs e)
         {
             uscAddNewPerson.Hide();
+            uscAddNewTransaction.Hide();
             uscSearch.SetSearchType("Customer");
             uscSearch.Show();
             uscInventory.Hide();
@@ -185,6 +198,7 @@ namespace Hairology
         private void inventoryToolStripMenuItem_Click(object sender, EventArgs e)
         {
             uscAddNewPerson.Hide();
+            uscAddNewTransaction.Hide();
             uscSearch.Hide();
             uscInventory.Show();
             uscTransactions.Hide();
@@ -200,6 +214,7 @@ namespace Hairology
             else
             {
                 uscAddNewPerson.Hide();
+                uscAddNewTransaction.Hide();
                 uscSearch.Hide();
                 uscInventory.Hide();
                 uscTransactions.Show();
@@ -210,6 +225,7 @@ namespace Hairology
         private void settingsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             uscAddNewPerson.Hide();
+            uscAddNewTransaction.Hide();
             uscSearch.Hide();
             uscInventory.Hide();
             uscTransactions.Hide();

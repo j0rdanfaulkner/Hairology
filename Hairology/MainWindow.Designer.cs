@@ -33,6 +33,7 @@
             lblWelcome = new Label();
             pnlContainer = new Panel();
             pnlBottom = new Panel();
+            uscAddNewTransaction = new AddNewTransaction();
             uscSearch = new Search();
             uscAddNewPerson = new AddNewPerson();
             uscInventory = new Inventory();
@@ -62,6 +63,7 @@
             transactionsToolStripMenuItem = new ToolStripMenuItem();
             settingsToolStripMenuItem = new ToolStripMenuItem();
             pnlTop = new Panel();
+            lblDepartment = new Label();
             pbxAdminRights = new PictureBox();
             lblFullName = new Label();
             lblTime = new Label();
@@ -69,7 +71,6 @@
             pbxLogo = new PictureBox();
             tmrTimer = new System.Windows.Forms.Timer(components);
             ttpInfo = new ToolTip(components);
-            lblDepartment = new Label();
             pnlContainer.SuspendLayout();
             pnlBottom.SuspendLayout();
             mstNavigationBar.SuspendLayout();
@@ -101,6 +102,7 @@
             // 
             // pnlBottom
             // 
+            pnlBottom.Controls.Add(uscAddNewTransaction);
             pnlBottom.Controls.Add(uscSearch);
             pnlBottom.Controls.Add(uscAddNewPerson);
             pnlBottom.Controls.Add(uscInventory);
@@ -112,6 +114,17 @@
             pnlBottom.Name = "pnlBottom";
             pnlBottom.Size = new Size(1264, 489);
             pnlBottom.TabIndex = 2;
+            // 
+            // uscAddNewTransaction
+            // 
+            uscAddNewTransaction.BackColor = SystemColors.ActiveCaption;
+            uscAddNewTransaction.Dock = DockStyle.Fill;
+            uscAddNewTransaction.Font = new Font("EurostileLTW03-Extended2", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
+            uscAddNewTransaction.Location = new Point(0, 50);
+            uscAddNewTransaction.Margin = new Padding(8, 6, 8, 6);
+            uscAddNewTransaction.Name = "uscAddNewTransaction";
+            uscAddNewTransaction.Size = new Size(1264, 439);
+            uscAddNewTransaction.TabIndex = 6;
             // 
             // uscSearch
             // 
@@ -234,6 +247,7 @@
             newTransactionToolStripMenuItem.Name = "newTransactionToolStripMenuItem";
             newTransactionToolStripMenuItem.Size = new Size(287, 38);
             newTransactionToolStripMenuItem.Text = "New Transaction";
+            newTransactionToolStripMenuItem.Click += newTransactionToolStripMenuItem_Click;
             // 
             // searchToolStripMenuItem
             // 
@@ -346,6 +360,16 @@
             pnlTop.Size = new Size(1264, 192);
             pnlTop.TabIndex = 1;
             // 
+            // lblDepartment
+            // 
+            lblDepartment.AutoSize = true;
+            lblDepartment.Location = new Point(327, 137);
+            lblDepartment.Name = "lblDepartment";
+            lblDepartment.Size = new Size(211, 25);
+            lblDepartment.TabIndex = 5;
+            lblDepartment.Text = "[DEPARTMENT]";
+            lblDepartment.TextAlign = ContentAlignment.MiddleLeft;
+            // 
             // pbxAdminRights
             // 
             pbxAdminRights.Anchor = AnchorStyles.Top | AnchorStyles.Right;
@@ -408,16 +432,6 @@
             // 
             tmrTimer.Interval = 1000;
             tmrTimer.Tick += tmrTimer_Tick;
-            // 
-            // lblDepartment
-            // 
-            lblDepartment.AutoSize = true;
-            lblDepartment.Location = new Point(327, 137);
-            lblDepartment.Name = "lblDepartment";
-            lblDepartment.Size = new Size(211, 25);
-            lblDepartment.TabIndex = 5;
-            lblDepartment.Text = "[DEPARTMENT]";
-            lblDepartment.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // MainWindow
             // 
@@ -487,5 +501,6 @@
         private AddNewPerson uscAddNewPerson;
         private Search uscSearch;
         private Label lblDepartment;
+        private AddNewTransaction uscAddNewTransaction;
     }
 }

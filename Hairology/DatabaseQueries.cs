@@ -29,6 +29,8 @@ namespace Hairology
 
         public const string SELECT_ALL_CUSTOMERS = "SELECT first_name, last_name, date_of_birth, sex, address_line_1, address_line_2, county, post_code, regular_customer FROM [Customers]";
 
+        public const string SELECT_CUSTOMER_NAMES = "SELECT first_name, last_name FROM [Customers]";
+
         public const string SELECT_ALL_EMPLOYEES = "SELECT d.first_name, d.last_name, d.date_of_birth, d.sex, d.address_line_1, d.address_line_2, d.county, d.post_code, e.department, e.completed_training, e.admin_rights FROM [Employee Details] AS d LEFT JOIN [Employees] AS e ON d.employee_number = e.employee_number";
 
         public const string SELECT_ALL_TRANSACTIONS = "SELECT transaction_id, card_number, security_code, expiration_date, transaction_completed FROM [Transactions]";
@@ -40,6 +42,10 @@ namespace Hairology
         public const string SELECT_USER_ACCOUNT_ID = "SELECT account_id FROM [User Accounts] WHERE account_id = '{0}'";
 
         public const string SELECT_EMPLOYEE_ID = "SELECT employee_id FROM [Employees] WHERE employee_id = '{0}'";
+
+        // COUNT QUERIES
+
+        public const string COUNT_CUSTOMERS = "SELECT COUNT(*) FROM [Customers]";
 
         // INSERT QUERIES
 

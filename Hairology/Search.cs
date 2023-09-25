@@ -171,7 +171,7 @@ namespace Hairology
             }
             else if (_type == "Product")
             {
-
+                
             }
             if (cbxSearchColumn.Items.Count != 0)
             {

@@ -348,6 +348,7 @@
             // 
             // lblAddNewPerson
             // 
+            lblAddNewPerson.Anchor = AnchorStyles.Top;
             lblAddNewPerson.AutoSize = true;
             lblAddNewPerson.Font = new Font("EurostileLTW03-Extended2", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
             lblAddNewPerson.Location = new Point(15, 15);
@@ -475,7 +476,6 @@
         private TextBox tbxAddressLine1;
         private RadioButton rbtnFemale;
         private RadioButton rbtnMale;
-        private ComboBox cbxAge;
         private TextBox tbxLastName;
         private TextBox tbxFirstName;
         private TextBox tbxAddressLine2;
@@ -490,7 +490,6 @@
         private Button btnGenerateEmployeeNumber;
         private RadioButton rbtnAdminRightsNo;
         private RadioButton rbtnAdminRightsYes;
-        private Label label2;
         private RadioButton rbtnTrainingCompletedNo;
         private RadioButton rbtnTrainingCompletedYes;
         private Label lblCompletedTraining;

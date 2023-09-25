@@ -38,7 +38,6 @@ namespace Hairology
         // variables for employee user account credentials
         private string _username = default!;
         private string _password = default!;
-        private string _confirmPassword = default!;
         public AddNewPerson()
         {
             InitializeComponent();
