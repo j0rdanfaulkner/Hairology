@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
+using System.Diagnostics.PerformanceData;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -17,8 +18,10 @@ namespace Hairology
         private SqlCommand _command = default!;
         private SqlDataAdapter _adapter = default!;
         private DataTable _dt = default!;
-        private string _type = default!;
+        private SqlDataReader _reader = default!;
+        public string type = default!;
         private int _index = default!;
+        public Customer customerForEditing = default!;
         public Search()
         {
             InitializeComponent();
@@ -28,7 +31,7 @@ namespace Hairology
         }
         private void GetData()
         {
-            if (_type == "Customer")
+            if (type == "Customer")
             {
                 try
                 {
@@ -95,7 +98,7 @@ namespace Hairology
                 }
                 this.Refresh();
             }
-            else if (_type == "Employee")
+            else if (type == "Employee")
             {
                 try
                 {
@@ -169,9 +172,9 @@ namespace Hairology
                 }
                 this.Refresh();
             }
-            else if (_type == "Product")
+            else if (type == "Product")
             {
-                
+
             }
             if (cbxSearchColumn.Items.Count != 0)
             {
@@ -183,10 +186,10 @@ namespace Hairology
                 cbxSearchColumn.Items.Add(dgvSearch.Columns[i].HeaderText);
             }
         }
-        public void SetSearchType(string type)
+        public void SetSearchType(string personType)
         {
-            _type = type;
-            lblSearch.Text = "Search " + _type + "s";
+            type = personType;
+            lblSearch.Text = "Search " + type + "s";
             GetData();
         }
         private void tbxSearchTerm_TextChanged(object sender, EventArgs e)
@@ -210,6 +213,44 @@ namespace Hairology
         private void btnRefresh_Click(object sender, EventArgs e)
         {
             dgvSearch.Refresh();
+        }
+
+        private void dgvSearch_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            string[] personalDetails = new string[9];
+
+            if (type == "Customer")
+            {
+                try
+                {
+                    if (e.RowIndex > -1)
+                    {
+                        personalDetails[0] = dgvSearch.Rows[e.RowIndex].Cells[0].Value.ToString();
+                        personalDetails[1] = dgvSearch.Rows[e.RowIndex].Cells[1].Value.ToString();
+                        personalDetails[2] = dgvSearch.Rows[e.RowIndex].Cells[2].Value.ToString();
+                        personalDetails[3] = dgvSearch.Rows[e.RowIndex].Cells[3].Value.ToString();
+                        personalDetails[4] = dgvSearch.Rows[e.RowIndex].Cells[4].Value.ToString();
+                        personalDetails[5] = dgvSearch.Rows[e.RowIndex].Cells[5].Value.ToString();
+                        personalDetails[6] = dgvSearch.Rows[e.RowIndex].Cells[6].Value.ToString();
+                        personalDetails[7] = dgvSearch.Rows[e.RowIndex].Cells[7].Value.ToString();
+                        personalDetails[8] = dgvSearch.Rows[e.RowIndex].Cells[8].Value.ToString();
+                        customerForEditing = new Customer(personalDetails);
+                    }
+                    _dbInstance.conn.Open();
+                    _command = new SqlCommand(string.Format(DatabaseQueries.SELECT_CUSTOMER_ID_USING_POSTCODE, customerForEditing.GetAttribute(7)), _dbInstance.conn);
+                    _reader = _command.ExecuteReader();
+                    if (_reader.Read())
+                    {
+                        MainWindow.editing = true;
+                        this.Hide();
+                    }
+                    _dbInstance.conn.Close();
+                }
+                catch (Exception ex)
+                {
+                    DialogResult result = MessageBox.Show(ex.Message, "Something Went Wrong", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
         }
     }
 }

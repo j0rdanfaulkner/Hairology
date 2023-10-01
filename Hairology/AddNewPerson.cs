@@ -43,7 +43,6 @@ namespace Hairology
             InitializeComponent();
             tbxPassword.UseSystemPasswordChar = true;
             tbxConfirmPassword.UseSystemPasswordChar = true;
-            ConfigureForm();
         }
         private void ConfigureForm()
         {

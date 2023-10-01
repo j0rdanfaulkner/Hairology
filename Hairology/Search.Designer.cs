@@ -56,6 +56,7 @@
             dgvSearch.RowTemplate.Height = 25;
             dgvSearch.Size = new Size(1264, 386);
             dgvSearch.TabIndex = 0;
+            dgvSearch.CellDoubleClick += dgvSearch_CellDoubleClick;
             // 
             // pnlContainer
             // 

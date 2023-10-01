@@ -22,6 +22,7 @@
     <None Remove="Resources\addimage.png" />
     <None Remove="Resources\addnew.png" />
     <None Remove="Resources\admin.png" />
+    <None Remove="Resources\bin.png" />
     <None Remove="Resources\customer.png" />
     <None Remove="Resources\error.ico" />
     <None Remove="Resources\findcustomer.png" />
@@ -39,6 +40,7 @@
     <None Remove="Resources\people.png" />
     <None Remove="Resources\products.png" />
     <None Remove="Resources\refresh.png" />
+    <None Remove="Resources\save.png" />
     <None Remove="Resources\search.png" />
     <None Remove="Resources\searchcustomers.png" />
     <None Remove="Resources\searchemployees.png" />
@@ -52,6 +54,9 @@
 
   <ItemGroup>
     <Content Include="icon.ico" />
+    <EmbeddedResource Include="Resources\bin.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
     <EmbeddedResource Include="Resources\notok.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
@@ -112,6 +117,9 @@
     <EmbeddedResource Include="Resources\refresh.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
+    <EmbeddedResource Include="Resources\save.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
     <EmbeddedResource Include="Resources\search.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
@@ -153,6 +161,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="EditPerson.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Update="Properties\Resources.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>

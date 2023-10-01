@@ -33,6 +33,7 @@
             lblWelcome = new Label();
             pnlContainer = new Panel();
             pnlBottom = new Panel();
+            uscEditPerson = new EditPerson();
             uscAddNewTransaction = new AddNewTransaction();
             uscSearch = new Search();
             uscAddNewPerson = new AddNewPerson();
@@ -102,6 +103,7 @@
             // 
             // pnlBottom
             // 
+            pnlBottom.Controls.Add(uscEditPerson);
             pnlBottom.Controls.Add(uscAddNewTransaction);
             pnlBottom.Controls.Add(uscSearch);
             pnlBottom.Controls.Add(uscAddNewPerson);
@@ -114,6 +116,14 @@
             pnlBottom.Name = "pnlBottom";
             pnlBottom.Size = new Size(1264, 489);
             pnlBottom.TabIndex = 2;
+            // 
+            // uscEditPerson
+            // 
+            uscEditPerson.Dock = DockStyle.Fill;
+            uscEditPerson.Location = new Point(0, 50);
+            uscEditPerson.Name = "uscEditPerson";
+            uscEditPerson.Size = new Size(1264, 439);
+            uscEditPerson.TabIndex = 7;
             // 
             // uscAddNewTransaction
             // 
@@ -502,5 +512,6 @@
         private Search uscSearch;
         private Label lblDepartment;
         private AddNewTransaction uscAddNewTransaction;
+        public EditPerson uscEditPerson;
     }
 }

@@ -90,10 +90,6 @@ namespace Hairology
                 }
             }
         }
-        private void btnRefresh_Click(object sender, EventArgs e)
-        {
-        }
-
         private void cbxSelectCustomer_Click(object sender, EventArgs e)
         {
             _customerList.Clear();

@@ -22,6 +22,8 @@ namespace Hairology
         private DatabaseManagement _dbInstance = new DatabaseManagement();
         private SqlCommand _command = default!;
         private SqlDataReader _reader = default!;
+        private bool _allowedToEdit = default!;
+        public static bool editing = false;
         public MainWindow(Employee employee, Login log)
         {
             InitializeComponent();
@@ -37,6 +39,12 @@ namespace Hairology
             lblDate.Text = GetCurrentDate();
             lblTime.Text = GetCurrentTime();
             uscAddNewPerson.Hide();
+            uscAddNewTransaction.Hide();
+            uscSearch.Hide();
+            uscInventory.Hide();
+            uscTransactions.Hide();
+            uscSettings.Hide();
+            uscEditPerson.Hide();
         }
         ~MainWindow()
         {
@@ -67,6 +75,10 @@ namespace Hairology
             _reader.Close();
             _dbInstance.conn.Close();
         }
+        /// <summary>
+        /// limits the abilities of the application so that only admin users can have full access
+        /// </summary>
+        /// <param name="privileges"></param>
         public void GetAdminRights(bool privileges)
         {
             if (privileges == true)
@@ -79,6 +91,7 @@ namespace Hairology
                 newProductToolStripMenuItem.Visible = true;
                 toolStripSeparator3.Visible = true;
                 toolStripSeparator4.Visible = true;
+                _allowedToEdit = true;
             }
             else
             {
@@ -90,6 +103,7 @@ namespace Hairology
                 newProductToolStripMenuItem.Visible = false;
                 toolStripSeparator3.Visible = false;
                 toolStripSeparator4.Visible = false;
+                _allowedToEdit = false;
             }
         }
         /// <summary>
@@ -138,15 +152,40 @@ namespace Hairology
         }
         /// <summary>
         /// updates the label showing the current time every second
+        /// checks to see if the user is currently editing a customer's or employee's details
+        /// also checks to ensure that accounts with admin rights can only edit such details, and displays warning message if non-admin users are trying to edit such records
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void tmrTimer_Tick(object sender, EventArgs e)
         {
             lblTime.Text = GetCurrentTime();
+            if (editing == true)
+            {
+                if (_allowedToEdit == true)
+                {
+                    if (uscEditPerson.Visible == false)
+                    {
+                        uscEditPerson.SetPersonType("Customer", uscSearch.customerForEditing, null);
+                        uscEditPerson.Show();
+                    }
+                }
+                else
+                {
+                    editing = false;
+                    MessageBox.Show("You need to be an administrator to edit database records", "Access Denied", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    uscSearch.SetSearchType("Customer");
+                    uscSearch.Show();
+                }
+            }
+            else
+            {
+                uscEditPerson.Hide();
+            }
         }
         private void addNewEmployeeToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            editing = false;
             uscAddNewPerson.SetPersonType("Employee");
             uscAddNewPerson.Show();
             uscAddNewTransaction.Hide();
@@ -157,6 +196,7 @@ namespace Hairology
         }
         private void addNewCustomerToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            editing = false;
             uscAddNewPerson.SetPersonType("Customer");
             uscAddNewPerson.Show();
             uscAddNewTransaction.Hide();
@@ -167,15 +207,17 @@ namespace Hairology
         }
         private void newTransactionToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            editing = false;
             uscAddNewPerson.Hide();
             uscAddNewTransaction.Show();
             uscSearch.Hide();
-            uscInventory.Show();
+            uscInventory.Hide();
             uscTransactions.Hide();
             uscSettings.Hide();
         }
         private void searchEmployeesToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            editing = false;
             uscAddNewPerson.Hide();
             uscAddNewTransaction.Hide();
             uscSearch.SetSearchType("Employee");
@@ -187,6 +229,7 @@ namespace Hairology
 
         private void searchCustomersToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            editing = false;
             uscAddNewPerson.Hide();
             uscAddNewTransaction.Hide();
             uscSearch.SetSearchType("Customer");
@@ -197,6 +240,7 @@ namespace Hairology
         }
         private void inventoryToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            editing = false;
             uscAddNewPerson.Hide();
             uscAddNewTransaction.Hide();
             uscSearch.Hide();
@@ -213,6 +257,7 @@ namespace Hairology
             }
             else
             {
+                editing = false;
                 uscAddNewPerson.Hide();
                 uscAddNewTransaction.Hide();
                 uscSearch.Hide();
@@ -224,6 +269,7 @@ namespace Hairology
 
         private void settingsToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            editing = false;
             uscAddNewPerson.Hide();
             uscAddNewTransaction.Hide();
             uscSearch.Hide();
