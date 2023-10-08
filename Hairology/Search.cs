@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Accessibility;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -22,6 +23,7 @@ namespace Hairology
         public string type = default!;
         private int _index = default!;
         public Customer customerForEditing = default!;
+        public Employee employeeForEditing = default!;
         public Search()
         {
             InitializeComponent();
@@ -144,12 +146,15 @@ namespace Hairology
                                 column.HeaderText = "POST CODE";
                                 break;
                             case 8:
-                                column.HeaderText = "DEPARTMENT";
+                                column.HeaderText = "EMPLOYEE NUMBER";
                                 break;
                             case 9:
-                                column.HeaderText = "COMPLETED TRAINING?";
+                                column.HeaderText = "DEPARTMENT";
                                 break;
                             case 10:
+                                column.HeaderText = "COMPLETED TRAINING?";
+                                break;
+                            case 11:
                                 column.HeaderText = "ADMIN PRIVILEGES?";
                                 break;
                             default:
@@ -217,12 +222,11 @@ namespace Hairology
 
         private void dgvSearch_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            string[] personalDetails = new string[9];
-
             if (type == "Customer")
             {
                 try
                 {
+                    string[] personalDetails = new string[9];
                     if (e.RowIndex > -1)
                     {
                         personalDetails[0] = dgvSearch.Rows[e.RowIndex].Cells[0].Value.ToString();
@@ -242,6 +246,45 @@ namespace Hairology
                     if (_reader.Read())
                     {
                         MainWindow.editing = true;
+                        MainWindow.personType = "Customer";
+                        this.Hide();
+                    }
+                    _dbInstance.conn.Close();
+                }
+                catch (Exception ex)
+                {
+                    DialogResult result = MessageBox.Show(ex.Message, "Something Went Wrong", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            else if (type == "Employee")
+            {
+                try
+                {
+                    string[] personalDetails = new string[8];
+                    string[] workDetails = new string[4];
+                    if (e.RowIndex > -1)
+                    {
+                        personalDetails[0] = dgvSearch.Rows[e.RowIndex].Cells[0].Value.ToString();
+                        personalDetails[1] = dgvSearch.Rows[e.RowIndex].Cells[1].Value.ToString();
+                        personalDetails[2] = dgvSearch.Rows[e.RowIndex].Cells[2].Value.ToString();
+                        personalDetails[3] = dgvSearch.Rows[e.RowIndex].Cells[3].Value.ToString();
+                        personalDetails[4] = dgvSearch.Rows[e.RowIndex].Cells[4].Value.ToString();
+                        personalDetails[5] = dgvSearch.Rows[e.RowIndex].Cells[5].Value.ToString();
+                        personalDetails[6] = dgvSearch.Rows[e.RowIndex].Cells[6].Value.ToString();
+                        personalDetails[7] = dgvSearch.Rows[e.RowIndex].Cells[7].Value.ToString();
+                        workDetails[0] = dgvSearch.Rows[e.RowIndex].Cells[8].Value.ToString();
+                        workDetails[1] = dgvSearch.Rows[e.RowIndex].Cells[9].Value.ToString();
+                        workDetails[2] = dgvSearch.Rows[e.RowIndex].Cells[10].Value.ToString();
+                        workDetails[3] = dgvSearch.Rows[e.RowIndex].Cells[11].Value.ToString();
+                        employeeForEditing = new Employee(personalDetails, workDetails);
+                    }
+                    _dbInstance.conn.Open();
+                    _command = new SqlCommand(string.Format(DatabaseQueries.SELECT_EMPLOYEE_ID_USING_EMPLOYEE_NUMBER, employeeForEditing.GetAttribute(8)), _dbInstance.conn);
+                    _reader = _command.ExecuteReader();
+                    if (_reader.Read())
+                    {
+                        MainWindow.editing = true;
+                        MainWindow.personType = "Employee";
                         this.Hide();
                     }
                     _dbInstance.conn.Close();

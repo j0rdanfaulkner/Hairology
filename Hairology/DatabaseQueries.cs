@@ -2,8 +2,11 @@
 using System.Collections.Generic;
 using System.Configuration;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
+using System.Xml.Linq;
 
 namespace Hairology
 {
@@ -31,7 +34,7 @@ namespace Hairology
 
         public const string SELECT_CUSTOMER_NAMES = "SELECT first_name, last_name FROM [Customers]";
 
-        public const string SELECT_ALL_EMPLOYEES = "SELECT d.first_name, d.last_name, d.date_of_birth, d.sex, d.address_line_1, d.address_line_2, d.county, d.post_code, e.department, e.completed_training, e.admin_rights FROM [Employee Details] AS d LEFT JOIN [Employees] AS e ON d.employee_number = e.employee_number";
+        public const string SELECT_ALL_EMPLOYEES = "SELECT d.first_name, d.last_name, d.date_of_birth, d.sex, d.address_line_1, d.address_line_2, d.county, d.post_code, e.employee_number, e.department, e.completed_training, e.admin_rights FROM [Employee Details] AS d LEFT JOIN [Employees] AS e ON d.employee_number = e.employee_number";
 
         public const string SELECT_ALL_TRANSACTIONS = "SELECT transaction_id, card_number, security_code, expiration_date, transaction_completed FROM [Transactions]";
 
@@ -44,6 +47,10 @@ namespace Hairology
         public const string SELECT_USER_ACCOUNT_ID = "SELECT account_id FROM [User Accounts] WHERE account_id = '{0}'";
 
         public const string SELECT_EMPLOYEE_ID = "SELECT employee_id FROM [Employees] WHERE employee_id = '{0}'";
+
+        public const string SELECT_EMPLOYEE_ID_USING_EMPLOYEE_NUMBER = "SELECT employee_id FROM [Employees] WHERE employee_number = '{0}'";
+
+        public const string SELECT_USERNAME_USING_ACCOUNT_ID = "SELECT username FROM [User Accounts] WHERE account_id = '{0}'";
 
         // COUNT QUERIES
 
@@ -63,8 +70,14 @@ namespace Hairology
 
         public const string UPDATE_CUSTOMER_DETAILS = "UPDATE [Customers] SET first_name = '{0}', last_name = '{1}', date_of_birth = '{2}', sex = '{3}', address_line_1 = '{4}', address_line_2 = '{5}', county = '{6}', post_code = '{7}', regular_customer = '{8}' WHERE customer_id = '{9}'";
 
+        public const string UPDATE_EMPLOYEE_DETAILS = "UPDATE [Employee Details] SET first_name = '{0}', last_name = '{1}', date_of_birth = '{2}', sex = '{3}', address_line_1 = '{4}', address_line_2 = '{5}', county = '{6}', post_code = '{7}' WHERE employee_number = '{8}'";
+
+        public const string UPDATE_EMPLOYEE_WORK_DETAILS = "UPDATE [Employees] SET department = '{0}', completed_training = '{1}', admin_rights = '{2}' WHERE employee_number = '{3}'";
+
         // DELETE QUERIES
 
         public const string DELETE_CUSTOMER = "DELETE FROM [Customers] WHERE customer_id = '{0}'";
+
+        public const string DELETE_EMPLOYEE = "DELETE [Employees] FROM [Employee Details] INNER JOIN [Employees] ON [Employee Details].employee_number = [Employee Details].employee_number WHERE [Employees].employee_number = '{0}'; DELETE [Employee Details] WHERE employee_number = '{0}'";
     }
 }

@@ -24,6 +24,7 @@ namespace Hairology
         private SqlDataReader _reader = default!;
         private bool _allowedToEdit = default!;
         public static bool editing = false;
+        public static string personType = default!;
         public MainWindow(Employee employee, Login log)
         {
             InitializeComponent();
@@ -166,7 +167,14 @@ namespace Hairology
                 {
                     if (uscEditPerson.Visible == false)
                     {
-                        uscEditPerson.SetPersonType("Customer", uscSearch.customerForEditing, null);
+                        if (personType == "Customer")
+                        {
+                            uscEditPerson.SetPersonType(personType, uscSearch.customerForEditing, null);
+                        }
+                        else if (personType == "Employee")
+                        {
+                            uscEditPerson.SetPersonType(personType, null, uscSearch.employeeForEditing);
+                        }
                         uscEditPerson.Show();
                     }
                 }
@@ -174,7 +182,14 @@ namespace Hairology
                 {
                     editing = false;
                     MessageBox.Show("You need to be an administrator to edit database records", "Access Denied", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    uscSearch.SetSearchType("Customer");
+                    if (personType == "Customer")
+                    {
+                        uscSearch.SetSearchType("Customer");
+                    }
+                    else if (personType == "Employee")
+                    {
+                        uscSearch.SetSearchType("Employee");
+                    }
                     uscSearch.Show();
                 }
             }
