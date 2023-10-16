@@ -28,8 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             pnlContainer = new Panel();
             dgvTransactions = new DataGridView();
+            tmrTimer = new System.Windows.Forms.Timer(components);
             pnlContainer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvTransactions).BeginInit();
             SuspendLayout();
@@ -59,6 +61,11 @@
             dgvTransactions.Size = new Size(1264, 449);
             dgvTransactions.TabIndex = 0;
             // 
+            // tmrTimer
+            // 
+            tmrTimer.Interval = 1000;
+            tmrTimer.Tick += tmrTimer_Tick;
+            // 
             // Transactions
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -75,5 +82,6 @@
 
         private Panel pnlContainer;
         private DataGridView dgvTransactions;
+        private System.Windows.Forms.Timer tmrTimer;
     }
 }

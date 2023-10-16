@@ -317,11 +317,25 @@ namespace Hairology
                         // delete record that matches the ID
                         _command = new SqlCommand(string.Format(DatabaseQueries.DELETE_CUSTOMER, _customerID), _dbInstance.conn);
                         _reader = _command.ExecuteReader();
+                        _reader.Close();
                         // show confirmation of deletion to user
                         MessageBox.Show("The customer '" + _editingCustomer.GetFullName() + "' was deleted from the database", "Customer Deleted", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        _reader.Close();
+                        DialogResult result = MessageBox.Show("Should this customer's transaction history also be deleted?", "Delete Transaction History?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                        if (result == DialogResult.Yes)
+                        {
+                            _command = new SqlCommand(string.Format(DatabaseQueries.DELETE_TRANSACTION_HISTORY, _customerID), _dbInstance.conn);
+                            _reader = _command.ExecuteReader();
+                            // show confirmation of deletion to user
+                            MessageBox.Show("The customer's transaction history was also deleted from the database", "Transaction History Deleted", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            _reader.Close();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Each transaction this customer made can be manually deleted at any time", "Reminder", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
                     }
                 }
+                _dbInstance.conn.Close();
             }
             else if (_type == "Employee")
             {

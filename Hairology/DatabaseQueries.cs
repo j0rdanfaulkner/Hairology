@@ -26,13 +26,15 @@ namespace Hairology
 
         public const string SELECT_RANDOM_EMPLOYEE_NUMBER = "SELECT employee_number FROM [Employees] WHERE employee_number = '{0}'";
 
+        public const string SELECT_RANDOM_TRANSACTION_ID = "SELECT transaction_id FROM [Transactions] WHERE transaction_id = '{0}'";
+
         public const string SELECT_ACCOUNT_ID = "SELECT account_id FROM [Employees] WHERE employee_number = '{0}'";
 
         public const string SELECT_USERNAME = "SELECT username FROM [User Accounts] WHERE username = '{0}'";
 
         public const string SELECT_ALL_CUSTOMERS = "SELECT first_name, last_name, date_of_birth, sex, address_line_1, address_line_2, county, post_code, regular_customer FROM [Customers]";
 
-        public const string SELECT_CUSTOMER_NAMES = "SELECT first_name, last_name FROM [Customers]";
+        public const string SELECT_CUSTOMER_NAMES = "SELECT first_name, last_name, post_code FROM [Customers]";
 
         public const string SELECT_ALL_EMPLOYEES = "SELECT d.first_name, d.last_name, d.date_of_birth, d.sex, d.address_line_1, d.address_line_2, d.county, d.post_code, e.employee_number, e.department, e.completed_training, e.admin_rights FROM [Employee Details] AS d LEFT JOIN [Employees] AS e ON d.employee_number = e.employee_number";
 
@@ -66,6 +68,8 @@ namespace Hairology
 
         public const string INSERT_INTO_EMPLOYEE_DETAILS = "INSERT INTO [Employee Details] (person_id, employee_number, first_name, last_name, date_of_birth, sex, address_line_1, address_line_2, county, post_code) VALUES ('{0}', '{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}', '{8}', '{9}')";
 
+        public const string INSERT_INTO_TRANSACTIONS = "INSERT INTO [Transactions] (transaction_id, employee_number, customer_id, card_number, security_code, expiration_date, amount_charged, transaction_completed) VALUES ('{0}', '{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}')";
+
         // UPDATE QUERIES
 
         public const string UPDATE_CUSTOMER_DETAILS = "UPDATE [Customers] SET first_name = '{0}', last_name = '{1}', date_of_birth = '{2}', sex = '{3}', address_line_1 = '{4}', address_line_2 = '{5}', county = '{6}', post_code = '{7}', regular_customer = '{8}' WHERE customer_id = '{9}'";
@@ -78,10 +82,12 @@ namespace Hairology
 
         public const string DELETE_CUSTOMER = "DELETE FROM [Customers] WHERE customer_id = '{0}'";
 
-        public const string DELETE_EMPLOYEE = "DELETE FROM [Employees] WHERE employee_id= '{0}'";
+        public const string DELETE_EMPLOYEE = "DELETE FROM [Employees] WHERE employee_id = '{0}'";
         
         public const string DELETE_EMPLOYEE_DETAILS = "DELETE FROM [Employee Details] WHERE employee_number = '{0}'";
 
         public const string DELETE_ACCOUNT = "DELETE FROM [User Accounts] WHERE account_id = '{0}'";
+
+        public const string DELETE_TRANSACTION_HISTORY = "DELETE FROM [Transactions] WHERE customer_id = '{0}'";
     }
 }

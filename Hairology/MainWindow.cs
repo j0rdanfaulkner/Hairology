@@ -14,7 +14,7 @@ namespace Hairology
 {
     public partial class MainWindow : Form
     {
-        private Employee _employee;
+        public Employee _employee;
         private string _username = default!;
         private Login _login = default!;
         private string _currentDate = default!;
@@ -224,6 +224,7 @@ namespace Hairology
         {
             editing = false;
             uscAddNewPerson.Hide();
+            uscAddNewTransaction.SetEmployeeNumber(Convert.ToInt32(_employee.GetAttribute(8)));
             uscAddNewTransaction.Show();
             uscSearch.Hide();
             uscInventory.Hide();

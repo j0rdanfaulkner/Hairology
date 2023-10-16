@@ -81,6 +81,7 @@
             btnSubmit.TabIndex = 26;
             btnSubmit.Text = "SUBMIT DETAILS";
             btnSubmit.UseVisualStyleBackColor = true;
+            btnSubmit.Click += btnSubmit_Click;
             // 
             // label1
             // 
@@ -130,6 +131,8 @@
             tbxAmountCharged.Size = new Size(547, 35);
             tbxAmountCharged.TabIndex = 22;
             tbxAmountCharged.TextChanged += tbxAmountCharged_TextChanged;
+            tbxAmountCharged.Enter += tbxAmountCharged_Enter;
+            tbxAmountCharged.Leave += tbxAmountCharged_Leave;
             // 
             // lblTotalAmount
             // 

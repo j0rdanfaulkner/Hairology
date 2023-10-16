@@ -22,8 +22,8 @@ namespace Hairology
         {
             InitializeComponent();
             _dbInstance.ConnectToDatabase();
+            tmrTimer.Start();
             GetTransactionData();
-            this.Refresh();
         }
         /// <summary>
         /// fills DataGridView control with contents of 'Transactions' table within database
@@ -82,6 +82,11 @@ namespace Hairology
                     this.Hide();
                 }
             }
+        }
+
+        private void tmrTimer_Tick(object sender, EventArgs e)
+        {
+            GetTransactionData();
         }
     }
 }
