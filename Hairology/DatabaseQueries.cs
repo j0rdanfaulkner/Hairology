@@ -78,6 +78,10 @@ namespace Hairology
 
         public const string DELETE_CUSTOMER = "DELETE FROM [Customers] WHERE customer_id = '{0}'";
 
-        public const string DELETE_EMPLOYEE = "DELETE [Employees] FROM [Employee Details] INNER JOIN [Employees] ON [Employee Details].employee_number = [Employee Details].employee_number WHERE [Employees].employee_number = '{0}'; DELETE [Employee Details] WHERE employee_number = '{0}'";
+        public const string DELETE_EMPLOYEE = "DELETE FROM [Employees] WHERE employee_id= '{0}'";
+        
+        public const string DELETE_EMPLOYEE_DETAILS = "DELETE FROM [Employee Details] WHERE employee_number = '{0}'";
+
+        public const string DELETE_ACCOUNT = "DELETE FROM [User Accounts] WHERE account_id = '{0}'";
     }
 }

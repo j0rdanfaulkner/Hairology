@@ -34,6 +34,7 @@ namespace Hairology
         private string _postCode = default!;
         private bool _regularCustomer = default!;
         // variables for changed work details
+        private int _employeeID = default!;
         private string _employeeNumber = default!;
         private string _department = default!;
         private bool _completedTraining = default!;
@@ -330,7 +331,7 @@ namespace Hairology
                 _reader = _command.ExecuteReader();
                 if (_reader.Read())
                 {
-                    _customerID = Convert.ToInt32(_reader[0]);
+                    _employeeID = Convert.ToInt32(_reader[0]);
                     _reader.Close();
                     if (action == "Update")
                     {
@@ -356,17 +357,16 @@ namespace Hairology
                     }
                     else if (action == "Delete")
                     {
-                        // get account ID of employee's user account
-                        string accountID = default!;
-                        _command = new SqlCommand(string.Format(DatabaseQueries.SELECT_ACCOUNT_ID, _editingEmployee.GetAttribute(8)), _dbInstance.conn);
-                        _reader = _command.ExecuteReader();
-                        if (_reader.Read())
-                        {
-                            accountID = _reader[0].ToString();
-                            _reader.Close();
-                        }
                         // delete records from multiple tables that match the employee number
-                        _command = new SqlCommand(string.Format(DatabaseQueries.DELETE_EMPLOYEE, _employeeNumber), _dbInstance.conn);
+                        _command = new SqlCommand(string.Format(DatabaseQueries.DELETE_EMPLOYEE_DETAILS, _editingEmployee.GetAttribute(8)), _dbInstance.conn);
+                        _reader = _command.ExecuteReader();
+                        _reader.Close();
+                        // delete records from multiple tables that match the employee number
+                        _command = new SqlCommand(string.Format(DatabaseQueries.DELETE_ACCOUNT, _editingEmployee.GetAttribute(8)), _dbInstance.conn);
+                        _reader = _command.ExecuteReader();
+                        _reader.Close();
+                        // delete records from multiple tables that match the employee number
+                        _command = new SqlCommand(string.Format(DatabaseQueries.DELETE_EMPLOYEE, _employeeID), _dbInstance.conn);
                         _reader = _command.ExecuteReader();
                         // show confirmation of deletion to user
                         MessageBox.Show("The employee '" + _editingEmployee.GetFullName() + "' was deleted from the database, as well as their user account", "Employee Deleted", MessageBoxButtons.OK, MessageBoxIcon.Information);
