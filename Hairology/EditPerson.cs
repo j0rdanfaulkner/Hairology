@@ -361,12 +361,10 @@ namespace Hairology
                         _command = new SqlCommand(string.Format(DatabaseQueries.DELETE_EMPLOYEE_DETAILS, _editingEmployee.GetAttribute(8)), _dbInstance.conn);
                         _reader = _command.ExecuteReader();
                         _reader.Close();
-                        // delete records from multiple tables that match the employee number
-                        _command = new SqlCommand(string.Format(DatabaseQueries.DELETE_ACCOUNT, _editingEmployee.GetAttribute(8)), _dbInstance.conn);
+                        _command = new SqlCommand(string.Format(DatabaseQueries.DELETE_EMPLOYEE, _employeeID), _dbInstance.conn);
                         _reader = _command.ExecuteReader();
                         _reader.Close();
-                        // delete records from multiple tables that match the employee number
-                        _command = new SqlCommand(string.Format(DatabaseQueries.DELETE_EMPLOYEE, _employeeID), _dbInstance.conn);
+                        _command = new SqlCommand(string.Format(DatabaseQueries.DELETE_ACCOUNT, _employeeID), _dbInstance.conn);
                         _reader = _command.ExecuteReader();
                         // show confirmation of deletion to user
                         MessageBox.Show("The employee '" + _editingEmployee.GetFullName() + "' was deleted from the database, as well as their user account", "Employee Deleted", MessageBoxButtons.OK, MessageBoxIcon.Information);
