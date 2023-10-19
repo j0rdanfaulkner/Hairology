@@ -301,6 +301,7 @@
             // btnDiscardChanges
             // 
             btnDiscardChanges.Anchor = AnchorStyles.Top;
+            btnDiscardChanges.BackColor = SystemColors.ControlLightLight;
             btnDiscardChanges.BackgroundImage = Properties.Resources.notok;
             btnDiscardChanges.BackgroundImageLayout = ImageLayout.Zoom;
             btnDiscardChanges.Cursor = Cursors.Hand;
@@ -308,13 +309,13 @@
             btnDiscardChanges.Name = "btnDiscardChanges";
             btnDiscardChanges.Size = new Size(146, 60);
             btnDiscardChanges.TabIndex = 18;
-            btnDiscardChanges.UseVisualStyleBackColor = true;
+            btnDiscardChanges.UseVisualStyleBackColor = false;
             btnDiscardChanges.Click += btnDiscardChanges_Click;
             // 
             // btnDelete
             // 
             btnDelete.Anchor = AnchorStyles.Top;
-            btnDelete.BackColor = Color.Maroon;
+            btnDelete.BackColor = SystemColors.ControlLightLight;
             btnDelete.BackgroundImage = Properties.Resources.bin;
             btnDelete.BackgroundImageLayout = ImageLayout.Zoom;
             btnDelete.Cursor = Cursors.Hand;
@@ -402,6 +403,7 @@
             // btnSubmit
             // 
             btnSubmit.Anchor = AnchorStyles.Top;
+            btnSubmit.BackColor = SystemColors.ControlLightLight;
             btnSubmit.BackgroundImage = Properties.Resources.save;
             btnSubmit.BackgroundImageLayout = ImageLayout.Zoom;
             btnSubmit.Cursor = Cursors.Hand;
@@ -409,7 +411,7 @@
             btnSubmit.Name = "btnSubmit";
             btnSubmit.Size = new Size(146, 60);
             btnSubmit.TabIndex = 10;
-            btnSubmit.UseVisualStyleBackColor = true;
+            btnSubmit.UseVisualStyleBackColor = false;
             btnSubmit.Click += btnSubmit_Click;
             // 
             // tbxAddressLine2

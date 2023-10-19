@@ -71,10 +71,10 @@
             // 
             // pnlContainer
             // 
+            pnlContainer.Anchor = AnchorStyles.None;
             pnlContainer.BackColor = SystemColors.ActiveCaption;
             pnlContainer.Controls.Add(pnlEmployee);
             pnlContainer.Controls.Add(panel1);
-            pnlContainer.Dock = DockStyle.Fill;
             pnlContainer.Font = new Font("EurostileLTW03-Extended2", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
             pnlContainer.Location = new Point(0, 0);
             pnlContainer.Name = "pnlContainer";
@@ -103,7 +103,7 @@
             // 
             // pbxUsernameOK
             // 
-            pbxUsernameOK.Anchor = AnchorStyles.Top;
+            pbxUsernameOK.Anchor = AnchorStyles.None;
             pbxUsernameOK.BackgroundImageLayout = ImageLayout.Zoom;
             pbxUsernameOK.Location = new Point(622, 296);
             pbxUsernameOK.Name = "pbxUsernameOK";
@@ -124,7 +124,7 @@
             // 
             // lblAdminRights
             // 
-            lblAdminRights.Anchor = AnchorStyles.Top;
+            lblAdminRights.Anchor = AnchorStyles.None;
             lblAdminRights.AutoSize = true;
             lblAdminRights.Font = new Font("EurostileLTW03-Extended2", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
             lblAdminRights.Location = new Point(0, 2);
@@ -135,7 +135,7 @@
             // 
             // rbtnAdminRightsYes
             // 
-            rbtnAdminRightsYes.Anchor = AnchorStyles.Top;
+            rbtnAdminRightsYes.Anchor = AnchorStyles.None;
             rbtnAdminRightsYes.AutoSize = true;
             rbtnAdminRightsYes.Cursor = Cursors.Hand;
             rbtnAdminRightsYes.Location = new Point(290, -3);
@@ -148,7 +148,7 @@
             // 
             // rbtnAdminRightsNo
             // 
-            rbtnAdminRightsNo.Anchor = AnchorStyles.Top;
+            rbtnAdminRightsNo.Anchor = AnchorStyles.None;
             rbtnAdminRightsNo.AutoSize = true;
             rbtnAdminRightsNo.Cursor = Cursors.Hand;
             rbtnAdminRightsNo.Location = new Point(400, -3);
@@ -161,7 +161,7 @@
             // 
             // tbxConfirmPassword
             // 
-            tbxConfirmPassword.Anchor = AnchorStyles.Top;
+            tbxConfirmPassword.Anchor = AnchorStyles.None;
             tbxConfirmPassword.Location = new Point(78, 374);
             tbxConfirmPassword.MaxLength = 256;
             tbxConfirmPassword.Name = "tbxConfirmPassword";
@@ -171,7 +171,7 @@
             // 
             // tbxPassword
             // 
-            tbxPassword.Anchor = AnchorStyles.Top;
+            tbxPassword.Anchor = AnchorStyles.None;
             tbxPassword.Location = new Point(78, 335);
             tbxPassword.MaxLength = 256;
             tbxPassword.Name = "tbxPassword";
@@ -181,7 +181,7 @@
             // 
             // tbxUsername
             // 
-            tbxUsername.Anchor = AnchorStyles.Top;
+            tbxUsername.Anchor = AnchorStyles.None;
             tbxUsername.Location = new Point(78, 296);
             tbxUsername.MaxLength = 256;
             tbxUsername.Name = "tbxUsername";
@@ -192,7 +192,7 @@
             // 
             // btnGenerateEmployeeNumber
             // 
-            btnGenerateEmployeeNumber.Anchor = AnchorStyles.Top;
+            btnGenerateEmployeeNumber.Anchor = AnchorStyles.None;
             btnGenerateEmployeeNumber.Cursor = Cursors.Hand;
             btnGenerateEmployeeNumber.FlatStyle = FlatStyle.System;
             btnGenerateEmployeeNumber.Location = new Point(78, 223);
@@ -205,7 +205,7 @@
             // 
             // rbtnTrainingCompletedNo
             // 
-            rbtnTrainingCompletedNo.Anchor = AnchorStyles.Top;
+            rbtnTrainingCompletedNo.Anchor = AnchorStyles.None;
             rbtnTrainingCompletedNo.AutoSize = true;
             rbtnTrainingCompletedNo.Cursor = Cursors.Hand;
             rbtnTrainingCompletedNo.Location = new Point(545, 145);
@@ -218,7 +218,7 @@
             // 
             // rbtnTrainingCompletedYes
             // 
-            rbtnTrainingCompletedYes.Anchor = AnchorStyles.Top;
+            rbtnTrainingCompletedYes.Anchor = AnchorStyles.None;
             rbtnTrainingCompletedYes.AutoSize = true;
             rbtnTrainingCompletedYes.Cursor = Cursors.Hand;
             rbtnTrainingCompletedYes.Location = new Point(435, 145);
@@ -231,7 +231,7 @@
             // 
             // lblCompletedTraining
             // 
-            lblCompletedTraining.Anchor = AnchorStyles.Top;
+            lblCompletedTraining.Anchor = AnchorStyles.None;
             lblCompletedTraining.AutoSize = true;
             lblCompletedTraining.Font = new Font("EurostileLTW03-Extended2", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
             lblCompletedTraining.Location = new Point(25, 146);
@@ -242,7 +242,7 @@
             // 
             // tbxEmployeeNumber
             // 
-            tbxEmployeeNumber.Anchor = AnchorStyles.Top;
+            tbxEmployeeNumber.Anchor = AnchorStyles.None;
             tbxEmployeeNumber.Location = new Point(78, 67);
             tbxEmployeeNumber.MaxLength = 8;
             tbxEmployeeNumber.Name = "tbxEmployeeNumber";
@@ -254,7 +254,7 @@
             // 
             // cbxDepartment
             // 
-            cbxDepartment.Anchor = AnchorStyles.Top;
+            cbxDepartment.Anchor = AnchorStyles.None;
             cbxDepartment.FormattingEnabled = true;
             cbxDepartment.Items.AddRange(new object[] { "Barber/Hairdresser", "Cleaning and Maintenance", "Intern", "IT and Helpdesk", "Management" });
             cbxDepartment.Location = new Point(78, 106);
@@ -298,6 +298,7 @@
             // 
             // lblSex
             // 
+            lblSex.Anchor = AnchorStyles.None;
             lblSex.AutoSize = true;
             lblSex.Font = new Font("EurostileLTW03-Extended2", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
             lblSex.Location = new Point(24, 179);
@@ -308,7 +309,7 @@
             // 
             // lblDOB
             // 
-            lblDOB.Anchor = AnchorStyles.Top;
+            lblDOB.Anchor = AnchorStyles.None;
             lblDOB.AutoSize = true;
             lblDOB.Font = new Font("EurostileLTW03-Extended2", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
             lblDOB.Location = new Point(19, 148);
@@ -319,7 +320,7 @@
             // 
             // dtpDateOfBirth
             // 
-            dtpDateOfBirth.Anchor = AnchorStyles.Top;
+            dtpDateOfBirth.Anchor = AnchorStyles.None;
             dtpDateOfBirth.Location = new Point(112, 145);
             dtpDateOfBirth.Name = "dtpDateOfBirth";
             dtpDateOfBirth.Size = new Size(448, 33);
@@ -327,7 +328,7 @@
             // 
             // cbxRegularCustomer
             // 
-            cbxRegularCustomer.Anchor = AnchorStyles.Top;
+            cbxRegularCustomer.Anchor = AnchorStyles.None;
             cbxRegularCustomer.AutoSize = true;
             cbxRegularCustomer.Cursor = Cursors.Hand;
             cbxRegularCustomer.Location = new Point(276, 180);
@@ -339,7 +340,7 @@
             // 
             // tbxFirstName
             // 
-            tbxFirstName.Anchor = AnchorStyles.Top;
+            tbxFirstName.Anchor = AnchorStyles.None;
             tbxFirstName.Location = new Point(22, 67);
             tbxFirstName.Name = "tbxFirstName";
             tbxFirstName.PlaceholderText = "  FIRST NAME";
@@ -359,7 +360,7 @@
             // 
             // rbtnMale
             // 
-            rbtnMale.Anchor = AnchorStyles.Top;
+            rbtnMale.Anchor = AnchorStyles.None;
             rbtnMale.AutoSize = true;
             rbtnMale.Cursor = Cursors.Hand;
             rbtnMale.Location = new Point(112, 180);
@@ -372,7 +373,7 @@
             // 
             // btnSubmit
             // 
-            btnSubmit.Anchor = AnchorStyles.Top;
+            btnSubmit.Anchor = AnchorStyles.None;
             btnSubmit.Cursor = Cursors.Hand;
             btnSubmit.FlatStyle = FlatStyle.System;
             btnSubmit.Location = new Point(22, 333);
@@ -385,7 +386,7 @@
             // 
             // tbxAddressLine2
             // 
-            tbxAddressLine2.Anchor = AnchorStyles.Top;
+            tbxAddressLine2.Anchor = AnchorStyles.None;
             tbxAddressLine2.Location = new Point(22, 251);
             tbxAddressLine2.Multiline = true;
             tbxAddressLine2.Name = "tbxAddressLine2";
@@ -395,7 +396,7 @@
             // 
             // cbxCounty
             // 
-            cbxCounty.Anchor = AnchorStyles.Top;
+            cbxCounty.Anchor = AnchorStyles.None;
             cbxCounty.FormattingEnabled = true;
             cbxCounty.Items.AddRange(new object[] { "Bath and North East Somerset", "Bedfordshire", "Berkshire", "Bristol", "Buckinghamshire", "Cambridgeshire", "Cheshire", "Cornwall", "County Durham", "Cumbria", "Derbyshire", "Devon", "Dorset", "East Riding of Yorkshire", "East Sussex", "Essex", "Gloucestershire", "Greater London", "Greater Manchester", "Hampshire", "Herefordshire", "Hertfordshire", "Isle of Wight", "Isles of Scilly", "Kent", "Lancashire", "Leicestershire", "Lincolnshire", "Merseyside", "Norfolk", "North Somerset", "North Yorkshire", "Northamptonshire", "Northumberland", "Nottinghamshire", "Oxfordshire", "Rutland", "Shropshire", "Somerset", "South Gloucestershire", "South Yorkshire", "Staffordshire", "Suffolk", "Surrey", "Tyne & Wear", "Warwickshire", "West Midlands", "West Sussex", "West Yorkshire", "Wiltshire", "Worcestershire" });
             cbxCounty.Location = new Point(22, 290);
@@ -406,7 +407,7 @@
             // 
             // tbxLastName
             // 
-            tbxLastName.Anchor = AnchorStyles.Top;
+            tbxLastName.Anchor = AnchorStyles.None;
             tbxLastName.Location = new Point(22, 106);
             tbxLastName.Name = "tbxLastName";
             tbxLastName.PlaceholderText = "  LAST NAME";
@@ -415,7 +416,7 @@
             // 
             // rbtnFemale
             // 
-            rbtnFemale.Anchor = AnchorStyles.Top;
+            rbtnFemale.Anchor = AnchorStyles.None;
             rbtnFemale.AutoSize = true;
             rbtnFemale.Cursor = Cursors.Hand;
             rbtnFemale.Location = new Point(174, 180);
@@ -428,7 +429,7 @@
             // 
             // tbxPostCode
             // 
-            tbxPostCode.Anchor = AnchorStyles.Top;
+            tbxPostCode.Anchor = AnchorStyles.None;
             tbxPostCode.Location = new Point(329, 290);
             tbxPostCode.MaxLength = 8;
             tbxPostCode.Name = "tbxPostCode";
@@ -439,7 +440,7 @@
             // 
             // tbxAddressLine1
             // 
-            tbxAddressLine1.Anchor = AnchorStyles.Top;
+            tbxAddressLine1.Anchor = AnchorStyles.None;
             tbxAddressLine1.Location = new Point(22, 212);
             tbxAddressLine1.Multiline = true;
             tbxAddressLine1.Name = "tbxAddressLine1";

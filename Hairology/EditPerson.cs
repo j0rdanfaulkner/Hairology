@@ -211,7 +211,7 @@ namespace Hairology
             }
             else if (_type == "Employee")
             {
-                if (rbtnTrainingCompletedYes.Checked == true &&  rbtnTrainingCompletedNo.Checked == false)
+                if (rbtnTrainingCompletedYes.Checked == true && rbtnTrainingCompletedNo.Checked == false)
                 {
                     _completedTraining = true;
                 }
@@ -223,7 +223,7 @@ namespace Hairology
                 {
                     _adminRights = true;
                 }
-                else if (rbtnAdminRightsYes.Checked == false &&  !rbtnAdminRightsNo.Checked == true)
+                else if (rbtnAdminRightsYes.Checked == false && !rbtnAdminRightsNo.Checked == true)
                 {
                     _adminRights = false;
                 }
@@ -496,7 +496,7 @@ namespace Hairology
                     MainWindow.editing = true;
                 }
             }
-            else if ( _type == "Employee")
+            else if (_type == "Employee")
             {
                 DialogResult result = MessageBox.Show("Are you sure you wish to delete '" + _editingEmployee.GetFullName() + "'?", "Delete Employee", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                 if (result == DialogResult.Yes)

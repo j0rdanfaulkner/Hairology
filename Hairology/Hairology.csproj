@@ -40,6 +40,7 @@
     <None Remove="Resources\people.png" />
     <None Remove="Resources\products.png" />
     <None Remove="Resources\refresh.png" />
+    <None Remove="Resources\removeimage.png" />
     <None Remove="Resources\save.png" />
     <None Remove="Resources\search.png" />
     <None Remove="Resources\searchcustomers.png" />
@@ -54,6 +55,9 @@
 
   <ItemGroup>
     <Content Include="icon.ico" />
+    <EmbeddedResource Include="Resources\removeimage.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
     <EmbeddedResource Include="Resources\bin.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
