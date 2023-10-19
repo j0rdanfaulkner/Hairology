@@ -40,6 +40,7 @@ namespace Hairology
             lblDate.Text = GetCurrentDate();
             lblTime.Text = GetCurrentTime();
             uscAddNewPerson.Hide();
+            uscAddNewProduct.Hide();
             uscAddNewTransaction.Hide();
             uscSearch.Hide();
             uscInventory.Hide();
@@ -203,6 +204,7 @@ namespace Hairology
             editing = false;
             uscAddNewPerson.SetPersonType("Employee");
             uscAddNewPerson.Show();
+            uscAddNewProduct.Hide();
             uscAddNewTransaction.Hide();
             uscSearch.Hide();
             uscInventory.Hide();
@@ -214,6 +216,18 @@ namespace Hairology
             editing = false;
             uscAddNewPerson.SetPersonType("Customer");
             uscAddNewPerson.Show();
+            uscAddNewProduct.Hide();
+            uscAddNewTransaction.Hide();
+            uscSearch.Hide();
+            uscInventory.Hide();
+            uscTransactions.Hide();
+            uscSettings.Hide();
+        }
+        private void newProductToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            editing = false;
+            uscAddNewPerson.Hide();
+            uscAddNewProduct.Show();
             uscAddNewTransaction.Hide();
             uscSearch.Hide();
             uscInventory.Hide();
@@ -224,6 +238,7 @@ namespace Hairology
         {
             editing = false;
             uscAddNewPerson.Hide();
+            uscAddNewProduct.Hide();
             uscAddNewTransaction.SetEmployeeNumber(Convert.ToInt32(_employee.GetAttribute(8)));
             uscAddNewTransaction.Show();
             uscSearch.Hide();
@@ -235,6 +250,7 @@ namespace Hairology
         {
             editing = false;
             uscAddNewPerson.Hide();
+            uscAddNewProduct.Hide();
             uscAddNewTransaction.Hide();
             uscSearch.SetSearchType("Employee");
             uscSearch.Show();
@@ -247,8 +263,21 @@ namespace Hairology
         {
             editing = false;
             uscAddNewPerson.Hide();
+            uscAddNewProduct.Hide();
             uscAddNewTransaction.Hide();
             uscSearch.SetSearchType("Customer");
+            uscSearch.Show();
+            uscInventory.Hide();
+            uscTransactions.Hide();
+            uscSettings.Hide();
+        }
+        private void searchTransactionsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            editing = false;
+            uscAddNewPerson.Hide();
+            uscAddNewProduct.Hide();
+            uscAddNewTransaction.Hide();
+            uscSearch.SetSearchType("Transaction");
             uscSearch.Show();
             uscInventory.Hide();
             uscTransactions.Hide();
@@ -258,6 +287,7 @@ namespace Hairology
         {
             editing = false;
             uscAddNewPerson.Hide();
+            uscAddNewProduct.Hide();
             uscAddNewTransaction.Hide();
             uscSearch.Hide();
             uscInventory.Show();
@@ -275,6 +305,7 @@ namespace Hairology
             {
                 editing = false;
                 uscAddNewPerson.Hide();
+                uscAddNewProduct.Hide();
                 uscAddNewTransaction.Hide();
                 uscSearch.Hide();
                 uscInventory.Hide();
@@ -287,6 +318,7 @@ namespace Hairology
         {
             editing = false;
             uscAddNewPerson.Hide();
+            uscAddNewProduct.Hide();
             uscAddNewTransaction.Hide();
             uscSearch.Hide();
             uscInventory.Hide();

@@ -33,6 +33,7 @@
             lblWelcome = new Label();
             pnlContainer = new Panel();
             pnlBottom = new Panel();
+            uscAddNewProduct = new AddNewProduct();
             uscEditPerson = new EditPerson();
             uscAddNewTransaction = new AddNewTransaction();
             uscSearch = new Search();
@@ -58,7 +59,7 @@
             toolStripSeparator5 = new ToolStripSeparator();
             productsToolStripMenuItem = new ToolStripMenuItem();
             toolStripSeparator6 = new ToolStripSeparator();
-            transactionsToolStripMenuItem1 = new ToolStripMenuItem();
+            searchTransactionsToolStripMenuItem = new ToolStripMenuItem();
             logOutToolStripMenuItem = new ToolStripMenuItem();
             inventoryToolStripMenuItem = new ToolStripMenuItem();
             transactionsToolStripMenuItem = new ToolStripMenuItem();
@@ -103,6 +104,7 @@
             // 
             // pnlBottom
             // 
+            pnlBottom.Controls.Add(uscAddNewProduct);
             pnlBottom.Controls.Add(uscEditPerson);
             pnlBottom.Controls.Add(uscAddNewTransaction);
             pnlBottom.Controls.Add(uscSearch);
@@ -116,6 +118,17 @@
             pnlBottom.Name = "pnlBottom";
             pnlBottom.Size = new Size(1264, 489);
             pnlBottom.TabIndex = 2;
+            // 
+            // uscAddNewProduct
+            // 
+            uscAddNewProduct.BackColor = SystemColors.ActiveCaption;
+            uscAddNewProduct.Dock = DockStyle.Fill;
+            uscAddNewProduct.Font = new Font("EurostileLTW03-Extended2", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
+            uscAddNewProduct.Location = new Point(0, 50);
+            uscAddNewProduct.Margin = new Padding(8, 6, 8, 6);
+            uscAddNewProduct.Name = "uscAddNewProduct";
+            uscAddNewProduct.Size = new Size(1264, 439);
+            uscAddNewProduct.TabIndex = 8;
             // 
             // uscEditPerson
             // 
@@ -245,6 +258,7 @@
             newProductToolStripMenuItem.Name = "newProductToolStripMenuItem";
             newProductToolStripMenuItem.Size = new Size(287, 38);
             newProductToolStripMenuItem.Text = "New Product";
+            newProductToolStripMenuItem.Click += newProductToolStripMenuItem_Click;
             // 
             // toolStripSeparator4
             // 
@@ -261,7 +275,7 @@
             // 
             // searchToolStripMenuItem
             // 
-            searchToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { peopleToolStripMenuItem, toolStripSeparator5, productsToolStripMenuItem, toolStripSeparator6, transactionsToolStripMenuItem1 });
+            searchToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { peopleToolStripMenuItem, toolStripSeparator5, productsToolStripMenuItem, toolStripSeparator6, searchTransactionsToolStripMenuItem });
             searchToolStripMenuItem.Image = Properties.Resources.search;
             searchToolStripMenuItem.Name = "searchToolStripMenuItem";
             searchToolStripMenuItem.Size = new Size(135, 46);
@@ -313,12 +327,13 @@
             toolStripSeparator6.Name = "toolStripSeparator6";
             toolStripSeparator6.Size = new Size(239, 6);
             // 
-            // transactionsToolStripMenuItem1
+            // searchTransactionsToolStripMenuItem
             // 
-            transactionsToolStripMenuItem1.Image = Properties.Resources.invoice;
-            transactionsToolStripMenuItem1.Name = "transactionsToolStripMenuItem1";
-            transactionsToolStripMenuItem1.Size = new Size(242, 38);
-            transactionsToolStripMenuItem1.Text = "Transactions";
+            searchTransactionsToolStripMenuItem.Image = Properties.Resources.invoice;
+            searchTransactionsToolStripMenuItem.Name = "searchTransactionsToolStripMenuItem";
+            searchTransactionsToolStripMenuItem.Size = new Size(242, 38);
+            searchTransactionsToolStripMenuItem.Text = "Transactions";
+            searchTransactionsToolStripMenuItem.Click += searchTransactionsToolStripMenuItem_Click;
             // 
             // logOutToolStripMenuItem
             // 
@@ -492,7 +507,7 @@
         private ToolStripSeparator toolStripSeparator1;
         private ToolStripSeparator toolStripSeparator2;
         private ToolStripMenuItem transactionsToolStripMenuItem;
-        private ToolStripMenuItem transactionsToolStripMenuItem1;
+        private ToolStripMenuItem searchTransactionsToolStripMenuItem;
         private Label lblDate;
         private Label lblTime;
         private System.Windows.Forms.Timer tmrTimer;
@@ -513,5 +528,6 @@
         private Label lblDepartment;
         private AddNewTransaction uscAddNewTransaction;
         public EditPerson uscEditPerson;
+        private AddNewProduct uscAddNewProduct;
     }
 }

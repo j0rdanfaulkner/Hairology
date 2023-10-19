@@ -62,6 +62,9 @@ namespace Hairology
                             column.HeaderText = "EXPIRATION DATE";
                             break;
                         case 4:
+                            column.HeaderText = "AMOUNT CHARGED";
+                            break;
+                        case 5:
                             column.HeaderText = "TRANSACTION COMPLETED?";
                             break;
                         default:
@@ -83,7 +86,6 @@ namespace Hairology
                 }
             }
         }
-
         private void tmrTimer_Tick(object sender, EventArgs e)
         {
             GetTransactionData();

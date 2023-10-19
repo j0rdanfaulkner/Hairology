@@ -20,7 +20,7 @@ namespace Hairology
         private SqlDataAdapter _adapter = default!;
         private DataTable _dt = default!;
         private SqlDataReader _reader = default!;
-        public string type = default!;
+        private string _type = default!;
         private int _index = default!;
         public Customer customerForEditing = default!;
         public Employee employeeForEditing = default!;
@@ -33,8 +33,9 @@ namespace Hairology
         }
         private void GetData()
         {
-            if (type == "Customer")
+            if (_type == "Customer")
             {
+                tbxSearchTerm.Show();
                 try
                 {
                     _dbInstance.conn.Open();
@@ -100,8 +101,9 @@ namespace Hairology
                 }
                 this.Refresh();
             }
-            else if (type == "Employee")
+            else if (_type == "Employee")
             {
+                tbxSearchTerm.Show();
                 try
                 {
                     _dbInstance.conn.Open();
@@ -177,9 +179,69 @@ namespace Hairology
                 }
                 this.Refresh();
             }
-            else if (type == "Product")
+            else if (_type == "Product")
             {
-
+                tbxSearchTerm.Show();
+            }
+            else if (_type == "Transaction")
+            {
+                tbxSearchTerm.Hide();
+                try
+                {
+                    _dbInstance.conn.Open();
+                    _command = new SqlCommand(DatabaseQueries.SELECT_ALL_TRANSACTIONS, _dbInstance.conn);
+                    _adapter = new SqlDataAdapter(_command);
+                    _dt = new DataTable();
+                    _adapter.Fill(_dt);
+                    dgvSearch.DataSource = _dt.DefaultView;
+                    dgvSearch.ColumnHeadersDefaultCellStyle.BackColor = Color.LightSteelBlue;
+                    dgvSearch.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                    dgvSearch.EnableHeadersVisualStyles = false;
+                    for (int i = 0; i < _dt.Columns.Count; i++)
+                    {
+                        var column = dgvSearch.Columns[i];
+                        column.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                        column.DefaultCellStyle.BackColor = Color.Silver;
+                        column.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                        switch (i)
+                        {
+                            case 0:
+                                column.HeaderText = "TRANSACTION ID";
+                                break;
+                            case 1:
+                                column.HeaderText = "CARD NUMBER";
+                                break;
+                            case 2:
+                                column.HeaderText = "SECURITY CODE";
+                                break;
+                            case 3:
+                                column.HeaderText = "EXPIRATION DATE";
+                                break;
+                            case 4:
+                                column.HeaderText = "AMOUNT CHARGED";
+                                break;
+                            case 5:
+                                column.HeaderText = "TRANSACTION COMPLETED?";
+                                break;
+                            default:
+                                break;
+                        }
+                    }
+                    _dbInstance.conn.Close();
+                }
+                catch (Exception ex)
+                {
+                    DialogResult result = MessageBox.Show(ex.Message, "Something Went Wrong", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
+                    if (result == DialogResult.Retry)
+                    {
+                        GetData();
+                    }
+                    else if (result == DialogResult.Cancel)
+                    {
+                        this.Hide();
+                    }
+                }
+                this.Refresh();
             }
             if (cbxSearchColumn.Items.Count != 0)
             {
@@ -191,10 +253,10 @@ namespace Hairology
                 cbxSearchColumn.Items.Add(dgvSearch.Columns[i].HeaderText);
             }
         }
-        public void SetSearchType(string personType)
+        public void SetSearchType(string searchType)
         {
-            type = personType;
-            lblSearch.Text = "Search " + type + "s";
+            _type = searchType;
+            lblSearch.Text = "Search " + _type + "s";
             GetData();
         }
         private void tbxSearchTerm_TextChanged(object sender, EventArgs e)
@@ -222,7 +284,7 @@ namespace Hairology
 
         private void dgvSearch_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (type == "Customer")
+            if (_type == "Customer")
             {
                 try
                 {
@@ -256,7 +318,7 @@ namespace Hairology
                     DialogResult result = MessageBox.Show(ex.Message, "Something Went Wrong", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
-            else if (type == "Employee")
+            else if (_type == "Employee")
             {
                 try
                 {

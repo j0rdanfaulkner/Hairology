@@ -21,10 +21,8 @@ namespace Hairology
         private SqlDataReader _reader = default!;
         private int _totalCustomers = default!;
         private string _customerName = default!;
-        private bool _maxLengthReached = default!;
         private List<string> _customerList = new List<string>();
         private string _amount = default!;
-        private bool _isTypingAmount = false;
         // variables for database insertion
         private int _transactionID = default!;
         private int _customerID = default!;

@@ -18,7 +18,6 @@ namespace Hairology
         private DatabaseManagement _dbInstance = new DatabaseManagement();
         private SqlCommand _command = default!;
         private SqlDataReader _reader = default!;
-        private Encryption _encrypt = default!;
         private Customer _editingCustomer = default!;
         private Employee _editingEmployee = default!;
         private bool _changesMade = default!;
