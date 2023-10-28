@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.Drawing.Text;
+using System.Text.RegularExpressions;
 
 namespace Hairology
 {
@@ -80,6 +81,9 @@ namespace Hairology
             File.Copy(_fileName, _imageFilesDirectory + newFileName);
             _fileName = newFileName;
         }
+        /// <summary>
+        /// sets private variables to values entered in the controls
+        /// </summary>
         private void GetDataFromFields()
         {
             _productName = tbxProductName.Text;
@@ -89,6 +93,10 @@ namespace Hairology
             _currentQuantity = Int32.Parse(tbxCurrentQuantity.Text);
             _category = cbxCategory.Text;
         }
+        /// <summary>
+        /// checks for missing fields, returns 'false' if checks fail and 'true' if checks pass
+        /// </summary>
+        /// <returns></returns>
         private bool CheckFields()
         {
             if (tbxProductName.Text == "")
@@ -110,6 +118,12 @@ namespace Hairology
                         MessageBox.Show("The case size of the product was not entered", "Missing Case Size", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         return false;
                     }
+                    // check that only numbers have been entered
+                    else if (!Regex.IsMatch(tbxCaseSize.Text, @"^[0-9]*$"))
+                    {
+                        MessageBox.Show("The case size of the product was not entered correctly", "Incorrect Case Size", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return false;
+                    }
                     else
                     {
                         if (tbxEANNumber.Text == "")
@@ -122,11 +136,23 @@ namespace Hairology
                             MessageBox.Show("The EAN number of the product was not entered correctly", "Unreadable EAN Number", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                             return false;
                         }
+                        // check that only numbers have been entered
+                        else if (!Regex.IsMatch(tbxEANNumber.Text, @"^[0-9]*$"))
+                        {
+                            MessageBox.Show("The EAN number of the product was not entered correctly", "Unreadable EAN Number", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            return false;
+                        }
                         else
                         {
                             if (tbxCurrentQuantity.Text == "")
                             {
                                 MessageBox.Show("The current quantity of the product was not entered", "Missing Current Quantity", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                return false;
+                            }
+                            // check that only numbers have been entered
+                            else if (!Regex.IsMatch(tbxCurrentQuantity.Text, @"^[0-9]*$"))
+                            {
+                                MessageBox.Show("The current quantity of the product was not entered correctly", "Incorrect Current Quantity", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                                 return false;
                             }
                             else
@@ -163,6 +189,10 @@ namespace Hairology
                 }
             }
         }
+        /// <summary>
+        /// generates a random 8-digit number to be used as the product's ID number
+        /// </summary>
+        /// <returns></returns>
         private int GenerateRandomID()
         {
             int id = default!;
@@ -172,21 +202,27 @@ namespace Hairology
             _dbInstance.conn.Open();
             _command = new SqlCommand(string.Format(DatabaseQueries.SELECT_RANDOM_PRODUCT_ID, id), _dbInstance.conn);
             _reader = _command.ExecuteReader();
+            // if random ID was already previously generated and assigned to a product
             if (_reader.Read())
             {
+                // generate a new random number by calling the method again
                 GenerateRandomID();
             }
             else
             {
+                // if not, return the random ID
                 return id;
             }
             _reader.Close();
             _dbInstance.conn.Close();
             return id;
         }
+        /// <summary>
+        /// saves product image to local directory and inserts product into database
+        /// </summary>
         private void InsertIntoDatabase()
         {
-            // generate random 8-digit ID
+            // generate random 8-digit product ID
             _productID = GenerateRandomID();
             _dbInstance.ConnectToDatabase();
             _dbInstance.conn.Open();
@@ -195,6 +231,7 @@ namespace Hairology
             _reader = _command.ExecuteReader();
             if (_reader.Read())
             {
+                // show prompt if product does already exist
                 MessageBox.Show("A product with this EAN number already exists in the database", "EAN Number Already Assigned to Another Product", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 _reader.Close();
             }
@@ -203,14 +240,16 @@ namespace Hairology
                 _reader.Close();
                 // call method used to save product image to local directory
                 SaveProductImage();
+                // run SQL command that will insert product into database
                 _command = new SqlCommand(string.Format(DatabaseQueries.INSERT_INTO_INVENTORY, _productID, _productName, _productDescription, _fileName, _category, _eanNumber, _caseSize, _currentQuantity, _reorderRegularly), _dbInstance.conn);
                 _reader = _command.ExecuteReader();
                 _reader.Close();
-                // search for newly-inserted customer to verify that they have been added to database successfully
+                // search for newly-inserted product to verify that it has been added to database successfully
                 _command = new SqlCommand(string.Format(DatabaseQueries.SELECT_PRODUCT_USING_ID, _productID), _dbInstance.conn);
                 _reader = _command.ExecuteReader();
                 if (_reader.Read())
                 {
+                    // show prompt to show that insertion was successful
                     MessageBox.Show("The product '" + _productName + "' was inserted into the Inventory table successfully", "Product Added Successfully", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     _reader.Close();
                 }
