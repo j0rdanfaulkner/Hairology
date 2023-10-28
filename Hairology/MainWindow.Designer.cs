@@ -471,6 +471,7 @@
             Icon = (Icon)resources.GetObject("$this.Icon");
             MainMenuStrip = mstNavigationBar;
             Margin = new Padding(7, 5, 7, 5);
+            MinimumSize = new Size(1280, 720);
             Name = "MainWindow";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Hairology";
