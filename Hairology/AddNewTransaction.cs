@@ -229,7 +229,7 @@ namespace Hairology
             {
                 _transactionCompleted = true;
             }
-            else if (rbtnYes.Checked == false &&  rbtnNo.Checked == true)
+            else if (rbtnYes.Checked == false && rbtnNo.Checked == true)
             {
                 _transactionCompleted = false;
             }

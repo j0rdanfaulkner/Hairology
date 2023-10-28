@@ -75,7 +75,7 @@
             btnSubmit.Anchor = AnchorStyles.None;
             btnSubmit.Cursor = Cursors.Hand;
             btnSubmit.FlatStyle = FlatStyle.System;
-            btnSubmit.Location = new Point(592, 321);
+            btnSubmit.Location = new Point(537, 322);
             btnSubmit.Name = "btnSubmit";
             btnSubmit.Size = new Size(547, 66);
             btnSubmit.TabIndex = 26;
@@ -87,11 +87,11 @@
             // 
             label1.Anchor = AnchorStyles.None;
             label1.AutoSize = true;
-            label1.Location = new Point(114, 275);
+            label1.Location = new Point(160, 276);
             label1.Name = "label1";
-            label1.Size = new Size(472, 28);
+            label1.Size = new Size(371, 28);
             label1.TabIndex = 25;
-            label1.Text = "TRANSACTION COMPLETED?:";
+            label1.Text = "Transaction Completed?";
             // 
             // rbtnNo
             // 
@@ -99,7 +99,7 @@
             rbtnNo.AutoSize = true;
             rbtnNo.Cursor = Cursors.Hand;
             rbtnNo.FlatStyle = FlatStyle.System;
-            rbtnNo.Location = new Point(931, 274);
+            rbtnNo.Location = new Point(876, 275);
             rbtnNo.Name = "rbtnNo";
             rbtnNo.Size = new Size(84, 33);
             rbtnNo.TabIndex = 24;
@@ -113,7 +113,7 @@
             rbtnYes.AutoSize = true;
             rbtnYes.Cursor = Cursors.Hand;
             rbtnYes.FlatStyle = FlatStyle.System;
-            rbtnYes.Location = new Point(741, 274);
+            rbtnYes.Location = new Point(686, 275);
             rbtnYes.Name = "rbtnYes";
             rbtnYes.Size = new Size(98, 33);
             rbtnYes.TabIndex = 23;
@@ -124,7 +124,7 @@
             // tbxAmountCharged
             // 
             tbxAmountCharged.Anchor = AnchorStyles.None;
-            tbxAmountCharged.Location = new Point(592, 225);
+            tbxAmountCharged.Location = new Point(537, 226);
             tbxAmountCharged.MaxLength = 8;
             tbxAmountCharged.Name = "tbxAmountCharged";
             tbxAmountCharged.PlaceholderText = "  AMOUNT CHARGED";
@@ -138,18 +138,18 @@
             // 
             lblTotalAmount.Anchor = AnchorStyles.None;
             lblTotalAmount.AutoSize = true;
-            lblTotalAmount.Location = new Point(314, 228);
+            lblTotalAmount.Location = new Point(309, 229);
             lblTotalAmount.Name = "lblTotalAmount";
-            lblTotalAmount.Size = new Size(272, 28);
+            lblTotalAmount.Size = new Size(222, 28);
             lblTotalAmount.TabIndex = 21;
-            lblTotalAmount.Text = "TOTAL AMOUNT:";
+            lblTotalAmount.Text = "Total Amount:";
             // 
             // dtpExpiryDate
             // 
             dtpExpiryDate.Anchor = AnchorStyles.None;
             dtpExpiryDate.CustomFormat = "MM/yy";
             dtpExpiryDate.Format = DateTimePickerFormat.Custom;
-            dtpExpiryDate.Location = new Point(972, 179);
+            dtpExpiryDate.Location = new Point(917, 180);
             dtpExpiryDate.Name = "dtpExpiryDate";
             dtpExpiryDate.Size = new Size(167, 35);
             dtpExpiryDate.TabIndex = 20;
@@ -158,16 +158,16 @@
             // 
             lblExpiryDate.Anchor = AnchorStyles.None;
             lblExpiryDate.AutoSize = true;
-            lblExpiryDate.Location = new Point(739, 182);
+            lblExpiryDate.Location = new Point(719, 183);
             lblExpiryDate.Name = "lblExpiryDate";
-            lblExpiryDate.Size = new Size(227, 28);
+            lblExpiryDate.Size = new Size(192, 28);
             lblExpiryDate.TabIndex = 19;
-            lblExpiryDate.Text = "EXPIRY DATE:";
+            lblExpiryDate.Text = "Expiry Date:";
             // 
             // tbxCVV
             // 
             tbxCVV.Anchor = AnchorStyles.None;
-            tbxCVV.Location = new Point(592, 179);
+            tbxCVV.Location = new Point(537, 180);
             tbxCVV.MaxLength = 3;
             tbxCVV.Name = "tbxCVV";
             tbxCVV.PlaceholderText = "CVV";
@@ -180,7 +180,7 @@
             // 
             lblCVV.Anchor = AnchorStyles.None;
             lblCVV.AutoSize = true;
-            lblCVV.Location = new Point(500, 184);
+            lblCVV.Location = new Point(445, 185);
             lblCVV.Name = "lblCVV";
             lblCVV.Size = new Size(86, 28);
             lblCVV.TabIndex = 18;
@@ -189,7 +189,7 @@
             // tbxCardNumber
             // 
             tbxCardNumber.Anchor = AnchorStyles.None;
-            tbxCardNumber.Location = new Point(592, 134);
+            tbxCardNumber.Location = new Point(537, 135);
             tbxCardNumber.MaxLength = 19;
             tbxCardNumber.Name = "tbxCardNumber";
             tbxCardNumber.PlaceholderText = "  CARD NUMBER";
@@ -201,27 +201,27 @@
             // 
             lblCardNumber.Anchor = AnchorStyles.None;
             lblCardNumber.AutoSize = true;
-            lblCardNumber.Location = new Point(324, 137);
+            lblCardNumber.Location = new Point(308, 138);
             lblCardNumber.Name = "lblCardNumber";
-            lblCardNumber.Size = new Size(262, 28);
+            lblCardNumber.Size = new Size(223, 28);
             lblCardNumber.TabIndex = 16;
-            lblCardNumber.Text = "CARD NUMBER:";
+            lblCardNumber.Text = "Card Number:";
             // 
             // lblSelectCustomer
             // 
             lblSelectCustomer.Anchor = AnchorStyles.None;
             lblSelectCustomer.AutoSize = true;
-            lblSelectCustomer.Location = new Point(254, 92);
+            lblSelectCustomer.Location = new Point(258, 98);
             lblSelectCustomer.Name = "lblSelectCustomer";
-            lblSelectCustomer.Size = new Size(332, 28);
+            lblSelectCustomer.Size = new Size(273, 28);
             lblSelectCustomer.TabIndex = 15;
-            lblSelectCustomer.Text = "SELECT CUSTOMER:";
+            lblSelectCustomer.Text = "Select Customer:";
             // 
             // cbxSelectCustomer
             // 
             cbxSelectCustomer.Anchor = AnchorStyles.None;
             cbxSelectCustomer.FormattingEnabled = true;
-            cbxSelectCustomer.Location = new Point(592, 89);
+            cbxSelectCustomer.Location = new Point(537, 90);
             cbxSelectCustomer.Name = "cbxSelectCustomer";
             cbxSelectCustomer.Size = new Size(547, 36);
             cbxSelectCustomer.TabIndex = 14;
@@ -234,9 +234,9 @@
             lblAddNewTransaction.Font = new Font("EurostileLTW03-Extended2", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
             lblAddNewTransaction.Location = new Point(15, 15);
             lblAddNewTransaction.Name = "lblAddNewTransaction";
-            lblAddNewTransaction.Size = new Size(401, 28);
+            lblAddNewTransaction.Size = new Size(329, 28);
             lblAddNewTransaction.TabIndex = 13;
-            lblAddNewTransaction.Text = "ADD NEW TRANSACTION";
+            lblAddNewTransaction.Text = "Add New Transaction";
             // 
             // AddNewTransaction
             // 

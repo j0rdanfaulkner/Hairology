@@ -65,19 +65,26 @@ namespace Hairology
             pbxProductImage.BackgroundImage = new Bitmap(Properties.Resources.addimage);
             btnRemoveImage.Enabled = false;
         }
+        /// <summary>
+        /// saves product image locally
+        /// </summary>
         private void SaveProductImage()
         {
+            // if directory used to store product images does not exist, create it
             if (!Directory.Exists(_imageFilesDirectory))
             {
                 string current = Directory.GetCurrentDirectory();
                 Directory.CreateDirectory(_imageFilesDirectory);
                 Directory.SetCurrentDirectory(current);
             }
+            // give each product image a unique filename by using the product's EAN number
             string newFileName = _eanNumber + ".bmp";
+            // if product image already exists, delete it first (to prevent copying exceptions)
             if (File.Exists(_imageFilesDirectory + newFileName))
             {
                 File.Delete(_imageFilesDirectory + newFileName);
             }
+            // copy product image using unique filename
             File.Copy(_fileName, _imageFilesDirectory + newFileName);
             _fileName = newFileName;
         }
@@ -197,7 +204,7 @@ namespace Hairology
         {
             int id = default!;
             Random r = new Random();
-            id = r.Next(10000000, 99999999); 
+            id = r.Next(10000000, 99999999);
             _dbInstance.ConnectToDatabase();
             _dbInstance.conn.Open();
             _command = new SqlCommand(string.Format(DatabaseQueries.SELECT_RANDOM_PRODUCT_ID, id), _dbInstance.conn);
@@ -226,7 +233,7 @@ namespace Hairology
             _productID = GenerateRandomID();
             _dbInstance.ConnectToDatabase();
             _dbInstance.conn.Open();
-            // check that product with entered EAN number doesn't already exist
+            // check that product with entered EAN number doesn't already exist in database
             _command = new SqlCommand(string.Format(DatabaseQueries.SELECT_PRODUCT_USING_EAN_NUMBER, _eanNumber), _dbInstance.conn);
             _reader = _command.ExecuteReader();
             if (_reader.Read())
@@ -240,7 +247,7 @@ namespace Hairology
                 _reader.Close();
                 // call method used to save product image to local directory
                 SaveProductImage();
-                // run SQL command that will insert product into database
+                // run SQL command that will insert product into database (using values of private attributes)
                 _command = new SqlCommand(string.Format(DatabaseQueries.INSERT_INTO_INVENTORY, _productID, _productName, _productDescription, _fileName, _category, _eanNumber, _caseSize, _currentQuantity, _reorderRegularly), _dbInstance.conn);
                 _reader = _command.ExecuteReader();
                 _reader.Close();

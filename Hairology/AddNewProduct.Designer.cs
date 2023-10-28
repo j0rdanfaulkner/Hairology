@@ -57,9 +57,9 @@
             lblAddNewProduct.Font = new Font("EurostileLTW03-Extended2", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
             lblAddNewProduct.Location = new Point(15, 15);
             lblAddNewProduct.Name = "lblAddNewProduct";
-            lblAddNewProduct.Size = new Size(328, 28);
+            lblAddNewProduct.Size = new Size(275, 28);
             lblAddNewProduct.TabIndex = 14;
-            lblAddNewProduct.Text = "ADD NEW PRODUCT";
+            lblAddNewProduct.Text = "Add New Product";
             // 
             // pnlContainer
             // 
@@ -104,11 +104,11 @@
             // 
             lblDescription.Anchor = AnchorStyles.None;
             lblDescription.AutoSize = true;
-            lblDescription.Location = new Point(124, 122);
+            lblDescription.Location = new Point(158, 121);
             lblDescription.Name = "lblDescription";
-            lblDescription.Size = new Size(233, 28);
+            lblDescription.Size = new Size(192, 28);
             lblDescription.TabIndex = 29;
-            lblDescription.Text = "DESCRIPTION:";
+            lblDescription.Text = "Description:";
             // 
             // btnSubmit
             // 
@@ -163,11 +163,11 @@
             // 
             lblReorderRegularly.Anchor = AnchorStyles.None;
             lblReorderRegularly.AutoSize = true;
-            lblReorderRegularly.Location = new Point(15, 389);
+            lblReorderRegularly.Location = new Point(44, 389);
             lblReorderRegularly.Name = "lblReorderRegularly";
-            lblReorderRegularly.Size = new Size(375, 28);
+            lblReorderRegularly.Size = new Size(306, 28);
             lblReorderRegularly.TabIndex = 24;
-            lblReorderRegularly.Text = "REORDER REGULARLY?";
+            lblReorderRegularly.Text = "Re-order Regularly?";
             // 
             // tbxCurrentQuantity
             // 
@@ -184,21 +184,21 @@
             // 
             lblCurrentQuantity.Anchor = AnchorStyles.None;
             lblCurrentQuantity.AutoSize = true;
-            lblCurrentQuantity.Location = new Point(15, 342);
+            lblCurrentQuantity.Location = new Point(75, 343);
             lblCurrentQuantity.Name = "lblCurrentQuantity";
-            lblCurrentQuantity.Size = new Size(342, 28);
+            lblCurrentQuantity.Size = new Size(275, 28);
             lblCurrentQuantity.TabIndex = 22;
-            lblCurrentQuantity.Text = "CURRENT QUANTITY:";
+            lblCurrentQuantity.Text = "Current Quantity:";
             // 
             // lblCaseSize
             // 
             lblCaseSize.Anchor = AnchorStyles.None;
             lblCaseSize.AutoSize = true;
-            lblCaseSize.Location = new Point(170, 292);
+            lblCaseSize.Location = new Point(182, 292);
             lblCaseSize.Name = "lblCaseSize";
-            lblCaseSize.Size = new Size(187, 28);
+            lblCaseSize.Size = new Size(168, 28);
             lblCaseSize.TabIndex = 21;
-            lblCaseSize.Text = "CASE SIZE:";
+            lblCaseSize.Text = "Case Size:";
             // 
             // tbxCaseSize
             // 
@@ -246,11 +246,11 @@
             // 
             lblProductName.Anchor = AnchorStyles.None;
             lblProductName.AutoSize = true;
-            lblProductName.Location = new Point(75, 69);
+            lblProductName.Location = new Point(72, 70);
             lblProductName.Name = "lblProductName";
-            lblProductName.Size = new Size(282, 28);
+            lblProductName.Size = new Size(278, 28);
             lblProductName.TabIndex = 16;
-            lblProductName.Text = "PRODUCT NAME:";
+            lblProductName.Text = "Name of Product:";
             // 
             // pbxProductImage
             // 
