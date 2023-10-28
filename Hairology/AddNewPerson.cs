@@ -260,9 +260,8 @@ namespace Hairology
         }
         private void btnSubmit_Click(object sender, EventArgs e)
         {
-            bool checksPassed = CheckFields();
             // check for missing fields
-            if (checksPassed == true)
+            if (CheckFields() == true)
             {
                 if (_type == "Employee")
                 {
@@ -394,6 +393,7 @@ namespace Hairology
                 _employeeNumber = number;
                 tbxEmployeeNumber.Text = _employeeNumber.ToString();
             }
+            _reader.Close();
             _dbInstance.conn.Close();
         }
         private void btnGenerateEmployeeNumber_Click(object sender, EventArgs e)

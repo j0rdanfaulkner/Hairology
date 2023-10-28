@@ -1,38 +1,233 @@
 ﻿using System;
+using System.IO;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
+using System.Drawing.Text;
 
 namespace Hairology
 {
     public partial class AddNewProduct : UserControl
     {
-        private string _imageFilePath = default!;
+        // database management attributes
+        private DatabaseManagement _dbInstance = new DatabaseManagement();
+        private SqlCommand _command = default!;
+        private SqlDataReader _reader = default!;
+        // product attributes
+        private int _productID = default!;
+        private string _productName = default!;
+        private string _productDescription = default!;
+        private int _caseSize = default!;
+        private string _eanNumber = default!;
+        private int _currentQuantity = default!;
+        private string _category = default!;
+        private bool _reorderRegularly = default!;
+        private Bitmap _productImage = default!;
+        private string _fileName = default!;
+        private const string _imageFilesDirectory = "C:\\Hairology\\Data\\images\\products\\";
         public AddNewProduct()
         {
             InitializeComponent();
             btnRemoveImage.Enabled = false;
         }
+        /// <summary>
+        /// opens the dialog used to load the image of the product when picture box is clicked
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void pbxProductImage_Click(object sender, EventArgs e)
         {
             ofdOpenProductImage.Filter = "Select Image (*.jpg; *.jpeg; *.png; *.bmp)|*.jpg; *.jpeg; *.png; *.bmp";
             if (ofdOpenProductImage.ShowDialog() == DialogResult.OK)
             {
                 pbxProductImage.BackgroundImage = new Bitmap(ofdOpenProductImage.FileName);
+                _productImage = new Bitmap(pbxProductImage.BackgroundImage);
                 // store path of product image
-                _imageFilePath = ofdOpenProductImage.FileName;
+                _fileName = ofdOpenProductImage.FileName;
                 btnRemoveImage.Enabled = true;
             }
         }
+        /// <summary>
+        /// clears the product image when the remove button is clicked
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnRemoveImage_Click(object sender, EventArgs e)
         {
             pbxProductImage.BackgroundImage = new Bitmap(Properties.Resources.addimage);
             btnRemoveImage.Enabled = false;
+        }
+        private void SaveProductImage()
+        {
+            if (!Directory.Exists(_imageFilesDirectory))
+            {
+                string current = Directory.GetCurrentDirectory();
+                Directory.CreateDirectory(_imageFilesDirectory);
+                Directory.SetCurrentDirectory(current);
+            }
+            string newFileName = _eanNumber + ".bmp";
+            if (File.Exists(_imageFilesDirectory + newFileName))
+            {
+                File.Delete(_imageFilesDirectory + newFileName);
+            }
+            File.Copy(_fileName, _imageFilesDirectory + newFileName);
+            _fileName = newFileName;
+        }
+        private void GetDataFromFields()
+        {
+            _productName = tbxProductName.Text;
+            _productDescription = tbxDescription.Text;
+            _caseSize = Int32.Parse(tbxCaseSize.Text);
+            _eanNumber = tbxEANNumber.Text;
+            _currentQuantity = Int32.Parse(tbxCurrentQuantity.Text);
+            _category = cbxCategory.Text;
+        }
+        private bool CheckFields()
+        {
+            if (tbxProductName.Text == "")
+            {
+                MessageBox.Show("The product name was not entered", "Missing Product Name", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+            else
+            {
+                if (tbxDescription.Text == "")
+                {
+                    MessageBox.Show("The description of the product was not entered", "Missing Product Description", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return false;
+                }
+                else
+                {
+                    if (tbxCaseSize.Text == "" || tbxCaseSize.Text == "0")
+                    {
+                        MessageBox.Show("The case size of the product was not entered", "Missing Case Size", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return false;
+                    }
+                    else
+                    {
+                        if (tbxEANNumber.Text == "")
+                        {
+                            MessageBox.Show("The EAN number of the product was not entered", "Missing EAN Number", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            return false;
+                        }
+                        else if (tbxEANNumber.Text.Length != 13)
+                        {
+                            MessageBox.Show("The EAN number of the product was not entered correctly", "Unreadable EAN Number", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            return false;
+                        }
+                        else
+                        {
+                            if (tbxCurrentQuantity.Text == "")
+                            {
+                                MessageBox.Show("The current quantity of the product was not entered", "Missing Current Quantity", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                return false;
+                            }
+                            else
+                            {
+                                if (cbxCategory.Text == "  CHOOSE CATEGORY" || cbxCategory.Text == "")
+                                {
+                                    MessageBox.Show("The product category was not selected", "Missing Product Category", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                    return false;
+                                }
+                                else
+                                {
+                                    if (rbtnYes.Checked == false && rbtnNo.Checked == false)
+                                    {
+                                        MessageBox.Show("The option to reorder the product regularly was not selected", "Missing Reorder Option", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                        return false;
+                                    }
+                                    else
+                                    {
+                                        if (rbtnYes.Checked == true && rbtnNo.Checked == false)
+                                        {
+                                            _reorderRegularly = true;
+                                        }
+                                        else if (rbtnYes.Checked == false && rbtnNo.Checked == true)
+                                        {
+                                            _reorderRegularly = false;
+                                        }
+                                        GetDataFromFields();
+                                        return true;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        private int GenerateRandomID()
+        {
+            int id = default!;
+            Random r = new Random();
+            id = r.Next(10000000, 99999999); 
+            _dbInstance.ConnectToDatabase();
+            _dbInstance.conn.Open();
+            _command = new SqlCommand(string.Format(DatabaseQueries.SELECT_RANDOM_PRODUCT_ID, id), _dbInstance.conn);
+            _reader = _command.ExecuteReader();
+            if (_reader.Read())
+            {
+                GenerateRandomID();
+            }
+            else
+            {
+                return id;
+            }
+            _reader.Close();
+            _dbInstance.conn.Close();
+            return id;
+        }
+        private void InsertIntoDatabase()
+        {
+            // generate random 8-digit ID
+            _productID = GenerateRandomID();
+            _dbInstance.ConnectToDatabase();
+            _dbInstance.conn.Open();
+            // check that product with entered EAN number doesn't already exist
+            _command = new SqlCommand(string.Format(DatabaseQueries.SELECT_PRODUCT_USING_EAN_NUMBER, _eanNumber), _dbInstance.conn);
+            _reader = _command.ExecuteReader();
+            if (_reader.Read())
+            {
+                MessageBox.Show("A product with this EAN number already exists in the database", "EAN Number Already Assigned to Another Product", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                _reader.Close();
+            }
+            else
+            {
+                _reader.Close();
+                // call method used to save product image to local directory
+                SaveProductImage();
+                _command = new SqlCommand(string.Format(DatabaseQueries.INSERT_INTO_INVENTORY, _productID, _productName, _productDescription, _fileName, _category, _eanNumber, _caseSize, _currentQuantity, _reorderRegularly), _dbInstance.conn);
+                _reader = _command.ExecuteReader();
+                _reader.Close();
+                // search for newly-inserted customer to verify that they have been added to database successfully
+                _command = new SqlCommand(string.Format(DatabaseQueries.SELECT_PRODUCT_USING_ID, _productID), _dbInstance.conn);
+                _reader = _command.ExecuteReader();
+                if (_reader.Read())
+                {
+                    MessageBox.Show("The product '" + _productName + "' was inserted into the Inventory table successfully", "Product Added Successfully", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    _reader.Close();
+                }
+            }
+            _dbInstance.conn.Close();
+        }
+        private void btnSubmit_Click(object sender, EventArgs e)
+        {
+            // check for missing fields
+            if (CheckFields() == true)
+            {
+                // once all validation checks have passed, insert product into database
+                InsertIntoDatabase();
+                // clear product image from memory now it is no longer in use
+                _productImage.Dispose();
+                pbxProductImage.BackgroundImage = Properties.Resources.addimage;
+            }
         }
     }
 }

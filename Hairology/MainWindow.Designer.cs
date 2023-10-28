@@ -57,7 +57,7 @@
             toolStripSeparator2 = new ToolStripSeparator();
             searchCustomersToolStripMenuItem = new ToolStripMenuItem();
             toolStripSeparator5 = new ToolStripSeparator();
-            productsToolStripMenuItem = new ToolStripMenuItem();
+            searchProductsToolStripMenuItem = new ToolStripMenuItem();
             toolStripSeparator6 = new ToolStripSeparator();
             searchTransactionsToolStripMenuItem = new ToolStripMenuItem();
             logOutToolStripMenuItem = new ToolStripMenuItem();
@@ -174,6 +174,7 @@
             uscInventory.Name = "uscInventory";
             uscInventory.Size = new Size(1264, 439);
             uscInventory.TabIndex = 3;
+            uscInventory.Visible = false;
             // 
             // uscTransactions
             // 
@@ -275,7 +276,7 @@
             // 
             // searchToolStripMenuItem
             // 
-            searchToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { peopleToolStripMenuItem, toolStripSeparator5, productsToolStripMenuItem, toolStripSeparator6, searchTransactionsToolStripMenuItem });
+            searchToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { peopleToolStripMenuItem, toolStripSeparator5, searchProductsToolStripMenuItem, toolStripSeparator6, searchTransactionsToolStripMenuItem });
             searchToolStripMenuItem.Image = Properties.Resources.search;
             searchToolStripMenuItem.Name = "searchToolStripMenuItem";
             searchToolStripMenuItem.Size = new Size(135, 46);
@@ -315,12 +316,13 @@
             toolStripSeparator5.Name = "toolStripSeparator5";
             toolStripSeparator5.Size = new Size(239, 6);
             // 
-            // productsToolStripMenuItem
+            // searchProductsToolStripMenuItem
             // 
-            productsToolStripMenuItem.Image = Properties.Resources.products;
-            productsToolStripMenuItem.Name = "productsToolStripMenuItem";
-            productsToolStripMenuItem.Size = new Size(242, 38);
-            productsToolStripMenuItem.Text = "Products";
+            searchProductsToolStripMenuItem.Image = Properties.Resources.products;
+            searchProductsToolStripMenuItem.Name = "searchProductsToolStripMenuItem";
+            searchProductsToolStripMenuItem.Size = new Size(242, 38);
+            searchProductsToolStripMenuItem.Text = "Products";
+            searchProductsToolStripMenuItem.Click += searchProductsToolStripMenuItem_Click;
             // 
             // toolStripSeparator6
             // 
@@ -503,7 +505,7 @@
         private ToolStripMenuItem peopleToolStripMenuItem;
         private ToolStripMenuItem searchCustomersToolStripMenuItem;
         private ToolStripMenuItem searchEmployeesToolStripMenuItem;
-        private ToolStripMenuItem productsToolStripMenuItem;
+        private ToolStripMenuItem searchProductsToolStripMenuItem;
         private ToolStripSeparator toolStripSeparator1;
         private ToolStripSeparator toolStripSeparator2;
         private ToolStripMenuItem transactionsToolStripMenuItem;

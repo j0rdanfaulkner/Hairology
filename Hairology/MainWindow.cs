@@ -210,6 +210,7 @@ namespace Hairology
             uscInventory.Hide();
             uscTransactions.Hide();
             uscSettings.Hide();
+            this.Refresh();
         }
         private void addNewCustomerToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -222,6 +223,7 @@ namespace Hairology
             uscInventory.Hide();
             uscTransactions.Hide();
             uscSettings.Hide();
+            this.Refresh();
         }
         private void newProductToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -233,6 +235,7 @@ namespace Hairology
             uscInventory.Hide();
             uscTransactions.Hide();
             uscSettings.Hide();
+            this.Refresh();
         }
         private void newTransactionToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -245,6 +248,7 @@ namespace Hairology
             uscInventory.Hide();
             uscTransactions.Hide();
             uscSettings.Hide();
+            this.Refresh();
         }
         private void searchEmployeesToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -257,6 +261,7 @@ namespace Hairology
             uscInventory.Hide();
             uscTransactions.Hide();
             uscSettings.Hide();
+            this.Refresh();
         }
 
         private void searchCustomersToolStripMenuItem_Click(object sender, EventArgs e)
@@ -270,6 +275,7 @@ namespace Hairology
             uscInventory.Hide();
             uscTransactions.Hide();
             uscSettings.Hide();
+            this.Refresh();
         }
         private void searchTransactionsToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -282,6 +288,20 @@ namespace Hairology
             uscInventory.Hide();
             uscTransactions.Hide();
             uscSettings.Hide();
+            this.Refresh();
+        }
+        private void searchProductsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            editing = false;
+            uscAddNewPerson.Hide();
+            uscAddNewProduct.Hide();
+            uscAddNewTransaction.Hide();
+            uscSearch.SetSearchType("Product");
+            uscSearch.Show();
+            uscInventory.Hide();
+            uscTransactions.Hide();
+            uscSettings.Hide();
+            this.Refresh();
         }
         private void inventoryToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -293,6 +313,7 @@ namespace Hairology
             uscInventory.Show();
             uscTransactions.Hide();
             uscSettings.Hide();
+            this.Refresh();
         }
 
         private void transactionsToolStripMenuItem_Click(object sender, EventArgs e)
@@ -311,6 +332,7 @@ namespace Hairology
                 uscInventory.Hide();
                 uscTransactions.Show();
                 uscSettings.Hide();
+                this.Refresh();
             }
         }
 
@@ -324,6 +346,7 @@ namespace Hairology
             uscInventory.Hide();
             uscTransactions.Hide();
             uscSettings.Show();
+            this.Refresh();
         }
 
         private void pbxAdminRights_MouseEnter(object sender, EventArgs e)

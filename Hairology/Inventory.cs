@@ -29,7 +29,7 @@ namespace Hairology
             try
             {
                 _dbInstance.conn.Open();
-                _command = new SqlCommand(DatabaseQueries.SELECT_ALL_INVENTORY_RECORDS, _dbInstance.conn);
+                _command = new SqlCommand(DatabaseQueries.SELECT_ALL_PRODUCTS, _dbInstance.conn);
                 _adapter = new SqlDataAdapter(_command);
                 _dt = new DataTable();
                 _adapter.Fill(_dt);
@@ -49,18 +49,21 @@ namespace Hairology
                             column.HeaderText = "PRODUCT NAME";
                             break;
                         case 1:
-                            column.HeaderText = "CATEGORY";
+                            column.HeaderText = "DESCRIPTION";
                             break;
                         case 2:
-                            column.HeaderText = "EAN NUMBER";
+                            column.HeaderText = "CATEGORY";
                             break;
                         case 3:
-                            column.HeaderText = "CASE SIZE";
+                            column.HeaderText = "EAN NUMBER";
                             break;
                         case 4:
-                            column.HeaderText = "CURRENT QUANTITY";
+                            column.HeaderText = "CASE SIZE";
                             break;
                         case 5:
+                            column.HeaderText = "CURRENT QUANTITY";
+                            break;
+                        case 6:
                             column.HeaderText = "REORDER REGULARLY?";
                             break;
                         default:

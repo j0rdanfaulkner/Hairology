@@ -127,11 +127,11 @@
             lblAdminRights.Anchor = AnchorStyles.None;
             lblAdminRights.AutoSize = true;
             lblAdminRights.Font = new Font("EurostileLTW03-Extended2", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
-            lblAdminRights.Location = new Point(0, 2);
+            lblAdminRights.Location = new Point(42, 0);
             lblAdminRights.Name = "lblAdminRights";
-            lblAdminRights.Size = new Size(262, 28);
+            lblAdminRights.Size = new Size(228, 28);
             lblAdminRights.TabIndex = 28;
-            lblAdminRights.Text = "ADMIN RIGHTS?";
+            lblAdminRights.Text = "Admin Rights?";
             // 
             // rbtnAdminRightsYes
             // 
@@ -234,11 +234,11 @@
             lblCompletedTraining.Anchor = AnchorStyles.None;
             lblCompletedTraining.AutoSize = true;
             lblCompletedTraining.Font = new Font("EurostileLTW03-Extended2", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
-            lblCompletedTraining.Location = new Point(25, 146);
+            lblCompletedTraining.Location = new Point(101, 145);
             lblCompletedTraining.Name = "lblCompletedTraining";
-            lblCompletedTraining.Size = new Size(382, 28);
+            lblCompletedTraining.Size = new Size(314, 28);
             lblCompletedTraining.TabIndex = 16;
-            lblCompletedTraining.Text = "COMPLETED TRAINING?";
+            lblCompletedTraining.Text = "Completed Training?";
             // 
             // tbxEmployeeNumber
             // 
@@ -270,9 +270,9 @@
             lblEmployeeDetails.Font = new Font("EurostileLTW03-Extended2", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
             lblEmployeeDetails.Location = new Point(15, 15);
             lblEmployeeDetails.Name = "lblEmployeeDetails";
-            lblEmployeeDetails.Size = new Size(319, 28);
+            lblEmployeeDetails.Size = new Size(262, 28);
             lblEmployeeDetails.TabIndex = 14;
-            lblEmployeeDetails.Text = "EMPLOYEE DETAILS";
+            lblEmployeeDetails.Text = "Employee Details";
             // 
             // panel1
             // 
@@ -301,11 +301,11 @@
             lblSex.Anchor = AnchorStyles.None;
             lblSex.AutoSize = true;
             lblSex.Font = new Font("EurostileLTW03-Extended2", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
-            lblSex.Location = new Point(24, 179);
+            lblSex.Location = new Point(34, 179);
             lblSex.Name = "lblSex";
-            lblSex.Size = new Size(86, 28);
+            lblSex.Size = new Size(77, 28);
             lblSex.TabIndex = 16;
-            lblSex.Text = "SEX:";
+            lblSex.Text = "Sex:";
             // 
             // lblDOB
             // 
@@ -354,9 +354,9 @@
             lblAddNewPerson.Font = new Font("EurostileLTW03-Extended2", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
             lblAddNewPerson.Location = new Point(15, 15);
             lblAddNewPerson.Name = "lblAddNewPerson";
-            lblAddNewPerson.Size = new Size(324, 28);
+            lblAddNewPerson.Size = new Size(306, 28);
             lblAddNewPerson.TabIndex = 12;
-            lblAddNewPerson.Text = "ADD NEW [PERSON]";
+            lblAddNewPerson.Text = "Add New [PERSON]";
             // 
             // rbtnMale
             // 
@@ -378,7 +378,7 @@
             btnSubmit.FlatStyle = FlatStyle.System;
             btnSubmit.Location = new Point(22, 333);
             btnSubmit.Name = "btnSubmit";
-            btnSubmit.Size = new Size(538, 60);
+            btnSubmit.Size = new Size(538, 74);
             btnSubmit.TabIndex = 10;
             btnSubmit.Text = "SUBMIT DETAILS";
             btnSubmit.UseVisualStyleBackColor = true;

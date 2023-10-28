@@ -85,6 +85,7 @@
             // 
             // pnlEmployee
             // 
+            pnlEmployee.Anchor = AnchorStyles.None;
             pnlEmployee.Controls.Add(pbxUsernameOK);
             pnlEmployee.Controls.Add(pnlAdminRights);
             pnlEmployee.Controls.Add(tbxConfirmPassword);
@@ -97,17 +98,16 @@
             pnlEmployee.Controls.Add(tbxEmployeeNumber);
             pnlEmployee.Controls.Add(cbxDepartment);
             pnlEmployee.Controls.Add(lblEmployeeDetails);
-            pnlEmployee.Dock = DockStyle.Fill;
-            pnlEmployee.Location = new Point(580, 0);
+            pnlEmployee.Location = new Point(586, 0);
             pnlEmployee.Name = "pnlEmployee";
-            pnlEmployee.Size = new Size(684, 449);
+            pnlEmployee.Size = new Size(678, 449);
             pnlEmployee.TabIndex = 14;
             // 
             // pbxUsernameOK
             // 
-            pbxUsernameOK.Anchor = AnchorStyles.Top;
+            pbxUsernameOK.Anchor = AnchorStyles.None;
             pbxUsernameOK.BackgroundImageLayout = ImageLayout.Zoom;
-            pbxUsernameOK.Location = new Point(622, 296);
+            pbxUsernameOK.Location = new Point(701, 310);
             pbxUsernameOK.Name = "pbxUsernameOK";
             pbxUsernameOK.Size = new Size(33, 33);
             pbxUsernameOK.TabIndex = 27;
@@ -115,11 +115,11 @@
             // 
             // pnlAdminRights
             // 
-            pnlAdminRights.Anchor = AnchorStyles.Top;
+            pnlAdminRights.Anchor = AnchorStyles.None;
             pnlAdminRights.Controls.Add(lblAdminRights);
             pnlAdminRights.Controls.Add(rbtnAdminRightsYes);
             pnlAdminRights.Controls.Add(rbtnAdminRightsNo);
-            pnlAdminRights.Location = new Point(145, 182);
+            pnlAdminRights.Location = new Point(150, 182);
             pnlAdminRights.Name = "pnlAdminRights";
             pnlAdminRights.Size = new Size(473, 33);
             pnlAdminRights.TabIndex = 26;
@@ -129,11 +129,11 @@
             lblAdminRights.Anchor = AnchorStyles.Top;
             lblAdminRights.AutoSize = true;
             lblAdminRights.Font = new Font("EurostileLTW03-Extended2", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
-            lblAdminRights.Location = new Point(0, 2);
+            lblAdminRights.Location = new Point(45, 0);
             lblAdminRights.Name = "lblAdminRights";
-            lblAdminRights.Size = new Size(262, 28);
+            lblAdminRights.Size = new Size(228, 28);
             lblAdminRights.TabIndex = 28;
-            lblAdminRights.Text = "ADMIN RIGHTS?";
+            lblAdminRights.Text = "Admin Rights?";
             // 
             // rbtnAdminRightsYes
             // 
@@ -163,8 +163,8 @@
             // 
             // tbxConfirmPassword
             // 
-            tbxConfirmPassword.Anchor = AnchorStyles.Top;
-            tbxConfirmPassword.Location = new Point(78, 374);
+            tbxConfirmPassword.Anchor = AnchorStyles.None;
+            tbxConfirmPassword.Location = new Point(83, 374);
             tbxConfirmPassword.MaxLength = 256;
             tbxConfirmPassword.Name = "tbxConfirmPassword";
             tbxConfirmPassword.PlaceholderText = "  CONFIRM PASSWORD";
@@ -173,8 +173,8 @@
             // 
             // tbxPassword
             // 
-            tbxPassword.Anchor = AnchorStyles.Top;
-            tbxPassword.Location = new Point(78, 335);
+            tbxPassword.Anchor = AnchorStyles.None;
+            tbxPassword.Location = new Point(83, 335);
             tbxPassword.MaxLength = 256;
             tbxPassword.Name = "tbxPassword";
             tbxPassword.PlaceholderText = "  PASSWORD";
@@ -183,8 +183,8 @@
             // 
             // tbxUsername
             // 
-            tbxUsername.Anchor = AnchorStyles.Top;
-            tbxUsername.Location = new Point(78, 296);
+            tbxUsername.Anchor = AnchorStyles.None;
+            tbxUsername.Location = new Point(83, 296);
             tbxUsername.MaxLength = 256;
             tbxUsername.Name = "tbxUsername";
             tbxUsername.PlaceholderText = "  USERNAME";
@@ -193,10 +193,10 @@
             // 
             // btnGenerateEmployeeNumber
             // 
-            btnGenerateEmployeeNumber.Anchor = AnchorStyles.Top;
+            btnGenerateEmployeeNumber.Anchor = AnchorStyles.None;
             btnGenerateEmployeeNumber.Cursor = Cursors.Hand;
             btnGenerateEmployeeNumber.FlatStyle = FlatStyle.System;
-            btnGenerateEmployeeNumber.Location = new Point(78, 223);
+            btnGenerateEmployeeNumber.Location = new Point(83, 223);
             btnGenerateEmployeeNumber.Name = "btnGenerateEmployeeNumber";
             btnGenerateEmployeeNumber.Size = new Size(538, 60);
             btnGenerateEmployeeNumber.TabIndex = 14;
@@ -205,10 +205,10 @@
             // 
             // rbtnTrainingCompletedNo
             // 
-            rbtnTrainingCompletedNo.Anchor = AnchorStyles.Top;
+            rbtnTrainingCompletedNo.Anchor = AnchorStyles.None;
             rbtnTrainingCompletedNo.AutoSize = true;
             rbtnTrainingCompletedNo.Cursor = Cursors.Hand;
-            rbtnTrainingCompletedNo.Location = new Point(545, 145);
+            rbtnTrainingCompletedNo.Location = new Point(550, 145);
             rbtnTrainingCompletedNo.Name = "rbtnTrainingCompletedNo";
             rbtnTrainingCompletedNo.Size = new Size(74, 29);
             rbtnTrainingCompletedNo.TabIndex = 18;
@@ -218,10 +218,10 @@
             // 
             // rbtnTrainingCompletedYes
             // 
-            rbtnTrainingCompletedYes.Anchor = AnchorStyles.Top;
+            rbtnTrainingCompletedYes.Anchor = AnchorStyles.None;
             rbtnTrainingCompletedYes.AutoSize = true;
             rbtnTrainingCompletedYes.Cursor = Cursors.Hand;
-            rbtnTrainingCompletedYes.Location = new Point(435, 145);
+            rbtnTrainingCompletedYes.Location = new Point(440, 145);
             rbtnTrainingCompletedYes.Name = "rbtnTrainingCompletedYes";
             rbtnTrainingCompletedYes.Size = new Size(86, 29);
             rbtnTrainingCompletedYes.TabIndex = 17;
@@ -231,19 +231,19 @@
             // 
             // lblCompletedTraining
             // 
-            lblCompletedTraining.Anchor = AnchorStyles.Top;
+            lblCompletedTraining.Anchor = AnchorStyles.None;
             lblCompletedTraining.AutoSize = true;
             lblCompletedTraining.Font = new Font("EurostileLTW03-Extended2", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
-            lblCompletedTraining.Location = new Point(25, 146);
+            lblCompletedTraining.Location = new Point(109, 146);
             lblCompletedTraining.Name = "lblCompletedTraining";
-            lblCompletedTraining.Size = new Size(382, 28);
+            lblCompletedTraining.Size = new Size(314, 28);
             lblCompletedTraining.TabIndex = 16;
-            lblCompletedTraining.Text = "COMPLETED TRAINING?";
+            lblCompletedTraining.Text = "Completed Training?";
             // 
             // tbxEmployeeNumber
             // 
-            tbxEmployeeNumber.Anchor = AnchorStyles.Top;
-            tbxEmployeeNumber.Location = new Point(78, 67);
+            tbxEmployeeNumber.Anchor = AnchorStyles.None;
+            tbxEmployeeNumber.Location = new Point(83, 67);
             tbxEmployeeNumber.MaxLength = 8;
             tbxEmployeeNumber.Name = "tbxEmployeeNumber";
             tbxEmployeeNumber.PlaceholderText = "  EMPLOYEE NUMBER";
@@ -254,10 +254,10 @@
             // 
             // cbxDepartment
             // 
-            cbxDepartment.Anchor = AnchorStyles.Top;
+            cbxDepartment.Anchor = AnchorStyles.None;
             cbxDepartment.FormattingEnabled = true;
             cbxDepartment.Items.AddRange(new object[] { "Barber/Hairdresser", "Cleaning and Maintenance", "Intern", "IT and Helpdesk", "Management" });
-            cbxDepartment.Location = new Point(78, 106);
+            cbxDepartment.Location = new Point(83, 106);
             cbxDepartment.Name = "cbxDepartment";
             cbxDepartment.Size = new Size(538, 33);
             cbxDepartment.TabIndex = 15;
@@ -265,17 +265,18 @@
             // 
             // lblEmployeeDetails
             // 
-            lblEmployeeDetails.Anchor = AnchorStyles.Top;
+            lblEmployeeDetails.Anchor = AnchorStyles.None;
             lblEmployeeDetails.AutoSize = true;
             lblEmployeeDetails.Font = new Font("EurostileLTW03-Extended2", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
-            lblEmployeeDetails.Location = new Point(15, 15);
+            lblEmployeeDetails.Location = new Point(20, 15);
             lblEmployeeDetails.Name = "lblEmployeeDetails";
-            lblEmployeeDetails.Size = new Size(319, 28);
+            lblEmployeeDetails.Size = new Size(262, 28);
             lblEmployeeDetails.TabIndex = 14;
-            lblEmployeeDetails.Text = "EMPLOYEE DETAILS";
+            lblEmployeeDetails.Text = "Employee Details";
             // 
             // panel1
             // 
+            panel1.Anchor = AnchorStyles.None;
             panel1.Controls.Add(btnDiscardChanges);
             panel1.Controls.Add(btnDelete);
             panel1.Controls.Add(lblSex);
@@ -292,10 +293,9 @@
             panel1.Controls.Add(rbtnFemale);
             panel1.Controls.Add(tbxPostCode);
             panel1.Controls.Add(tbxAddressLine1);
-            panel1.Dock = DockStyle.Left;
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(580, 449);
+            panel1.Size = new Size(589, 449);
             panel1.TabIndex = 13;
             // 
             // btnDiscardChanges
@@ -305,7 +305,7 @@
             btnDiscardChanges.BackgroundImage = Properties.Resources.notok;
             btnDiscardChanges.BackgroundImageLayout = ImageLayout.Zoom;
             btnDiscardChanges.Cursor = Cursors.Hand;
-            btnDiscardChanges.Location = new Point(167, 347);
+            btnDiscardChanges.Location = new Point(171, 347);
             btnDiscardChanges.Name = "btnDiscardChanges";
             btnDiscardChanges.Size = new Size(146, 60);
             btnDiscardChanges.TabIndex = 18;
@@ -319,7 +319,7 @@
             btnDelete.BackgroundImage = Properties.Resources.bin;
             btnDelete.BackgroundImageLayout = ImageLayout.Zoom;
             btnDelete.Cursor = Cursors.Hand;
-            btnDelete.Location = new Point(409, 347);
+            btnDelete.Location = new Point(413, 347);
             btnDelete.Name = "btnDelete";
             btnDelete.Size = new Size(144, 60);
             btnDelete.TabIndex = 17;
@@ -330,18 +330,18 @@
             // 
             lblSex.AutoSize = true;
             lblSex.Font = new Font("EurostileLTW03-Extended2", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
-            lblSex.Location = new Point(17, 179);
+            lblSex.Location = new Point(31, 179);
             lblSex.Name = "lblSex";
-            lblSex.Size = new Size(86, 28);
+            lblSex.Size = new Size(77, 28);
             lblSex.TabIndex = 16;
-            lblSex.Text = "SEX:";
+            lblSex.Text = "Sex:";
             // 
             // lblDOB
             // 
             lblDOB.Anchor = AnchorStyles.Top;
             lblDOB.AutoSize = true;
             lblDOB.Font = new Font("EurostileLTW03-Extended2", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
-            lblDOB.Location = new Point(12, 148);
+            lblDOB.Location = new Point(16, 148);
             lblDOB.Name = "lblDOB";
             lblDOB.Size = new Size(92, 28);
             lblDOB.TabIndex = 15;
@@ -350,7 +350,7 @@
             // dtpDateOfBirth
             // 
             dtpDateOfBirth.Anchor = AnchorStyles.Top;
-            dtpDateOfBirth.Location = new Point(105, 145);
+            dtpDateOfBirth.Location = new Point(109, 145);
             dtpDateOfBirth.Name = "dtpDateOfBirth";
             dtpDateOfBirth.Size = new Size(448, 33);
             dtpDateOfBirth.TabIndex = 14;
@@ -360,7 +360,7 @@
             cbxRegularCustomer.Anchor = AnchorStyles.Top;
             cbxRegularCustomer.AutoSize = true;
             cbxRegularCustomer.Cursor = Cursors.Hand;
-            cbxRegularCustomer.Location = new Point(269, 180);
+            cbxRegularCustomer.Location = new Point(273, 180);
             cbxRegularCustomer.Name = "cbxRegularCustomer";
             cbxRegularCustomer.Size = new Size(293, 29);
             cbxRegularCustomer.TabIndex = 13;
@@ -370,7 +370,7 @@
             // tbxFirstName
             // 
             tbxFirstName.Anchor = AnchorStyles.Top;
-            tbxFirstName.Location = new Point(15, 67);
+            tbxFirstName.Location = new Point(19, 67);
             tbxFirstName.Name = "tbxFirstName";
             tbxFirstName.PlaceholderText = "  FIRST NAME";
             tbxFirstName.Size = new Size(538, 33);
@@ -381,18 +381,18 @@
             lbllEditPerson.Anchor = AnchorStyles.Top;
             lbllEditPerson.AutoSize = true;
             lbllEditPerson.Font = new Font("EurostileLTW03-Extended2", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
-            lbllEditPerson.Location = new Point(15, 15);
+            lbllEditPerson.Location = new Point(19, 15);
             lbllEditPerson.Name = "lbllEditPerson";
-            lbllEditPerson.Size = new Size(241, 28);
+            lbllEditPerson.Size = new Size(230, 28);
             lbllEditPerson.TabIndex = 12;
-            lbllEditPerson.Text = "EDIT [PERSON]";
+            lbllEditPerson.Text = "Edit [PERSON]";
             // 
             // rbtnMale
             // 
             rbtnMale.Anchor = AnchorStyles.Top;
             rbtnMale.AutoSize = true;
             rbtnMale.Cursor = Cursors.Hand;
-            rbtnMale.Location = new Point(105, 180);
+            rbtnMale.Location = new Point(109, 180);
             rbtnMale.Name = "rbtnMale";
             rbtnMale.Size = new Size(56, 29);
             rbtnMale.TabIndex = 4;
@@ -407,7 +407,7 @@
             btnSubmit.BackgroundImage = Properties.Resources.save;
             btnSubmit.BackgroundImageLayout = ImageLayout.Zoom;
             btnSubmit.Cursor = Cursors.Hand;
-            btnSubmit.Location = new Point(15, 347);
+            btnSubmit.Location = new Point(19, 347);
             btnSubmit.Name = "btnSubmit";
             btnSubmit.Size = new Size(146, 60);
             btnSubmit.TabIndex = 10;
@@ -417,7 +417,7 @@
             // tbxAddressLine2
             // 
             tbxAddressLine2.Anchor = AnchorStyles.Top;
-            tbxAddressLine2.Location = new Point(15, 251);
+            tbxAddressLine2.Location = new Point(19, 251);
             tbxAddressLine2.Multiline = true;
             tbxAddressLine2.Name = "tbxAddressLine2";
             tbxAddressLine2.PlaceholderText = "  ADDRESS LINE 2";
@@ -429,7 +429,7 @@
             cbxCounty.Anchor = AnchorStyles.Top;
             cbxCounty.FormattingEnabled = true;
             cbxCounty.Items.AddRange(new object[] { "Bath and North East Somerset", "Bedfordshire", "Berkshire", "Bristol", "Buckinghamshire", "Cambridgeshire", "Cheshire", "Cornwall", "County Durham", "Cumbria", "Derbyshire", "Devon", "Dorset", "East Riding of Yorkshire", "East Sussex", "Essex", "Gloucestershire", "Greater London", "Greater Manchester", "Hampshire", "Herefordshire", "Hertfordshire", "Isle of Wight", "Isles of Scilly", "Kent", "Lancashire", "Leicestershire", "Lincolnshire", "Merseyside", "Norfolk", "North Somerset", "North Yorkshire", "Northamptonshire", "Northumberland", "Nottinghamshire", "Oxfordshire", "Rutland", "Shropshire", "Somerset", "South Gloucestershire", "South Yorkshire", "Staffordshire", "Suffolk", "Surrey", "Tyne & Wear", "Warwickshire", "West Midlands", "West Sussex", "West Yorkshire", "Wiltshire", "Worcestershire" });
-            cbxCounty.Location = new Point(15, 290);
+            cbxCounty.Location = new Point(19, 290);
             cbxCounty.Name = "cbxCounty";
             cbxCounty.Size = new Size(293, 33);
             cbxCounty.TabIndex = 8;
@@ -438,7 +438,7 @@
             // tbxLastName
             // 
             tbxLastName.Anchor = AnchorStyles.Top;
-            tbxLastName.Location = new Point(15, 106);
+            tbxLastName.Location = new Point(19, 106);
             tbxLastName.Name = "tbxLastName";
             tbxLastName.PlaceholderText = "  LAST NAME";
             tbxLastName.Size = new Size(538, 33);
@@ -449,7 +449,7 @@
             rbtnFemale.Anchor = AnchorStyles.Top;
             rbtnFemale.AutoSize = true;
             rbtnFemale.Cursor = Cursors.Hand;
-            rbtnFemale.Location = new Point(167, 180);
+            rbtnFemale.Location = new Point(171, 180);
             rbtnFemale.Name = "rbtnFemale";
             rbtnFemale.Size = new Size(47, 29);
             rbtnFemale.TabIndex = 5;
@@ -460,7 +460,7 @@
             // tbxPostCode
             // 
             tbxPostCode.Anchor = AnchorStyles.Top;
-            tbxPostCode.Location = new Point(322, 290);
+            tbxPostCode.Location = new Point(326, 290);
             tbxPostCode.MaxLength = 8;
             tbxPostCode.Name = "tbxPostCode";
             tbxPostCode.PlaceholderText = "  POST CODE";
@@ -471,7 +471,7 @@
             // tbxAddressLine1
             // 
             tbxAddressLine1.Anchor = AnchorStyles.Top;
-            tbxAddressLine1.Location = new Point(15, 212);
+            tbxAddressLine1.Location = new Point(19, 212);
             tbxAddressLine1.Multiline = true;
             tbxAddressLine1.Name = "tbxAddressLine1";
             tbxAddressLine1.PlaceholderText = "  ADDRESS LINE 1";

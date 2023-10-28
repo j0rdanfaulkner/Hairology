@@ -40,7 +40,7 @@ namespace Hairology
 
         public const string SELECT_ALL_TRANSACTIONS = "SELECT transaction_id, card_number, security_code, expiration_date, amount_charged, transaction_completed FROM [Transactions]";
 
-        public const string SELECT_ALL_INVENTORY_RECORDS = "SELECT product_name, category, ean_number, case_size, current_quantity, reorder_regularly FROM [Inventory]";
+        public const string SELECT_ALL_PRODUCTS = "SELECT product_name, product_description, category, ean_number, case_size, current_quantity, reorder_regularly FROM [Inventory]";
 
         public const string SELECT_CUSTOMER_ID = "SELECT customer_id FROM [Customers] WHERE customer_id = '{0}'";
 
@@ -53,6 +53,12 @@ namespace Hairology
         public const string SELECT_EMPLOYEE_ID_USING_EMPLOYEE_NUMBER = "SELECT employee_id FROM [Employees] WHERE employee_number = '{0}'";
 
         public const string SELECT_USERNAME_USING_ACCOUNT_ID = "SELECT username FROM [User Accounts] WHERE account_id = '{0}'";
+
+        public const string SELECT_RANDOM_PRODUCT_ID = "SELECT product_id FROM [Inventory] WHERE product_id = '{0}'";
+
+        public const string SELECT_PRODUCT_USING_ID = "SELECT * FROM [Inventory] WHERE product_id = '{0}'";
+
+        public const string SELECT_PRODUCT_USING_EAN_NUMBER = "SELECT * FROM [Inventory] WHERE ean_number = '{0}'";
 
         // COUNT QUERIES
 
@@ -69,6 +75,8 @@ namespace Hairology
         public const string INSERT_INTO_EMPLOYEE_DETAILS = "INSERT INTO [Employee Details] (person_id, employee_number, first_name, last_name, date_of_birth, sex, address_line_1, address_line_2, county, post_code) VALUES ('{0}', '{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}', '{8}', '{9}')";
 
         public const string INSERT_INTO_TRANSACTIONS = "INSERT INTO [Transactions] (transaction_id, employee_number, customer_id, card_number, security_code, expiration_date, amount_charged, transaction_completed) VALUES ('{0}', '{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}')";
+
+        public const string INSERT_INTO_INVENTORY = "INSERT INTO [Inventory] (product_id, product_name, product_description, product_image, category, ean_number, case_size, current_quantity, reorder_regularly) VALUES ('{0}', '{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}', '{8}')";
 
         // UPDATE QUERIES
 

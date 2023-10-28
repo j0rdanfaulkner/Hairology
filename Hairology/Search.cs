@@ -182,6 +182,65 @@ namespace Hairology
             else if (_type == "Product")
             {
                 tbxSearchTerm.Show();
+                try
+                {
+                    _dbInstance.conn.Open();
+                    _command = new SqlCommand(DatabaseQueries.SELECT_ALL_PRODUCTS, _dbInstance.conn);
+                    _adapter = new SqlDataAdapter(_command);
+                    _dt = new DataTable();
+                    _adapter.Fill(_dt);
+                    dgvSearch.DataSource = _dt.DefaultView;
+                    dgvSearch.ColumnHeadersDefaultCellStyle.BackColor = Color.LightSteelBlue;
+                    dgvSearch.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                    dgvSearch.EnableHeadersVisualStyles = false;
+                    for (int i = 0; i < _dt.Columns.Count; i++)
+                    {
+                        var column = dgvSearch.Columns[i];
+                        column.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                        column.DefaultCellStyle.BackColor = Color.Silver;
+                        column.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                        switch (i)
+                        {
+                            case 0:
+                                column.HeaderText = "PRODUCT NAME";
+                                break;
+                            case 1:
+                                column.HeaderText = "DESCRIPTION";
+                                break;
+                            case 2:
+                                column.HeaderText = "CATEGORY";
+                                break;
+                            case 3:
+                                column.HeaderText = "EAN NUMBER";
+                                break;
+                            case 4:
+                                column.HeaderText = "CASE SIZE";
+                                break;
+                            case 5:
+                                column.HeaderText = "CURRENT QUANTITY";
+                                break;
+                            case 6:
+                                column.HeaderText = "REORDER REGULARLY?";
+                                break;
+                            default:
+                                break;
+                        }
+                    }
+                    _dbInstance.conn.Close();
+                }
+                catch (Exception ex)
+                {
+                    DialogResult result = MessageBox.Show(ex.Message, "Something Went Wrong", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
+                    if (result == DialogResult.Retry)
+                    {
+                        GetData();
+                    }
+                    else if (result == DialogResult.Cancel)
+                    {
+                        this.Hide();
+                    }
+                }
+                this.Refresh();
             }
             else if (_type == "Transaction")
             {
