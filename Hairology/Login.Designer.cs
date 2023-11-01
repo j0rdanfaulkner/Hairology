@@ -81,6 +81,7 @@
             // 
             btnLogin.Anchor = AnchorStyles.None;
             btnLogin.Cursor = Cursors.Hand;
+            btnLogin.Font = new Font("EurostileLTW03-Extended2", 21.75F, FontStyle.Regular, GraphicsUnit.Point);
             btnLogin.Location = new Point(160, 372);
             btnLogin.Name = "btnLogin";
             btnLogin.Size = new Size(354, 55);

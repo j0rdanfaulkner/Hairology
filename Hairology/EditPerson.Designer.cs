@@ -45,7 +45,6 @@
             lblCompletedTraining = new Label();
             tbxEmployeeNumber = new TextBox();
             cbxDepartment = new ComboBox();
-            lblEmployeeDetails = new Label();
             panel1 = new Panel();
             btnDiscardChanges = new Button();
             btnDelete = new Button();
@@ -97,7 +96,6 @@
             pnlEmployee.Controls.Add(lblCompletedTraining);
             pnlEmployee.Controls.Add(tbxEmployeeNumber);
             pnlEmployee.Controls.Add(cbxDepartment);
-            pnlEmployee.Controls.Add(lblEmployeeDetails);
             pnlEmployee.Location = new Point(586, 0);
             pnlEmployee.Name = "pnlEmployee";
             pnlEmployee.Size = new Size(678, 449);
@@ -107,7 +105,7 @@
             // 
             pbxUsernameOK.Anchor = AnchorStyles.None;
             pbxUsernameOK.BackgroundImageLayout = ImageLayout.Zoom;
-            pbxUsernameOK.Location = new Point(701, 310);
+            pbxUsernameOK.Location = new Point(627, 296);
             pbxUsernameOK.Name = "pbxUsernameOK";
             pbxUsernameOK.Size = new Size(33, 33);
             pbxUsernameOK.TabIndex = 27;
@@ -262,17 +260,6 @@
             cbxDepartment.Size = new Size(538, 33);
             cbxDepartment.TabIndex = 15;
             cbxDepartment.Text = "  DEPARTMENT";
-            // 
-            // lblEmployeeDetails
-            // 
-            lblEmployeeDetails.Anchor = AnchorStyles.None;
-            lblEmployeeDetails.AutoSize = true;
-            lblEmployeeDetails.Font = new Font("EurostileLTW03-Extended2", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
-            lblEmployeeDetails.Location = new Point(20, 15);
-            lblEmployeeDetails.Name = "lblEmployeeDetails";
-            lblEmployeeDetails.Size = new Size(262, 28);
-            lblEmployeeDetails.TabIndex = 14;
-            lblEmployeeDetails.Text = "Employee Details";
             // 
             // panel1
             // 
@@ -517,7 +504,6 @@
         private Panel panel1;
         private CheckBox cbxRegularCustomer;
         private Panel pnlEmployee;
-        private Label lblEmployeeDetails;
         private Button btnGenerateEmployeeNumber;
         private RadioButton rbtnAdminRightsNo;
         private RadioButton rbtnAdminRightsYes;

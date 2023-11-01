@@ -1,4 +1,5 @@
 ﻿using System.Data.SqlClient;
+using System.Linq.Expressions;
 
 namespace Hairology
 {
@@ -16,10 +17,16 @@ namespace Hairology
         public Login()
         {
             InitializeComponent();
-            _dbInstance.ConnectToDatabase();
             tbxPassword.UseSystemPasswordChar = true;
             pbxTogglePassword.BackgroundImage = Properties.Resources.showpassword;
             _togglePassword = false;
+            SetFonts();
+        }
+        private void SetFonts()
+        {
+            tbxUsername.Font = FontManagement.labels;
+            tbxPassword.Font = FontManagement.labels;
+            btnLogin.Font = FontManagement.buttons;
         }
         /// <summary>
         /// hashes password and submits credentials when clicked
@@ -136,11 +143,7 @@ namespace Hairology
         }
         private void Login_FormClosing(object sender, FormClosingEventArgs e)
         {
-            DialogResult result = MessageBox.Show("Are you sure you want to close Hairology?", "Confirm Action", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-            if (result == DialogResult.No)
-            {
-                e.Cancel = true;
-            }
+            SplashScreen.ExitApplication(true);
         }
     }
 }

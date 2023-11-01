@@ -1,6 +1,6 @@
 ﻿namespace Hairology
 {
-    partial class AddNewProduct
+    partial class EditProduct
     {
         /// <summary> 
         /// Required designer variable.
@@ -28,11 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            lblAddNewProduct = new Label();
+            lbllEditProduct = new Label();
             pnlContainer = new Panel();
+            btnDiscardChanges = new Button();
+            btnDelete = new Button();
             btnRemoveImage = new Button();
             lblDescription = new Label();
-            btnSubmit = new Button();
+            btnSaveChanges = new Button();
             tbxDescription = new TextBox();
             rbtnNo = new RadioButton();
             rbtnYes = new RadioButton();
@@ -51,21 +53,23 @@
             ((System.ComponentModel.ISupportInitialize)pbxProductImage).BeginInit();
             SuspendLayout();
             // 
-            // lblAddNewProduct
+            // lbllEditProduct
             // 
-            lblAddNewProduct.AutoSize = true;
-            lblAddNewProduct.Font = new Font("EurostileLTW03-Extended2", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
-            lblAddNewProduct.Location = new Point(15, 15);
-            lblAddNewProduct.Name = "lblAddNewProduct";
-            lblAddNewProduct.Size = new Size(275, 28);
-            lblAddNewProduct.TabIndex = 14;
-            lblAddNewProduct.Text = "Add New Product";
+            lbllEditProduct.AutoSize = true;
+            lbllEditProduct.Font = new Font("EurostileLTW03-Extended2", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
+            lbllEditProduct.Location = new Point(15, 15);
+            lbllEditProduct.Name = "lbllEditProduct";
+            lbllEditProduct.Size = new Size(199, 28);
+            lbllEditProduct.TabIndex = 14;
+            lbllEditProduct.Text = "Edit Product";
             // 
             // pnlContainer
             // 
+            pnlContainer.Controls.Add(btnDiscardChanges);
+            pnlContainer.Controls.Add(btnDelete);
             pnlContainer.Controls.Add(btnRemoveImage);
             pnlContainer.Controls.Add(lblDescription);
-            pnlContainer.Controls.Add(btnSubmit);
+            pnlContainer.Controls.Add(btnSaveChanges);
             pnlContainer.Controls.Add(tbxDescription);
             pnlContainer.Controls.Add(rbtnNo);
             pnlContainer.Controls.Add(rbtnYes);
@@ -79,12 +83,38 @@
             pnlContainer.Controls.Add(tbxProductName);
             pnlContainer.Controls.Add(lblProductName);
             pnlContainer.Controls.Add(pbxProductImage);
-            pnlContainer.Controls.Add(lblAddNewProduct);
+            pnlContainer.Controls.Add(lbllEditProduct);
             pnlContainer.Dock = DockStyle.Fill;
             pnlContainer.Location = new Point(0, 0);
             pnlContainer.Name = "pnlContainer";
             pnlContainer.Size = new Size(1264, 449);
             pnlContainer.TabIndex = 15;
+            // 
+            // btnDiscardChanges
+            // 
+            btnDiscardChanges.Anchor = AnchorStyles.None;
+            btnDiscardChanges.BackgroundImage = Properties.Resources.notok;
+            btnDiscardChanges.BackgroundImageLayout = ImageLayout.Zoom;
+            btnDiscardChanges.Cursor = Cursors.Hand;
+            btnDiscardChanges.Location = new Point(1004, 347);
+            btnDiscardChanges.Name = "btnDiscardChanges";
+            btnDiscardChanges.Size = new Size(70, 70);
+            btnDiscardChanges.TabIndex = 32;
+            btnDiscardChanges.UseVisualStyleBackColor = true;
+            btnDiscardChanges.Click += btnDiscardChanges_Click;
+            // 
+            // btnDelete
+            // 
+            btnDelete.Anchor = AnchorStyles.None;
+            btnDelete.BackgroundImage = Properties.Resources.bin;
+            btnDelete.BackgroundImageLayout = ImageLayout.Zoom;
+            btnDelete.Cursor = Cursors.Hand;
+            btnDelete.Location = new Point(1096, 347);
+            btnDelete.Name = "btnDelete";
+            btnDelete.Size = new Size(70, 70);
+            btnDelete.TabIndex = 31;
+            btnDelete.UseVisualStyleBackColor = true;
+            btnDelete.Click += btnDelete_Click;
             // 
             // btnRemoveImage
             // 
@@ -98,29 +128,29 @@
             btnRemoveImage.Size = new Size(48, 48);
             btnRemoveImage.TabIndex = 30;
             btnRemoveImage.UseVisualStyleBackColor = false;
-            btnRemoveImage.Click += btnRemoveImage_Click;
             // 
             // lblDescription
             // 
             lblDescription.Anchor = AnchorStyles.None;
-            lblDescription.Location = new Point(0, 119);
+            lblDescription.Location = new Point(158, 119);
             lblDescription.Name = "lblDescription";
-            lblDescription.Size = new Size(350, 28);
+            lblDescription.Size = new Size(192, 28);
             lblDescription.TabIndex = 29;
             lblDescription.Text = "Description:";
             lblDescription.TextAlign = ContentAlignment.MiddleRight;
             // 
-            // btnSubmit
+            // btnSaveChanges
             // 
-            btnSubmit.Anchor = AnchorStyles.None;
-            btnSubmit.Cursor = Cursors.Hand;
-            btnSubmit.Location = new Point(912, 342);
-            btnSubmit.Name = "btnSubmit";
-            btnSubmit.Size = new Size(317, 75);
-            btnSubmit.TabIndex = 28;
-            btnSubmit.Text = "SUBMIT";
-            btnSubmit.UseVisualStyleBackColor = true;
-            btnSubmit.Click += btnSubmit_Click;
+            btnSaveChanges.Anchor = AnchorStyles.None;
+            btnSaveChanges.BackgroundImage = Properties.Resources.save;
+            btnSaveChanges.BackgroundImageLayout = ImageLayout.Zoom;
+            btnSaveChanges.Cursor = Cursors.Hand;
+            btnSaveChanges.Location = new Point(912, 347);
+            btnSaveChanges.Name = "btnSaveChanges";
+            btnSaveChanges.Size = new Size(70, 70);
+            btnSaveChanges.TabIndex = 28;
+            btnSaveChanges.UseVisualStyleBackColor = true;
+            btnSaveChanges.Click += btnSaveChanges_Click;
             // 
             // tbxDescription
             // 
@@ -138,7 +168,7 @@
             rbtnNo.Anchor = AnchorStyles.None;
             rbtnNo.AutoSize = true;
             rbtnNo.Cursor = Cursors.Hand;
-            rbtnNo.Location = new Point(670, 389);
+            rbtnNo.Location = new Point(624, 389);
             rbtnNo.Name = "rbtnNo";
             rbtnNo.Size = new Size(78, 32);
             rbtnNo.TabIndex = 26;
@@ -151,7 +181,7 @@
             rbtnYes.Anchor = AnchorStyles.None;
             rbtnYes.AutoSize = true;
             rbtnYes.Cursor = Cursors.Hand;
-            rbtnYes.Location = new Point(478, 389);
+            rbtnYes.Location = new Point(505, 389);
             rbtnYes.Name = "rbtnYes";
             rbtnYes.Size = new Size(92, 32);
             rbtnYes.TabIndex = 25;
@@ -162,9 +192,9 @@
             // lblReorderRegularly
             // 
             lblReorderRegularly.Anchor = AnchorStyles.None;
-            lblReorderRegularly.Location = new Point(0, 387);
+            lblReorderRegularly.Location = new Point(44, 387);
             lblReorderRegularly.Name = "lblReorderRegularly";
-            lblReorderRegularly.Size = new Size(350, 28);
+            lblReorderRegularly.Size = new Size(306, 28);
             lblReorderRegularly.TabIndex = 24;
             lblReorderRegularly.Text = "Re-order Regularly?";
             lblReorderRegularly.TextAlign = ContentAlignment.MiddleRight;
@@ -183,9 +213,9 @@
             // lblCurrentQuantity
             // 
             lblCurrentQuantity.Anchor = AnchorStyles.None;
-            lblCurrentQuantity.Location = new Point(0, 341);
+            lblCurrentQuantity.Location = new Point(75, 341);
             lblCurrentQuantity.Name = "lblCurrentQuantity";
-            lblCurrentQuantity.Size = new Size(350, 28);
+            lblCurrentQuantity.Size = new Size(275, 28);
             lblCurrentQuantity.TabIndex = 22;
             lblCurrentQuantity.Text = "Current Quantity:";
             lblCurrentQuantity.TextAlign = ContentAlignment.MiddleRight;
@@ -193,9 +223,9 @@
             // lblCaseSize
             // 
             lblCaseSize.Anchor = AnchorStyles.None;
-            lblCaseSize.Location = new Point(0, 290);
+            lblCaseSize.Location = new Point(182, 290);
             lblCaseSize.Name = "lblCaseSize";
-            lblCaseSize.Size = new Size(350, 28);
+            lblCaseSize.Size = new Size(168, 28);
             lblCaseSize.TabIndex = 21;
             lblCaseSize.Text = "Case Size:";
             lblCaseSize.TextAlign = ContentAlignment.MiddleRight;
@@ -246,9 +276,9 @@
             // lblProductName
             // 
             lblProductName.Anchor = AnchorStyles.None;
-            lblProductName.Location = new Point(0, 68);
+            lblProductName.Location = new Point(72, 68);
             lblProductName.Name = "lblProductName";
-            lblProductName.Size = new Size(350, 28);
+            lblProductName.Size = new Size(278, 28);
             lblProductName.TabIndex = 16;
             lblProductName.Text = "Name of Product:";
             lblProductName.TextAlign = ContentAlignment.MiddleRight;
@@ -266,9 +296,8 @@
             pbxProductImage.Size = new Size(255, 255);
             pbxProductImage.TabIndex = 15;
             pbxProductImage.TabStop = false;
-            pbxProductImage.Click += pbxProductImage_Click;
             // 
-            // AddNewProduct
+            // EditProduct
             // 
             AutoScaleDimensions = new SizeF(19F, 28F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -276,7 +305,7 @@
             Controls.Add(pnlContainer);
             Font = new Font("EurostileLTW03-Extended2", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
             Margin = new Padding(8, 6, 8, 6);
-            Name = "AddNewProduct";
+            Name = "EditProduct";
             Size = new Size(1264, 449);
             pnlContainer.ResumeLayout(false);
             pnlContainer.PerformLayout();
@@ -286,7 +315,7 @@
 
         #endregion
 
-        private Label lblAddNewProduct;
+        private Label lbllEditProduct;
         private Panel pnlContainer;
         private ComboBox cbxCategory;
         private TextBox tbxProductName;
@@ -300,10 +329,12 @@
         private Label lblCaseSize;
         private TextBox tbxCaseSize;
         private Label lblDescription;
-        private Button btnSubmit;
+        private Button btnSaveChanges;
         private TextBox tbxDescription;
         private RadioButton rbtnNo;
         private OpenFileDialog ofdOpenProductImage;
         private Button btnRemoveImage;
+        private Button btnDelete;
+        private Button btnDiscardChanges;
     }
 }

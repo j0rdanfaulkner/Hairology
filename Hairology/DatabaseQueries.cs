@@ -14,6 +14,8 @@ namespace Hairology
     {
         // SELECT QUERIES
 
+        public const string SELECT_FROM_USER_ACCOUNTS = "SELECT * FROM [User Accounts]";
+
         public const string SELECT_ACCOUNT_USING_USERNAME = "SELECT * FROM [User Accounts] WHERE username = '{0}'";
 
         public const string SELECT_ACCOUNT_USING_ID = "SELECT * FROM [User Accounts] WHERE account_id = '{0}'";
@@ -60,6 +62,8 @@ namespace Hairology
 
         public const string SELECT_PRODUCT_USING_EAN_NUMBER = "SELECT * FROM [Inventory] WHERE ean_number = '{0}'";
 
+        public const string SELECT_PRODUCT_ID_USING_EAN_NUMBER = "SELECT product_id FROM [Inventory] WHERE ean_number = '{0}'";
+
         // COUNT QUERIES
 
         public const string COUNT_CUSTOMERS = "SELECT COUNT(*) FROM [Customers]";
@@ -86,6 +90,8 @@ namespace Hairology
 
         public const string UPDATE_EMPLOYEE_WORK_DETAILS = "UPDATE [Employees] SET department = '{0}', completed_training = '{1}', admin_rights = '{2}' WHERE employee_number = '{3}'";
 
+        public const string UPDATE_PRODUCT_DETAILS = "UPDATE [Inventory] SET product_name = '{0}', product_description = '{1}', product_image = '{2}', category = '{3}', ean_number = '{4}', case_size = '{5}', current_quantity = '{6}', reorder_regularly = '{7}' WHERE product_id = '{8}'";
+
         // DELETE QUERIES
 
         public const string DELETE_CUSTOMER = "DELETE FROM [Customers] WHERE customer_id = '{0}'";
@@ -97,5 +103,7 @@ namespace Hairology
         public const string DELETE_ACCOUNT = "DELETE FROM [User Accounts] WHERE account_id = '{0}'";
 
         public const string DELETE_TRANSACTION_HISTORY = "DELETE FROM [Transactions] WHERE customer_id = '{0}'";
+
+        public const string DELETE_PRODUCT = "DELETE FROM [Inventory] WHERE product_id = '{0}'";
     }
 }

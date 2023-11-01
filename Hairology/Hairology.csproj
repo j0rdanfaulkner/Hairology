@@ -48,6 +48,13 @@
     <None Remove="Resources\settings.png" />
     <None Remove="Resources\showpassword.png" />
     <None Remove="Resources\sort by.png" />
+    <None Remove="Resources\splashscreen01.jpg" />
+    <None Remove="Resources\splashscreen02.jpg" />
+    <None Remove="Resources\splashscreen03.jpg" />
+    <None Remove="Resources\splashscreen04.jpg" />
+    <None Remove="Resources\splashscreen05.jpg" />
+    <None Remove="Resources\splashscreen06.jpg" />
+    <None Remove="Resources\splashscreen07.jpg" />
     <None Remove="Resources\transaction.png" />
     <None Remove="Resources\user.png" />
     <None Remove="Resources\userbadge.png" />
@@ -142,6 +149,27 @@
     <EmbeddedResource Include="Resources\sort by.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
+    <EmbeddedResource Include="Resources\splashscreen01.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\splashscreen02.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\splashscreen03.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\splashscreen04.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\splashscreen05.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\splashscreen06.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\splashscreen07.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
     <EmbeddedResource Include="Resources\transaction.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
@@ -165,6 +193,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="EditProduct.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Update="EditPerson.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -191,6 +222,12 @@
     <None Update="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Update="Resources\Eurostile LT W03 Condensed.ttf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Resources\Eurostile LT W03 Extended 2.ttf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>
 

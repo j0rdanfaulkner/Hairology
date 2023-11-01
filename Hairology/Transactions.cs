@@ -24,6 +24,12 @@ namespace Hairology
             _dbInstance.ConnectToDatabase();
             tmrTimer.Start();
             GetTransactionData();
+            SetFonts();
+        }
+        private void SetFonts()
+        {
+            dgvTransactions.ColumnHeadersDefaultCellStyle.Font = FontManagement.columnHeaders;
+            dgvTransactions.DefaultCellStyle.Font = FontManagement.textInput;
         }
         /// <summary>
         /// fills DataGridView control with contents of 'Transactions' table within database

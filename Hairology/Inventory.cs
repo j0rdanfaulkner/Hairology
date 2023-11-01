@@ -22,7 +22,13 @@ namespace Hairology
             InitializeComponent();
             _dbInstance.ConnectToDatabase();
             GetInventoryData();
+            SetFonts();
             this.Refresh();
+        }
+        private void SetFonts()
+        {
+            dgvInventory.ColumnHeadersDefaultCellStyle.Font = FontManagement.columnHeaders;
+            dgvInventory.DefaultCellStyle.Font = FontManagement.textInput;
         }
         private void GetInventoryData()
         {

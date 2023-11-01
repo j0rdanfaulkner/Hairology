@@ -24,10 +24,11 @@ namespace Hairology
         private SqlDataReader _reader = default!;
         private bool _allowedToEdit = default!;
         public static bool editing = false;
-        public static string personType = default!;
+        public static string type = default!;
         public MainWindow(Employee employee, Login log)
         {
             InitializeComponent();
+            SetFonts();
             _employee = employee;
             _login = log;
             tmrTimer.Start();
@@ -47,10 +48,23 @@ namespace Hairology
             uscTransactions.Hide();
             uscSettings.Hide();
             uscEditPerson.Hide();
+            uscEditProduct.Hide();
         }
+        // destructor
         ~MainWindow()
         {
             _username = null!;
+        }
+        private void SetFonts()
+        {
+            // titles and subtitles
+            lblWelcome.Font = FontManagement.titles;
+            lblFullName.Font = FontManagement.subtitles;
+            lblDepartment.Font = FontManagement.departmentSubtitle;
+            lblDate.Font = FontManagement.dateTimeSubtitles;
+            lblTime.Font = FontManagement.dateTimeSubtitles;
+            // menu bar
+            mstNavigationBar.Font = FontManagement.menuBar;
         }
         /// <summary>
         /// gets username using account ID of current employee's user account
@@ -166,30 +180,48 @@ namespace Hairology
             {
                 if (_allowedToEdit == true)
                 {
-                    if (uscEditPerson.Visible == false)
+                    switch (type)
                     {
-                        if (personType == "Customer")
-                        {
-                            uscEditPerson.SetPersonType(personType, uscSearch.customerForEditing, null);
-                        }
-                        else if (personType == "Employee")
-                        {
-                            uscEditPerson.SetPersonType(personType, null, uscSearch.employeeForEditing);
-                        }
-                        uscEditPerson.Show();
+                        case "Customer":
+                            if (uscEditPerson.Visible == false)
+                            {
+                                uscEditPerson.SetPersonType(type, uscSearch.customerForEditing, null);
+                                uscEditPerson.Show();
+                            }
+                            break;
+                        case "Employee":
+                            if (uscEditPerson.Visible == false)
+                            {
+                                uscEditPerson.SetPersonType(type, uscSearch.customerForEditing, null);
+                                uscEditPerson.Show();
+                            }
+                            break;
+                        case "Product":
+                            if (uscEditProduct.Visible == false)
+                            {
+                                uscEditProduct.SetProductForEditing(uscSearch.productForEditing);
+                                uscEditProduct.Show();
+                            }
+                            break;
+                        default:
+                            break;
                     }
                 }
                 else
                 {
                     editing = false;
                     MessageBox.Show("You need to be an administrator to edit database records", "Access Denied", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    if (personType == "Customer")
+                    if (type == "Customer")
                     {
                         uscSearch.SetSearchType("Customer");
                     }
-                    else if (personType == "Employee")
+                    else if (type == "Employee")
                     {
                         uscSearch.SetSearchType("Employee");
+                    }
+                    else if (type == "Product")
+                    {
+                        uscSearch.SetSearchType("Product");
                     }
                     uscSearch.Show();
                 }
@@ -197,6 +229,7 @@ namespace Hairology
             else
             {
                 uscEditPerson.Hide();
+                uscEditProduct.Hide();
             }
         }
         private void addNewEmployeeToolStripMenuItem_Click(object sender, EventArgs e)
@@ -314,6 +347,7 @@ namespace Hairology
             uscTransactions.Hide();
             uscSettings.Hide();
             this.Refresh();
+            uscInventory.dgvInventory.Refresh();
         }
 
         private void transactionsToolStripMenuItem_Click(object sender, EventArgs e)
@@ -333,6 +367,7 @@ namespace Hairology
                 uscTransactions.Show();
                 uscSettings.Hide();
                 this.Refresh();
+                uscTransactions.dgvTransactions.Refresh();
             }
         }
 

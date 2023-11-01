@@ -81,7 +81,7 @@
         #endregion
 
         private Panel pnlContainer;
-        private DataGridView dgvTransactions;
         private System.Windows.Forms.Timer tmrTimer;
+        public DataGridView dgvTransactions;
     }
 }

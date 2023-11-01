@@ -187,6 +187,7 @@
             tbxUsername.PlaceholderText = "  USERNAME";
             tbxUsername.Size = new Size(538, 33);
             tbxUsername.TabIndex = 22;
+            tbxUsername.TextChanged += tbxUsername_TextChanged;
             // 
             // btnGenerateEmployeeNumber
             // 
@@ -285,24 +286,24 @@
             // lblSex
             // 
             lblSex.Anchor = AnchorStyles.None;
-            lblSex.AutoSize = true;
             lblSex.Font = new Font("EurostileLTW03-Extended2", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
-            lblSex.Location = new Point(32, 120);
+            lblSex.Location = new Point(3, 120);
             lblSex.Name = "lblSex";
-            lblSex.Size = new Size(77, 28);
+            lblSex.Size = new Size(106, 28);
             lblSex.TabIndex = 16;
             lblSex.Text = "Sex:";
+            lblSex.TextAlign = ContentAlignment.MiddleRight;
             // 
             // lblDOB
             // 
             lblDOB.Anchor = AnchorStyles.None;
-            lblDOB.AutoSize = true;
             lblDOB.Font = new Font("EurostileLTW03-Extended2", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
-            lblDOB.Location = new Point(17, 89);
+            lblDOB.Location = new Point(3, 89);
             lblDOB.Name = "lblDOB";
-            lblDOB.Size = new Size(92, 28);
+            lblDOB.Size = new Size(106, 28);
             lblDOB.TabIndex = 15;
             lblDOB.Text = "DOB:";
+            lblDOB.TextAlign = ContentAlignment.MiddleRight;
             // 
             // dtpDateOfBirth
             // 
@@ -315,11 +316,11 @@
             // cbxRegularCustomer
             // 
             cbxRegularCustomer.Anchor = AnchorStyles.None;
-            cbxRegularCustomer.AutoSize = true;
+            cbxRegularCustomer.CheckAlign = ContentAlignment.MiddleRight;
             cbxRegularCustomer.Cursor = Cursors.Hand;
-            cbxRegularCustomer.Location = new Point(274, 121);
+            cbxRegularCustomer.Location = new Point(225, 119);
             cbxRegularCustomer.Name = "cbxRegularCustomer";
-            cbxRegularCustomer.Size = new Size(293, 29);
+            cbxRegularCustomer.Size = new Size(333, 31);
             cbxRegularCustomer.TabIndex = 13;
             cbxRegularCustomer.Text = "Regular Customer?";
             cbxRegularCustomer.UseVisualStyleBackColor = true;
@@ -338,7 +339,7 @@
             rbtnMale.Anchor = AnchorStyles.None;
             rbtnMale.AutoSize = true;
             rbtnMale.Cursor = Cursors.Hand;
-            rbtnMale.Location = new Point(110, 121);
+            rbtnMale.Location = new Point(110, 119);
             rbtnMale.Name = "rbtnMale";
             rbtnMale.Size = new Size(56, 29);
             rbtnMale.TabIndex = 4;
@@ -394,7 +395,7 @@
             rbtnFemale.Anchor = AnchorStyles.None;
             rbtnFemale.AutoSize = true;
             rbtnFemale.Cursor = Cursors.Hand;
-            rbtnFemale.Location = new Point(172, 121);
+            rbtnFemale.Location = new Point(172, 119);
             rbtnFemale.Name = "rbtnFemale";
             rbtnFemale.Size = new Size(47, 29);
             rbtnFemale.TabIndex = 5;

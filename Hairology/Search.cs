@@ -24,12 +24,22 @@ namespace Hairology
         private int _index = default!;
         public Customer customerForEditing = default!;
         public Employee employeeForEditing = default!;
+        public Product productForEditing = default!;
         public Search()
         {
             InitializeComponent();
             _dbInstance.ConnectToDatabase();
             GetData();
+            SetFonts();
             this.Refresh();
+        }
+        private void SetFonts()
+        {
+            lblSearch.Font = FontManagement.labels;
+            tbxSearchTerm.Font = FontManagement.textInput;
+            cbxSearchColumn.Font = FontManagement.textInput;
+            dgvSearch.ColumnHeadersDefaultCellStyle.Font = FontManagement.columnHeaders;
+            dgvSearch.DefaultCellStyle.Font = FontManagement.textInput;
         }
         private void GetData()
         {
@@ -52,6 +62,7 @@ namespace Hairology
                         var column = dgvSearch.Columns[i];
                         column.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
                         column.DefaultCellStyle.BackColor = Color.Silver;
+                        column.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
                         switch (i)
                         {
                             case 0:
@@ -367,7 +378,7 @@ namespace Hairology
                     if (_reader.Read())
                     {
                         MainWindow.editing = true;
-                        MainWindow.personType = "Customer";
+                        MainWindow.type = "Customer";
                         this.Hide();
                     }
                     _dbInstance.conn.Close();
@@ -405,7 +416,39 @@ namespace Hairology
                     if (_reader.Read())
                     {
                         MainWindow.editing = true;
-                        MainWindow.personType = "Employee";
+                        MainWindow.type = "Employee";
+                        this.Hide();
+                    }
+                    _dbInstance.conn.Close();
+                }
+                catch (Exception ex)
+                {
+                    DialogResult result = MessageBox.Show(ex.Message, "Something Went Wrong", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            else if (_type == "Product")
+            {
+                try
+                {
+                    string[] productDetails = new string[7];
+                    if (e.RowIndex > -1)
+                    {
+                        productDetails[0] = dgvSearch.Rows[e.RowIndex].Cells[0].Value.ToString();
+                        productDetails[1] = dgvSearch.Rows[e.RowIndex].Cells[1].Value.ToString();
+                        productDetails[2] = dgvSearch.Rows[e.RowIndex].Cells[2].Value.ToString();
+                        productDetails[3] = dgvSearch.Rows[e.RowIndex].Cells[3].Value.ToString();
+                        productDetails[4] = dgvSearch.Rows[e.RowIndex].Cells[4].Value.ToString();
+                        productDetails[5] = dgvSearch.Rows[e.RowIndex].Cells[5].Value.ToString();
+                        productDetails[6] = dgvSearch.Rows[e.RowIndex].Cells[6].Value.ToString();
+                        productForEditing = new Product(productDetails);
+                    }
+                    _dbInstance.conn.Open();
+                    _command = new SqlCommand(string.Format(DatabaseQueries.SELECT_PRODUCT_ID_USING_EAN_NUMBER, productForEditing.GetAttribute(3)), _dbInstance.conn);
+                    _reader = _command.ExecuteReader();
+                    if (_reader.Read())
+                    {
+                        MainWindow.editing = true;
+                        MainWindow.type = "Product";
                         this.Hide();
                     }
                     _dbInstance.conn.Close();

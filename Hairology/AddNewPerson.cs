@@ -43,6 +43,38 @@ namespace Hairology
             InitializeComponent();
             tbxPassword.UseSystemPasswordChar = true;
             tbxConfirmPassword.UseSystemPasswordChar = true;
+            SetFonts();
+        }
+        private void SetFonts()
+        {
+            // labels
+            lblAddNewPerson.Font = FontManagement.labels;
+            lblAdminRights.Font = FontManagement.labels;
+            lblCompletedTraining.Font = FontManagement.labels;
+            lblDOB.Font = FontManagement.labels;
+            lblSex.Font = FontManagement.labels;
+            cbxRegularCustomer.Font = FontManagement.labels;
+            rbtnAdminRightsNo.Font = FontManagement.labels;
+            rbtnAdminRightsYes.Font = FontManagement.labels;
+            rbtnFemale.Font = FontManagement.labels;
+            rbtnMale.Font = FontManagement.labels;
+            rbtnTrainingCompletedNo.Font = FontManagement.labels;
+            rbtnTrainingCompletedYes.Font = FontManagement.labels;
+            // text input
+            tbxAddressLine1.Font = FontManagement.textInput;
+            tbxAddressLine2.Font = FontManagement.textInput;
+            tbxConfirmPassword.Font = FontManagement.textInput;
+            tbxEmployeeNumber.Font = FontManagement.textInput;
+            tbxFirstName.Font = FontManagement.textInput;
+            tbxLastName.Font = FontManagement.textInput;
+            tbxPassword.Font = FontManagement.textInput;
+            tbxPostCode.Font = FontManagement.textInput;
+            tbxUsername.Font = FontManagement.textInput;
+            cbxCounty.Font = FontManagement.textInput;
+            cbxDepartment.Font = FontManagement.textInput;
+            // buttons
+            btnGenerateEmployeeNumber.Font = FontManagement.buttons;
+            btnSubmit.Font = FontManagement.buttons;
         }
         private void ConfigureForm()
         {

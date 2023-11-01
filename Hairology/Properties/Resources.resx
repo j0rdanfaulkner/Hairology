@@ -202,6 +202,27 @@
   <data name="sort by" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\sort by.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="splashscreen01" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\splashscreen01.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="splashscreen02" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\splashscreen02.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="splashscreen03" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\splashscreen03.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="splashscreen04" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\splashscreen04.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="splashscreen05" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\splashscreen05.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="splashscreen06" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\splashscreen06.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="splashscreen07" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\splashscreen07.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="transaction" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\transaction.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>

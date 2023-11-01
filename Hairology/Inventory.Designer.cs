@@ -73,6 +73,6 @@
         #endregion
 
         private Panel pnlContainer;
-        private DataGridView dgvInventory;
+        public DataGridView dgvInventory;
     }
 }

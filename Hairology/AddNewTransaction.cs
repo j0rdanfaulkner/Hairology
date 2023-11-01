@@ -37,11 +37,33 @@ namespace Hairology
         {
             InitializeComponent();
             GetCustomers();
+            SetFonts();
             Refresh();
         }
         public void SetEmployeeNumber(int employeeNumber)
         {
             _employeeNumber = employeeNumber;
+        }
+        private void SetFonts()
+        {
+            // labels
+            lblAddNewTransaction.Font = FontManagement.labels;
+            lblCardNumber.Font = FontManagement.labels;
+            lblCVV.Font = FontManagement.labels;
+            lblExpiryDate.Font = FontManagement.labels;
+            lblSelectCustomer.Font = FontManagement.labels;
+            lblTotalAmount.Font = FontManagement.labels;
+            lblTransactionCompleted.Font = FontManagement.labels;
+            rbtnNo.Font = FontManagement.labels;
+            rbtnYes.Font = FontManagement.labels;
+            // text input
+            cbxSelectCustomer.Font = FontManagement.textInput;
+            dtpExpiryDate.Font = FontManagement.textInput;
+            tbxAmountCharged.Font = FontManagement.textInput;
+            tbxCardNumber.Font = FontManagement.textInput;
+            tbxCVV.Font = FontManagement.textInput;
+            // buttons
+            btnSubmit.Font = FontManagement.buttons;
         }
         /// <summary>
         /// populate combo box with existing customers so that the correct customer for the transaction can be selected directly

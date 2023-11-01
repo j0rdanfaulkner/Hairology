@@ -73,6 +73,7 @@
             pbxLogo = new PictureBox();
             tmrTimer = new System.Windows.Forms.Timer(components);
             ttpInfo = new ToolTip(components);
+            uscEditProduct = new EditProduct();
             pnlContainer.SuspendLayout();
             pnlBottom.SuspendLayout();
             mstNavigationBar.SuspendLayout();
@@ -104,6 +105,7 @@
             // 
             // pnlBottom
             // 
+            pnlBottom.Controls.Add(uscEditProduct);
             pnlBottom.Controls.Add(uscAddNewProduct);
             pnlBottom.Controls.Add(uscEditPerson);
             pnlBottom.Controls.Add(uscAddNewTransaction);
@@ -460,6 +462,17 @@
             tmrTimer.Interval = 1000;
             tmrTimer.Tick += tmrTimer_Tick;
             // 
+            // uscEditProduct
+            // 
+            uscEditProduct.BackColor = SystemColors.ActiveCaption;
+            uscEditProduct.Dock = DockStyle.Fill;
+            uscEditProduct.Font = new Font("EurostileLTW03-Extended2", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
+            uscEditProduct.Location = new Point(0, 50);
+            uscEditProduct.Margin = new Padding(8, 6, 8, 6);
+            uscEditProduct.Name = "uscEditProduct";
+            uscEditProduct.Size = new Size(1264, 439);
+            uscEditProduct.TabIndex = 9;
+            // 
             // MainWindow
             // 
             AutoScaleDimensions = new SizeF(16F, 25F);
@@ -532,5 +545,6 @@
         private AddNewTransaction uscAddNewTransaction;
         public EditPerson uscEditPerson;
         private AddNewProduct uscAddNewProduct;
+        private EditProduct uscEditProduct;
     }
 }
