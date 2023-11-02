@@ -16,6 +16,7 @@
     <PackageProjectUrl>https://www.jordan-faulkner.com/hairology</PackageProjectUrl>
     <RepositoryType>git</RepositoryType>
     <RepositoryUrl>github.com/j0rdanfaulkner/Hairology</RepositoryUrl>
+    <AnalysisLevel>6.0</AnalysisLevel>
   </PropertyGroup>
 
   <ItemGroup>
@@ -25,6 +26,8 @@
     <None Remove="Resources\bin.png" />
     <None Remove="Resources\customer.png" />
     <None Remove="Resources\error.ico" />
+    <None Remove="Resources\Eurostile LT W03 Condensed.ttf" />
+    <None Remove="Resources\Eurostile LT W03 Extended 2.ttf" />
     <None Remove="Resources\findcustomer.png" />
     <None Remove="Resources\hidepassword.png" />
     <None Remove="Resources\icon.ico" />
@@ -62,123 +65,129 @@
 
   <ItemGroup>
     <Content Include="icon.ico" />
-    <EmbeddedResource Include="Resources\removeimage.png">
+    <Content Include="Resources\addimage.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Resources\bin.png">
+    </Content>
+    <Content Include="Resources\addnew.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Resources\notok.png">
+    </Content>
+    <Content Include="Resources\admin.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Resources\ok.png">
+    </Content>
+    <Content Include="Resources\bin.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Resources\addimage.png">
+    </Content>
+    <Content Include="Resources\customer.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Resources\addnew.png">
+    </Content>
+    <Content Include="Resources\error.ico">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Resources\admin.png">
+    </Content>
+    <Content Include="Resources\Eurostile LT W03 Condensed.ttf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Resources\customer.png">
+    </Content>
+    <Content Include="Resources\Eurostile LT W03 Extended 2.ttf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Resources\error.ico">
+    </Content>
+    <Content Include="Resources\findcustomer.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Resources\findcustomer.png">
+    </Content>
+    <Content Include="Resources\hidepassword.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Resources\hidepassword.png">
+    </Content>
+    <Content Include="Resources\icon.ico">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Resources\icon.ico">
+    </Content>
+    <Content Include="Resources\icon.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Resources\icon.png">
+    </Content>
+    <Content Include="Resources\inventory.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Resources\inventory.png">
+    </Content>
+    <Content Include="Resources\invoice.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Resources\invoice.png">
+    </Content>
+    <Content Include="Resources\logo.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Resources\logo.png">
+    </Content>
+    <Content Include="Resources\logout.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Resources\logout.png">
+    </Content>
+    <Content Include="Resources\notadmin.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Resources\notadmin.png">
+    </Content>
+    <Content Include="Resources\notok.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Resources\orderhistory.png">
+    </Content>
+    <Content Include="Resources\ok.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Resources\people.png">
+    </Content>
+    <Content Include="Resources\orderhistory.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Resources\products.png">
+    </Content>
+    <Content Include="Resources\people.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Resources\refresh.png">
+    </Content>
+    <Content Include="Resources\products.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Resources\save.png">
+    </Content>
+    <Content Include="Resources\refresh.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Resources\search.png">
+    </Content>
+    <Content Include="Resources\removeimage.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Resources\searchcustomers.png">
+    </Content>
+    <Content Include="Resources\save.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Resources\searchemployees.png">
+    </Content>
+    <Content Include="Resources\search.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Resources\settings.png">
+    </Content>
+    <Content Include="Resources\searchcustomers.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Resources\showpassword.png">
+    </Content>
+    <Content Include="Resources\searchemployees.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Resources\sort by.png">
+    </Content>
+    <Content Include="Resources\settings.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Resources\splashscreen01.jpg">
+    </Content>
+    <Content Include="Resources\showpassword.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Resources\splashscreen02.jpg">
+    </Content>
+    <Content Include="Resources\sort by.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Resources\splashscreen03.jpg">
+    </Content>
+    <Content Include="Resources\splashscreen01.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Resources\splashscreen04.jpg">
+    </Content>
+    <Content Include="Resources\splashscreen02.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Resources\splashscreen05.jpg">
+    </Content>
+    <Content Include="Resources\splashscreen03.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Resources\splashscreen06.jpg">
+    </Content>
+    <Content Include="Resources\splashscreen04.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Resources\splashscreen07.jpg">
+    </Content>
+    <Content Include="Resources\splashscreen05.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Resources\transaction.png">
+    </Content>
+    <Content Include="Resources\splashscreen06.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Resources\user.png">
+    </Content>
+    <Content Include="Resources\splashscreen07.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Resources\userbadge.png">
+    </Content>
+    <Content Include="Resources\transaction.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
+    </Content>
+    <Content Include="Resources\user.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\userbadge.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
 
   <ItemGroup>
@@ -222,12 +231,6 @@
     <None Update="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
-    </None>
-    <None Update="Resources\Eurostile LT W03 Condensed.ttf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="Resources\Eurostile LT W03 Extended 2.ttf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>
 

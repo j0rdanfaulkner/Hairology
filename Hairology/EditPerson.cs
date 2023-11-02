@@ -171,6 +171,7 @@ namespace Hairology
                 _department = cbxDepartment.Text;
                 _username = tbxUsername.Text;
                 _password = tbxPassword.Text;
+                _confirmPassword = tbxConfirmPassword.Text;
             }
         }
         private bool CheckFields()

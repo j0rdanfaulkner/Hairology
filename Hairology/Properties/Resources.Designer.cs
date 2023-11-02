@@ -121,6 +121,36 @@ namespace Hairology.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] Eurostile_LT_W03_Condensed {
+            get {
+                object obj = ResourceManager.GetObject("Eurostile LT W03 Condensed", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] Eurostile_LT_W03_Extended_2 {
+            get {
+                object obj = ResourceManager.GetObject("Eurostile LT W03 Extended 2", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap findcustomer {
+            get {
+                object obj = ResourceManager.GetObject("findcustomer", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap hidepassword {

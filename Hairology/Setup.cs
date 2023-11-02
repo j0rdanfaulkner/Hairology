@@ -27,7 +27,6 @@ namespace Hairology
         private string _addressLine2 = default!;
         private string _county = default!;
         private string _postCode = default!;
-        private bool _regularCustomer = default!;
         // variables for employee information
         private int _employeeNumber = default!;
         private string _department = default!;
