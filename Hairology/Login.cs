@@ -14,12 +14,15 @@ namespace Hairology
         private SqlCommand _command = default!;
         private SqlDataReader _reader = default!;
         private Employee _employee = default!;
+        private bool _goToMainWindow = default!;
         public Login()
         {
             InitializeComponent();
+            _dbInstance.ConnectToDatabase();
             tbxPassword.UseSystemPasswordChar = true;
             pbxTogglePassword.BackgroundImage = Properties.Resources.showpassword;
             _togglePassword = false;
+            _goToMainWindow = false;
             SetFonts();
         }
         private void SetFonts()
@@ -54,6 +57,7 @@ namespace Hairology
                             GetEmployee(accountID);
                             _dbInstance.conn.Close();
                             _mainWindow = new MainWindow(_employee, this);
+                            _goToMainWindow = true;
                             _mainWindow.Show();
                             this.Hide();
                         }
@@ -143,7 +147,14 @@ namespace Hairology
         }
         private void Login_FormClosing(object sender, FormClosingEventArgs e)
         {
-            SplashScreen.ExitApplication(true);
+            if (_goToMainWindow == false)
+            {
+                SplashScreen.ExitApplication(true);
+            }
+            else
+            {
+                _goToMainWindow = false;
+            }
         }
     }
 }

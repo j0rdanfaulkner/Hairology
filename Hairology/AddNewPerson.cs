@@ -72,6 +72,7 @@ namespace Hairology
             tbxUsername.Font = FontManagement.textInput;
             cbxCounty.Font = FontManagement.textInput;
             cbxDepartment.Font = FontManagement.textInput;
+            dtpDateOfBirth.Font = FontManagement.textInput;
             // buttons
             btnGenerateEmployeeNumber.Font = FontManagement.buttons;
             btnSubmit.Font = FontManagement.buttons;
@@ -351,7 +352,7 @@ namespace Hairology
                     _reader = _command.ExecuteReader();
                     if (_reader.Read())
                     {
-                        MessageBox.Show("'" + _firstName + " " + _lastName + "' was inserted into the Customers table successfully", _type + " Added Successfully", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("'" + _firstName + " " + _lastName + "' was inserted into the Customers table", _type + " Added Successfully", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         _reader.Close();
                     }
                 }
@@ -390,7 +391,7 @@ namespace Hairology
                     _reader = _command.ExecuteReader();
                     if (_reader.Read())
                     {
-                        MessageBox.Show("'" + _firstName + " " + _lastName + "' was inserted into the Employees table successfully", _type + " Added Successfully", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("'" + _firstName + " " + _lastName + "' was inserted into the Employees table", _type + " Added Successfully", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         _reader.Close();
                     }
                 }

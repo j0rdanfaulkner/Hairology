@@ -68,11 +68,11 @@
             // 
             pgbProgressBar.Cursor = Cursors.AppStarting;
             pgbProgressBar.Dock = DockStyle.Bottom;
-            pgbProgressBar.Location = new Point(0, 726);
+            pgbProgressBar.Location = new Point(0, 734);
             pgbProgressBar.MarqueeAnimationSpeed = 25;
             pgbProgressBar.Name = "pgbProgressBar";
-            pgbProgressBar.Size = new Size(744, 18);
-            pgbProgressBar.Style = ProgressBarStyle.Marquee;
+            pgbProgressBar.Size = new Size(744, 10);
+            pgbProgressBar.Style = ProgressBarStyle.Continuous;
             pgbProgressBar.TabIndex = 0;
             // 
             // lblCurrentProgress
@@ -81,7 +81,7 @@
             lblCurrentProgress.BackColor = Color.Transparent;
             lblCurrentProgress.Font = new Font("EurostileLTW03-Extended2", 12F, FontStyle.Bold, GraphicsUnit.Point);
             lblCurrentProgress.ForeColor = SystemColors.ButtonShadow;
-            lblCurrentProgress.Location = new Point(3, 702);
+            lblCurrentProgress.Location = new Point(3, 710);
             lblCurrentProgress.Name = "lblCurrentProgress";
             lblCurrentProgress.Size = new Size(37, 21);
             lblCurrentProgress.TabIndex = 2;

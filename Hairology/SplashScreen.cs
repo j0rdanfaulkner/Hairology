@@ -22,6 +22,7 @@ namespace Hairology
         private SqlDataReader _reader = default!;
         private bool _usersFound = default!;
         private static Login _login = new Login();
+        private static Setup _setup = new Setup();
         public SplashScreen()
         {
             InitializeComponent();
@@ -29,6 +30,14 @@ namespace Hairology
             lblCurrentProgress.Text = "";
             tmrTimer.Start();
             SelectRandomBackgroundImage();
+            SetFonts();
+        }
+        private void SetFonts()
+        {
+            // labels
+            lblTitle.Font = FontManagement.titles;
+            lblSubtitle.Font = FontManagement.subtitles;
+            lblCurrentProgress.Font = FontManagement.subtitles;
         }
         private void SelectRandomBackgroundImage()
         {
@@ -94,6 +103,7 @@ namespace Hairology
             {
                 case 0:
                     lblCurrentProgress.Text = "Starting Application...";
+                    pgbProgressBar.Value = 25;
                     _waiting++;
                     break;
                 case 1:
@@ -113,6 +123,7 @@ namespace Hairology
                     tmrTimer.Stop();
                     _dbInstance.ConnectToDatabase();
                     tmrTimer.Start();
+                    pgbProgressBar.Value = 55;
                     _waiting++;
                     break;
                 case 6:
@@ -123,6 +134,7 @@ namespace Hairology
                     tmrTimer.Stop();
                     CheckForUsers();
                     tmrTimer.Start();
+                    pgbProgressBar.Value = 65;
                     _waiting++;
                     break;
                 case 8:
@@ -134,28 +146,35 @@ namespace Hairology
                     {
                         lblCurrentProgress.Text = "Loading First-Time Screen...";
                     }
+                    pgbProgressBar.Value = 85;
                     _waiting++;
                     break;
                 case 9:
                     _waiting++;
                     break;
                 case 10:
+                    pgbProgressBar.Value = 100;
                     _waiting++;
                     break;
                 case 11:
                     tmrTimer.Stop();
+                    this.Hide();
                     if (_usersFound == true)
                     {
-                        this.Hide();
                         _login.ShowDialog();
                     }
                     else
                     {
-                        // new user screen
+                        _setup.ShowDialog();
                     }
                     _waiting++;
                     break;
             }
+        }
+        public static void GoToLogin()
+        {
+            _setup.Hide();
+            _login.ShowDialog();
         }
         public static void ExitApplication(bool shouldExit)
         {
@@ -164,7 +183,6 @@ namespace Hairology
                 System.Windows.Forms.Application.Exit();
             }
         }
-
         private void SplashScreen_FormClosing(object sender, FormClosingEventArgs e)
         {
             DialogResult result = MessageBox.Show("Are you sure you want to close Hairology?", "Confirm Action", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);

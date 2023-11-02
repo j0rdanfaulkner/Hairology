@@ -35,7 +35,7 @@ namespace Hairology
         public void SetFonts()
         {
             // set fonts
-            textInput = new Font(_pfc.Families[0], 14, FontStyle.Bold);
+            textInput = new Font(_pfc.Families[1], 14, FontStyle.Bold);
             buttons = new Font(_pfc.Families[1], 16, FontStyle.Bold);
             labels = new Font(_pfc.Families[1], 16, FontStyle.Bold);
             columnHeaders = new Font(_pfc.Families[1], 12, FontStyle.Bold);
