@@ -25,9 +25,12 @@ namespace Hairology
         private bool _allowedToEdit = default!;
         public static bool editing = false;
         public static string type = default!;
+        private static Color _mainColour = SystemColors.ActiveCaption;
+        private static Color _accentColour = Color.SteelBlue;
         public MainWindow(Employee employee, Login log)
         {
             InitializeComponent();
+            SetColours(_mainColour, _accentColour);
             SetFonts();
             _employee = employee;
             _login = log;
@@ -54,6 +57,11 @@ namespace Hairology
         ~MainWindow()
         {
             _username = null!;
+        }
+        public static void SetColours(Color main, Color accent)
+        {
+            _mainColour = main;
+            _accentColour = accent;
         }
         private void SetFonts()
         {
@@ -230,6 +238,9 @@ namespace Hairology
             {
                 uscEditPerson.Hide();
                 uscEditProduct.Hide();
+                pnlTop.BackColor = _mainColour;
+                pnlBottom.BackColor = _mainColour;
+                mstNavigationBar.BackColor = _accentColour;
             }
         }
         private void addNewEmployeeToolStripMenuItem_Click(object sender, EventArgs e)
@@ -380,6 +391,7 @@ namespace Hairology
             uscSearch.Hide();
             uscInventory.Hide();
             uscTransactions.Hide();
+            uscSettings.GetUsername(_username);
             uscSettings.Show();
             this.Refresh();
         }

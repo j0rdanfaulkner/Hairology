@@ -34,6 +34,8 @@ namespace Hairology
 
         public const string SELECT_USERNAME = "SELECT username FROM [User Accounts] WHERE username = '{0}'";
 
+        public const string SELECT_PASSWORD = "SELECT password FROM [User Accounts] WHERE username = '{0}'";
+
         public const string SELECT_ALL_CUSTOMERS = "SELECT first_name, last_name, date_of_birth, sex, address_line_1, address_line_2, county, post_code, regular_customer FROM [Customers]";
 
         public const string SELECT_CUSTOMER_NAMES = "SELECT first_name, last_name, post_code FROM [Customers]";
@@ -91,6 +93,8 @@ namespace Hairology
         public const string UPDATE_EMPLOYEE_WORK_DETAILS = "UPDATE [Employees] SET department = '{0}', completed_training = '{1}', admin_rights = '{2}' WHERE employee_number = '{3}'";
 
         public const string UPDATE_PRODUCT_DETAILS = "UPDATE [Inventory] SET product_name = '{0}', product_description = '{1}', product_image = '{2}', category = '{3}', ean_number = '{4}', case_size = '{5}', current_quantity = '{6}', reorder_regularly = '{7}' WHERE product_id = '{8}'";
+
+        public const string UPDATE_PASSWORD = "UPDATE [User Accounts] SET password = '{0}' WHERE username = '{1}'";
 
         // DELETE QUERIES
 
