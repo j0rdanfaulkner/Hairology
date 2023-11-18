@@ -3,8 +3,11 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
+using System.Reflection;
+using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -23,21 +26,37 @@ namespace Hairology
         private string _confirmNewPassword = default!;
         private Color _selectedMain = default!;
         private Color _selectedAccent = default!;
+        private const string _SUPPORTLINK = "https://www.jordan-faulkner.com/support";
+        private string _versionNumber = default!;
         public Settings()
         {
             InitializeComponent();
+            _versionNumber = GetVersionNumber();
+            lblVersionNumber.Text = "Version " + _versionNumber;
+            SetFonts();
             _dbInstance.ConnectToDatabase();
+            lblSupportLink.LinkVisited = false;
+            lblSupportLink.Links.Add(0, 22, _SUPPORTLINK);
             dividerStripTextBox1.ReadOnly = true;
             dividerStripTextBox2.ReadOnly = true;
+            pnlAbout.Visible = false;
             pnlChangePassword.Visible = false;
             tbxCurrentPassword.UseSystemPasswordChar = true;
             tbxNewPassword.UseSystemPasswordChar = true;
             tbxConfirmNewPassword.UseSystemPasswordChar = true;
             pnlChangeColours.Visible = false;
-            pnlChangeFonts.Visible = false;
             _selectedMain = pbxMain1.BackColor;
             _selectedAccent = pbxAccent1.BackColor;
-            SetFonts();
+        }
+        /// <summary>
+        /// retrieves the current version number of Hairology and returns it as a string value
+        /// </summary>
+        /// <returns></returns>
+        private string GetVersionNumber()
+        {
+            Version version = Assembly.GetExecutingAssembly().GetName().Version;
+            string number = String.Format("{0}.{1}.{2}.{3}", version.Major, version.Minor, version.Build, version.Revision);
+            return number;
         }
         public void GetUsername(string username)
         {
@@ -47,6 +66,18 @@ namespace Hairology
         {
             // menu bar
             mstMenuBar.Font = FontManagement.menuBar;
+            // about panel
+            // labels
+            lblAbout.Font = FontManagement.labels;
+            lblNumberOfEmployees.Font = FontManagement.labels;
+            lblNumberOfAdminAccounts.Font = FontManagement.labels;
+            lblNumberOfCustomers.Font = FontManagement.labels;
+            lblNumberOfProducts.Font = FontManagement.labels;
+            lblNumberOfTransactions.Font = FontManagement.labels;
+            lblVersionNumber.Font = FontManagement.subtitles;
+            lblCopyright.Font = FontManagement.subtitles;
+            // support link
+            lblSupportLink.Font = FontManagement.subtitles;
             // change password panel
             // labels
             lblChangePassword.Font = FontManagement.labels;
@@ -59,38 +90,55 @@ namespace Hairology
             tbxConfirmNewPassword.Font = FontManagement.textInput;
             // buttons
             btnChangePassword.Font = FontManagement.buttons;
-            // change fonts panel
-            //labels
-            lblChangeFonts.Font = FontManagement.labels;
-            // text input
-            cbxSelectLabelFont.Font = FontManagement.textInput;
-            tbxLabelFontSize.Font = FontManagement.textInput;
-            // buttons
-            btnLabelFontOK.Font = FontManagement.buttons;
             // change colours panel
             lblChangeColours.Font = FontManagement.labels;
             lblPreview.Font = FontManagement.labels;
             lblMainColour.Font = FontManagement.labels;
             lblAccentColour.Font = FontManagement.labels;
         }
-
+        private void GetInformation()
+        {
+            int employeesCount = 0;
+            int adminAccountsCount = 0;
+            int customersCount = 0;
+            int productsCount = 0;
+            int transactionsCount = 0;
+            _dbInstance.conn.Open();
+            _command = new SqlCommand(DatabaseQueries.COUNT_EMPLOYEES, _dbInstance.conn);
+            employeesCount = Convert.ToInt32(_command.ExecuteScalar());
+            _command = new SqlCommand(DatabaseQueries.COUNT_ADMINS, _dbInstance.conn);
+            adminAccountsCount = Convert.ToInt32(_command.ExecuteScalar());
+            _command = new SqlCommand(DatabaseQueries.COUNT_CUSTOMERS, _dbInstance.conn);
+            customersCount = Convert.ToInt32(_command.ExecuteScalar());
+            _command = new SqlCommand(DatabaseQueries.COUNT_PRODUCTS, _dbInstance.conn);
+            productsCount = Convert.ToInt32(_command.ExecuteScalar());
+            _command = new SqlCommand(DatabaseQueries.COUNT_TRANSACTIONS, _dbInstance.conn);
+            transactionsCount = Convert.ToInt32(_command.ExecuteScalar());
+            _dbInstance.conn.Close();
+            lblNumberOfEmployees.Text = string.Format("Number of Employees: {0}", employeesCount);
+            lblNumberOfAdminAccounts.Text = string.Format("Number of Admin Accounts: {0}", adminAccountsCount);
+            lblNumberOfCustomers.Text = string.Format("Number of Customers: {0}", customersCount);
+            lblNumberOfProducts.Text = string.Format("Number of Products: {0}", productsCount);
+            lblNumberOfTransactions.Text = string.Format("Number of Transactions: {0}", transactionsCount);
+        }
+        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            pnlAbout.Visible = true;
+            pnlChangePassword.Visible = false;
+            pnlChangeColours.Visible = false;
+            GetInformation();
+        }
         private void changePasswordToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            pnlAbout.Visible = false;
             pnlChangePassword.Visible = true;
             pnlChangeColours.Visible = false;
-            pnlChangeFonts.Visible = false;
         }
         private void changeColoursToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            pnlAbout.Visible = false;
             pnlChangePassword.Visible = false;
             pnlChangeColours.Visible = true;
-            pnlChangeFonts.Visible = false;
-        }
-        private void changeFontsToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            pnlChangePassword.Visible = false;
-            pnlChangeColours.Visible = false;
-            pnlChangeFonts.Visible = true;
         }
         private bool CheckPassword()
         {
@@ -372,6 +420,23 @@ namespace Hairology
             pnlTop.BackColor = _selectedMain;
             pnlMenuBar.BackColor = _selectedAccent;
             pnlBottom.BackColor = _selectedMain;
+        }
+        /// <summary>
+        /// opens support page using default web browser when link is clicked
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void lblSupportLink_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            lblSupportLink.LinkVisited = true;
+            try
+            {
+                System.Diagnostics.Process.Start(_SUPPORTLINK);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Something Went Wrong", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

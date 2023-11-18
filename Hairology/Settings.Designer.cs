@@ -71,13 +71,6 @@
             pbxMain1 = new PictureBox();
             lblMainColour = new Label();
             lblChangeColours = new Label();
-            pnlChangeFonts = new Panel();
-            panel1 = new Panel();
-            btnLabelFontOK = new Button();
-            tbxLabelFontSize = new TextBox();
-            cbxSelectLabelFont = new ComboBox();
-            lblChangeLabels = new Label();
-            lblChangeFonts = new Label();
             pnlChangePassword = new Panel();
             btnChangePassword = new Button();
             lblConfirmNewPassword = new Label();
@@ -87,15 +80,25 @@
             lblNewPassword = new Label();
             tbxCurrentPassword = new TextBox();
             tbxNewPassword = new TextBox();
+            pnlAbout = new Panel();
+            lblSupportLink = new LinkLabel();
+            lblVersionNumber = new Label();
+            lblNumberOfTransactions = new Label();
+            lblNumberOfProducts = new Label();
+            lblNumberOfCustomers = new Label();
+            lblNumberOfAdminAccounts = new Label();
+            lblNumberOfEmployees = new Label();
+            lblCopyright = new Label();
+            pbxLogo = new PictureBox();
+            lblAbout = new Label();
             mstMenuBar = new MenuStrip();
-            settingsToolStripMenuItem = new ToolStripMenuItem();
+            aboutToolStripMenuItem = new ToolStripMenuItem();
             dividerStripTextBox1 = new ToolStripTextBox();
             accountToolStripMenuItem = new ToolStripMenuItem();
             changePasswordToolStripMenuItem = new ToolStripMenuItem();
             dividerStripTextBox2 = new ToolStripTextBox();
             themeToolStripMenuItem = new ToolStripMenuItem();
             changeColoursToolStripMenuItem = new ToolStripMenuItem();
-            changeFontsToolStripMenuItem = new ToolStripMenuItem();
             pnlContainer.SuspendLayout();
             pnlChangeColours.SuspendLayout();
             pnlTop.SuspendLayout();
@@ -132,22 +135,21 @@
             ((System.ComponentModel.ISupportInitialize)pbxMain3).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pbxMain2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pbxMain1).BeginInit();
-            pnlChangeFonts.SuspendLayout();
-            panel1.SuspendLayout();
             pnlChangePassword.SuspendLayout();
+            pnlAbout.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pbxLogo).BeginInit();
             mstMenuBar.SuspendLayout();
             SuspendLayout();
             // 
             // pnlContainer
             // 
-            pnlContainer.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             pnlContainer.Controls.Add(pnlChangeColours);
-            pnlContainer.Controls.Add(pnlChangeFonts);
             pnlContainer.Controls.Add(pnlChangePassword);
-            pnlContainer.Controls.Add(mstMenuBar);
-            pnlContainer.Location = new Point(0, 0);
+            pnlContainer.Controls.Add(pnlAbout);
+            pnlContainer.Dock = DockStyle.Fill;
+            pnlContainer.Location = new Point(172, 0);
             pnlContainer.Name = "pnlContainer";
-            pnlContainer.Size = new Size(1264, 449);
+            pnlContainer.Size = new Size(1092, 449);
             pnlContainer.TabIndex = 1;
             // 
             // pnlChangeColours
@@ -193,9 +195,9 @@
             pnlChangeColours.Controls.Add(lblMainColour);
             pnlChangeColours.Controls.Add(lblChangeColours);
             pnlChangeColours.Dock = DockStyle.Fill;
-            pnlChangeColours.Location = new Point(176, 0);
+            pnlChangeColours.Location = new Point(0, 0);
             pnlChangeColours.Name = "pnlChangeColours";
-            pnlChangeColours.Size = new Size(1088, 449);
+            pnlChangeColours.Size = new Size(1092, 449);
             pnlChangeColours.TabIndex = 4;
             // 
             // pnlMenuBar
@@ -203,7 +205,7 @@
             pnlMenuBar.Anchor = AnchorStyles.None;
             pnlMenuBar.BackColor = Color.SteelBlue;
             pnlMenuBar.BorderStyle = BorderStyle.FixedSingle;
-            pnlMenuBar.Location = new Point(573, 189);
+            pnlMenuBar.Location = new Point(577, 180);
             pnlMenuBar.Name = "pnlMenuBar";
             pnlMenuBar.Size = new Size(482, 27);
             pnlMenuBar.TabIndex = 40;
@@ -213,7 +215,7 @@
             pnlBottom.Anchor = AnchorStyles.None;
             pnlBottom.BackColor = SystemColors.ActiveCaption;
             pnlBottom.BorderStyle = BorderStyle.FixedSingle;
-            pnlBottom.Location = new Point(573, 215);
+            pnlBottom.Location = new Point(577, 206);
             pnlBottom.Name = "pnlBottom";
             pnlBottom.Size = new Size(482, 218);
             pnlBottom.TabIndex = 40;
@@ -224,7 +226,7 @@
             pnlTop.BackColor = SystemColors.ActiveCaption;
             pnlTop.BorderStyle = BorderStyle.FixedSingle;
             pnlTop.Controls.Add(pictureBox1);
-            pnlTop.Location = new Point(573, 77);
+            pnlTop.Location = new Point(577, 68);
             pnlTop.Name = "pnlTop";
             pnlTop.Size = new Size(482, 113);
             pnlTop.TabIndex = 39;
@@ -245,7 +247,7 @@
             lblPreview.Anchor = AnchorStyles.None;
             lblPreview.AutoSize = true;
             lblPreview.Font = new Font("EurostileLTW03-Extended2", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
-            lblPreview.Location = new Point(583, 15);
+            lblPreview.Location = new Point(586, 15);
             lblPreview.Name = "lblPreview";
             lblPreview.Size = new Size(126, 28);
             lblPreview.TabIndex = 38;
@@ -254,7 +256,7 @@
             // btnSaveColours
             // 
             btnSaveColours.Anchor = AnchorStyles.None;
-            btnSaveColours.Location = new Point(17, 383);
+            btnSaveColours.Location = new Point(20, 383);
             btnSaveColours.Name = "btnSaveColours";
             btnSaveColours.Size = new Size(426, 52);
             btnSaveColours.TabIndex = 37;
@@ -268,7 +270,7 @@
             pbxAccent16.BackColor = Color.Orchid;
             pbxAccent16.BorderStyle = BorderStyle.FixedSingle;
             pbxAccent16.Cursor = Cursors.Hand;
-            pbxAccent16.Location = new Point(395, 324);
+            pbxAccent16.Location = new Point(398, 324);
             pbxAccent16.Name = "pbxAccent16";
             pbxAccent16.Size = new Size(48, 48);
             pbxAccent16.TabIndex = 36;
@@ -281,7 +283,7 @@
             pbxAccent15.BackColor = Color.BlueViolet;
             pbxAccent15.BorderStyle = BorderStyle.FixedSingle;
             pbxAccent15.Cursor = Cursors.Hand;
-            pbxAccent15.Location = new Point(341, 324);
+            pbxAccent15.Location = new Point(344, 324);
             pbxAccent15.Name = "pbxAccent15";
             pbxAccent15.Size = new Size(48, 48);
             pbxAccent15.TabIndex = 35;
@@ -294,7 +296,7 @@
             pbxAccent14.BackColor = Color.RoyalBlue;
             pbxAccent14.BorderStyle = BorderStyle.FixedSingle;
             pbxAccent14.Cursor = Cursors.Hand;
-            pbxAccent14.Location = new Point(287, 324);
+            pbxAccent14.Location = new Point(290, 324);
             pbxAccent14.Name = "pbxAccent14";
             pbxAccent14.Size = new Size(48, 48);
             pbxAccent14.TabIndex = 34;
@@ -307,7 +309,7 @@
             pbxAccent13.BackColor = Color.Teal;
             pbxAccent13.BorderStyle = BorderStyle.FixedSingle;
             pbxAccent13.Cursor = Cursors.Hand;
-            pbxAccent13.Location = new Point(233, 324);
+            pbxAccent13.Location = new Point(236, 324);
             pbxAccent13.Name = "pbxAccent13";
             pbxAccent13.Size = new Size(48, 48);
             pbxAccent13.TabIndex = 33;
@@ -320,7 +322,7 @@
             pbxAccent12.BackColor = Color.MediumTurquoise;
             pbxAccent12.BorderStyle = BorderStyle.FixedSingle;
             pbxAccent12.Cursor = Cursors.Hand;
-            pbxAccent12.Location = new Point(179, 324);
+            pbxAccent12.Location = new Point(182, 324);
             pbxAccent12.Name = "pbxAccent12";
             pbxAccent12.Size = new Size(48, 48);
             pbxAccent12.TabIndex = 32;
@@ -333,7 +335,7 @@
             pbxAccent11.BackColor = Color.MediumAquamarine;
             pbxAccent11.BorderStyle = BorderStyle.FixedSingle;
             pbxAccent11.Cursor = Cursors.Hand;
-            pbxAccent11.Location = new Point(125, 324);
+            pbxAccent11.Location = new Point(128, 324);
             pbxAccent11.Name = "pbxAccent11";
             pbxAccent11.Size = new Size(48, 48);
             pbxAccent11.TabIndex = 31;
@@ -346,7 +348,7 @@
             pbxAccent10.BackColor = Color.SeaGreen;
             pbxAccent10.BorderStyle = BorderStyle.FixedSingle;
             pbxAccent10.Cursor = Cursors.Hand;
-            pbxAccent10.Location = new Point(71, 324);
+            pbxAccent10.Location = new Point(74, 324);
             pbxAccent10.Name = "pbxAccent10";
             pbxAccent10.Size = new Size(48, 48);
             pbxAccent10.TabIndex = 30;
@@ -359,7 +361,7 @@
             pbxAccent9.BackColor = Color.DarkGreen;
             pbxAccent9.BorderStyle = BorderStyle.FixedSingle;
             pbxAccent9.Cursor = Cursors.Hand;
-            pbxAccent9.Location = new Point(17, 324);
+            pbxAccent9.Location = new Point(20, 324);
             pbxAccent9.Name = "pbxAccent9";
             pbxAccent9.Size = new Size(48, 48);
             pbxAccent9.TabIndex = 29;
@@ -372,7 +374,7 @@
             pbxAccent8.BackColor = Color.ForestGreen;
             pbxAccent8.BorderStyle = BorderStyle.FixedSingle;
             pbxAccent8.Cursor = Cursors.Hand;
-            pbxAccent8.Location = new Point(395, 269);
+            pbxAccent8.Location = new Point(398, 269);
             pbxAccent8.Name = "pbxAccent8";
             pbxAccent8.Size = new Size(48, 48);
             pbxAccent8.TabIndex = 28;
@@ -385,7 +387,7 @@
             pbxAccent7.BackColor = Color.DarkKhaki;
             pbxAccent7.BorderStyle = BorderStyle.FixedSingle;
             pbxAccent7.Cursor = Cursors.Hand;
-            pbxAccent7.Location = new Point(341, 269);
+            pbxAccent7.Location = new Point(344, 269);
             pbxAccent7.Name = "pbxAccent7";
             pbxAccent7.Size = new Size(48, 48);
             pbxAccent7.TabIndex = 27;
@@ -398,7 +400,7 @@
             pbxAccent6.BackColor = Color.Goldenrod;
             pbxAccent6.BorderStyle = BorderStyle.FixedSingle;
             pbxAccent6.Cursor = Cursors.Hand;
-            pbxAccent6.Location = new Point(287, 269);
+            pbxAccent6.Location = new Point(290, 269);
             pbxAccent6.Name = "pbxAccent6";
             pbxAccent6.Size = new Size(48, 48);
             pbxAccent6.TabIndex = 26;
@@ -411,7 +413,7 @@
             pbxAccent5.BackColor = Color.Peru;
             pbxAccent5.BorderStyle = BorderStyle.FixedSingle;
             pbxAccent5.Cursor = Cursors.Hand;
-            pbxAccent5.Location = new Point(233, 269);
+            pbxAccent5.Location = new Point(236, 269);
             pbxAccent5.Name = "pbxAccent5";
             pbxAccent5.Size = new Size(48, 48);
             pbxAccent5.TabIndex = 25;
@@ -424,7 +426,7 @@
             pbxAccent4.BackColor = Color.Firebrick;
             pbxAccent4.BorderStyle = BorderStyle.FixedSingle;
             pbxAccent4.Cursor = Cursors.Hand;
-            pbxAccent4.Location = new Point(179, 269);
+            pbxAccent4.Location = new Point(182, 269);
             pbxAccent4.Name = "pbxAccent4";
             pbxAccent4.Size = new Size(48, 48);
             pbxAccent4.TabIndex = 24;
@@ -437,7 +439,7 @@
             pbxAccent3.BackColor = Color.Tomato;
             pbxAccent3.BorderStyle = BorderStyle.FixedSingle;
             pbxAccent3.Cursor = Cursors.Hand;
-            pbxAccent3.Location = new Point(125, 269);
+            pbxAccent3.Location = new Point(128, 269);
             pbxAccent3.Name = "pbxAccent3";
             pbxAccent3.Size = new Size(48, 48);
             pbxAccent3.TabIndex = 23;
@@ -450,7 +452,7 @@
             pbxAccent2.BackColor = Color.Salmon;
             pbxAccent2.BorderStyle = BorderStyle.FixedSingle;
             pbxAccent2.Cursor = Cursors.Hand;
-            pbxAccent2.Location = new Point(71, 269);
+            pbxAccent2.Location = new Point(74, 269);
             pbxAccent2.Name = "pbxAccent2";
             pbxAccent2.Size = new Size(48, 48);
             pbxAccent2.TabIndex = 22;
@@ -463,7 +465,7 @@
             pbxAccent1.BackColor = Color.SteelBlue;
             pbxAccent1.BorderStyle = BorderStyle.FixedSingle;
             pbxAccent1.Cursor = Cursors.Hand;
-            pbxAccent1.Location = new Point(17, 269);
+            pbxAccent1.Location = new Point(20, 269);
             pbxAccent1.Name = "pbxAccent1";
             pbxAccent1.Size = new Size(48, 48);
             pbxAccent1.TabIndex = 21;
@@ -475,7 +477,7 @@
             lblAccentColour.Anchor = AnchorStyles.None;
             lblAccentColour.AutoSize = true;
             lblAccentColour.Font = new Font("EurostileLTW03-Extended2", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
-            lblAccentColour.Location = new Point(16, 238);
+            lblAccentColour.Location = new Point(15, 238);
             lblAccentColour.Name = "lblAccentColour";
             lblAccentColour.Size = new Size(224, 28);
             lblAccentColour.TabIndex = 20;
@@ -487,7 +489,7 @@
             pbxMain16.BackColor = Color.Thistle;
             pbxMain16.BorderStyle = BorderStyle.FixedSingle;
             pbxMain16.Cursor = Cursors.Hand;
-            pbxMain16.Location = new Point(395, 154);
+            pbxMain16.Location = new Point(398, 154);
             pbxMain16.Name = "pbxMain16";
             pbxMain16.Size = new Size(48, 48);
             pbxMain16.TabIndex = 19;
@@ -500,7 +502,7 @@
             pbxMain15.BackColor = Color.MediumPurple;
             pbxMain15.BorderStyle = BorderStyle.FixedSingle;
             pbxMain15.Cursor = Cursors.Hand;
-            pbxMain15.Location = new Point(341, 154);
+            pbxMain15.Location = new Point(344, 154);
             pbxMain15.Name = "pbxMain15";
             pbxMain15.Size = new Size(48, 48);
             pbxMain15.TabIndex = 18;
@@ -513,7 +515,7 @@
             pbxMain14.BackColor = Color.CornflowerBlue;
             pbxMain14.BorderStyle = BorderStyle.FixedSingle;
             pbxMain14.Cursor = Cursors.Hand;
-            pbxMain14.Location = new Point(287, 154);
+            pbxMain14.Location = new Point(290, 154);
             pbxMain14.Name = "pbxMain14";
             pbxMain14.Size = new Size(48, 48);
             pbxMain14.TabIndex = 17;
@@ -526,7 +528,7 @@
             pbxMain13.BackColor = Color.Azure;
             pbxMain13.BorderStyle = BorderStyle.FixedSingle;
             pbxMain13.Cursor = Cursors.Hand;
-            pbxMain13.Location = new Point(233, 154);
+            pbxMain13.Location = new Point(236, 154);
             pbxMain13.Name = "pbxMain13";
             pbxMain13.Size = new Size(48, 48);
             pbxMain13.TabIndex = 16;
@@ -539,7 +541,7 @@
             pbxMain12.BackColor = Color.PaleTurquoise;
             pbxMain12.BorderStyle = BorderStyle.FixedSingle;
             pbxMain12.Cursor = Cursors.Hand;
-            pbxMain12.Location = new Point(179, 154);
+            pbxMain12.Location = new Point(182, 154);
             pbxMain12.Name = "pbxMain12";
             pbxMain12.Size = new Size(48, 48);
             pbxMain12.TabIndex = 15;
@@ -552,7 +554,7 @@
             pbxMain11.BackColor = Color.MintCream;
             pbxMain11.BorderStyle = BorderStyle.FixedSingle;
             pbxMain11.Cursor = Cursors.Hand;
-            pbxMain11.Location = new Point(125, 154);
+            pbxMain11.Location = new Point(128, 154);
             pbxMain11.Name = "pbxMain11";
             pbxMain11.Size = new Size(48, 48);
             pbxMain11.TabIndex = 14;
@@ -565,7 +567,7 @@
             pbxMain10.BackColor = Color.MediumSeaGreen;
             pbxMain10.BorderStyle = BorderStyle.FixedSingle;
             pbxMain10.Cursor = Cursors.Hand;
-            pbxMain10.Location = new Point(71, 154);
+            pbxMain10.Location = new Point(74, 154);
             pbxMain10.Name = "pbxMain10";
             pbxMain10.Size = new Size(48, 48);
             pbxMain10.TabIndex = 13;
@@ -578,7 +580,7 @@
             pbxMain9.BackColor = Color.LimeGreen;
             pbxMain9.BorderStyle = BorderStyle.FixedSingle;
             pbxMain9.Cursor = Cursors.Hand;
-            pbxMain9.Location = new Point(17, 154);
+            pbxMain9.Location = new Point(20, 154);
             pbxMain9.Name = "pbxMain9";
             pbxMain9.Size = new Size(48, 48);
             pbxMain9.TabIndex = 12;
@@ -591,7 +593,7 @@
             pbxMain8.BackColor = Color.DarkSeaGreen;
             pbxMain8.BorderStyle = BorderStyle.FixedSingle;
             pbxMain8.Cursor = Cursors.Hand;
-            pbxMain8.Location = new Point(395, 99);
+            pbxMain8.Location = new Point(398, 99);
             pbxMain8.Name = "pbxMain8";
             pbxMain8.Size = new Size(48, 48);
             pbxMain8.TabIndex = 11;
@@ -604,7 +606,7 @@
             pbxMain7.BackColor = Color.LemonChiffon;
             pbxMain7.BorderStyle = BorderStyle.FixedSingle;
             pbxMain7.Cursor = Cursors.Hand;
-            pbxMain7.Location = new Point(341, 99);
+            pbxMain7.Location = new Point(344, 99);
             pbxMain7.Name = "pbxMain7";
             pbxMain7.Size = new Size(48, 48);
             pbxMain7.TabIndex = 10;
@@ -617,7 +619,7 @@
             pbxMain6.BackColor = Color.Tan;
             pbxMain6.BorderStyle = BorderStyle.FixedSingle;
             pbxMain6.Cursor = Cursors.Hand;
-            pbxMain6.Location = new Point(287, 99);
+            pbxMain6.Location = new Point(290, 99);
             pbxMain6.Name = "pbxMain6";
             pbxMain6.Size = new Size(48, 48);
             pbxMain6.TabIndex = 9;
@@ -630,7 +632,7 @@
             pbxMain5.BackColor = Color.SandyBrown;
             pbxMain5.BorderStyle = BorderStyle.FixedSingle;
             pbxMain5.Cursor = Cursors.Hand;
-            pbxMain5.Location = new Point(233, 99);
+            pbxMain5.Location = new Point(236, 99);
             pbxMain5.Name = "pbxMain5";
             pbxMain5.Size = new Size(48, 48);
             pbxMain5.TabIndex = 8;
@@ -643,7 +645,7 @@
             pbxMain4.BackColor = Color.IndianRed;
             pbxMain4.BorderStyle = BorderStyle.FixedSingle;
             pbxMain4.Cursor = Cursors.Hand;
-            pbxMain4.Location = new Point(179, 99);
+            pbxMain4.Location = new Point(182, 99);
             pbxMain4.Name = "pbxMain4";
             pbxMain4.Size = new Size(48, 48);
             pbxMain4.TabIndex = 7;
@@ -656,7 +658,7 @@
             pbxMain3.BackColor = Color.LightCoral;
             pbxMain3.BorderStyle = BorderStyle.FixedSingle;
             pbxMain3.Cursor = Cursors.Hand;
-            pbxMain3.Location = new Point(125, 99);
+            pbxMain3.Location = new Point(128, 99);
             pbxMain3.Name = "pbxMain3";
             pbxMain3.Size = new Size(48, 48);
             pbxMain3.TabIndex = 6;
@@ -669,7 +671,7 @@
             pbxMain2.BackColor = Color.MistyRose;
             pbxMain2.BorderStyle = BorderStyle.FixedSingle;
             pbxMain2.Cursor = Cursors.Hand;
-            pbxMain2.Location = new Point(71, 99);
+            pbxMain2.Location = new Point(74, 99);
             pbxMain2.Name = "pbxMain2";
             pbxMain2.Size = new Size(48, 48);
             pbxMain2.TabIndex = 5;
@@ -682,7 +684,7 @@
             pbxMain1.BackColor = SystemColors.ActiveCaption;
             pbxMain1.BorderStyle = BorderStyle.FixedSingle;
             pbxMain1.Cursor = Cursors.Hand;
-            pbxMain1.Location = new Point(17, 99);
+            pbxMain1.Location = new Point(20, 99);
             pbxMain1.Name = "pbxMain1";
             pbxMain1.Size = new Size(48, 48);
             pbxMain1.TabIndex = 4;
@@ -694,7 +696,7 @@
             lblMainColour.Anchor = AnchorStyles.None;
             lblMainColour.AutoSize = true;
             lblMainColour.Font = new Font("EurostileLTW03-Extended2", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
-            lblMainColour.Location = new Point(16, 68);
+            lblMainColour.Location = new Point(15, 68);
             lblMainColour.Name = "lblMainColour";
             lblMainColour.Size = new Size(191, 28);
             lblMainColour.TabIndex = 3;
@@ -710,74 +712,6 @@
             lblChangeColours.TabIndex = 2;
             lblChangeColours.Text = "Change Colours";
             // 
-            // pnlChangeFonts
-            // 
-            pnlChangeFonts.Controls.Add(panel1);
-            pnlChangeFonts.Controls.Add(lblChangeFonts);
-            pnlChangeFonts.Dock = DockStyle.Fill;
-            pnlChangeFonts.Location = new Point(176, 0);
-            pnlChangeFonts.Name = "pnlChangeFonts";
-            pnlChangeFonts.Size = new Size(1088, 449);
-            pnlChangeFonts.TabIndex = 3;
-            // 
-            // panel1
-            // 
-            panel1.Controls.Add(btnLabelFontOK);
-            panel1.Controls.Add(tbxLabelFontSize);
-            panel1.Controls.Add(cbxSelectLabelFont);
-            panel1.Controls.Add(lblChangeLabels);
-            panel1.Location = new Point(16, 62);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(406, 76);
-            panel1.TabIndex = 5;
-            // 
-            // btnLabelFontOK
-            // 
-            btnLabelFontOK.Location = new Point(333, 47);
-            btnLabelFontOK.Name = "btnLabelFontOK";
-            btnLabelFontOK.Size = new Size(73, 29);
-            btnLabelFontOK.TabIndex = 9;
-            btnLabelFontOK.Text = "OK";
-            btnLabelFontOK.UseVisualStyleBackColor = true;
-            // 
-            // tbxLabelFontSize
-            // 
-            tbxLabelFontSize.Location = new Point(246, 47);
-            tbxLabelFontSize.MaxLength = 2;
-            tbxLabelFontSize.Name = "tbxLabelFontSize";
-            tbxLabelFontSize.Size = new Size(81, 29);
-            tbxLabelFontSize.TabIndex = 8;
-            tbxLabelFontSize.TextAlign = HorizontalAlignment.Center;
-            // 
-            // cbxSelectLabelFont
-            // 
-            cbxSelectLabelFont.FormattingEnabled = true;
-            cbxSelectLabelFont.Location = new Point(-1, 47);
-            cbxSelectLabelFont.Name = "cbxSelectLabelFont";
-            cbxSelectLabelFont.Size = new Size(241, 29);
-            cbxSelectLabelFont.TabIndex = 7;
-            cbxSelectLabelFont.Text = "  SELECT FONT";
-            // 
-            // lblChangeLabels
-            // 
-            lblChangeLabels.AutoSize = true;
-            lblChangeLabels.Font = new Font("EurostileLTW03-Extended2", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
-            lblChangeLabels.Location = new Point(0, 0);
-            lblChangeLabels.Name = "lblChangeLabels";
-            lblChangeLabels.Size = new Size(105, 28);
-            lblChangeLabels.TabIndex = 6;
-            lblChangeLabels.Text = "Labels";
-            // 
-            // lblChangeFonts
-            // 
-            lblChangeFonts.AutoSize = true;
-            lblChangeFonts.Font = new Font("EurostileLTW03-Extended2", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
-            lblChangeFonts.Location = new Point(15, 15);
-            lblChangeFonts.Name = "lblChangeFonts";
-            lblChangeFonts.Size = new Size(218, 28);
-            lblChangeFonts.TabIndex = 2;
-            lblChangeFonts.Text = "Change Fonts";
-            // 
             // pnlChangePassword
             // 
             pnlChangePassword.Controls.Add(btnChangePassword);
@@ -789,28 +723,27 @@
             pnlChangePassword.Controls.Add(tbxCurrentPassword);
             pnlChangePassword.Controls.Add(tbxNewPassword);
             pnlChangePassword.Dock = DockStyle.Fill;
-            pnlChangePassword.Location = new Point(176, 0);
+            pnlChangePassword.Location = new Point(0, 0);
             pnlChangePassword.Name = "pnlChangePassword";
-            pnlChangePassword.Size = new Size(1088, 449);
+            pnlChangePassword.Size = new Size(1092, 449);
             pnlChangePassword.TabIndex = 2;
             // 
             // btnChangePassword
             // 
             btnChangePassword.Anchor = AnchorStyles.None;
             btnChangePassword.Cursor = Cursors.Hand;
-            btnChangePassword.Location = new Point(169, 277);
+            btnChangePassword.Location = new Point(183, 281);
             btnChangePassword.Name = "btnChangePassword";
             btnChangePassword.Size = new Size(737, 97);
             btnChangePassword.TabIndex = 8;
             btnChangePassword.Text = "CHANGE PASSWORD";
             btnChangePassword.UseVisualStyleBackColor = true;
-            btnChangePassword.Click += btnChangePassword_Click;
             // 
             // lblConfirmNewPassword
             // 
             lblConfirmNewPassword.Anchor = AnchorStyles.None;
             lblConfirmNewPassword.Font = new Font("EurostileLTW03-Extended2", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
-            lblConfirmNewPassword.Location = new Point(81, 217);
+            lblConfirmNewPassword.Location = new Point(95, 222);
             lblConfirmNewPassword.Name = "lblConfirmNewPassword";
             lblConfirmNewPassword.Size = new Size(460, 28);
             lblConfirmNewPassword.TabIndex = 7;
@@ -830,7 +763,7 @@
             // tbxConfirmNewPassword
             // 
             tbxConfirmNewPassword.Anchor = AnchorStyles.None;
-            tbxConfirmNewPassword.Location = new Point(547, 218);
+            tbxConfirmNewPassword.Location = new Point(561, 223);
             tbxConfirmNewPassword.Name = "tbxConfirmNewPassword";
             tbxConfirmNewPassword.PlaceholderText = "  CONFIRM NEW PASSWORD";
             tbxConfirmNewPassword.Size = new Size(359, 29);
@@ -840,7 +773,7 @@
             // 
             lblCurrentPassword.Anchor = AnchorStyles.None;
             lblCurrentPassword.Font = new Font("EurostileLTW03-Extended2", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
-            lblCurrentPassword.Location = new Point(142, 105);
+            lblCurrentPassword.Location = new Point(156, 110);
             lblCurrentPassword.Name = "lblCurrentPassword";
             lblCurrentPassword.Size = new Size(399, 28);
             lblCurrentPassword.TabIndex = 3;
@@ -851,7 +784,7 @@
             // 
             lblNewPassword.Anchor = AnchorStyles.None;
             lblNewPassword.Font = new Font("EurostileLTW03-Extended2", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
-            lblNewPassword.Location = new Point(125, 160);
+            lblNewPassword.Location = new Point(139, 165);
             lblNewPassword.Name = "lblNewPassword";
             lblNewPassword.Size = new Size(416, 28);
             lblNewPassword.TabIndex = 5;
@@ -861,7 +794,7 @@
             // tbxCurrentPassword
             // 
             tbxCurrentPassword.Anchor = AnchorStyles.None;
-            tbxCurrentPassword.Location = new Point(547, 104);
+            tbxCurrentPassword.Location = new Point(561, 109);
             tbxCurrentPassword.Name = "tbxCurrentPassword";
             tbxCurrentPassword.PlaceholderText = "  CURRENT PASSWORD";
             tbxCurrentPassword.Size = new Size(359, 29);
@@ -870,11 +803,142 @@
             // tbxNewPassword
             // 
             tbxNewPassword.Anchor = AnchorStyles.None;
-            tbxNewPassword.Location = new Point(547, 161);
+            tbxNewPassword.Location = new Point(561, 166);
             tbxNewPassword.Name = "tbxNewPassword";
             tbxNewPassword.PlaceholderText = "  NEW PASSWORD";
             tbxNewPassword.Size = new Size(359, 29);
             tbxNewPassword.TabIndex = 4;
+            // 
+            // pnlAbout
+            // 
+            pnlAbout.Controls.Add(lblSupportLink);
+            pnlAbout.Controls.Add(lblVersionNumber);
+            pnlAbout.Controls.Add(lblNumberOfTransactions);
+            pnlAbout.Controls.Add(lblNumberOfProducts);
+            pnlAbout.Controls.Add(lblNumberOfCustomers);
+            pnlAbout.Controls.Add(lblNumberOfAdminAccounts);
+            pnlAbout.Controls.Add(lblNumberOfEmployees);
+            pnlAbout.Controls.Add(lblCopyright);
+            pnlAbout.Controls.Add(pbxLogo);
+            pnlAbout.Controls.Add(lblAbout);
+            pnlAbout.Dock = DockStyle.Fill;
+            pnlAbout.Location = new Point(0, 0);
+            pnlAbout.Name = "pnlAbout";
+            pnlAbout.Size = new Size(1092, 449);
+            pnlAbout.TabIndex = 3;
+            // 
+            // lblSupportLink
+            // 
+            lblSupportLink.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            lblSupportLink.Cursor = Cursors.Hand;
+            lblSupportLink.Location = new Point(762, 414);
+            lblSupportLink.Name = "lblSupportLink";
+            lblSupportLink.Size = new Size(321, 21);
+            lblSupportLink.TabIndex = 11;
+            lblSupportLink.TabStop = true;
+            lblSupportLink.Text = "Click Here for Support";
+            lblSupportLink.TextAlign = ContentAlignment.MiddleRight;
+            lblSupportLink.LinkClicked += lblSupportLink_LinkClicked;
+            // 
+            // lblVersionNumber
+            // 
+            lblVersionNumber.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            lblVersionNumber.Font = new Font("EurostileLTW03-Extended2", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
+            lblVersionNumber.Location = new Point(788, 15);
+            lblVersionNumber.Name = "lblVersionNumber";
+            lblVersionNumber.Size = new Size(295, 28);
+            lblVersionNumber.TabIndex = 10;
+            lblVersionNumber.Text = "Version 0.0.0.0";
+            lblVersionNumber.TextAlign = ContentAlignment.MiddleRight;
+            // 
+            // lblNumberOfTransactions
+            // 
+            lblNumberOfTransactions.Anchor = AnchorStyles.Left;
+            lblNumberOfTransactions.Font = new Font("EurostileLTW03-Extended2", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
+            lblNumberOfTransactions.Location = new Point(15, 224);
+            lblNumberOfTransactions.Name = "lblNumberOfTransactions";
+            lblNumberOfTransactions.Size = new Size(526, 28);
+            lblNumberOfTransactions.TabIndex = 9;
+            lblNumberOfTransactions.Text = "Number of Transactions:";
+            lblNumberOfTransactions.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // lblNumberOfProducts
+            // 
+            lblNumberOfProducts.Anchor = AnchorStyles.Left;
+            lblNumberOfProducts.Font = new Font("EurostileLTW03-Extended2", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
+            lblNumberOfProducts.Location = new Point(16, 185);
+            lblNumberOfProducts.Name = "lblNumberOfProducts";
+            lblNumberOfProducts.Size = new Size(525, 28);
+            lblNumberOfProducts.TabIndex = 8;
+            lblNumberOfProducts.Text = "Number of Products:";
+            lblNumberOfProducts.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // lblNumberOfCustomers
+            // 
+            lblNumberOfCustomers.Anchor = AnchorStyles.Left;
+            lblNumberOfCustomers.Font = new Font("EurostileLTW03-Extended2", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
+            lblNumberOfCustomers.Location = new Point(17, 146);
+            lblNumberOfCustomers.Name = "lblNumberOfCustomers";
+            lblNumberOfCustomers.Size = new Size(524, 28);
+            lblNumberOfCustomers.TabIndex = 7;
+            lblNumberOfCustomers.Text = "Number of Customers:";
+            lblNumberOfCustomers.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // lblNumberOfAdminAccounts
+            // 
+            lblNumberOfAdminAccounts.Anchor = AnchorStyles.Left;
+            lblNumberOfAdminAccounts.Font = new Font("EurostileLTW03-Extended2", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
+            lblNumberOfAdminAccounts.Location = new Point(15, 107);
+            lblNumberOfAdminAccounts.Name = "lblNumberOfAdminAccounts";
+            lblNumberOfAdminAccounts.Size = new Size(526, 28);
+            lblNumberOfAdminAccounts.TabIndex = 6;
+            lblNumberOfAdminAccounts.Text = "Number of Admin Accounts:";
+            lblNumberOfAdminAccounts.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // lblNumberOfEmployees
+            // 
+            lblNumberOfEmployees.Anchor = AnchorStyles.Left;
+            lblNumberOfEmployees.Font = new Font("EurostileLTW03-Extended2", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
+            lblNumberOfEmployees.Location = new Point(15, 68);
+            lblNumberOfEmployees.Name = "lblNumberOfEmployees";
+            lblNumberOfEmployees.Size = new Size(526, 28);
+            lblNumberOfEmployees.TabIndex = 5;
+            lblNumberOfEmployees.Text = "Number of Employees:";
+            lblNumberOfEmployees.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // lblCopyright
+            // 
+            lblCopyright.Anchor = AnchorStyles.Right;
+            lblCopyright.AutoSize = true;
+            lblCopyright.BackColor = Color.Transparent;
+            lblCopyright.Location = new Point(768, 309);
+            lblCopyright.Name = "lblCopyright";
+            lblCopyright.Size = new Size(291, 21);
+            lblCopyright.TabIndex = 4;
+            lblCopyright.Text = "© 2023 Jordan Faulkner";
+            lblCopyright.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // pbxLogo
+            // 
+            pbxLogo.Anchor = AnchorStyles.Right;
+            pbxLogo.BackColor = Color.Transparent;
+            pbxLogo.BackgroundImage = Properties.Resources.logo;
+            pbxLogo.BackgroundImageLayout = ImageLayout.Zoom;
+            pbxLogo.Location = new Point(788, 99);
+            pbxLogo.Name = "pbxLogo";
+            pbxLogo.Size = new Size(256, 256);
+            pbxLogo.TabIndex = 3;
+            pbxLogo.TabStop = false;
+            // 
+            // lblAbout
+            // 
+            lblAbout.AutoSize = true;
+            lblAbout.Font = new Font("EurostileLTW03-Extended2", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
+            lblAbout.Location = new Point(15, 15);
+            lblAbout.Name = "lblAbout";
+            lblAbout.Size = new Size(101, 28);
+            lblAbout.TabIndex = 2;
+            lblAbout.Text = "About";
             // 
             // mstMenuBar
             // 
@@ -882,28 +946,31 @@
             mstMenuBar.Dock = DockStyle.Left;
             mstMenuBar.Font = new Font("EurostileLTW03-Extended2", 12F, FontStyle.Bold, GraphicsUnit.Point);
             mstMenuBar.ImageScalingSize = new Size(32, 32);
-            mstMenuBar.Items.AddRange(new ToolStripItem[] { settingsToolStripMenuItem, dividerStripTextBox1, accountToolStripMenuItem, dividerStripTextBox2, themeToolStripMenuItem });
+            mstMenuBar.Items.AddRange(new ToolStripItem[] { aboutToolStripMenuItem, dividerStripTextBox1, accountToolStripMenuItem, dividerStripTextBox2, themeToolStripMenuItem });
+            mstMenuBar.LayoutStyle = ToolStripLayoutStyle.VerticalStackWithOverflow;
             mstMenuBar.Location = new Point(0, 0);
             mstMenuBar.Name = "mstMenuBar";
             mstMenuBar.RenderMode = ToolStripRenderMode.System;
-            mstMenuBar.Size = new Size(176, 449);
+            mstMenuBar.Size = new Size(172, 449);
             mstMenuBar.TabIndex = 0;
             // 
-            // settingsToolStripMenuItem
+            // aboutToolStripMenuItem
             // 
-            settingsToolStripMenuItem.Font = new Font("EurostileLTW03-Extended2", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
-            settingsToolStripMenuItem.Image = Properties.Resources.settings;
-            settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
-            settingsToolStripMenuItem.Size = new Size(163, 36);
-            settingsToolStripMenuItem.Text = "Settings";
+            aboutToolStripMenuItem.Font = new Font("EurostileLTW03-Extended2", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
+            aboutToolStripMenuItem.Image = Properties.Resources.about;
+            aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
+            aboutToolStripMenuItem.Size = new Size(159, 36);
+            aboutToolStripMenuItem.Text = "About";
+            aboutToolStripMenuItem.Click += aboutToolStripMenuItem_Click;
             // 
             // dividerStripTextBox1
             // 
             dividerStripTextBox1.BackColor = Color.Gainsboro;
             dividerStripTextBox1.BorderStyle = BorderStyle.None;
+            dividerStripTextBox1.Enabled = false;
             dividerStripTextBox1.ForeColor = Color.DarkGray;
             dividerStripTextBox1.Name = "dividerStripTextBox1";
-            dividerStripTextBox1.Size = new Size(161, 16);
+            dividerStripTextBox1.Size = new Size(157, 16);
             dividerStripTextBox1.Text = "───────────────────────────";
             // 
             // accountToolStripMenuItem
@@ -912,7 +979,7 @@
             accountToolStripMenuItem.Font = new Font("EurostileLTW03-Extended2", 14F, FontStyle.Bold, GraphicsUnit.Point);
             accountToolStripMenuItem.Image = Properties.Resources.account;
             accountToolStripMenuItem.Name = "accountToolStripMenuItem";
-            accountToolStripMenuItem.Size = new Size(163, 36);
+            accountToolStripMenuItem.Size = new Size(159, 36);
             accountToolStripMenuItem.Text = "Account";
             // 
             // changePasswordToolStripMenuItem
@@ -927,18 +994,19 @@
             // 
             dividerStripTextBox2.BackColor = Color.Gainsboro;
             dividerStripTextBox2.BorderStyle = BorderStyle.None;
+            dividerStripTextBox2.Enabled = false;
             dividerStripTextBox2.ForeColor = Color.DarkGray;
             dividerStripTextBox2.Name = "dividerStripTextBox2";
-            dividerStripTextBox2.Size = new Size(161, 16);
+            dividerStripTextBox2.Size = new Size(157, 16);
             dividerStripTextBox2.Text = "───────────────────────────";
             // 
             // themeToolStripMenuItem
             // 
-            themeToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { changeColoursToolStripMenuItem, changeFontsToolStripMenuItem });
+            themeToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { changeColoursToolStripMenuItem });
             themeToolStripMenuItem.Font = new Font("EurostileLTW03-Extended2", 14F, FontStyle.Bold, GraphicsUnit.Point);
             themeToolStripMenuItem.Image = Properties.Resources.theme;
             themeToolStripMenuItem.Name = "themeToolStripMenuItem";
-            themeToolStripMenuItem.Size = new Size(163, 36);
+            themeToolStripMenuItem.Size = new Size(159, 36);
             themeToolStripMenuItem.Text = "Theme";
             // 
             // changeColoursToolStripMenuItem
@@ -949,26 +1017,18 @@
             changeColoursToolStripMenuItem.Text = "Change Colours";
             changeColoursToolStripMenuItem.Click += changeColoursToolStripMenuItem_Click;
             // 
-            // changeFontsToolStripMenuItem
-            // 
-            changeFontsToolStripMenuItem.Image = Properties.Resources.changefont;
-            changeFontsToolStripMenuItem.Name = "changeFontsToolStripMenuItem";
-            changeFontsToolStripMenuItem.Size = new Size(297, 30);
-            changeFontsToolStripMenuItem.Text = "Change Fonts";
-            changeFontsToolStripMenuItem.Click += changeFontsToolStripMenuItem_Click;
-            // 
             // Settings
             // 
             AutoScaleDimensions = new SizeF(14F, 21F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Silver;
             Controls.Add(pnlContainer);
+            Controls.Add(mstMenuBar);
             Font = new Font("EurostileLTW03-Extended2", 12F, FontStyle.Bold, GraphicsUnit.Point);
             Margin = new Padding(6, 4, 6, 4);
             Name = "Settings";
             Size = new Size(1264, 449);
             pnlContainer.ResumeLayout(false);
-            pnlContainer.PerformLayout();
             pnlChangeColours.ResumeLayout(false);
             pnlChangeColours.PerformLayout();
             pnlTop.ResumeLayout(false);
@@ -1005,15 +1065,15 @@
             ((System.ComponentModel.ISupportInitialize)pbxMain3).EndInit();
             ((System.ComponentModel.ISupportInitialize)pbxMain2).EndInit();
             ((System.ComponentModel.ISupportInitialize)pbxMain1).EndInit();
-            pnlChangeFonts.ResumeLayout(false);
-            pnlChangeFonts.PerformLayout();
-            panel1.ResumeLayout(false);
-            panel1.PerformLayout();
             pnlChangePassword.ResumeLayout(false);
             pnlChangePassword.PerformLayout();
+            pnlAbout.ResumeLayout(false);
+            pnlAbout.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pbxLogo).EndInit();
             mstMenuBar.ResumeLayout(false);
             mstMenuBar.PerformLayout();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -1027,22 +1087,11 @@
         private Label lblNewPassword;
         private TextBox tbxNewPassword;
         private Panel pnlChangePassword;
-        private Panel pnlChangeFonts;
-        private Panel panel1;
-        private ComboBox cbxSelectLabelFont;
-        private Label lblChangeLabels;
-        private Label lblChangeFonts;
         private MenuStrip mstMenuBar;
-        private ToolStripMenuItem settingsToolStripMenuItem;
-        private ToolStripTextBox dividerStripTextBox1;
+        private ToolStripTextBox dividerStripTextBox2;
         private ToolStripMenuItem accountToolStripMenuItem;
         private ToolStripMenuItem changePasswordToolStripMenuItem;
-        private ToolStripTextBox dividerStripTextBox2;
         private ToolStripMenuItem themeToolStripMenuItem;
-        private ToolStripMenuItem changeFontsToolStripMenuItem;
-        private Button btnLabelFontOK;
-        private TextBox tbxLabelFontSize;
-        private Label lblChangeFont;
         private ToolStripMenuItem changeColoursToolStripMenuItem;
         private Panel pnlChangeColours;
         private PictureBox pbxAccent16;
@@ -1086,5 +1135,18 @@
         private Panel pnlBottom;
         private Panel pnlTop;
         private PictureBox pictureBox1;
+        private Panel pnlAbout;
+        private Label lblAbout;
+        private ToolStripTextBox dividerStripTextBox1;
+        private ToolStripMenuItem aboutToolStripMenuItem;
+        private Label lblCopyright;
+        private PictureBox pbxLogo;
+        private LinkLabel lblSupportLink;
+        private Label lblVersionNumber;
+        private Label lblNumberOfTransactions;
+        private Label lblNumberOfProducts;
+        private Label lblNumberOfCustomers;
+        private Label lblNumberOfAdminAccounts;
+        private Label lblNumberOfEmployees;
     }
 }

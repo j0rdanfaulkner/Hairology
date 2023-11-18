@@ -59,6 +59,8 @@ namespace Hairology
                             _mainWindow = new MainWindow(_employee, this);
                             _goToMainWindow = true;
                             _mainWindow.Show();
+                            tbxUsername.Clear();
+                            tbxPassword.Clear();
                             this.Hide();
                         }
                         else

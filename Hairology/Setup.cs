@@ -220,7 +220,6 @@ namespace Hairology
                                                         }
                                                     }
                                                 }
-                                                return false;
                                             }
                                         }
                                     }

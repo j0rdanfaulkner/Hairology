@@ -240,7 +240,7 @@ namespace Hairology
                         // show confirmation of amended details to user
                         MessageBox.Show("The changes to product '" + _editingProduct.GetAttribute(0) + "' were updated successfully", "Changes Saved", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         // rename product image file if EAN number changed
-                        if (_eanNumber != _editingProduct.GetAttribute(3))
+                        if (_eanNumber != _editingProduct.GetAttribute(3).ToString())
                         {
                             pbxProductImage.BackgroundImage.Dispose();
                             File.Copy(_imageFilesDirectory + _editingProduct.GetAttribute(3) + ".bmp", _imageFilesDirectory + _eanNumber + ".bmp");

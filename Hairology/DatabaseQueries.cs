@@ -68,7 +68,15 @@ namespace Hairology
 
         // COUNT QUERIES
 
+        public const string COUNT_EMPLOYEES = "SELECT COUNT(*) FROM [Employees]";
+
+        public const string COUNT_ADMINS = "SELECT COUNT(*) FROM [Employees] WHERE admin_rights = 'True'";
+
         public const string COUNT_CUSTOMERS = "SELECT COUNT(*) FROM [Customers]";
+
+        public const string COUNT_PRODUCTS = "SELECT COUNT(*) FROM [Inventory]";
+
+        public const string COUNT_TRANSACTIONS = "SELECT COUNT(*) FROM [Transactions]";
 
         // INSERT QUERIES
 

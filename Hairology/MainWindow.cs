@@ -63,7 +63,7 @@ namespace Hairology
             _mainColour = main;
             _accentColour = accent;
         }
-        private void SetFonts()
+        public void SetFonts()
         {
             // titles and subtitles
             lblWelcome.Font = FontManagement.titles;
@@ -242,6 +242,7 @@ namespace Hairology
                 pnlBottom.BackColor = _mainColour;
                 mstNavigationBar.BackColor = _accentColour;
             }
+            SetFonts();
         }
         private void addNewEmployeeToolStripMenuItem_Click(object sender, EventArgs e)
         {

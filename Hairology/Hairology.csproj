@@ -20,6 +20,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Resources\about.png" />
     <None Remove="Resources\account.png" />
     <None Remove="Resources\addimage.png" />
     <None Remove="Resources\addnew.png" />
@@ -70,6 +71,9 @@
 
   <ItemGroup>
     <Content Include="icon.ico" />
+    <Content Include="Resources\about.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Resources\account.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

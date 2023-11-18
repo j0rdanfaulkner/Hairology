@@ -1,12 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.DirectoryServices;
+using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Drawing.Text;
 using System.Linq;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using System.Xml.Linq;
 
 namespace Hairology
@@ -34,7 +36,7 @@ namespace Hairology
         }
         public void SetFonts()
         {
-            // set fonts
+            // set fonts using a private font collection
             textInput = new Font(_pfc.Families[1], 14, FontStyle.Bold);
             buttons = new Font(_pfc.Families[1], 16, FontStyle.Bold);
             labels = new Font(_pfc.Families[1], 16, FontStyle.Bold);
