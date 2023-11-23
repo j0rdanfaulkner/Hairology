@@ -20,6 +20,7 @@ namespace Hairology
         private SqlDataReader _reader = default!;
         private Customer _editingCustomer = default!;
         private Employee _editingEmployee = default!;
+        private Encryption _encrypt = default!;
         private bool _changesMade = default!;
         // variables for changed personal details
         private int _customerID = default!;
@@ -77,6 +78,7 @@ namespace Hairology
             ConfigureForm();
             _editingCustomer = customer;
             _editingEmployee = employee;
+            GetUsername();
             SetDetails();
         }
         /// <summary>
@@ -154,7 +156,28 @@ namespace Hairology
                     rbtnAdminRightsYes.Checked = false;
                     rbtnAdminRightsNo.Checked = true;
                 }
+                tbxUsername.Text = _username;
             }
+        }
+        private void GetUsername()
+        {
+            string result = default!;
+            _dbInstance.conn.Open(); _command = new SqlCommand(string.Format(DatabaseQueries.SELECT_EMPLOYEE_ID_USING_EMPLOYEE_NUMBER, _editingEmployee.GetAttribute(8)), _dbInstance.conn);
+            _reader = _command.ExecuteReader();
+            if (_reader.Read())
+            {
+                _employeeID = Convert.ToInt32(_reader[0]);
+            }
+            _reader.Close();
+            _command = new SqlCommand(string.Format(DatabaseQueries.SELECT_USERNAME_USING_ID, _employeeID), _dbInstance.conn);
+            _reader = _command.ExecuteReader();
+            if (_reader.Read())
+            {
+                result = _reader[0].ToString();
+            }
+            _reader.Close();
+            _dbInstance.conn.Close();
+            _username = result;
         }
         private void GetDataFromFields()
         {
@@ -308,21 +331,21 @@ namespace Hairology
                                                                     }
                                                                     if (tbxUsername.Text == "")
                                                                     {
-                                                                        MessageBox.Show("You need to enter a username in order to create a user account", "Username Not Entered", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                                                        MessageBox.Show("You need to enter the username for this user account", "Username Not Entered", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                                                                         return false;
                                                                     }
                                                                     else
                                                                     {
                                                                         if (tbxPassword.Text == "")
                                                                         {
-                                                                            MessageBox.Show("You need to enter a password in order to create a user account", "Username Not Entered", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                                                            MessageBox.Show("You need to enter the password for this user account", "Password Not Entered", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                                                                             return false;
                                                                         }
                                                                         else
                                                                         {
                                                                             if (tbxConfirmPassword.Text == "" || tbxConfirmPassword.Text != tbxPassword.Text)
                                                                             {
-                                                                                MessageBox.Show("You need to confirm your password successfully in order to create a user account", "Password not Confirmed", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                                                                MessageBox.Show("You need to confirm the password successfully for this user account", "Password Not Confirmed", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                                                                                 return false;
                                                                             }
                                                                             else
@@ -472,6 +495,11 @@ namespace Hairology
                 }
             }
         }
+        private void SecurePassword(string password)
+        {
+            _encrypt = new Encryption(password);
+            _password = _encrypt.CreateMD5Hash();
+        }
         /// <summary>
         /// either updates the database record or deletes it entirely based on the provided action
         /// </summary>
@@ -543,6 +571,7 @@ namespace Hairology
                     {
                         _employeeID = Convert.ToInt32(_reader[0]);
                         _reader.Close();
+                        SecurePassword(_password);
                         if (action == "Update")
                         {
                             // collect each attribute using the values of each field of the form
@@ -555,11 +584,15 @@ namespace Hairology
                             _postCode = tbxPostCode.Text;
                             _employeeNumber = tbxEmployeeNumber.Text;
                             _department = cbxDepartment.Text;
+                            _username = tbxUsername.Text;
                             // update record that matches the employee number
                             _command = new SqlCommand(string.Format(DatabaseQueries.UPDATE_EMPLOYEE_DETAILS, _firstName, _lastName, _dateOfBirth, _sex, _addressLine1, _addressLine2, _county, _postCode, _employeeNumber), _dbInstance.conn);
                             _reader = _command.ExecuteReader();
                             _reader.Close();
                             _command = new SqlCommand(string.Format(DatabaseQueries.UPDATE_EMPLOYEE_WORK_DETAILS, _department, _completedTraining, _adminRights, _employeeNumber), _dbInstance.conn);
+                            _reader = _command.ExecuteReader();
+                            _reader.Close();
+                            _command = new SqlCommand(string.Format(DatabaseQueries.UPDATE_ACCOUNT_DETAILS, _username, _password, _employeeID), _dbInstance.conn);
                             _reader = _command.ExecuteReader();
                             // show confirmation of amended details to user
                             MessageBox.Show("The changes to employee '" + _editingEmployee.GetFullName() + "' were updated successfully", "Changes Saved", MessageBoxButtons.OK, MessageBoxIcon.Information);

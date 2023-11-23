@@ -34,6 +34,8 @@ namespace Hairology
 
         public const string SELECT_USERNAME = "SELECT username FROM [User Accounts] WHERE username = '{0}'";
 
+        public const string SELECT_USERNAME_USING_ID = "SELECT username FROM [User Accounts] WHERE account_id = '{0}'";
+
         public const string SELECT_PASSWORD = "SELECT password FROM [User Accounts] WHERE username = '{0}'";
 
         public const string SELECT_ALL_CUSTOMERS = "SELECT first_name, last_name, date_of_birth, sex, address_line_1, address_line_2, county, post_code, regular_customer FROM [Customers]";
@@ -99,6 +101,8 @@ namespace Hairology
         public const string UPDATE_EMPLOYEE_DETAILS = "UPDATE [Employee Details] SET first_name = '{0}', last_name = '{1}', date_of_birth = '{2}', sex = '{3}', address_line_1 = '{4}', address_line_2 = '{5}', county = '{6}', post_code = '{7}' WHERE employee_number = '{8}'";
 
         public const string UPDATE_EMPLOYEE_WORK_DETAILS = "UPDATE [Employees] SET department = '{0}', completed_training = '{1}', admin_rights = '{2}' WHERE employee_number = '{3}'";
+
+        public const string UPDATE_ACCOUNT_DETAILS = "UPDATE [User Accounts] SET username = '{0}', password = '{1}' WHERE account_id = '{2}'";
 
         public const string UPDATE_PRODUCT_DETAILS = "UPDATE [Inventory] SET product_name = '{0}', product_description = '{1}', product_image = '{2}', category = '{3}', ean_number = '{4}', case_size = '{5}', current_quantity = '{6}', reorder_regularly = '{7}' WHERE product_id = '{8}'";
 
