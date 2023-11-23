@@ -104,7 +104,7 @@ namespace Hairology
         {
             _firstName = tbxFirstName.Text;
             _lastName = tbxLastName.Text;
-            _dateOfBirth = dtpDateOfBirth.Text;
+            _dateOfBirth = dtpDateOfBirth.Value.ToString("dd MMMM yyyy");
             _addressLine1 = tbxAddressLine1.Text;
             _addressLine2 = tbxAddressLine2.Text;
             _county = cbxCounty.Text;

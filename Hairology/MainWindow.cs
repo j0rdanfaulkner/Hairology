@@ -200,7 +200,7 @@ namespace Hairology
                         case "Employee":
                             if (uscEditPerson.Visible == false)
                             {
-                                uscEditPerson.SetPersonType(type, uscSearch.customerForEditing, null);
+                                uscEditPerson.SetPersonType(type, null, uscSearch.employeeForEditing);
                                 uscEditPerson.Show();
                             }
                             break;
