@@ -76,7 +76,7 @@
             pnlContainer.Controls.Add(pnlEmployee);
             pnlContainer.Controls.Add(panel1);
             pnlContainer.Dock = DockStyle.Fill;
-            pnlContainer.Font = new Font("EurostileLTW03-Extended2", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
+            pnlContainer.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
             pnlContainer.Location = new Point(0, 0);
             pnlContainer.Name = "pnlContainer";
             pnlContainer.Size = new Size(1264, 449);
@@ -126,10 +126,10 @@
             // 
             lblAdminRights.Anchor = AnchorStyles.Top;
             lblAdminRights.AutoSize = true;
-            lblAdminRights.Font = new Font("EurostileLTW03-Extended2", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
+            lblAdminRights.Font = new Font("Microsoft Sans Serif", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
             lblAdminRights.Location = new Point(45, 0);
             lblAdminRights.Name = "lblAdminRights";
-            lblAdminRights.Size = new Size(228, 28);
+            lblAdminRights.Size = new Size(164, 25);
             lblAdminRights.TabIndex = 28;
             lblAdminRights.Text = "Admin Rights?";
             // 
@@ -140,7 +140,7 @@
             rbtnAdminRightsYes.Cursor = Cursors.Hand;
             rbtnAdminRightsYes.Location = new Point(290, -3);
             rbtnAdminRightsYes.Name = "rbtnAdminRightsYes";
-            rbtnAdminRightsYes.Size = new Size(86, 29);
+            rbtnAdminRightsYes.Size = new Size(68, 28);
             rbtnAdminRightsYes.TabIndex = 20;
             rbtnAdminRightsYes.TabStop = true;
             rbtnAdminRightsYes.Text = "YES";
@@ -153,7 +153,7 @@
             rbtnAdminRightsNo.Cursor = Cursors.Hand;
             rbtnAdminRightsNo.Location = new Point(400, -3);
             rbtnAdminRightsNo.Name = "rbtnAdminRightsNo";
-            rbtnAdminRightsNo.Size = new Size(74, 29);
+            rbtnAdminRightsNo.Size = new Size(59, 28);
             rbtnAdminRightsNo.TabIndex = 21;
             rbtnAdminRightsNo.TabStop = true;
             rbtnAdminRightsNo.Text = "NO";
@@ -166,7 +166,7 @@
             tbxConfirmPassword.MaxLength = 256;
             tbxConfirmPassword.Name = "tbxConfirmPassword";
             tbxConfirmPassword.PlaceholderText = "  CONFIRM PASSWORD";
-            tbxConfirmPassword.Size = new Size(538, 33);
+            tbxConfirmPassword.Size = new Size(538, 29);
             tbxConfirmPassword.TabIndex = 24;
             // 
             // tbxPassword
@@ -176,7 +176,7 @@
             tbxPassword.MaxLength = 256;
             tbxPassword.Name = "tbxPassword";
             tbxPassword.PlaceholderText = "  PASSWORD";
-            tbxPassword.Size = new Size(538, 33);
+            tbxPassword.Size = new Size(538, 29);
             tbxPassword.TabIndex = 23;
             // 
             // tbxUsername
@@ -186,7 +186,7 @@
             tbxUsername.MaxLength = 256;
             tbxUsername.Name = "tbxUsername";
             tbxUsername.PlaceholderText = "  USERNAME";
-            tbxUsername.Size = new Size(538, 33);
+            tbxUsername.Size = new Size(538, 29);
             tbxUsername.TabIndex = 22;
             // 
             // btnGenerateEmployeeNumber
@@ -208,7 +208,7 @@
             rbtnTrainingCompletedNo.Cursor = Cursors.Hand;
             rbtnTrainingCompletedNo.Location = new Point(550, 145);
             rbtnTrainingCompletedNo.Name = "rbtnTrainingCompletedNo";
-            rbtnTrainingCompletedNo.Size = new Size(74, 29);
+            rbtnTrainingCompletedNo.Size = new Size(59, 28);
             rbtnTrainingCompletedNo.TabIndex = 18;
             rbtnTrainingCompletedNo.TabStop = true;
             rbtnTrainingCompletedNo.Text = "NO";
@@ -221,7 +221,7 @@
             rbtnTrainingCompletedYes.Cursor = Cursors.Hand;
             rbtnTrainingCompletedYes.Location = new Point(440, 145);
             rbtnTrainingCompletedYes.Name = "rbtnTrainingCompletedYes";
-            rbtnTrainingCompletedYes.Size = new Size(86, 29);
+            rbtnTrainingCompletedYes.Size = new Size(68, 28);
             rbtnTrainingCompletedYes.TabIndex = 17;
             rbtnTrainingCompletedYes.TabStop = true;
             rbtnTrainingCompletedYes.Text = "YES";
@@ -231,10 +231,10 @@
             // 
             lblCompletedTraining.Anchor = AnchorStyles.None;
             lblCompletedTraining.AutoSize = true;
-            lblCompletedTraining.Font = new Font("EurostileLTW03-Extended2", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
+            lblCompletedTraining.Font = new Font("Microsoft Sans Serif", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
             lblCompletedTraining.Location = new Point(109, 146);
             lblCompletedTraining.Name = "lblCompletedTraining";
-            lblCompletedTraining.Size = new Size(314, 28);
+            lblCompletedTraining.Size = new Size(230, 25);
             lblCompletedTraining.TabIndex = 16;
             lblCompletedTraining.Text = "Completed Training?";
             // 
@@ -246,7 +246,7 @@
             tbxEmployeeNumber.Name = "tbxEmployeeNumber";
             tbxEmployeeNumber.PlaceholderText = "  EMPLOYEE NUMBER";
             tbxEmployeeNumber.ReadOnly = true;
-            tbxEmployeeNumber.Size = new Size(538, 33);
+            tbxEmployeeNumber.Size = new Size(538, 29);
             tbxEmployeeNumber.TabIndex = 14;
             tbxEmployeeNumber.TextAlign = HorizontalAlignment.Center;
             // 
@@ -257,7 +257,7 @@
             cbxDepartment.Items.AddRange(new object[] { "Barber/Hairdresser", "Cleaning and Maintenance", "Intern", "IT and Helpdesk", "Management" });
             cbxDepartment.Location = new Point(83, 106);
             cbxDepartment.Name = "cbxDepartment";
-            cbxDepartment.Size = new Size(538, 33);
+            cbxDepartment.Size = new Size(538, 32);
             cbxDepartment.TabIndex = 15;
             cbxDepartment.Text = "  DEPARTMENT";
             // 
@@ -316,10 +316,10 @@
             // lblSex
             // 
             lblSex.AutoSize = true;
-            lblSex.Font = new Font("EurostileLTW03-Extended2", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
-            lblSex.Location = new Point(31, 179);
+            lblSex.Font = new Font("Microsoft Sans Serif", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
+            lblSex.Location = new Point(27, 179);
             lblSex.Name = "lblSex";
-            lblSex.Size = new Size(77, 28);
+            lblSex.Size = new Size(59, 25);
             lblSex.TabIndex = 16;
             lblSex.Text = "Sex:";
             // 
@@ -327,10 +327,10 @@
             // 
             lblDOB.Anchor = AnchorStyles.Top;
             lblDOB.AutoSize = true;
-            lblDOB.Font = new Font("EurostileLTW03-Extended2", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
-            lblDOB.Location = new Point(16, 148);
+            lblDOB.Font = new Font("Microsoft Sans Serif", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
+            lblDOB.Location = new Point(12, 147);
             lblDOB.Name = "lblDOB";
-            lblDOB.Size = new Size(92, 28);
+            lblDOB.Size = new Size(67, 25);
             lblDOB.TabIndex = 15;
             lblDOB.Text = "DOB:";
             // 
@@ -339,7 +339,7 @@
             dtpDateOfBirth.Anchor = AnchorStyles.Top;
             dtpDateOfBirth.Location = new Point(109, 145);
             dtpDateOfBirth.Name = "dtpDateOfBirth";
-            dtpDateOfBirth.Size = new Size(448, 33);
+            dtpDateOfBirth.Size = new Size(448, 29);
             dtpDateOfBirth.TabIndex = 14;
             // 
             // cbxRegularCustomer
@@ -347,9 +347,9 @@
             cbxRegularCustomer.Anchor = AnchorStyles.Top;
             cbxRegularCustomer.AutoSize = true;
             cbxRegularCustomer.Cursor = Cursors.Hand;
-            cbxRegularCustomer.Location = new Point(273, 180);
+            cbxRegularCustomer.Location = new Point(273, 178);
             cbxRegularCustomer.Name = "cbxRegularCustomer";
-            cbxRegularCustomer.Size = new Size(293, 29);
+            cbxRegularCustomer.Size = new Size(208, 28);
             cbxRegularCustomer.TabIndex = 13;
             cbxRegularCustomer.Text = "Regular Customer?";
             cbxRegularCustomer.UseVisualStyleBackColor = true;
@@ -360,17 +360,17 @@
             tbxFirstName.Location = new Point(19, 67);
             tbxFirstName.Name = "tbxFirstName";
             tbxFirstName.PlaceholderText = "  FIRST NAME";
-            tbxFirstName.Size = new Size(538, 33);
+            tbxFirstName.Size = new Size(538, 29);
             tbxFirstName.TabIndex = 1;
             // 
             // lbllEditPerson
             // 
             lbllEditPerson.Anchor = AnchorStyles.Top;
             lbllEditPerson.AutoSize = true;
-            lbllEditPerson.Font = new Font("EurostileLTW03-Extended2", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
+            lbllEditPerson.Font = new Font("Microsoft Sans Serif", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
             lbllEditPerson.Location = new Point(19, 15);
             lbllEditPerson.Name = "lbllEditPerson";
-            lbllEditPerson.Size = new Size(230, 28);
+            lbllEditPerson.Size = new Size(168, 25);
             lbllEditPerson.TabIndex = 12;
             lbllEditPerson.Text = "Edit [PERSON]";
             // 
@@ -379,9 +379,9 @@
             rbtnMale.Anchor = AnchorStyles.Top;
             rbtnMale.AutoSize = true;
             rbtnMale.Cursor = Cursors.Hand;
-            rbtnMale.Location = new Point(109, 180);
+            rbtnMale.Location = new Point(109, 178);
             rbtnMale.Name = "rbtnMale";
-            rbtnMale.Size = new Size(56, 29);
+            rbtnMale.Size = new Size(45, 28);
             rbtnMale.TabIndex = 4;
             rbtnMale.TabStop = true;
             rbtnMale.Text = "M";
@@ -418,7 +418,7 @@
             cbxCounty.Items.AddRange(new object[] { "Bath and North East Somerset", "Bedfordshire", "Berkshire", "Bristol", "Buckinghamshire", "Cambridgeshire", "Cheshire", "Cornwall", "County Durham", "Cumbria", "Derbyshire", "Devon", "Dorset", "East Riding of Yorkshire", "East Sussex", "Essex", "Gloucestershire", "Greater London", "Greater Manchester", "Hampshire", "Herefordshire", "Hertfordshire", "Isle of Wight", "Isles of Scilly", "Kent", "Lancashire", "Leicestershire", "Lincolnshire", "Merseyside", "Norfolk", "North Somerset", "North Yorkshire", "Northamptonshire", "Northumberland", "Nottinghamshire", "Oxfordshire", "Rutland", "Shropshire", "Somerset", "South Gloucestershire", "South Yorkshire", "Staffordshire", "Suffolk", "Surrey", "Tyne & Wear", "Warwickshire", "West Midlands", "West Sussex", "West Yorkshire", "Wiltshire", "Worcestershire" });
             cbxCounty.Location = new Point(19, 290);
             cbxCounty.Name = "cbxCounty";
-            cbxCounty.Size = new Size(293, 33);
+            cbxCounty.Size = new Size(293, 32);
             cbxCounty.TabIndex = 8;
             cbxCounty.Text = "  COUNTY";
             // 
@@ -428,7 +428,7 @@
             tbxLastName.Location = new Point(19, 106);
             tbxLastName.Name = "tbxLastName";
             tbxLastName.PlaceholderText = "  LAST NAME";
-            tbxLastName.Size = new Size(538, 33);
+            tbxLastName.Size = new Size(538, 29);
             tbxLastName.TabIndex = 2;
             // 
             // rbtnFemale
@@ -436,9 +436,9 @@
             rbtnFemale.Anchor = AnchorStyles.Top;
             rbtnFemale.AutoSize = true;
             rbtnFemale.Cursor = Cursors.Hand;
-            rbtnFemale.Location = new Point(171, 180);
+            rbtnFemale.Location = new Point(171, 178);
             rbtnFemale.Name = "rbtnFemale";
-            rbtnFemale.Size = new Size(47, 29);
+            rbtnFemale.Size = new Size(41, 28);
             rbtnFemale.TabIndex = 5;
             rbtnFemale.TabStop = true;
             rbtnFemale.Text = "F";
@@ -451,7 +451,7 @@
             tbxPostCode.MaxLength = 8;
             tbxPostCode.Name = "tbxPostCode";
             tbxPostCode.PlaceholderText = "  POST CODE";
-            tbxPostCode.Size = new Size(231, 33);
+            tbxPostCode.Size = new Size(231, 29);
             tbxPostCode.TabIndex = 9;
             tbxPostCode.TextAlign = HorizontalAlignment.Center;
             // 
