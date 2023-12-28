@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            lbllEditProduct = new Label();
+            lblEditProduct = new Label();
             pnlContainer = new Panel();
             btnDiscardChanges = new Button();
             btnDelete = new Button();
@@ -53,15 +53,15 @@
             ((System.ComponentModel.ISupportInitialize)pbxProductImage).BeginInit();
             SuspendLayout();
             // 
-            // lbllEditProduct
+            // lblEditProduct
             // 
-            lbllEditProduct.AutoSize = true;
-            lbllEditProduct.Font = new Font("Microsoft Sans Serif", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
-            lbllEditProduct.Location = new Point(15, 15);
-            lbllEditProduct.Name = "lbllEditProduct";
-            lbllEditProduct.Size = new Size(141, 25);
-            lbllEditProduct.TabIndex = 14;
-            lbllEditProduct.Text = "Edit Product";
+            lblEditProduct.AutoSize = true;
+            lblEditProduct.Font = new Font("Microsoft Sans Serif", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
+            lblEditProduct.Location = new Point(15, 15);
+            lblEditProduct.Name = "lblEditProduct";
+            lblEditProduct.Size = new Size(141, 25);
+            lblEditProduct.TabIndex = 14;
+            lblEditProduct.Text = "Edit Product";
             // 
             // pnlContainer
             // 
@@ -83,7 +83,7 @@
             pnlContainer.Controls.Add(tbxProductName);
             pnlContainer.Controls.Add(lblProductName);
             pnlContainer.Controls.Add(pbxProductImage);
-            pnlContainer.Controls.Add(lbllEditProduct);
+            pnlContainer.Controls.Add(lblEditProduct);
             pnlContainer.Dock = DockStyle.Fill;
             pnlContainer.Location = new Point(0, 0);
             pnlContainer.Name = "pnlContainer";
@@ -133,9 +133,9 @@
             // lblDescription
             // 
             lblDescription.Anchor = AnchorStyles.None;
-            lblDescription.Location = new Point(158, 119);
+            lblDescription.Location = new Point(3, 119);
             lblDescription.Name = "lblDescription";
-            lblDescription.Size = new Size(192, 28);
+            lblDescription.Size = new Size(347, 28);
             lblDescription.TabIndex = 29;
             lblDescription.Text = "Description:";
             lblDescription.TextAlign = ContentAlignment.MiddleRight;
@@ -193,9 +193,9 @@
             // lblReorderRegularly
             // 
             lblReorderRegularly.Anchor = AnchorStyles.None;
-            lblReorderRegularly.Location = new Point(44, 387);
+            lblReorderRegularly.Location = new Point(3, 387);
             lblReorderRegularly.Name = "lblReorderRegularly";
-            lblReorderRegularly.Size = new Size(306, 28);
+            lblReorderRegularly.Size = new Size(347, 28);
             lblReorderRegularly.TabIndex = 24;
             lblReorderRegularly.Text = "Re-order Regularly?";
             lblReorderRegularly.TextAlign = ContentAlignment.MiddleRight;
@@ -214,9 +214,9 @@
             // lblCurrentQuantity
             // 
             lblCurrentQuantity.Anchor = AnchorStyles.None;
-            lblCurrentQuantity.Location = new Point(75, 341);
+            lblCurrentQuantity.Location = new Point(3, 341);
             lblCurrentQuantity.Name = "lblCurrentQuantity";
-            lblCurrentQuantity.Size = new Size(275, 28);
+            lblCurrentQuantity.Size = new Size(347, 28);
             lblCurrentQuantity.TabIndex = 22;
             lblCurrentQuantity.Text = "Current Quantity:";
             lblCurrentQuantity.TextAlign = ContentAlignment.MiddleRight;
@@ -224,9 +224,9 @@
             // lblCaseSize
             // 
             lblCaseSize.Anchor = AnchorStyles.None;
-            lblCaseSize.Location = new Point(182, 290);
+            lblCaseSize.Location = new Point(3, 290);
             lblCaseSize.Name = "lblCaseSize";
-            lblCaseSize.Size = new Size(168, 28);
+            lblCaseSize.Size = new Size(347, 28);
             lblCaseSize.TabIndex = 21;
             lblCaseSize.Text = "Case Size:";
             lblCaseSize.TextAlign = ContentAlignment.MiddleRight;
@@ -277,9 +277,9 @@
             // lblProductName
             // 
             lblProductName.Anchor = AnchorStyles.None;
-            lblProductName.Location = new Point(72, 68);
+            lblProductName.Location = new Point(3, 68);
             lblProductName.Name = "lblProductName";
-            lblProductName.Size = new Size(278, 28);
+            lblProductName.Size = new Size(347, 28);
             lblProductName.TabIndex = 16;
             lblProductName.Text = "Name of Product:";
             lblProductName.TextAlign = ContentAlignment.MiddleRight;
@@ -317,7 +317,7 @@
 
         #endregion
 
-        private Label lbllEditProduct;
+        private Label lblEditProduct;
         private Panel pnlContainer;
         private ComboBox cbxCategory;
         private TextBox tbxProductName;

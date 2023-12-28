@@ -39,7 +39,27 @@ namespace Hairology
         public EditProduct()
         {
             InitializeComponent();
+            SetFonts();
             _dbInstance.ConnectToDatabase();
+        }
+        private void SetFonts()
+        {
+            // labels
+            lblEditProduct.Font = FontManagement.labels;
+            lblCaseSize.Font = FontManagement.labels;
+            lblCurrentQuantity.Font = FontManagement.labels;
+            lblDescription.Font = FontManagement.labels;
+            lblProductName.Font = FontManagement.labels;
+            lblReorderRegularly.Font = FontManagement.labels;
+            rbtnNo.Font = FontManagement.labels;
+            rbtnYes.Font = FontManagement.labels;
+            // text input
+            tbxCaseSize.Font = FontManagement.textInput;
+            cbxCategory.Font = FontManagement.textInput;
+            tbxCurrentQuantity.Font = FontManagement.textInput;
+            tbxDescription.Font = FontManagement.textInput;
+            tbxEANNumber.Font = FontManagement.textInput;
+            tbxProductName.Font = FontManagement.textInput;
         }
         public void SetProductForEditing(Product product)
         {
