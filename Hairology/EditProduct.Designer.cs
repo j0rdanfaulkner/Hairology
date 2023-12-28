@@ -56,10 +56,10 @@
             // lbllEditProduct
             // 
             lbllEditProduct.AutoSize = true;
-            lbllEditProduct.Font = new Font("EurostileLTW03-Extended2", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
+            lbllEditProduct.Font = new Font("Microsoft Sans Serif", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
             lbllEditProduct.Location = new Point(15, 15);
             lbllEditProduct.Name = "lbllEditProduct";
-            lbllEditProduct.Size = new Size(199, 28);
+            lbllEditProduct.Size = new Size(141, 25);
             lbllEditProduct.TabIndex = 14;
             lbllEditProduct.Text = "Edit Product";
             // 
@@ -128,6 +128,7 @@
             btnRemoveImage.Size = new Size(48, 48);
             btnRemoveImage.TabIndex = 30;
             btnRemoveImage.UseVisualStyleBackColor = false;
+            btnRemoveImage.Click += btnRemoveImage_Click;
             // 
             // lblDescription
             // 
@@ -170,7 +171,7 @@
             rbtnNo.Cursor = Cursors.Hand;
             rbtnNo.Location = new Point(624, 389);
             rbtnNo.Name = "rbtnNo";
-            rbtnNo.Size = new Size(78, 32);
+            rbtnNo.Size = new Size(63, 29);
             rbtnNo.TabIndex = 26;
             rbtnNo.TabStop = true;
             rbtnNo.Text = "NO";
@@ -183,7 +184,7 @@
             rbtnYes.Cursor = Cursors.Hand;
             rbtnYes.Location = new Point(505, 389);
             rbtnYes.Name = "rbtnYes";
-            rbtnYes.Size = new Size(92, 32);
+            rbtnYes.Size = new Size(76, 29);
             rbtnYes.TabIndex = 25;
             rbtnYes.TabStop = true;
             rbtnYes.Text = "YES";
@@ -206,7 +207,7 @@
             tbxCurrentQuantity.MaxLength = 99;
             tbxCurrentQuantity.Name = "tbxCurrentQuantity";
             tbxCurrentQuantity.PlaceholderText = "00";
-            tbxCurrentQuantity.Size = new Size(73, 35);
+            tbxCurrentQuantity.Size = new Size(73, 31);
             tbxCurrentQuantity.TabIndex = 23;
             tbxCurrentQuantity.TextAlign = HorizontalAlignment.Center;
             // 
@@ -237,7 +238,7 @@
             tbxCaseSize.MaxLength = 99;
             tbxCaseSize.Name = "tbxCaseSize";
             tbxCaseSize.PlaceholderText = "00";
-            tbxCaseSize.Size = new Size(73, 35);
+            tbxCaseSize.Size = new Size(73, 31);
             tbxCaseSize.TabIndex = 20;
             tbxCaseSize.TextAlign = HorizontalAlignment.Center;
             // 
@@ -248,7 +249,7 @@
             tbxEANNumber.MaxLength = 13;
             tbxEANNumber.Name = "tbxEANNumber";
             tbxEANNumber.PlaceholderText = "  ENTER EAN NUMBER...";
-            tbxEANNumber.Size = new Size(391, 35);
+            tbxEANNumber.Size = new Size(391, 31);
             tbxEANNumber.TabIndex = 19;
             tbxEANNumber.TextAlign = HorizontalAlignment.Center;
             // 
@@ -259,7 +260,7 @@
             cbxCategory.Items.AddRange(new object[] { "Barber Supplies", "Hair Accessories", "Hair Care", "Hair Coloring", "Hair Cutting Tools", "Hair Extensions", "Hair Perming and Relaxing", "Hair Styling Chairs and Stations", "Hair Styling Tools", "Hair Texturizing", "Hair Thinning and Loss", "Hairdressing Capes and Apparel", "Hairdressing Kits and Sets", "Hair and Scalp Treatments" });
             cbxCategory.Location = new Point(455, 339);
             cbxCategory.Name = "cbxCategory";
-            cbxCategory.Size = new Size(391, 36);
+            cbxCategory.Size = new Size(391, 33);
             cbxCategory.TabIndex = 18;
             cbxCategory.Text = "  CHOOSE CATEGORY";
             // 
@@ -270,7 +271,7 @@
             tbxProductName.MaxLength = 256;
             tbxProductName.Name = "tbxProductName";
             tbxProductName.PlaceholderText = "  ENTER NAME...";
-            tbxProductName.Size = new Size(483, 35);
+            tbxProductName.Size = new Size(483, 31);
             tbxProductName.TabIndex = 17;
             // 
             // lblProductName
@@ -296,14 +297,15 @@
             pbxProductImage.Size = new Size(255, 255);
             pbxProductImage.TabIndex = 15;
             pbxProductImage.TabStop = false;
+            pbxProductImage.Click += pbxProductImage_Click;
             // 
             // EditProduct
             // 
-            AutoScaleDimensions = new SizeF(19F, 28F);
+            AutoScaleDimensions = new SizeF(13F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ActiveCaption;
             Controls.Add(pnlContainer);
-            Font = new Font("EurostileLTW03-Extended2", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
+            Font = new Font("Microsoft Sans Serif", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
             Margin = new Padding(8, 6, 8, 6);
             Name = "EditProduct";
             Size = new Size(1264, 449);

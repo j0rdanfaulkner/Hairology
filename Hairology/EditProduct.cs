@@ -34,12 +34,12 @@ namespace Hairology
         private int _caseSize = default!;
         private int _currentQuantity = default!;
         private bool _reorderRegularly = default!;
+        private bool _imageChanged = default!;
         private bool _changesMade = default!;
         public EditProduct()
         {
             InitializeComponent();
             _dbInstance.ConnectToDatabase();
-            btnRemoveImage.Enabled = true;
         }
         public void SetProductForEditing(Product product)
         {
@@ -64,7 +64,24 @@ namespace Hairology
                 rbtnYes.Checked = false;
                 rbtnNo.Checked = true;
             }
-            pbxProductImage.BackgroundImage = Image.FromFile(_imageFilesDirectory + _editingProduct.GetAttribute(3).ToString() + ".bmp");
+            // try seeing if product image exists (as it may have been deleted prior to deleting product from database)
+            try
+            {
+                pbxProductImage.BackgroundImage = Image.FromFile(_imageFilesDirectory + _editingProduct.GetAttribute(3).ToString() + ".bmp");
+            }
+            catch (Exception ex)
+            {
+                if (ex.Message == _imageFilesDirectory + _editingProduct.GetAttribute(3).ToString() + ".bmp")
+                {
+                    pbxProductImage.BackgroundImage = Properties.Resources.imageNotFound;
+                    btnRemoveImage.Enabled = false;
+                }
+                else
+                {
+                    pbxProductImage.BackgroundImage = Image.FromFile(_imageFilesDirectory + _editingProduct.GetAttribute(3).ToString() + ".bmp");
+                    btnRemoveImage.Enabled = true;
+                }
+            }
         }
         private void GetDataFromFields()
         {
@@ -207,6 +224,10 @@ namespace Hairology
             {
                 _changesMade = true;
             }
+            else if (_imageChanged == true)
+            {
+                _changesMade = true;
+            }
             else
             {
                 _changesMade = false;
@@ -247,6 +268,12 @@ namespace Hairology
                             // delete file with old EAN number as it is no longer needed
                             File.Delete(_imageFilesDirectory + _editingProduct.GetAttribute(3) + ".bmp");
                         }
+                        // copy new product image if it was changed
+                        if (_imageChanged == true)
+                        {
+                            pbxProductImage.BackgroundImage.Save(_imageFilesDirectory + _editingProduct.GetAttribute(3) + ".bmp");
+                            pbxProductImage.BackgroundImage.Dispose();
+                        }
                         _reader.Close();
                     }
                     else if (action == "Delete")
@@ -258,6 +285,7 @@ namespace Hairology
                         // show confirmation of deletion to user
                         MessageBox.Show("The product '" + _editingProduct.GetAttribute(0) + "' was deleted from the database", "Product Deleted", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         // also delete image file of product as it is no longer needed
+                        pbxProductImage.BackgroundImage.Dispose();
                         File.Delete(_imageFilesDirectory + _editingProduct.GetAttribute(3) + ".bmp");
                     }
                 }
@@ -318,6 +346,27 @@ namespace Hairology
             {
                 MainWindow.editing = true;
             }
+        }
+        /// <summary>
+        /// opens the dialog used to load the image of the product when picture box is clicked
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void pbxProductImage_Click(object sender, EventArgs e)
+        {
+            ofdOpenProductImage.Filter = "Select Image (*.jpg; *.jpeg; *.png; *.bmp)|*.jpg; *.jpeg; *.png; *.bmp";
+            if (ofdOpenProductImage.ShowDialog() == DialogResult.OK)
+            {
+                pbxProductImage.BackgroundImage = new Bitmap(ofdOpenProductImage.FileName);
+                btnRemoveImage.Enabled = true;
+                _imageChanged = true;
+            }
+        }
+
+        private void btnRemoveImage_Click(object sender, EventArgs e)
+        {
+            pbxProductImage.BackgroundImage = new Bitmap(Properties.Resources.addimage);
+            btnRemoveImage.Enabled = false;
         }
     }
 }

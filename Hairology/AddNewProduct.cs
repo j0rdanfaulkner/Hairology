@@ -30,6 +30,7 @@ namespace Hairology
         private int _currentQuantity = default!;
         private string _category = default!;
         private bool _reorderRegularly = default!;
+        private bool _productHasImage = default!;
         private Bitmap _productImage = default!;
         private string _fileName = default!;
         private const string _imageFilesDirectory = "C:\\Hairology\\Data\\images\\products\\";
@@ -75,6 +76,7 @@ namespace Hairology
                 // store path of product image
                 _fileName = ofdOpenProductImage.FileName;
                 btnRemoveImage.Enabled = true;
+                _productHasImage = true;
             }
         }
         /// <summary>
@@ -86,9 +88,10 @@ namespace Hairology
         {
             pbxProductImage.BackgroundImage = new Bitmap(Properties.Resources.addimage);
             btnRemoveImage.Enabled = false;
+            _productHasImage = false;
         }
         /// <summary>
-        /// saves product image locally
+        /// saves product image locally by assigning a unique filename using the product's EAN number
         /// </summary>
         private void SaveProductImage()
         {
@@ -101,14 +104,23 @@ namespace Hairology
             }
             // give each product image a unique filename by using the product's EAN number
             string newFileName = _eanNumber + ".bmp";
-            // if product image already exists, delete it first (to prevent copying exceptions)
-            if (File.Exists(_imageFilesDirectory + newFileName))
+            // if product has been given an image
+            if (_productHasImage == true)
             {
-                File.Delete(_imageFilesDirectory + newFileName);
+                // if image of product already exists in images folder, delete it first (to prevent copying exceptions)
+                if (File.Exists(_imageFilesDirectory + newFileName))
+                {
+                    File.Delete(_imageFilesDirectory + newFileName);
+                }
+                // copy product image using unique filename
+                File.Copy(_fileName, _imageFilesDirectory + newFileName);
+                _fileName = newFileName;
             }
-            // copy product image using unique filename
-            File.Copy(_fileName, _imageFilesDirectory + newFileName);
-            _fileName = newFileName;
+            // if product has not been given an image, assign product with a placeholder image
+            else if (_productHasImage == false)
+            {
+                Properties.Resources.imageNotFound.Save(_imageFilesDirectory + newFileName);
+            }
         }
         /// <summary>
         /// sets private variables to values entered in the controls
@@ -293,8 +305,11 @@ namespace Hairology
                 // once all validation checks have passed, insert product into database
                 InsertIntoDatabase();
                 // clear product image from memory now it is no longer in use
-                _productImage.Dispose();
-                pbxProductImage.BackgroundImage = Properties.Resources.addimage;
+                if (_productHasImage == true)
+                {
+                    _productImage.Dispose();
+                    pbxProductImage.BackgroundImage = Properties.Resources.addimage;
+                }
             }
         }
     }
